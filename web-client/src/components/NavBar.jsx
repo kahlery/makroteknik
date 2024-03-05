@@ -1,34 +1,173 @@
 import React from 'react';
-import { Search } from '@mui/icons-material';
+import { Search, Home, Groups, Business, Handshake, AccountTree, PrecisionManufacturing, ContactPage, ExpandMore, Air, Category, DonutSmall, Filter, FilterAlt, SensorDoor, FilterList, Bolt, Gradient, HearingDisabled, BorderStyle } from '@mui/icons-material';
+import { Dropdown } from '@mui/base/Dropdown';
+import { MenuButton } from '@mui/base/MenuButton';
+import { Menu } from '@mui/base/Menu';
+import { MenuItem } from '@mui/base/MenuItem';
+
+const createHandleMenuClick = (text) => () => {
+    alert(text);
+};
 
 const NavBar = () => {
     return (
-        <nav className="bg-white mb-2 py-2 shadow-lg px-4 flex items-center justify-between rounded-xl">
-            <div className="flex items-center">
-                <img src={process.env.PUBLIC_URL + '/favicon.svg'} className="h-16 mr-6" alt="logo" />
-                <ul className="ml-6 flex space-x-4">
+        <nav className="bg-white bg-opacity-80 backdrop-blur-sm mb-4 py-2 lg:py-0 lg:px-44 flex-col lg:flex lg:flex-row items-center justify-between w-full fixed top-[50px] z-10">
+            <div className="flex items-center justify-center">
+                <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-14 lg:mr-6" alt="logo" />
+            </div>
+            <hr className="w-full lg:hidden my-1 border-primary" />
+            <div className="flex items-center justify-center text-primary">
+                <ul className="flex space-x-6 lg:space-x-8">
                     <li>
-                        <a href="#" className="text-gray-500 hover:text-gray-300">Home</a>
+                        <a href="#" className="flex-row items-center">
+                            <Home sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
+                            <p className='text-[1rem]'>Home</p>
+                        </a>
                     </li>
-                    <li className="relative">
-                        <a href="#" className="text-gray-500 hover:text-gray-300">About</a>
-                        <ul className="absolute left-0 mt-2 bg-white text-gray-800 rounded-md shadow-lg hidden">
-                            <li><a href="#">Institutional</a></li>
-                            <li><a href="#">References</a></li>
-                            <li><a href="#">ORGANIZATION CHART</a></li>
+                    <li >
+                        <ul>
+                            <Dropdown>
+                                <MenuButton className="flex-row items-center text-black-500 hover:text-primary">
+                                    <Groups sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
+                                    <p className='text-[1rem]'>
+                                        About
+                                        <span>
+                                            <ExpandMore sx={{ fontSize: '1rem', '@media (max-width: 1024px)': { fontSize: '0.8rem' } }} />
+                                        </span>
+                                    </p>
+                                </MenuButton>
+                                <Menu className="absolute border-2 border-primary bg-white shadow-lg rounded-lg p-2 z-20">
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <Business sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>Profile</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <Handshake sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>References</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <AccountTree sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>Organisational Chart</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <ContactPage sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>Contact Us</p>
+                                        </MenuItem>
+                                    </a>
+                                </Menu>
+                            </Dropdown>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" className="text-gray-500 hover:text-gray-300">Products</a>
+                        <ul>
+                            <Dropdown>
+                                <MenuButton className="flex-row items-center text-black-500 hover:text-primary">
+                                    <PrecisionManufacturing sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
+                                    <p className='text-[1rem]'>
+                                        Products
+                                        <span>
+                                            <ExpandMore sx={{ fontSize: '1rem', '@media (max-width: 1024px)': { fontSize: '0.8rem' } }} />
+                                        </span>
+                                    </p>
+                                </MenuButton>
+                                <Menu className="absolute border-2 border-primary bg-white shadow-lg rounded-lg p-2 z-20">
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <Air sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>FANS</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <Category sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>SPIRAL DUCTING + FITTINGS</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <AccountTree sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>FIXINGS + SUPPORTS</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <DonutSmall sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>FLEXIBLE DUCTING</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <FilterAlt sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>FILTERS & FILTER BOXES</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <SensorDoor sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>DAMPERS & ACCESS DOORS</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <FilterList sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>GRILLS & LOUVRES</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <Bolt sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>FLASHINGS</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <Gradient sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>TAPES, SEALANTS, SPRAYS</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <HearingDisabled sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>SILENCERS</p>
+                                        </MenuItem>
+                                    </a>
+                                    <hr className="my-2" />
+                                    <a href="#">
+                                        <MenuItem onClick={createHandleMenuClick('Profile')} className="flex items-center gap-2">
+                                            <BorderStyle sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                                            <p className='text-[0.8rem]'>FLANGES</p>
+                                        </MenuItem>
+                                    </a>
+                                </Menu>
+                            </Dropdown>
+                        </ul>
                     </li>
                     <li>
-                        <a href="#" className="text-gray-500 hover:text-gray-300">Contact</a>
+                        <a href="#" className="flex-row items-center text-black-500 hover:text-primary">
+                            <Search sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
+                            <p className='text-[1rem]'>Search</p>
+                        </a>
                     </li>
                 </ul>
-            </div>
-            <div className="flex items-center">
-                <Search className="text-gray-500 mr-6" />
-                <button className="border-2 border-primary text-primary py-2 text-sm px-4 rounded-md">REQUEST FOR QUOTE</button>
             </div>
         </nav>
     );

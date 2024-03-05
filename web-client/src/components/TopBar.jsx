@@ -1,28 +1,23 @@
 import React from 'react';
-import { Call, Mail, LinkedIn, Instagram } from '@mui/icons-material';
+import { Call, Mail, AlternateEmail } from '@mui/icons-material';
 
 const TopBar = () => {
     return (
-        <div className="bg-primary py-2 px-4 flex justify-between items-center rounded-xl">
-            <div className="flex items-center">
-                <div className="text-white mr-2">
-                    <Mail />
-                </div >
-                <div className="text-white">info@makroteknik.com.uk</div>
-                <div className="text-white mr-2 ml-6">
-                    <Call />
+        <div className="bg-primary py-2 px-4 lg:px-44 text-secondary text-sx w-full fixed z-50">
+            <div className="container mx-auto flex flex-row justify-between items-center">
+                <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 items-center text-xs">
+                    <div className="flex flex-row gap-2 items-center">
+                        <Mail sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                        <div className="">info@makroteknik.com.uk</div>
+                    </div >
+                    <div className="flex flex-row gap-2 items-center">
+                        <Call sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                        <div className="">+44 216 313 08 08</div>
+                    </div>
                 </div>
-                <div className="text-white">+44 216 313 08 08</div>
-            </div >
-            <div className="flex items-center text-white gap-2">
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                    <LinkedIn />
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                    <Instagram />
-                </a>
+                <button className="border border-secondary rounded-md p-2 text-xs">Get An Offer</button>
             </div>
-        </div >
+        </div>
     );
 };
 
