@@ -11,12 +11,12 @@ const createHandleMenuClick = (text) => () => {
 
 const NavBar = () => {
     return (
-        <nav className="bg-white bg-opacity-80 backdrop-blur-sm mb-4 py-2 lg:py-0 lg:px-44 flex-col lg:flex lg:flex-row items-center justify-between w-full fixed top-[50px] z-10">
-            <div className="flex items-center justify-center">
+        <nav className="bg-primary bg-opacity-90 backdrop-blur-sm mb-4 py-2 pt-4 lg:py-0 lg:px-44 flex-col lg:flex lg:flex-row items-center justify-between w-full fixed top-[50px] z-10">
+            <div className="hidden lg:flex items-center justify-center">
                 <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-14 lg:mr-6" alt="logo" />
             </div>
-            <hr className="w-full lg:hidden my-1 border-primary" />
-            <div className="flex items-center justify-center text-primary">
+            {/* <hr className="w-full lg:hidden my-1 border-primary" /> */}
+            <div className="flex items-center justify-center text-white">
                 <ul className="flex space-x-6 lg:space-x-8">
                     <li>
                         <a href="#" className="flex-row items-center">
@@ -27,13 +27,10 @@ const NavBar = () => {
                     <li >
                         <ul>
                             <Dropdown>
-                                <MenuButton className="flex-row items-center text-black-500 hover:text-primary">
+                                <MenuButton className="flex-row items-center text-white hover:text-primary">
                                     <Groups sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
                                     <p className='text-[1rem]'>
                                         About
-                                        <span>
-                                            <ExpandMore sx={{ fontSize: '1rem', '@media (max-width: 1024px)': { fontSize: '0.8rem' } }} />
-                                        </span>
                                     </p>
                                 </MenuButton>
                                 <Menu className="absolute border-2 border-primary bg-white shadow-lg rounded-lg p-2 z-20">
@@ -71,13 +68,10 @@ const NavBar = () => {
                     <li>
                         <ul>
                             <Dropdown>
-                                <MenuButton className="flex-row items-center text-black-500 hover:text-primary">
+                                <MenuButton className="flex-row items-center text-white hover:text-primary">
                                     <PrecisionManufacturing sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
                                     <p className='text-[1rem]'>
                                         Products
-                                        <span>
-                                            <ExpandMore sx={{ fontSize: '1rem', '@media (max-width: 1024px)': { fontSize: '0.8rem' } }} />
-                                        </span>
                                     </p>
                                 </MenuButton>
                                 <Menu className="absolute border-2 border-primary bg-white shadow-lg rounded-lg p-2 z-20">
@@ -160,12 +154,6 @@ const NavBar = () => {
                                 </Menu>
                             </Dropdown>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#" className="flex-row items-center text-black-500 hover:text-primary">
-                            <Search sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
-                            <p className='text-[1rem]'>Search</p>
-                        </a>
                     </li>
                 </ul>
             </div>

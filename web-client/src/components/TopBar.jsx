@@ -3,7 +3,7 @@ import { Call, Mail, AlternateEmail } from '@mui/icons-material';
 
 const TopBar = () => {
     return (
-        <div className="bg-primary py-2 px-4 lg:px-44 text-secondary text-sx w-full fixed z-50">
+        <div className="bg-gray-900 py-2 px-4 lg:px-44 text-secondary text-sx w-full fixed z-50">
             <div className="container mx-auto flex flex-row justify-between items-center">
                 <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 items-center text-xs">
                     <div className="flex flex-row gap-2 items-center">
