@@ -3,7 +3,7 @@ import { Call, Mail, LinkedIn, Instagram, AlternateEmail } from '@mui/icons-mate
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 px-6 lg:px-44 text-secondary py-4">
+        <footer className="bg-gray-900 px-6 lg:px-44 text-secondary py-4 text-center">
             <div className="container pt-2 gap-2 lg:gap-0 mx-auto flex flex-col justify-center items-center">
 
                 <div className="flex flex-col lg:flex-row gap-2 items-center text-xs">

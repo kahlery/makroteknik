@@ -20,7 +20,7 @@ const ProductsPage = () => {
     ];
 
     return (
-        <div className="flex">
+        <div className="flex pt-[600px]">
             <div className="w-1/4 bg-gray-200 p-4">
                 {/* Navigator */}
                 <ul>
