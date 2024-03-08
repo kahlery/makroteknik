@@ -1,19 +1,19 @@
 import React from 'react';
 
 const HomeHero = () => {
-    const index = 2; // or any other index value
+    const index = 4; // or any other index value
     const imageUrl = process.env.PUBLIC_URL + `/heros/${index}.png`;
 
     return (
-        <div className="text-white bg-fixed lg:px-44 max-[432px]:h-[500px] h-[450px] lg:h-[500px]"
+        <div className="text-white lg:px-44 max-[432px]:h-[500px] h-[450px] lg:h-[500px] flex-row-reverse bg-center relative"
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
+                alt: 'hero image backround white ducting store',
             }}
         >
-            <div className="absolute mx-6 sm:mx-24 lg:mx-0 top-[12rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85]">
+            <div className="absolute mx-6 sm:mx-24 lg:mx-0 top-[12rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10">
                 <div className="flex flex-col justify-center">
                     <h2 className="text-base font-bold mb-2">
                         It's All About Trust...
@@ -31,6 +31,7 @@ const HomeHero = () => {
                     </div>
                 </div>
             </div>
+            <img src={imageUrl.replace('heros/' + index, 'heros/' + (index + 1))} alt="two engineer are handshaking image" className="h-[320px] lg:h-[350px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />
         </div >
     );
 };
