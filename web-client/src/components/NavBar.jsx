@@ -11,7 +11,7 @@ const createHandleMenuClick = (text) => () => {
 
 const NavBar = () => {
     return (
-        <nav className="bg-primary bg-opacity-90 backdrop-blur-sm mb-4 py-2 pt-4 lg:py-0 lg:px-44 flex-col lg:flex lg:flex-row items-center justify-between w-full fixed top-[50px] z-10">
+        <nav className="bg-primary bg-opacity-90 backdrop-blur-sm mb-4 py-2 pt-4 lg:py-0 lg:px-44 flex-col lg:flex lg:flex-row items-center justify-between w-full fixed top-[50px] z-20">
             <div className="hidden lg:flex items-center justify-center">
                 <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-14 lg:mr-6" alt="logo" />
             </div>
