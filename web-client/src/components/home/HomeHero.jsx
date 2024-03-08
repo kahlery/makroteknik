@@ -31,7 +31,7 @@ const HomeHero = () => {
                     </div>
                 </div>
             </div>
-            <img src={imageUrl.replace('heros/' + index, 'heros/' + (index + 1))} alt="two engineer are handshaking image" className="h-[320px] lg:h-[350px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />
+            <img src={imageUrl.replace('heros/' + index, 'heros/' + ('5'))} alt="two engineer are handshaking image" className="h-[320px] lg:h-[350px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />
         </div >
     );
 };

@@ -20,21 +20,21 @@ const LatestNewsGrid = () => {
                 </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 text-[0.7rem] sm:text-sm" style={{ color: '#f2f2f2' }} >
-                <div className="bg-black bg-opacity-80 p-4 shadow-2xl border-2 border-orange-600 shadow-black rounded-3xl">
+                <div className="bg-black bg-opacity-80 p-4 shadow-2xl border-2 border-orange-600 shadow-black">
                     <h3 className="text-sm font-bold mb-2">Headline lorem ipsum dolor sit amet...</h3>
                     <hr className="border-[0.1px] border-white border-opacity-30 mb-2" />
                     <p className="">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
                     </p>
                 </div>
-                <div className="bg-black bg-opacity-80 p-4 shadow-2xl border-2 border-orange-600 shadow-black rounded-3xl">
+                <div className="bg-black bg-opacity-80 p-4 shadow-2xl border-2 border-orange-600 shadow-black">
                     <h3 className="text-sm font-bold mb-2">Headline lorem ipsum dolor sit amet...</h3>
                     <hr className="border-[0.1px] border-white border-opacity-30 mb-2" />
                     <p className="">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
                     </p>
                 </div>
-                <div className="bg-black bg-opacity-80 p-4 shadow-2xl border-2 border-orange-600 shadow-black rounded-3xl">
+                <div className="bg-black bg-opacity-80 p-4 shadow-2xl border-2 border-orange-600 shadow-black">
                     <h3 className="text-sm font-bold mb-2">Headline lorem ipsum dolor sit amet...</h3>
                     <hr className="border-[0.1px] border-white border-opacity-30 mb-2" />
                     <p className="">

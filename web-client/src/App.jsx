@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import Footer from './components/Footer';
-import Slider from './components/Slider';
-import NavBar from './components/NavBar';
-import TopBar from './components/TopBar';
-import HomeHero from './components/HomeHero';
-import LatestNewsGrid from './components/LatestNewsGrid';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './Layout';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ProductsPage from './pages/ProductsPage';
+import NoPage from './pages/NoPage';
 
 class App extends Component {
   render() {
     return (
-      <div className="text-center bg-white">
-        <TopBar className="" />
-        <NavBar className="" />
-        {/* <Slider className="" /> */}
-        <HomeHero className="" />
-        <LatestNewsGrid className="" />
-        <Footer className="" />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="home" element={<HomePage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="products" element={<ProductsPage />} />
+            <Route path="*" element={<NoPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     );
   }
 }
