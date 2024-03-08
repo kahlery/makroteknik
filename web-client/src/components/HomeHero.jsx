@@ -15,13 +15,13 @@ const HomeHero = () => {
         >
             <div className="absolute mx-4 sm:mx-24 lg:mx-0 top-[9.5rem] sm:top-[11rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85]">
                 <div className="flex flex-col justify-center">
-                    <h2 className="text-base md:text-base font-bold mb-4">
+                    <h2 className="text-base font-bold mb-2">
                         It's All About Trust...
                     </h2>
-                    <p className="text-sm mb-5 px-10">
+                    <p className="text-sm mb-4 px-10">
                         We are more than just a supplier of HVAC products. We are your partner in creating comfortable, efficient, and sustainable indoor environments.
                     </p>
-                    <div className="flex flex-row gap-4 justify-center px-10">
+                    <div className="flex flex-row gap-4 justify-center px-10 text-sm">
                         <button className="bg-primary text-white py-2 px-4 rounded-lg shadow-lg hover:bg-secondary-dark">
                             Get An Offer
                         </button>

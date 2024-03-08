@@ -9,6 +9,5 @@ body {
 }
 
 * {
-  scrollbar-width: auto;
-  scrollbar-color: #fb923c #111827;
+  scrollbar-width: thin;
 }
