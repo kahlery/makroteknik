@@ -1,5 +1,5 @@
 import React from 'react';
-import { Call, Mail, LinkedIn, Instagram, AlternateEmail } from '@mui/icons-material';
+import { LinkedIn, Instagram } from '@mui/icons-material';
 
 const Footer = () => {
     return (

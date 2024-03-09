@@ -1,5 +1,9 @@
+import InNavigation from "../components/content/InNavigation";
+
 const AboutPage = () => {
-    return <h1>About</h1>;
+    return (
+        <InNavigation />
+    );
 };
 
 export default AboutPage;

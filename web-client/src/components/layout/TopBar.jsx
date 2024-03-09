@@ -1,5 +1,5 @@
 import React from 'react';
-import { Call, Mail, AlternateEmail } from '@mui/icons-material';
+import { Call, Mail } from '@mui/icons-material';
 
 const TopBar = () => {
     return (

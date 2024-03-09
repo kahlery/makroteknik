@@ -12,7 +12,7 @@ const NavBar = () => {
             <div className="flex items-center justify-center text-white">
                 <ul className="flex space-x-6 lg:space-x-8">
                     <li>
-                        <Link to="/home" className="flex-row items-center hover:text-orange-600">
+                        <Link to="" className="flex-row items-center hover:text-orange-600">
                             <Home sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
                             <p className='text-[1rem]'>Home</p>
                         </Link>
