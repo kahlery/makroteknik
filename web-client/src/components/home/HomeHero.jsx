@@ -13,7 +13,7 @@ const HomeHero = () => {
                 alt: 'hero image backround white ducting store',
             }}
         >
-            <div className="absolute mx-6 sm:mx-24 lg:mx-0 top-[12rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10">
+            <div className="absolute mx-6 sm:mx-24 lg:mx-0 top-[12rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10 border-l-2 border-orange-600">
                 <div className="flex flex-col justify-center">
                     <h2 className="text-base font-bold mb-2">
                         It's All About Trust...

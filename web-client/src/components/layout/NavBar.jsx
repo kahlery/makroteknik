@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <nav className="border-b-2 border-primary bg-primary bg-opacity-90 backdrop-blur-sm mb-4 py-2 pt-4 lg:py-0 lg:px-44 flex-col lg:flex lg:flex-row items-center justify-between w-full fixed top-[50px] z-40 text-center">
+        <nav className="border-b-2 border-primary bg-primary bg-opacity-90 backdrop-blur-sm mb-4 py-2 pt-4 lg:py-0 lg:px-44 flex-col lg:flex lg:flex-row items-center justify-between w-full fixed top-[49px] z-40 text-center">
             <div className="hidden lg:flex items-center justify-center">
                 <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-14" alt="logo" />
             </div>
@@ -13,7 +13,7 @@ const NavBar = () => {
                 <ul className="flex space-x-6 lg:space-x-8">
                     <li>
                         <Link to="" className="flex-row items-center hover:text-orange-600">
-                            <Home sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
+                            <Home className='' sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
                             <p className='text-[1rem]'>Home</p>
                         </Link>
                     </li>
