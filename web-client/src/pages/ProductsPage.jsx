@@ -1,7 +1,10 @@
 import FirstBanner from "../components/content/FirstBanner";
 import InNavigation from "../components/content/InNavigation";
+import ListingGrid from "../components/content/ListingGrid";
 
 const ProductsPage = () => {
+    const imageUrl = "/patterns/44.png";
+
     const itemsList = [
         {
             categoryName: "FANS",
@@ -131,11 +134,51 @@ const ProductsPage = () => {
         },
     ];
 
+    const productsList = [
+        {
+            title: "Plate Mounted Axial Flow Fan",
+            imageUrl: "/images/fans/plate_mounted_axial_flow_fan.jpg",
+            code: "Product code: HXBR/T Series",
+            description: "Plate mounted axial flow fans manufactured from high-grade galvanized steel and provided with a Sickle blade impeller, low sound level, protected against corrosion..."
+        },
+        {
+            title: "Low Pressure Cased Axial Fans",
+            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            code: "Product code: TCBB/T Series",
+            description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
+        },
+        {
+            title: "Low Pressure Cased Axial Fans",
+            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            code: "Product code: TCBB/T Series",
+            description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
+        },
+        {
+            title: "Low Pressure Cased Axial Fans",
+            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            code: "Product code: TCBB/T Series",
+            description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
+        },
+        {
+            title: "Low Pressure Cased Axial Fans",
+            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            code: "Product code: TCBB/T Series",
+            description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
+        },
+    ];
+
+
     return (
-        <div className="bg-white">
+        <div className="bg-white"
+            style={{
+                backgroundImage: `url(${imageUrl})`,
+                backgroundSize: '7px',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'repeat',
+            }} >
             <InNavigation itemsList={itemsList} />
-            <FirstBanner bgSubUrl={'/heros/22.jpg'} figureSubUrl={'/content/13.png'} />
-            <div className="container h-screen mx-auto">
+            <div className="w-screen mt-4 pl-96 ml-4 lg:pr-44 py-[122px]">
+                <ListingGrid productsList={productsList} />
             </div>
         </div>
     );

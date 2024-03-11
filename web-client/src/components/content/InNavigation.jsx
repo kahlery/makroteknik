@@ -2,8 +2,8 @@ import React from 'react';
 
 const InNavigation = ({ itemsList }) => {
     return (
-        <div className="flex flex-col md:flex-row text-end">
-            <div className="bg-opacity-90 bg-primary backdrop-blur-sm px-4 shadow-lg shadow-black w-96 h-screen text-white fixed top-[122.3px] pb-[130px] pt-4 z-50 overflow-y-scroll">
+        <div className="flex flex-col md:flex-row text-center lg:text-end">
+            <div className="bg-opacity-90 bg-primary backdrop-blur-sm px-4 shadow-lg shadow-black w-96 h-screen text-white fixed top-[122.3px] pb-[330px] pt-4 z-40 overflow-y-scroll">
                 <nav className="flex-grow">
                     <div className="grid grid-cols text-base">
                         {itemsList.map((category, index) => (
