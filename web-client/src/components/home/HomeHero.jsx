@@ -13,7 +13,7 @@ const HomeHero = () => {
                 alt: 'hero image backround white ducting store',
             }}
         >
-            <div className="absolute mx-6 sm:mx-24 lg:mx-0 top-[12rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10 border-l-2 border-orange-600">
+            <div className="absolute mx-6 sm:mx-24 lg:mx-0 top-[12rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10 border-l-4 border-orange-600">
                 <div className="flex flex-col justify-center">
                     <h2 className="text-base font-bold mb-2">
                         It's All About Trust...
@@ -22,7 +22,7 @@ const HomeHero = () => {
                         We are more than just a supplier of HVAC products. We are your partner in creating comfortable, efficient, and sustainable indoor environments.
                     </p>
                     <div className="flex flex-row gap-4 justify-center px-4 sm:px-6 text-[0.7rem] sm:text-sm" style={{ color: '#f2f2f2' }} >
-                        <button className="bg-primary text-white py-2 px-4 rounded-lg shadow-lg hover:bg-secondary-dark">
+                        <button className="bg-orange-200 text-primary py-2 px-4 rounded-lg shadow-lg hover:bg-secondary-dark">
                             Get An Offer
                         </button>
                         <button className="border-2 text-white border-secondary py-2 px-4 rounded-lg shadow-lg hover:bg-secondary-dark">
