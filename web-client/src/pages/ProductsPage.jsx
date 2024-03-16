@@ -169,16 +169,18 @@ const ProductsPage = () => {
 
 
     return (
-        <div className="bg-white"
+        <div className="bg-primary"
             style={{
-                backgroundImage: `url(${imageUrl})`,
-                backgroundSize: '7px',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'repeat',
+                // backgroundImage: `url(${imageUrl})`,
+                // backgroundSize: '7px',
+                // backgroundPosition: 'center',
+                // backgroundRepeat: 'repeat',
             }} >
             <InNavigation itemsList={itemsList} />
-            <div className="w-screen mt-4 pl-96 ml-4 lg:pr-44 py-[122px]">
-                <ListingGrid productsList={productsList} />
+            <div className="w-screen mt-4 pl-96 xl:pr-44 py-[122px]">
+                <div className="mx-4">
+                    <ListingGrid productsList={productsList} />
+                </div>
             </div>
         </div>
     );

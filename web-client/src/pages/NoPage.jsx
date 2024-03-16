@@ -1,6 +1,6 @@
 import React from 'react';
 
-const imageUrl = process.env.PUBLIC_URL + `/no-page/8.png`;
+const imageUrl = process.env.PUBLIC_URL + `images/no-page/8.png`;
 
 const NoPage = () => {
     return (

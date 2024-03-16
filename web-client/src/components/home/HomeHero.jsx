@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomeHero = () => {
     const index = 22; // or any other index value
-    const imageUrl = process.env.PUBLIC_URL + `/heros/${index}.jpg`;
+    const imageUrl = process.env.PUBLIC_URL + `images/heros/${index}.jpg`;
 
     return (
         <div className="text-white lg:px-44 max-[432px]:h-[500px] h-[450px] lg:h-[500px] flex-row-reverse bg-center relative"
@@ -31,7 +31,7 @@ const HomeHero = () => {
                     </div>
                 </div>
             </div>
-            <img src={process.env.PUBLIC_URL + `/heros/5.png`} alt="two engineer are handshaking image" className="h-[320px] lg:h-[350px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />
+            <img src={process.env.PUBLIC_URL + `images/heros/5.png`} alt="two engineer are handshaking image" className="h-[320px] lg:h-[350px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />
         </div >
     );
 };

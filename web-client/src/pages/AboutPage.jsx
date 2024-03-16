@@ -18,9 +18,12 @@ const AboutPage = () => {
     ];
 
     return (
-        <div className="bg-white">
+        <div className="bg-primary">
             <InNavigation itemsList={aboutItemsList} />
-            <FirstBanner bgSubUrl={'/heros/22.jpg'} figureSubUrl={'/no-page/8.png'} />
+            <FirstBanner
+                bgSubUrl={'/heros/22.jpg'}
+            // figureSubUrl={'/no-page/8.png'}
+            />
             <div className="container h-screen mx-auto">
             </div>
         </div>
