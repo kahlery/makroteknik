@@ -1,4 +1,3 @@
-import FirstBanner from "../components/content/FirstBanner";
 import InNavigation from "../components/content/InNavigation";
 import ListingGrid from "../components/content/ListingGrid";
 
@@ -176,8 +175,8 @@ const ProductsPage = () => {
                 // backgroundPosition: 'center',
                 // backgroundRepeat: 'repeat',
             }} >
-            <InNavigation itemsList={itemsList} />
-            <div className="w-screen mt-4 pl-96 xl:pr-44 py-[122px]">
+            <InNavigation itemsList={itemsList} isSearchActive={true} />
+            <div className="w-screen mt-4 pl-[22rem] xl:pr-44 py-[122px]">
                 <div className="mx-4">
                     <ListingGrid productsList={productsList} />
                 </div>

@@ -19,7 +19,7 @@ const LatestNewsGrid = () => {
                     List All Feeds
                 </button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 text-[0.7rem] sm:text-sm" style={{ color: '#f2f2f2' }} >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10 text-[0.7rem] sm:text-sm" style={{ color: '#f2f2f2' }} >
                 <div className="bg-black bg-opacity-80 p-4 shadow-lg border-l-4 border-orange-600">
                     <h3 className="text-sm font-bold mb-2">Headline lorem ipsum dolor sit amet...</h3>
                     <hr className="border-[0.1px] border-white border-opacity-30 mb-2" />

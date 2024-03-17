@@ -3,6 +3,7 @@ import React from 'react';
 const ListingGrid = ({ productsList }) => {
     return (
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+            <h1 className="text-2xl font-bold text-white mb-4 col-span-3">Fans</h1>
             {productsList.map((product) => (
                 <div key={product.code} className="bg-black bg-opacity-80 border-l-4 border-orange-600 p-4 shadow-md text-sm">
                     <img src={product.imageUrl} alt={product.title} className="w-full h-32 object-cover mb-4" />
