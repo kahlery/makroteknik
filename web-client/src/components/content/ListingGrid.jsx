@@ -10,7 +10,7 @@ const ListingGrid = ({ productsList, featured }) => {
                     <img src={product.imageUrl} alt={product.title} className="w-full h-32 object-cover mb-4 rounded-lg" />
                     <h2 className="text-sm font-bold mb-2 text-white">{product.title}</h2>
                     <p className="text-gray-400 mb-2">{product.code}</p>
-                    <p className="text-gray-200 max-h-40 overflow-hidden overflow-y-scroll">{product.description}</p>
+                    <p className="text-secondary max-h-40 overflow-hidden overflow-y-scroll">{product.description}</p>
                     <div className="flex justify-between mt-auto items-center align-bottom">
                         <button className="border-secondary border-2 text-white rounded-md p-2 mt-4 w-full shadow-lg shadow-black text-xs">Add to cart</button>
                         <button className="bg-primary text-white rounded-md p-2 mt-4 w-full">View details</button>

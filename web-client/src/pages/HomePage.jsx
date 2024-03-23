@@ -36,6 +36,12 @@ const HomePage = () => {
             code: "Product code: TCBB/T Series",
             description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
         },
+        {
+            title: "Low Pressure Cased Axial Fans",
+            imageUrl: "https://picsum.photos/500/506",
+            code: "Product code: TCBB/T Series",
+            description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
+        },
     ];
 
     return (

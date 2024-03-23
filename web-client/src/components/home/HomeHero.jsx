@@ -25,7 +25,7 @@ const HomeHero = () => {
                         <button className="border-secondary border-2 text-white py-2 px-2 shadow-lg shadow-black hover:bg-black rounded-lg">
                             Inspectate Our Products
                         </button>
-                        <button className="bg-secondary text-white shadow-black py-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500 rounded-lg">
+                        <button className="bg-secondary text-black shadow-black py-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500 rounded-lg">
                             Get An Offer
                         </button>
                     </div>
