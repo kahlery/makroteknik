@@ -5,7 +5,7 @@ const HomeHero = () => {
     const imageUrl = process.env.PUBLIC_URL + `images/heros/${index}.jpg`;
 
     return (
-        <div className="text-white lg:px-44 max-[432px]:h-[500px] h-[450px] lg:h-[500px] flex-row-reverse bg-center relative"
+        <div className="text-white lg:px-44 h-[450px] lg:h-[500px] flex-row-reverse bg-center relative"
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',
@@ -13,19 +13,19 @@ const HomeHero = () => {
                 alt: 'hero image backround white ducting store',
             }}
         >
-            <div className="absolute mx-6 sm:mx-24 lg:mx-0 top-[12rem] py-6 sm:py-8 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10 border-l-4 border-orange-600">
+            <div className="text-start absolute mx-6 sm:mx-24 lg:mx-0 top-[10.5rem] sm:top-[12rem] py-6 sm:py-9 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10">
                 <div className="flex flex-col justify-center">
-                    <h2 className="text-base font-bold mb-2">
+                    <h2 className="text-base px-6 sm:px-10 mb-3">
                         It's All About Trust...
                     </h2>
-                    <p className="text-sm mb-4 px-4 sm:px-10 text-[0.7rem] sm:text-sm" style={{ color: '#f2f2f2' }} >
+                    <p className="text-sm mb-4 px-6 sm:px-10 sm:text-sm" >
                         We are more than just a supplier of HVAC products. We are your partner in creating comfortable, efficient, and sustainable indoor environments.
                     </p>
-                    <div className="flex flex-row gap-4 justify-center px-4 sm:px-6 text-[0.7rem] sm:text-sm" style={{ color: '#f2f2f2' }} >
-                        <button className="border-2 text-white border-secondary py-2 px-4 rounded-lg shadow-lg hover:bg-secondary-dark">
+                    <div className="grid grid-cols-2 gap-4 px-6 sm:px-10 text-xs sm:text-sm" >
+                        <button className="border-secondary border-2 text-white py-2 px-2 shadow-lg shadow-black hover:bg-black rounded-lg">
                             Inspectate Our Products
                         </button>
-                        <button className="bg-orange-600 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-secondary-dark">
+                        <button className="bg-secondary text-white shadow-black py-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500 rounded-lg">
                             Get An Offer
                         </button>
                     </div>

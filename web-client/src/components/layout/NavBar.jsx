@@ -12,13 +12,13 @@ const NavBar = () => {
             <div className="flex items-center justify-center text-white">
                 <ul className="flex space-x-6 lg:space-x-8">
                     <li>
-                        <Link to="" className="flex-row items-center hover:text-orange-600">
+                        <Link to="" className="flex-row items-center hover:text-secondary">
                             <Home className='' sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
                             <p className='text-[1rem]'>Home</p>
                         </Link>
                     </li>
                     <li >
-                        <Link to="/about" className="flex-row items-center hover:text-orange-600">
+                        <Link to="/about" className="flex-row items-center hover:text-secondary">
                             <Groups sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
                             <p className='text-[1rem]'>
                                 About
@@ -26,7 +26,7 @@ const NavBar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/products" className="flex-row items-center hover:text-orange-600">
+                        <Link to="/products" className="flex-row items-center hover:text-secondary">
                             <PrecisionManufacturing sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
                             <p className='text-[1rem]'>
                                 Products

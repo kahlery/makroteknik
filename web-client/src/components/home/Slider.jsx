@@ -12,7 +12,7 @@ const Slider = () => {
     }, []);
 
     return (
-        <div className={`flex flex-row overflow-x-scroll divide-secondary snap-x h-64 lg:h-auto`}>
+        <div className={`flex flex-row overflow-x-scroll divide-white snap-x h-64 lg:h-auto`}>
             {Array.from({ length: 2 }, (_, index) => (
                 <img
                     key={index}

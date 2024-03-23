@@ -136,31 +136,31 @@ const ProductsPage = () => {
     const productsList = [
         {
             title: "Plate Mounted Axial Flow Fan",
-            imageUrl: "/images/fans/plate_mounted_axial_flow_fan.jpg",
+            imageUrl: "https://picsum.photos/500/500",
             code: "Product code: HXBR/T Series",
-            description: "Plate mounted axial flow fans manufactured from high-grade galvanized steel and provided with a Sickle blade impeller, low sound level, protected against corrosion..."
+            description: "Plate mounted axial flow fans manufactured from high-grade galvanized steel and provided with a Sickle blade impeller, low sound level, protected against corrosion le blade impeller, low sound level, protected against corrosionle blade impeller, low sound level, protected against corrosionle blade impeller, low sound level, protected against corrosionle blade impeller, low sound level, protected against corrosion"
         },
         {
             title: "Low Pressure Cased Axial Fans",
-            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            imageUrl: "https://picsum.photos/500/501",
             code: "Product code: TCBB/T Series",
             description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
         },
         {
             title: "Low Pressure Cased Axial Fans",
-            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            imageUrl: "https://picsum.photos/500/502",
             code: "Product code: TCBB/T Series",
             description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
         },
         {
             title: "Low Pressure Cased Axial Fans",
-            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            imageUrl: "https://picsum.photos/500/503",
             code: "Product code: TCBB/T Series",
             description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
         },
         {
             title: "Low Pressure Cased Axial Fans",
-            imageUrl: "/images/fans/low_pressure_cased_axial_fans.jpg",
+            imageUrl: "https://picsum.photos/500/504",
             code: "Product code: TCBB/T Series",
             description: "Range of cylindrical cased axial flow fans fitted with aluminum impellers and manufactured from high-grade rolled galvanized steel and protected against corrosion..."
         },
@@ -176,7 +176,7 @@ const ProductsPage = () => {
                 // backgroundRepeat: 'repeat',
             }} >
             <InNavigation itemsList={itemsList} isSearchActive={true} />
-            <div className="w-screen mt-4 pl-[22rem] xl:pr-44 py-[122px]">
+            <div className="w-screen mt-4 md:pl-[22rem] xl:pr-44 py-[122px]">
                 <div className="mx-4">
                     <ListingGrid productsList={productsList} />
                 </div>

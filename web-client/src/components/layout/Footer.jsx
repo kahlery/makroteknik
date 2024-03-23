@@ -3,7 +3,7 @@ import { LinkedIn, Instagram } from '@mui/icons-material';
 
 const Footer = () => {
     return (
-        <footer className="border-t-2 border-primary bg-gray-900 px-6 lg:px-44 text-secondary py-4 text-center relative z-40">
+        <footer className="border-t-2 border-primary bg-primary px-6 lg:px-44 text-white py-4 text-center relative z-40">
             <div className="container pt-2 gap-2 lg:gap-0 mx-auto flex flex-col justify-center items-center">
 
                 <div className="flex flex-col lg:flex-row gap-2 items-center text-xs">
@@ -12,7 +12,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <hr className="w-1/2 opacity-30 mx-auto my-1 lg:my-4 " />
+                <hr className="w-1/2 mx-auto my-1 lg:my-4 border-gray-800" />
 
                 <div className='flex flex-row gap-2'>
 
@@ -25,7 +25,7 @@ const Footer = () => {
 
                 </div>
 
-                <hr className="w-1/2 opacity-30 mx-auto my-1 lg:my-4 " />
+                <hr className="w-1/2 mx-auto my-1 lg:my-4 border-gray-800" />
 
                 <p className="text-xs" >
                     &copy; {new Date().getFullYear()} Makro Tech LTD. All rights reserved.
