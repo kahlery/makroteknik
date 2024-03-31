@@ -3,7 +3,7 @@ import { Call, Mail } from '@mui/icons-material';
 
 const TopBar = () => {
     return (
-        <div className="bg-gray-50 shadow-inner shadow-black py-2 px-6 lg:px-64 top-0 text-black text-sx w-full fixed z-50">
+        <div className="bg-gray-50 border-b shadow-inner py-2 px-6 lg:px-64 top-0 text-black text-sx w-full fixed z-50">
             <div className="mx-auto flex flex-row justify-between items-center">
                 <div className="flex flex-col lg:flex-row gap-2 lg:gap-6 items-start text-xs">
                     <div className="flex flex-row gap-2 items-center">
