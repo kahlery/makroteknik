@@ -45,9 +45,12 @@ const HomePage = () => {
 
     return (
         <div className='text-center'>
+            <div className='lg:h-screen'>
+                <HomeHero />
+                <LatestNewsGrid />
+            </div>
             <HomeHero />
-            <LatestNewsGrid />
-            <div className="text-start text-white pb-12 mb-12 lg:px-44 bg-white">
+            <div className="text-start text-white py-12 lg:px-44">
                 <ListingGrid productsList={featuredProductsList} featured={true} />
             </div>
         </div>
