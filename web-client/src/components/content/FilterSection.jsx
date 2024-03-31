@@ -3,8 +3,8 @@ import { Search, FilterAlt } from '@mui/icons-material';
 
 const FilterSection = ({ }) => {
     return (
-        <div className="flex flex-col md:flex-row text-center md:text-start">
-            <div className="bg-opacity-80 backdrop-blur-sm pr-8 w-screen hidden md:block md:w-[15.5rem] h-screen text-black fixed top-[122.3px] right-0 pb-[330px] z-50 overflow-y-scroll pt-[4rem]">
+        <div className="flex flex-col md:flex-row text-start">
+            <div className="pl-16 w-screen hidden md:block md:w-[15.5rem] h-screen text-black fixed py-[145px] left-0 z-50 overflow-y-hidden">
                 {/* Search Bar Section */}
                 <div className="flex items-center justify-center md:justify-start px-3 py-[.3rem] border-b mb-4">
                     <Search className="text-gray-400" sx={{ fontSize: '1.2rem' }} />

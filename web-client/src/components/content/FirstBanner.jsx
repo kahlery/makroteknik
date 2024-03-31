@@ -5,7 +5,7 @@ const FirstBanner = ({ bgSubUrl, figureSubUrl }) => {
     const figureUrl = process.env.PUBLIC_URL + figureSubUrl;
 
     return (
-        <div className="text-center text-white lg:px-44 max-[432px]:h-[500px] h-[450px] lg:h-[500px] flex-row-reverse bg-center relative"
+        <div className="text-center text-white lg:px-64 max-[432px]:h-[500px] h-[450px] lg:h-[500px] flex-row-reverse bg-center relative"
             style={{
                 backgroundImage: `url(${bgUrl})`,
                 backgroundSize: 'cover',

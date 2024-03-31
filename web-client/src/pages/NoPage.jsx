@@ -4,7 +4,7 @@ const imageUrl = process.env.PUBLIC_URL + `images/no-page/8.png`;
 
 const NoPage = () => {
     return (
-        <div className="bg-white flex flex-col items-center justify-center h-screen text-center px-6 lg:px-44 text-secondary">
+        <div className="bg-white flex flex-col items-center justify-center h-screen text-center px-6 lg:px-64 text-secondary">
             <img
                 src={imageUrl}
                 alt="404 Not Found Image"

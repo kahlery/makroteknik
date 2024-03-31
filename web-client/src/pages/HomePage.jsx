@@ -47,13 +47,14 @@ const HomePage = () => {
         <div className='text-center'>
             <div className='lg:h-screen'>
                 <HomeHero />
-                <LatestNewsGrid />
+                <div className='mx-4'>
+                    <LatestNewsGrid />
+                </div>
             </div>
-            <HomeHero />
-            <div className="text-start text-white py-12 lg:px-44">
+            <div className="text-start text-white pb-12 mx-4 lg:px-64">
                 <ListingGrid productsList={featuredProductsList} featured={true} />
             </div>
-        </div>
+        </div >
     );
 };
 

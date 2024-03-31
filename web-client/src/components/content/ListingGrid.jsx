@@ -2,9 +2,9 @@ import React from 'react';
 
 const ListingGrid = ({ productsList, featured }) => {
     return (
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
-            {featured && <h1 className="text-start text-base font-bold text-primary mt-2 lg:mt-0 col-span-full border-b-[1.5px] py-2 mx-6">Featured Products</h1>}
-            {!featured && <h1 className="text-start text-base font-bold text-primary mt-2 lg:mt-0 col-span-full border-b-[1.5px] py-2 px-2 mx-4 md:px-0">Products</h1>}
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4 border-x">
+            {featured && <h1 className="text-start text-base font-bold text-primary mt-2 lg:mt-0 col-span-full border-b py-2 mx-6">Featured Products</h1>}
+            {!featured && <h1 className="text-start text-base font-bold text-primary mt-2 lg:mt-0 col-span-full border-b py-2 px-2 mx-4 md:px-0">Products</h1>}
             {productsList.map((product) => (
                 <div key={product.code} className="flex flex-col bg-white bg-opacity-80 p-4 text-sm hover:scale-105 hover:-translate-y-5 duration-500 h-90 overflow-hidden">
                     <img src={product.imageUrl} alt={product.title} className="w-full h-32 object-cover mb-4 rounded-lg" />

@@ -3,7 +3,7 @@ import { LinkedIn, Instagram } from '@mui/icons-material';
 
 const Footer = () => {
     return (
-        <footer className="border-t-2 border-primary bg-white px-6 lg:px-44 text-primary py-4 text-center relative z-40">
+        <footer className="border-t bg-white px-6 lg:px-64 text-primary py-4 text-center relative z-50 shadow-inner">
             <div className="container pt-2 gap-2 lg:gap-0 mx-auto flex flex-col justify-center items-center">
 
                 <div className="flex flex-col lg:flex-row gap-2 items-center text-xs">
