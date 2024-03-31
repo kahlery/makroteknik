@@ -36,7 +36,7 @@ const LatestNewsGrid = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
                     </p>
                 </div>
-                <button className="text-sm underline text-secondary py-2 rounded-lg transition-colors duration-500 col-span-full">
+                <button className="text-sm text-black border py-2 mt-4 rounded-lg transition-colors duration-500 col-span-full">
                     List All News
                 </button>
             </div >
