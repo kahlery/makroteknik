@@ -178,7 +178,7 @@ const ProductsPage = () => {
             }} >
             {/* <InNavigation itemsList={itemsList} isSearchActive={true} /> */}
             <FilterSection />
-            <div className="w-screen mt-4 px-0 md:px-64  py-[122px]">
+            <div className="w-screen mt-4 px-0 md:px-64 pt-[122px] pb-8">
                 <div className="mx-4">
                     <ListingGrid productsList={productsList} />
                 </div>
