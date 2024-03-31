@@ -1,7 +1,6 @@
 import React from 'react';
 import HomeHero from '../components/home/HomeHero';
 import LatestNewsGrid from '../components/home/LatestNewsGrid';
-import FeaturedProducts from '../components/home/FeaturedProducts';
 import ListingGrid from '../components/content/ListingGrid';
 
 const HomePage = () => {
@@ -48,7 +47,7 @@ const HomePage = () => {
         <div className='text-center'>
             <HomeHero />
             <LatestNewsGrid />
-            <div className="text-start text-white pb-12 mb-12 lg:px-44 bg-primary border-t-2 border-primary">
+            <div className="text-start text-white pb-12 mb-12 lg:px-44 bg-white">
                 <ListingGrid productsList={featuredProductsList} featured={true} />
             </div>
         </div>

@@ -13,19 +13,19 @@ const HomeHero = () => {
                 alt: 'hero image backround white ducting store',
             }}
         >
-            <div className="text-start absolute mx-6 sm:mx-24 lg:mx-0 top-[10.5rem] sm:top-[12rem] py-6 sm:py-9 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10">
+            <div className="text-start absolute mx-6 sm:mx-24 lg:mx-0 top-[10.5rem] sm:top-[12.2rem] border-[.5rem] border-black py-6 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10 rounded-lg">
                 <div className="flex flex-col justify-center">
                     <h2 className="text-base px-6 sm:px-10 mb-3">
                         It's All About Trust...
                     </h2>
-                    <p className="text-sm mb-4 px-6 sm:px-10 sm:text-sm" >
+                    <p className="text-sm mb-4 px-6 sm:px-10 text-gray-400" >
                         We are more than just a supplier of HVAC products. We are your partner in creating comfortable, efficient, and sustainable indoor environments.
                     </p>
-                    <div className="grid grid-cols-2 gap-4 px-6 sm:px-10 text-xs sm:text-sm" >
+                    <div className="grid grid-cols-2 gap-4 px-6 sm:px-10 text-xs" >
                         <button className="border-secondary border-2 text-white py-2 px-2 shadow-lg shadow-black hover:bg-black rounded-lg">
                             Inspectate Our Products
                         </button>
-                        <button className="bg-secondary text-black shadow-black py-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500 rounded-lg">
+                        <button className="underline text-whitepy-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500 rounded-lg">
                             Get An Offer
                         </button>
                     </div>

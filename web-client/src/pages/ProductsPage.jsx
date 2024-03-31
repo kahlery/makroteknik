@@ -1,5 +1,6 @@
 import InNavigation from "../components/content/InNavigation";
 import ListingGrid from "../components/content/ListingGrid";
+import FilterSection from "../components/content/FilterSection";
 
 const ProductsPage = () => {
     const imageUrl = "/patterns/44.png";
@@ -168,7 +169,7 @@ const ProductsPage = () => {
 
 
     return (
-        <div className="bg-primary"
+        <div className="bg-white"
             style={{
                 // backgroundImage: `url(${imageUrl})`,
                 // backgroundSize: '7px',
@@ -176,7 +177,8 @@ const ProductsPage = () => {
                 // backgroundRepeat: 'repeat',
             }} >
             <InNavigation itemsList={itemsList} isSearchActive={true} />
-            <div className="w-screen mt-4 md:pl-[22rem] xl:pr-44 py-[122px]">
+            <FilterSection />
+            <div className="w-screen mt-4 md:pl-[22rem] md:pr-[15.5rem] py-[122px]">
                 <div className="mx-4">
                     <ListingGrid productsList={productsList} />
                 </div>

@@ -18,7 +18,7 @@ const AboutPage = () => {
     ];
 
     return (
-        <div className="bg-primary">
+        <div className="bg-white">
             <InNavigation itemsList={aboutItemsList} isSearchActive={false} />
             <div className="container h-screen mx-auto">
             </div>
