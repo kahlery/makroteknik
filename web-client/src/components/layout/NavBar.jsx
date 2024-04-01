@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <nav className="flex shadow-lg bg-white mb-4 py-2 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center justify-between gap-4 w-full fixed top-[49px] z-40 text-center">
+        <nav className="border-b bg-white backdrop-blur-sm bg-opacity-90 flex shadow-md mb-4 py-2 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center justify-between gap-4 w-full fixed top-[56px] sm:top-[52px] z-40 text-center">
             <div className="hidden sm:flex items-center justify-center">
-                <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-14" alt="logo" />
+                <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-12" alt="logo" />
             </div>
-            <div className="flex items-center justify-center text-black ">
+            <div className="flex items-center justify-center text-gray-700">
                 <ul className="flex space-x-6 lg:space-x-8">
                     <li>
                         <Link to="" className="flex-row items-center hover:text-secondary">
                             <Home className='' sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
-                            <p className='text-[0.8rem] text-gray-500'>Home</p>
+                            <p className='text-[0.8rem] text-gray-400'>Home</p>
                         </Link>
                     </li>
                     <li >
                         <Link to="/about" className="flex-row items-center hover:text-secondary">
                             <Groups sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
-                            <p className='text-[0.8rem] text-gray-500'>
+                            <p className='text-[0.8rem] text-gray-400'>
                                 About
                             </p>
                         </Link>
@@ -27,19 +27,19 @@ const NavBar = () => {
                     <li>
                         <Link to="/products" className="flex-row items-center hover:text-secondary">
                             <PrecisionManufacturing sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
-                            <p className='text-[0.8rem] text-gray-500'>
+                            <p className='text-[0.8rem] text-gray-400'>
                                 Products
                             </p>
                         </Link>
                     </li>
                 </ul>
             </div>
-            <div className="flex items-center justify-center text-black ">
+            <div className="flex items-center justify-center text-gray-700">
                 <ul className="flex space-x-6 lg:space-x-8">
                     <li >
                         <Link to="/about" className="flex-row items-center hover:text-secondary">
                             <Face6 sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' }, fontWeight: 'bold' }} />
-                            <p className='text-[0.8rem] text-gray-500'>
+                            <p className='text-[0.8rem] text-gray-400'>
                                 Login
                             </p>
                         </Link>
@@ -47,7 +47,7 @@ const NavBar = () => {
                     <li>
                         <Link to="/products" className="flex-row items-center hover:text-secondary">
                             <ShoppingCart sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
-                            <p className='text-[0.8rem] text-gray-500'>
+                            <p className='text-[0.8rem] text-gray-400'>
                                 Cart
                             </p>
                         </Link>

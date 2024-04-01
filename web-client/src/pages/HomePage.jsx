@@ -44,7 +44,7 @@ const HomePage = () => {
     ];
 
     return (
-        <div className='text-center bg-gray-100'>
+        <div className='text-center'>
             <div className='lg:h-screen'>
                 <HomeHero />
                 <div className='mx-4'>
