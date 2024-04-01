@@ -169,7 +169,7 @@ const ProductsPage = () => {
 
 
     return (
-        <div className="bg-white"
+        <div className="bg-gray-100"
             style={{
                 // backgroundImage: `url(${imageUrl})`,
                 // backgroundSize: '7px',

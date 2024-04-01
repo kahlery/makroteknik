@@ -12,7 +12,7 @@ const FilterSection = ({ }) => {
                 </div>
                 {/* Sort By Section */}
                 <span className="text-black text-sm">Sort by:</span>
-                <select className="ml-2 outline-none bg-transparent text-gray-400 text-sm">
+                <select className="outline-none bg-transparent text-gray-400 text-sm">
                     <option value="">Select an option</option>
                     <option value="price_high_low">Price: High to Low</option>
                     <option value="price_low_high">Price: Low to High</option>
