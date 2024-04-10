@@ -24,12 +24,12 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                     return (
                         <React.Fragment key={category.categoryName}>
                             {!shouldHide && (
-                                <h1 className="text-start bg-opacity-100 bg-white border-b-2 border-secondary font-bold text-secondary mt-2 my-4 lg:mt-0 col-span-full pl-2">
+                                <h1 className="text-start bg-opacity-100 bg-secondary font-bold text-white mt-2 my-4 lg:mt-0 col-span-full pl-2">
                                     {category.categoryName}
                                 </h1>
                             )}
                             {categoryProducts.map(product => (
-                                <div key={product.code} className="bg-white flex flex-col text-sm hover:scale-105 hover:-translate-y-5 hover:bg-blue-100 duration-500 h-90 shadow-lg">
+                                <div key={product.code} className="bg-white flex flex-col text-sm hover:scale-105 hover:-translate-y-5 hover:bg-blue-100 duration-500 h-90 border-b-4 border-secondary from-cyan-50 bg-gradient-to-t">
                                     <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="w-full h-36 object-contain" />
                                     <div className="p-4">
                                         <h2 className="text-sm mb-2 text-black font-bold">{product.title}</h2>
