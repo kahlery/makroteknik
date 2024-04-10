@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <nav className="border-b bg-white backdrop-blur-sm bg-opacity-90 flex shadow-md mb-4 py-2 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center justify-between gap-4 w-full fixed top-[56px] sm:top-[52px] z-40 text-center">
+        <nav className="bg-white flex shadow-md mb-4 py-2 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center justify-between gap-4 w-full fixed top-[56px] sm:top-[52px] z-40 text-center">
             <div className="hidden sm:flex items-center justify-center">
                 <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-12" alt="logo" />
             </div>

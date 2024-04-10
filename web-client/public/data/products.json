@@ -1,0 +1,58 @@
+[
+    {
+        "productId": 0,
+        "categoryId": 8,
+        "title": "Makro duct sealant",
+        "imageUrl": "images/products/1.png",
+        "productCode": "234256",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 1,
+        "categoryId": 0,
+        "title": "Contra Rotating Axial Fan",
+        "imageUrl": "images/products/0.png",
+        "productCode": "23426326",
+        "description": "A range of high performance contra-rotating axial fans designed for use in commercial kitchens, restaurants, and other commercial applications. The fans are designed to provide high efficiency and low noise levels, and are available in a range of sizes and configurations to suit different applications."
+    },
+    {
+        "productId": 2,
+        "categoryId": 8,
+        "title": "Bostik duct sealant",
+        "imageUrl": "images/products/2.png",
+        "productCode": "23426326",
+        "description": "A range of high performance contra-rotating axial fans designed for use in commercial kitchens, restaurants, and other commercial applications. The fans are designed to provide high efficiency and low noise levels, and are available in a range of sizes and configurations to suit different applications."
+    },
+    {
+        "productId": 3,
+        "categoryId": 8,
+        "title": "Doby Gasket 4.5mm x15 mm x 15m",
+        "imageUrl": "images/products/4.png",
+        "productCode": "23426326",
+        "description": "A range of high performance contra-rotating axial fans designed for use in commercial kitchens, restaurants, and other commercial applications. The fans are designed to provide high efficiency and low noise levels, and are available in a range of sizes and configurations to suit different applications."
+    },
+    {
+        "productId": 4,
+        "categoryId": 0,
+        "title": "Centrifugal Fan CBM-9/7 373 4P VR",
+        "imageUrl": "images/products/3.png",
+        "productCode": "23426326",
+        "description": "A range of high performance contra-rotating axial fans designed for use in commercial kitchens, restaurants, and other commercial applications. The fans are designed to provide high efficiency and low noise levels, and are available in a range of sizes and configurations to suit different applications."
+    },
+    {
+        "productId": 5,
+        "categoryId": 6,
+        "title": "Egg Crate Grille",
+        "imageUrl": "images/products/5.png",
+        "productCode": "23426326",
+        "description": "A range of high performance contra-rotating axial fans designed for use in commercial kitchens, restaurants, and other commercial applications. The fans are designed to provide high efficiency and low noise levels, and are available in a range of sizes and configurations to suit different applications."
+    },
+    {
+        "productId": 6,
+        "categoryId": 7,
+        "title": "Aluminium flexible pipe",
+        "imageUrl": "images/products/6.png",
+        "productCode": "23426326",
+        "description": "A range of high performance contra-rotating axial fans designed for use in commercial kitchens, restaurants, and other commercial applications. The fans are designed to provide high efficiency and low noise levels, and are available in a range of sizes and configurations to suit different applications."
+    }
+]
