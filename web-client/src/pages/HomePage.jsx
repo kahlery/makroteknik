@@ -22,13 +22,12 @@ const HomePage = () => {
         <div className='text-center'>
             <div className='lg:h-screen'>
                 <HomeHero imageIndex={22} />
-                <div className='mx-4'>
+                <div className=''>
                     <LatestNewsGrid />
                 </div>
             </div>
-            <video autoPlay loop muted className=' sm:px-64'>
-                <source src={videoUrl}
-                    type="video/mp4" />
+            <video autoPlay loop muted className='overflow-hidden flex mx-auto h-[450px] lg:h-[500px] w-full bg-black shadow-lg'>
+                <source src={videoUrl} type="video/mp4" />
             </video>
             <div className="text-start text-white pb-12 mx-4 lg:px-64">
                 <ListingGrid productsList={productsList} isFeatured={true} />
