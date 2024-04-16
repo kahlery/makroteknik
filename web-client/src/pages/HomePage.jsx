@@ -4,6 +4,7 @@ import LatestNewsGrid from '../components/home/LatestNewsGrid';
 import ListingGrid from '../components/content/ListingGrid';
 
 const productsListUrl = process.env.PUBLIC_URL + '/data/products.json';
+const videoUrl = process.env.PUBLIC_URL + '/videos/hero.mp4';
 
 const HomePage = () => {
     const [productsList, setProductsList] = useState([]);
@@ -25,8 +26,9 @@ const HomePage = () => {
                     <LatestNewsGrid />
                 </div>
             </div>
-            <video autoPlay loop muted className='w-screen sm:px-64'>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+            <video autoPlay loop muted className=' sm:px-64'>
+                <source src={videoUrl}
+                    type="video/mp4" />
             </video>
             <div className="text-start text-white pb-12 mx-4 lg:px-64">
                 <ListingGrid productsList={productsList} isFeatured={true} />
