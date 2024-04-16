@@ -6,10 +6,10 @@ const LatestNewsGrid = () => {
             <h1 className="text-start text-base text-gray-500 col-span-full mb-4">
                 Latest News
             </h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-[0.7rem] sm:text-sm md:px-0" style={{ color: '#f2f2f2' }} >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-[0.7rem] sm:text-sm md:px-0" style={{ color: '#f2f2f2' }} >
 
 
-                <div className="p-4 text-start border rounded-lg shadow-lg">
+                <div className="p-4 text-start border rounded-lg shadow-md">
                     <h3 className="text-sm font-bold mb-2 text-black">Expocomfort Fuarı Conference Exhibition</h3>
                     <p className="text-gray-500">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
@@ -18,7 +18,7 @@ const LatestNewsGrid = () => {
                         Read More
                     </button>
                 </div>
-                <div className="p-4 text-start border rounded-lg shadow-lg">
+                <div className="p-4 text-start border rounded-lg shadow">
                     <h3 className="text-sm font-bold mb-2 text-black">Expocomfort Fuarı Conference Exhibition</h3>
                     <p className="text-gray-500">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
@@ -27,7 +27,7 @@ const LatestNewsGrid = () => {
                         Read More
                     </button>
                 </div>
-                <div className="p-4 text-start border rounded-lg shadow-lg">
+                <div className="p-4 text-start border rounded-lg shadow">
                     <h3 className="text-sm font-bold mb-2 text-black">Expocomfort Fuarı Conference Exhibition</h3>
                     <p className="text-gray-500">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
