@@ -5,7 +5,7 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
     const imageUrl = process.env.PUBLIC_URL + `images/heros/${index}.jpg`;
 
     return (
-        <div className="text-white lg:px-64 h-[450px] lg:h-[500px] bg-center relative shadow-lg"
+        <div className="text-white lg:px-64 h-[450px] lg:h-[550px] bg-center relative shadow-lg"
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',
