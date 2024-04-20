@@ -4,7 +4,7 @@ import { Search, FilterAlt } from '@mui/icons-material';
 const FilterSection = ({ }) => {
     return (
         <div className="flex flex-col md:flex-row text-end">
-            <div className="pl-16 pr-4 w-screen hidden md:block md:w-[15.5rem] h-screen text-black fixed py-[145px] left-0 z-30 overflow-y-hidden">
+            <div className="pl-16 pr-4 w-screen hidden md:block md:w-[15.5rem] h-screen text-black fixed py-[170px] left-0 z-30 overflow-y-hidden">
                 {/* Search Bar Section */}
                 <div className="flex border-b mb-4">
                     <input type="text" placeholder="Search All" className="mr-2 outline-none bg-transparent placeholder:text-gray-400 

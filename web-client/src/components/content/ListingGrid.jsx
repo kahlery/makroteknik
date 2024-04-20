@@ -16,7 +16,7 @@ const ListingGrid = ({ productsList, isFeatured }) => {
 
     if (!isFeatured) {
         return (
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 {categories.map(category => {
                     const categoryProducts = productsList.filter(product => product.categoryId === category.categoryId);
                     const shouldHide = categoryProducts.length === 0;
@@ -24,12 +24,12 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                     return (
                         <React.Fragment key={category.categoryName}>
                             {!shouldHide && (
-                                <h1 className="text-start text-sm text-gray-500 col-span-full">
-                                    {category.categoryName}
+                                <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
+                                    {category.categoryName}:
                                 </h1>
                             )}
                             {categoryProducts.map(product => (
-                                <div key={product.code} className="bg-white flex flex-col text-sm hover:border-secondary duration-500 h-90 border rounded-lg shadow-lg">
+                                <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border border-black shadow-secondary shadow-[4px_4px_0px_0px] hover:scale-105 hover:shadow-none">
                                     <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="w-16 object-scale-down" />
                                     <div className="p-4">
                                         <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
@@ -55,12 +55,12 @@ const ListingGrid = ({ productsList, isFeatured }) => {
         const featuredProducts = productsList.filter(product => product);
 
         return (
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-16">
-                <h1 className="text-start text-base text-gray-500 col-span-full">
-                    Our Products
+            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
+                    Featured Products:
                 </h1>
                 {featuredProducts.map(product => (
-                    <div key={product.code} className="bg-white flex flex-col text-sm hover:border-secondary duration-500 h-90 border rounded-lg shadow-lg">
+                    <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border border-black shadow-secondary shadow-[4px_4px_0px_0px] hover:scale-105 hover:shadow-orange-600">
                         <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="w-full h-36 object-contain" />
                         <div className="p-4">
                             <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>

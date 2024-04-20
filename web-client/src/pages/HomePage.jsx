@@ -19,17 +19,15 @@ const HomePage = () => {
 
 
     return (
-        <div className='text-center'>
-            <div className='lg:h-screen'>
-                <HomeHero imageIndex={22} />
-                <div className="text-start text-white pb-12 mx-4 lg:px-64">
-                    <ListingGrid productsList={productsList} isFeatured={true} />
-                </div>
+        <div className='text-center flex flex-col gap-8'>
+            <HomeHero imageIndex={22} />
+            <div className="text-start text-white pb-12 mx-4 lg:mx-0 lg:px-64">
+                <ListingGrid productsList={productsList} isFeatured={true} />
             </div>
             <video autoPlay loop muted className='overflow-hidden flex mx-auto h-[450px] lg:h-[500px] w-full bg-black shadow-lg'>
                 <source src={videoUrl} type="video/mp4" />
             </video>
-
+            <LatestNewsGrid />
         </div >
     );
 };

@@ -5,7 +5,7 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
     const imageUrl = process.env.PUBLIC_URL + `images/heros/${index}.jpg`;
 
     return (
-        <div className="text-white lg:px-64 h-[450px] lg:h-[550px] bg-center relative shadow-lg"
+        <div className="text-white lg:px-64 h-[460px] lg:h-[500px] bg-center relative shadow-lg"
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',
@@ -15,7 +15,7 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
         >
             {
                 !isOnlyBgImage &&
-                <div className="text-start absolute mx-6 sm:mx-24 lg:mx-0 top-[10.5rem] sm:top-[12.2rem] border-[.5rem] border-black py-6 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10">
+                <div className="text-start absolute mx-6 sm:mx-24 lg:mx-0 top-[10rem] sm:top-[13rem] border-[.5rem] border-black py-6 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10">
                     <div className="flex flex-col justify-center">
                         <h2 className="text-base px-6 sm:px-10 mb-3">
                             It's All About Trust...
@@ -34,7 +34,7 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
                     </div>
                 </div>
             }
-            {!isOnlyBgImage && <img src={process.env.PUBLIC_URL + `images/heros/5.png`} alt="two engineer are handshaking image" className="h-[320px] lg:h-[350px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />}
+            {!isOnlyBgImage && <img src={process.env.PUBLIC_URL + `images/heros/5.png`} alt="two engineer are handshaking image" className="h-[320px] lg:h-[320px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />}
 
         </div >
     );

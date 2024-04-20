@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <nav className="bg-white flex shadow h-14 mb-4 py-2 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center justify-between gap-4 w-full fixed top-[53px] sm:top-[56px] z-40 text-center">
+        <nav className="bg-white flex h-14 mb-4 py-2 pt-4 lg:py-0 shadow-sm px-6 lg:px-64 flex-row items-center justify-between gap-4 w-full fixed top-[53px] sm:top-[56px] z-40 text-center">
             <div className="hidden lg:flex">
-                <img src={process.env.PUBLIC_URL + '/logo.svg'} className="m-2 h-12" alt="logo" />
+                <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mt-1 h-[45px]" alt="logo" />
             </div>
             <div className="flex items-center justify-center mx-auto md:mx-0 text-gray-700">
                 <ul className="flex space-x-6 lg:space-x-8">
