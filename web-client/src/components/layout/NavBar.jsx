@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <nav className="bg-white flex h-14 lg:mb-4 border-y py-4 pt-4 lg:py-0 shadow-lg px-6 lg:px-64 flex-row items-center justify-between gap-4 w-full fixed bottom-0 sm:top-[56px] z-50 text-center">
-            <div className="hidden lg:block fixed">
+        <nav className="bg-white flex h-14 lg:mb-4 border-y border-dashed border-black py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
+        justify-between gap-4 w-full fixed bottom-0 sm:top-[56px] z-50 text-center">
+            <div className="hidden lg:block ">
                 <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mt-1 h-[45px]" alt="logo" />
             </div>
-            <div className="flex items-center justify-center lg:mx-auto md:mx-0 text-gray-700">
+            <div className="flex items-center justify-center md:mx-0 text-gray-700">
                 <ul className="flex space-x-6 lg:space-x-8">
                     <li>
                         <Link to="" className="flex-row items-center hover:text-secondary">

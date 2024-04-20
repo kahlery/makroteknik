@@ -29,8 +29,8 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                                 </h1>
                             )}
                             {categoryProducts.map(product => (
-                                <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[4px_4px_0px_0px] hover:scale-105 hover:shadow-orange-600">
-                                    <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="w-16 object-scale-down" />
+                                <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600">
+                                    <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                                     <div className="p-4">
                                         <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
                                         <p className="text-xs text-gray-500 mb-2">{product.code}</p>
@@ -60,8 +60,9 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                     Featured Products:
                 </h1>
                 {featuredProducts.map(product => (
-                    <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[4px_4px_0px_0px] hover:scale-105 hover:shadow-orange-600">
-                        <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="w-full h-36 object-contain" />
+                    <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black
+                    shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600">
+                        <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                         <div className="p-4">
                             <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
                             <p className="text-xs text-gray-500 mb-2">{product.code}</p>

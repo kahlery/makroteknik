@@ -10,15 +10,15 @@ const TopBar = () => {
             <div className="ml-4 flex flex-row items-center w-full">
                 <div className="flex flex-col lg:flex-row gap-1 lg:gap-6 lg:items-center text-xs">
                     <div className="flex flex-row gap-2 items-center">
-                        <Mail sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                        <Mail sx={{ fontSize: '1.3rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
                         <div className="text-[0.7rem] text-black">info@makroteknik.com.uk</div>
                     </div >
                     <div className="flex flex-row gap-2 items-center">
-                        <Call sx={{ fontSize: '1.5rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
+                        <Call sx={{ fontSize: '1.3rem', '@media (max-width: 1024px)': { fontSize: '1rem' } }} />
                         <div className="text-[0.7rem] text-black">+44 216 313 08 08</div>
                     </div>
                 </div>
-                <button className="flex ml-auto border-black border-2 p-2 text-xs shadow-secondary shadow-[4px_4px_0px_0px] text-black">Get An Offer</button>
+                <button className="flex ml-auto border-black border-2 p-2 text-xs shadow-secondary shadow-[5px_5px_0px_0px] text-black">Get An Offer</button>
             </div>
         </div>
     );

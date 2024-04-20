@@ -18,7 +18,7 @@ const ProductsPage = () => {
     return (
         <div>
             <FilterSection />
-            <div className="w-screen mt-4 px-0 md:px-64 pt-[100px] sm:pt-[150px] pb-10 min-h-screen">
+            <div className="w-screen mt-4 px-0 md:px-64 pt-[100px] sm:pt-[170px] pb-10 min-h-screen">
                 <div className="mx-4">
                     <ListingGrid productsList={productsList} />
                 </div>

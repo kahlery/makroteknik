@@ -8,7 +8,7 @@ const LatestNewsGrid = () => {
                     Latest News:
                 </h1>
 
-                <div className="p-4 bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[4px_4px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-alias">
+                <div className="p-4 bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-alias">
                     <h3 className="text-xs font-bold mb-2 text-black">Expocomfort Fuarı Conference Exhibition</h3>
                     <p className="text-gray-500 text-xs">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
@@ -18,7 +18,7 @@ const LatestNewsGrid = () => {
                     </span>
                 </div>
 
-                <div className="p-4 bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[4px_4px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-alias">
+                <div className="p-4 bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-alias">
                     <h3 className="text-xs font-bold mb-2 text-black">Expocomfort Fuarı Conference Exhibition</h3>
                     <p className="text-gray-500 text-xs">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
@@ -28,7 +28,7 @@ const LatestNewsGrid = () => {
                     </span>
                 </div>
 
-                <div className="p-4 bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[4px_4px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-alias">
+                <div className="p-4 bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-alias">
                     <h3 className="text-xs font-bold mb-2 text-black">Expocomfort Fuarı Conference Exhibition</h3>
                     <p className="text-gray-500 text-xs">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
@@ -39,7 +39,7 @@ const LatestNewsGrid = () => {
                 </div>
 
             </div >
-            <button className="flex mt-6 border-black border-2 p-2 text-xs shadow-secondary shadow-[4px_4px_0px_0px] text-black">
+            <button className="flex mt-6 border-black border-2 p-2 text-xs shadow-secondary shadow-[5px_5px_0px_0px] text-black">
                 View All News
             </button>
 

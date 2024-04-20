@@ -5,7 +5,7 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
     const imageUrl = process.env.PUBLIC_URL + `images/heros/${index}.jpg`;
 
     return (
-        <div className="text-white lg:px-64 h-[400px] lg:h-[500px] bg-center relative shadow-lg"
+        <div className="flex pt-24 sm:pt-36 text-white lg:px-64 h-[400px] lg:h-[500px] bg-center relative shadow-lg"
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',
@@ -15,12 +15,13 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
         >
             {
                 !isOnlyBgImage &&
-                <div className="text-start absolute mx-4 sm:mx-24 lg:mx-0 top-[7rem] sm:top-[13rem] border-[.5rem] border-black py-6 lg:h-[14rem] lg:w-[30rem] overflow-hidden bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-10">
+                <div className="text-start flex justify-center my-auto mx-4 sm:mx-24 lg:mx-0 py-6 
+                lg:w-[30rem] bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-20">
                     <div className="flex flex-col justify-center">
-                        <h2 className="text-base px-6 sm:px-10 mb-3">
+                        <h2 className="text-sm px-6 sm:px-10 mb-3">
                             It's All About Trust...
                         </h2>
-                        <p className="text-sm mb-4 px-6 sm:px-10 text-gray-400" >
+                        <p className="text-xs mb-4 px-6 sm:px-10 text-gray-400" >
                             We are more than just a supplier of HVAC products. We are your partner in creating comfortable, efficient, and sustainable indoor environments.
                         </p>
                         <div className="grid grid-cols-2 gap-4 px-6 sm:px-10 text-xs" >
