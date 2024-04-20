@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart } from '@mui/icons-material';
+import { ShoppingCart, Sell } from '@mui/icons-material';
 
 const categoriesListUrl = process.env.PUBLIC_URL + '/data/categories.json';
 
@@ -29,7 +29,8 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                                 </h1>
                             )}
                             {categoryProducts.map(product => (
-                                <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600">
+                                <div key={product.code} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
+                                shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600">
                                     <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                                     <div className="p-4">
                                         <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
@@ -42,6 +43,9 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                                             </button>
                                             <button className="text-xs text-black p-1 mt-4 w-full underline">View details</button>
                                         </div>
+                                    </div>
+                                    <div className="text-secondary absolute right-0 font-extrabold">
+                                        £ 33.00 <Sell className=" mr-2 my-2" sx={{ fontSize: '0.9rem' }} />
                                     </div>
                                 </div>
                             ))}
@@ -60,7 +64,7 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                     Featured Products:
                 </h1>
                 {featuredProducts.map(product => (
-                    <div key={product.code} className="bg-white flex flex-col text-sm duration-500 h-90 border-2 border-black
+                    <div key={product.code} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
                     shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600">
                         <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                         <div className="p-4">
@@ -74,6 +78,9 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                                 </button>
                                 <button className="text-xs text-black p-1 mt-4 w-full underline">View details</button>
                             </div>
+                        </div>
+                        <div className="text-secondary absolute right-0 font-extrabold">
+                            £ 33.00 <Sell className="mr-2 my-2" sx={{ fontSize: '0.9rem' }} />
                         </div>
                     </div>
                 ))}
