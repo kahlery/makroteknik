@@ -42,7 +42,7 @@ const CategoriesTop = () => {
 
             ))}
             <div className='fixed top-24 sm:top-48 md:top-40 right-4 md:right-72 items-center gap-2 text-xs
-            z-50 text-black animate-pulse'>
+            z-50 text-black font-bold backdrop-blur-sm rounded-full p-2 animate-pulse'>
                 <span className='md:hidden'>Swipe to see more / </span>
                 {selectedCategories.length} selected
                 <Swipe className="mx-1" Swipe />
