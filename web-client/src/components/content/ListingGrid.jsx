@@ -28,11 +28,14 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                                 </h1>
                             )}
                             {categoryProducts.map(product => (
-                                <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
-                                shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-pointer">
-                                    <button className="text-black absolute right-0 font-extrabold rounded-full shadow-md p-1 m-1">
-                                        <ShoppingCart className="text-secondary m-1" sx={{ fontSize: '1.3rem' }} />
+                                <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
+                    hover:scale-110 hover:cursor-pointer">
+                                    <button className="text-black absolute right-0 top-3 font-extrabold rounded-l-xl shadow-md backdrop-blur-sm py-1 px-3">
+                                        <ShoppingCart className="text-black" sx={{ fontSize: '1.2rem' }} />
                                     </button>
+                                    <div className="text-black absolute left-0 top-3 font-extrabold text-xs rounded-r-xl shadow-md backdrop-blur-sm py-1 px-3">
+                                        £ 33.00
+                                    </div>
                                     <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                                     <div className="p-2 md:p-4 flex flex-col h-full">
                                         <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
@@ -40,9 +43,7 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                                         <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
                                         <div className="h-2" />
                                         <div className="flex mt-auto items-center align-bottom">
-                                            <div className="text-black font-extrabold">
-                                                £ 33.00 <Sell className="mr-2" sx={{ fontSize: '0.9rem' }} />
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -63,11 +64,14 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                     Featured Products:
                 </h1>
                 {featuredProducts.map(product => (
-                    <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
-                    shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-pointer">
-                        <button className="text-black absolute right-0 font-extrabold rounded-full shadow-md p-1 m-1">
-                            <ShoppingCart className="text-secondary m-1" sx={{ fontSize: '1.3rem' }} />
+                    <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
+                    hover:scale-110 hover:cursor-pointer">
+                        <button className="text-black absolute right-0 top-3 font-extrabold rounded-l-xl shadow-md backdrop-blur-sm py-1 px-3">
+                            <ShoppingCart className="text-black" sx={{ fontSize: '1rem' }} />
                         </button>
+                        <div className="text-black absolute left-0 top-3 font-extrabold text-xs rounded-r-xl shadow-md backdrop-blur-sm py-1 px-3">
+                            £ 33.00
+                        </div>
                         <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                         <div className="p-2 md:p-4 flex flex-col h-full">
                             <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
@@ -75,9 +79,7 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                             <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
                             <div className="h-2" />
                             <div className="flex mt-auto items-center align-bottom">
-                                <div className="text-black font-extrabold">
-                                    £ 33.00 <Sell className="mr-2" sx={{ fontSize: '0.9rem' }} />
-                                </div>
+
                             </div>
                         </div>
                     </div>

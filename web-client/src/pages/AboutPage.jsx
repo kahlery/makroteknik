@@ -19,7 +19,6 @@ const AboutPage = () => {
     return (
         <div className="bg-white">
             <InNavigation itemsList={aboutItemsList} isSearchActive={false} />
-
         </div>
     );
 };

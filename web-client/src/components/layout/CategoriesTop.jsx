@@ -20,10 +20,9 @@ const CategoriesTop = () => {
     console.log("selectedCategories: ", selectedCategories);
 
     return (
-        <Link to="/products" className='flex gap-4 px-4 md:px-64 text-white py-[12px] md:justify-center
-        bg-secondary bg-opacity-50 border-b border-dashed fixed top-[62px] sm:top-[110px] z-40 w-screen text-[10px] sm:flex-nowrap overflow-x-scroll'>
+        <Link to="/products" className='flex shadow-md gap-2 px-4 md:px-64 text-white py-[8px] md:justify-center no-scrollbar
+        bg-white bg-opacity-100 border-b border-dashed fixed top-[55px] sm:top-[105px] z-50 w-screen text-[12px] sm:flex-nowrap overflow-x-scroll '>
             {categories.map((category) => (
-
                 <div key={category.categoryId} onClick={
                     () => {
                         if (!selectedCategories.includes(category.categoryId)) {
@@ -35,14 +34,12 @@ const CategoriesTop = () => {
                         }
                     }
                 }
-                    className='hover:scale-125 hover:cursor-pointer hover:font-extrabold duration-500 border-white
-                bg-black px-2 py-[2px] text-nowrap sm:text-wrap font-bold' {...(selectedCategories.includes(category.categoryId) && { style: { backgroundColor: '#0891b2', color: '#000' } })}>
+                    className={'hover:scale-125 hover:cursor-pointer hover:font-extrabold duration-500 text-black px-2 py-[2px] text-nowrap font-bold ' + (selectedCategories.includes(category.categoryId) ? 'text-secondary' : '')}>
                     {category.categoryName}
                 </div>
-
             ))}
-            <div className='fixed top-24 sm:top-48 md:top-40 right-4 md:right-72 items-center gap-2 text-xs
-            z-50 text-black font-bold backdrop-blur-sm rounded-full p-2 animate-pulse'>
+            <div className='fixed top-[85px] sm:top-48 md:top-[130px] right-4 md:right-72 items-center gap-2 text-sm
+            z-50 text-black p-2 animate-pulse font-extrabold'>
                 <span className='md:hidden'>Swipe to see more / </span>
                 {selectedCategories.length} selected
                 <Swipe className="mx-1" Swipe />
