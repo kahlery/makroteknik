@@ -12,7 +12,7 @@ const FilterSection = ({ }) => {
 
     return (
         <div className="flex flex-col md:flex-row text-end">
-            <div className="pl-16 pr-4 w-screen hidden md:block md:w-[15.5rem] h-screen text-black fixed py-[185px] left-0 z-30 overflow-y-hidden">
+            <div className="pl-16 pr-4 w-screen hidden md:block md:w-[15.5rem] h-screen text-black fixed py-[195px] left-0 z-30 overflow-y-hidden">
                 {/* Search Bar Section */}
                 <div className="flex border-b mb-4">
                     <input type="text" placeholder="Search All" className="mr-2 outline-none bg-transparent placeholder:text-gray-400 
@@ -77,8 +77,9 @@ const FilterSection = ({ }) => {
                 <div className="mt-4">
                     <span className="text-black font-bold text-xs">If it is on sale:</span>
                     <div className="flex items-center space-x-2 mt-2 justify-end">
-
-                        <label htmlFor="on_sale" className="text-gray-600 text-xs">On Sale (344)</label>
+                        <label htmlFor="on_sale" className="text-gray-600 text-xs" defaultValue={true}>
+                            On Sale
+                        </label>
                         <input type="checkbox" id="on_sale" className="form-checkbox text-primary" />
                     </div>
                 </div>

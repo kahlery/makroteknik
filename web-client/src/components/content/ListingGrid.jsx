@@ -16,21 +16,20 @@ const ListingGrid = ({ productsList, isFeatured }) => {
 
     if (!isFeatured) {
         return (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {categories.map(category => {
                     const categoryProducts = productsList.filter(product => product.categoryId === category.categoryId);
                     const shouldHide = categoryProducts.length === 0;
-
                     return (
-                        <React.Fragment key={category.categoryName}>
+                        <React.Fragment key={'category_' + category.categoryId}>
                             {!shouldHide && (
                                 <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                                     {category.categoryName}:
                                 </h1>
                             )}
                             {categoryProducts.map(product => (
-                                <div key={product.code} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
-                                shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600">
+                                <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
+                                shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-pointer">
                                     <button className="text-black absolute right-0 font-extrabold rounded-full shadow-md p-1 m-1">
                                         <ShoppingCart className="text-secondary m-1" sx={{ fontSize: '1.3rem' }} />
                                     </button>
@@ -39,6 +38,7 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                                         <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
                                         <p className="text-xs text-gray-500 mb-2">{product.code}</p>
                                         <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
+                                        <div className="h-2" />
                                         <div className="flex mt-auto items-center align-bottom">
                                             <div className="text-black font-extrabold">
                                                 £ 33.00 <Sell className="mr-2" sx={{ fontSize: '0.9rem' }} />
@@ -49,21 +49,22 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                             ))}
                         </React.Fragment>
                     );
-                })}
-            </div>
+                })
+                }
+            </div >
         );
     }
     else {
         const featuredProducts = productsList.filter(product => product);
 
         return (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                     Featured Products:
                 </h1>
                 {featuredProducts.map(product => (
-                    <div key={product.code} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
-                    shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600">
+                    <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border-2 border-black
+                    shadow-secondary shadow-[5px_5px_0px_0px] hover:scale-105 hover:shadow-orange-600 hover:cursor-pointer">
                         <button className="text-black absolute right-0 font-extrabold rounded-full shadow-md p-1 m-1">
                             <ShoppingCart className="text-secondary m-1" sx={{ fontSize: '1.3rem' }} />
                         </button>
@@ -72,6 +73,7 @@ const ListingGrid = ({ productsList, isFeatured }) => {
                             <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
                             <p className="text-xs text-gray-500 mb-2">{product.code}</p>
                             <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
+                            <div className="h-2" />
                             <div className="flex mt-auto items-center align-bottom">
                                 <div className="text-black font-extrabold">
                                     £ 33.00 <Sell className="mr-2" sx={{ fontSize: '0.9rem' }} />

@@ -1,11 +1,11 @@
 import React from 'react';
 
 const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
-    const index = imageIndex;
+    const index = imageIndex || 22;
     const imageUrl = process.env.PUBLIC_URL + `images/heros/${index}.jpg`;
 
     return (
-        <div className="flex pt-24 sm:pt-36 text-white lg:px-64 h-[400px] lg:h-[500px] bg-center relative shadow-lg"
+        <div className="flex pt-24 sm:pt-36 text-white lg:px-64 h-[400px] sm:h-[500px] bg-center relative shadow-lg"
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',

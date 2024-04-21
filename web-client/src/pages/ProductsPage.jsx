@@ -1,11 +1,11 @@
-// ProductsPage.jsx
-
 import React, { useEffect, useState } from 'react';
 import ListingGrid from "../components/content/ListingGrid";
 import FilterSection from "../components/content/FilterSection";
+import { useCategoriesFilterStore } from '../stores/filter-stores/CategoriesFilterStore';
 
 const ProductsPage = () => {
     const [productsList, setProductsList] = useState([]);
+    const selectedCategories = useCategoriesFilterStore((state) => state.selectedCategories);
 
     useEffect(() => {
         // products.json dosyasını yükle
@@ -15,12 +15,14 @@ const ProductsPage = () => {
             .catch(error => console.error('Error loading products:', error));
     }, []);
 
+    const filteredProductsList = productsList.filter(product => selectedCategories.includes(product.categoryId));
+
     return (
         <div>
             <FilterSection />
-            <div className="w-screen mt-4 px-0 md:px-64 pt-[100px] sm:pt-[170px] pb-10 min-h-screen">
+            <div className="w-screen mt-4 px-0 md:px-64 pt-[100px] sm:pt-[180px] pb-10 min-h-screen">
                 <div className="mx-4">
-                    <ListingGrid productsList={productsList} />
+                    <ListingGrid productsList={filteredProductsList} />
                 </div>
             </div>
         </div>

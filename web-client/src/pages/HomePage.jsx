@@ -20,7 +20,7 @@ const HomePage = () => {
 
     return (
         <div className='text-start flex flex-col gap-8 mb-8'>
-            <HomeHero imageIndex={22} />
+            <HomeHero />
             <div className="text-white pb-12 mx-4 lg:mx-0 lg:px-64">
                 <ListingGrid productsList={productsList} isFeatured={true} />
             </div>
