@@ -3,7 +3,7 @@ import { ShoppingCart, Sell } from '@mui/icons-material';
 
 const categoriesListUrl = process.env.PUBLIC_URL + '/data/categories.json';
 
-const ListingGrid = ({ productsList, isFeatured }) => {
+const ListingGrid = ({ productsList, isFeatured, categoryId }) => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -56,13 +56,21 @@ const ListingGrid = ({ productsList, isFeatured }) => {
         );
     }
     else {
-        const featuredProducts = productsList.filter(product => product);
+        let featuredProducts;
+
+        if (categoryId !== undefined) {
+            featuredProducts = productsList.filter(product => product.categoryId === categoryId);
+        }
+        else {
+            // const featuredProducts = productsList.filter(product => product.isFeatured);
+            featuredProducts = productsList.filter(product => product); // TODO: For testing
+        }
 
         return (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
+                {categoryId == undefined && <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                     Featured Products:
-                </h1>
+                </h1>}
                 {featuredProducts.map(product => (
                     <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
                     hover:scale-110 hover:cursor-pointer">

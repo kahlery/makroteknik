@@ -1,8 +1,8 @@
 import React from 'react';
 
 const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
-    const index = imageIndex || 22;
-    const imageUrl = process.env.PUBLIC_URL + `images/heros/${index}.jpg`;
+    const index = imageIndex || 55;
+    const imageUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
 
     return (
         <div className="flex pt-24 sm:pt-36 text-white lg:px-64 h-[400px] sm:h-[500px] bg-center relative shadow-lg"
@@ -35,7 +35,7 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
                     </div>
                 </div>
             }
-            {!isOnlyBgImage && <img src={process.env.PUBLIC_URL + `images/heros/5.png`} alt="two engineer are handshaking image" className="h-[320px] lg:h-[320px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />}
+            {/* {!isOnlyBgImage && <img src={process.env.PUBLIC_URL + `images/heros/5.png`} alt="two engineer are handshaking image" className="h-[320px] lg:h-[320px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />} */}
 
         </div >
     );
