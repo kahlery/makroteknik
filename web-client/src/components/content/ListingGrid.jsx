@@ -17,6 +17,12 @@ const ListingGrid = ({ productsList, isFeatured, categoryId }) => {
     if (!isFeatured) {
         return (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {
+                    !productsList.length &&
+                    <p className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
+                        Please select a category to see products.
+                    </p>
+                }
                 {categories.map(category => {
                     const categoryProducts = productsList.filter(product => product.categoryId === category.categoryId);
                     const shouldHide = categoryProducts.length === 0;
