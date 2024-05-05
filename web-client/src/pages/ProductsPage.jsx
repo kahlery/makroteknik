@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ListingGrid from "../components/content/ListingGrid";
 import FilterSection from "../components/content/FilterSection";
 import { useCategoriesFilterStore } from '../stores/filter-stores/CategoriesFilterStore';
+import Hero from "../components/content/Hero";
 
 const ProductsPage = () => {
     const [productsList, setProductsList] = useState([]);
@@ -20,7 +21,8 @@ const ProductsPage = () => {
     return (
         <div>
             <FilterSection />
-            <div className="w-screen mt-4 px-0 md:px-64 pt-[100px] sm:pt-[180px] pb-10 min-h-screen">
+            <Hero height={32} />
+            <div className="w-screen mt-4 px-0 md:px-64 pt-4 pb-10 min-h-96">
                 <div className="mx-4">
                     <ListingGrid productsList={filteredProductsList} />
                 </div>

@@ -93,7 +93,6 @@ const ListingGrid = ({ productsList, isFeatured, categoryId }) => {
                             <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
                             <div className="h-2" />
                             <div className="flex mt-auto items-center align-bottom">
-
                             </div>
                         </div>
                     </div>

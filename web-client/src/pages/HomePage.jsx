@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import HomeHero from '../components/home/HomeHero';
+import Hero from '../components/content/Hero';
 import LatestNewsGrid from '../components/home/LatestNewsGrid';
 import ListingGrid from '../components/content/ListingGrid';
 
@@ -20,7 +20,7 @@ const HomePage = () => {
 
     return (
         <div className='text-start flex flex-col gap-8 mb-8'>
-            <HomeHero />
+            <Hero height={96} />
             <div className="text-white pb-12 mx-4 lg:mx-0 lg:px-64">
                 <ListingGrid productsList={productsList} isFeatured={true} />
             </div>

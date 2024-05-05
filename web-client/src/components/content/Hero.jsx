@@ -1,20 +1,24 @@
 import React from 'react';
 
-const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
+const Hero = ({ imageIndex, isOnlyBgImage, height }) => {
+
+    height = height || 32;
+
     const index = imageIndex || 55;
     const imageUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
 
     return (
-        <div className="flex pt-24 sm:pt-36 text-white lg:px-64 h-[400px] sm:h-[500px] bg-center relative shadow-lg"
+        <div className={`flex pt-24 sm:pt-36 text-white lg:px-64 bg-center relative shadow-lg`}
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 alt: 'hero image backround white ducting store',
-            }}
+            }
+            }
         >
             {
-                !isOnlyBgImage &&
+                !isOnlyBgImage && height != 32 &&
                 <div className="text-start flex justify-center my-auto mx-4 sm:mx-24 lg:mx-0 py-6 
                 lg:w-[30rem] bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-20">
                     <div className="flex flex-col justify-center">
@@ -41,4 +45,4 @@ const HomeHero = ({ imageIndex, isOnlyBgImage }) => {
     );
 };
 
-export default HomeHero;
+export default Hero;
