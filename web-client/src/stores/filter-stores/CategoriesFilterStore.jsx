@@ -12,6 +12,8 @@ export const useCategoriesFilterStore = create((set) => ({
         return state;
     }),
 
+    resetCategories: () => set({ selectedCategories: [] }),
+
     removeCategories: (category) => set((state) => {
         return {
             selectedCategories: state.selectedCategories.filter((selectedCategory) => selectedCategory !== category)

@@ -1,14 +1,12 @@
 import React from 'react';
 
-const Hero = ({ imageIndex, isOnlyBgImage, height }) => {
-
-    height = height || 32;
+const Hero = ({ imageIndex, height }) => {
 
     const index = imageIndex || 55;
     const imageUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
 
     return (
-        <div className={`flex pt-24 sm:pt-36 text-white lg:px-64 bg-center relative shadow-lg`}
+        <div className={`flex pt-24 md:pt-44 h-[320px] md:h-[400px] text-white lg:px-64 bg-center relative shadow-lg`}
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundSize: 'cover',
@@ -17,30 +15,25 @@ const Hero = ({ imageIndex, isOnlyBgImage, height }) => {
             }
             }
         >
-            {
-                !isOnlyBgImage && height != 32 &&
-                <div className="text-start flex justify-center my-auto mx-4 sm:mx-24 lg:mx-0 py-6 
-                lg:w-[30rem] bg-black shadow-2xl shadow-black bg-opacity-[0.85] z-20">
-                    <div className="flex flex-col justify-center">
-                        <h2 className="text-sm px-6 sm:px-10 mb-3">
-                            It's All About Trust...
-                        </h2>
-                        <p className="text-xs mb-4 px-6 sm:px-10 text-gray-400" >
-                            We are more than just a supplier of HVAC products. We are your partner in creating comfortable, efficient, and sustainable indoor environments.
-                        </p>
-                        <div className="grid grid-cols-2 gap-4 px-6 sm:px-10 text-xs" >
-                            <button className="border-secondary border-2 text-white py-2 px-2 shadow-lg shadow-black hover:bg-black">
-                                Inspectate Our Products
-                            </button>
-                            <button className="underline text-whitepy-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500">
-                                Get An Offer
-                            </button>
-                        </div>
+            <div className="text-start flex justify-center my-auto mx-4 sm:mx-24 lg:mx-0 py-6 
+                lg:w-[30rem] bg-black shadow-md bg-opacity-[0.85] z-20">
+                <div className="flex flex-col justify-center">
+                    <h2 className="text-sm px-6 sm:px-10 mb-3">
+                        It's All About Trust...
+                    </h2>
+                    <p className="text-xs mb-4 px-6 sm:px-10 text-gray-400" >
+                        We are more than just a supplier of HVAC products. We are your partner in creating comfortable, efficient, and sustainable indoor environments.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 px-6 sm:px-10 text-xs" >
+                        <button className="border-secondary border-2 text-white py-2 px-2 shadow-lg shadow-black hover:bg-black">
+                            Inspectate Our Products
+                        </button>
+                        <button className="underline text-whitepy-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500">
+                            Get An Offer
+                        </button>
                     </div>
                 </div>
-            }
-            {/* {!isOnlyBgImage && <img src={process.env.PUBLIC_URL + `images/heros/5.png`} alt="two engineer are handshaking image" className="h-[320px] lg:h-[320px] absolute bottom-0 right-[5%] md:right-[10%] lg:right-[20%] z-0" />} */}
-
+            </div>
         </div >
     );
 };
