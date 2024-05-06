@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ListingGrid from "../components/content/ListingGrid";
 import FilterSection from "../components/content/FilterSection";
-import { useCategoriesFilterStore } from '../stores/filter-stores/CategoriesFilterStore';
+import { useCategoriesFilterStore } from '../stores/CategoriesFilterStore';
 import TopBanner from "../components/content/TopBanner";
 import CategoriesQuickAccess from "../components/content/CategoriesQuickAccess";
 

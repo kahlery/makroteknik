@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Swipe } from '@mui/icons-material';
-import { useCategoriesFilterStore } from '../../stores/filter-stores/CategoriesFilterStore';
+import { useCategoriesFilterStore } from '../../stores/CategoriesFilterStore';
 import { Link, useLocation } from "react-router-dom";
 import ListingGrid from '../content/ListingGrid';
 
@@ -102,7 +102,7 @@ const CategoriesTop = () => {
                     z-50 text-secondary p-2 animate-pulse pointer-events-none'>
                 <span className='md:hidden'>Swipe to see more / </span>
                 {selectedCategories.length} selected
-                <Swipe className="mx-1" Swipe />
+                <Swipe className="mx-1" />
             </div>
         </>
     );

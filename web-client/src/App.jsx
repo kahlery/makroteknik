@@ -4,6 +4,7 @@ import Layout from './Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
+import CartPage from './pages/CartPage';
 import NoPage from './pages/NoPage';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route path="" element={<HomePage />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="products" element={<ProductsPage />} />
+            <Route path="cart" element={<CartPage />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

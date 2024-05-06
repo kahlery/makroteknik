@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Close } from '@mui/icons-material';
-import { useCategoriesFilterStore } from '../../stores/filter-stores/CategoriesFilterStore';
+import { useCategoriesFilterStore } from '../../stores/CategoriesFilterStore';
 
 const CategoriesQuickAccess = () => {
     const [categories, setCategories] = useState([]);
