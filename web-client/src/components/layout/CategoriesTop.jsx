@@ -81,7 +81,6 @@ const CategoriesTop = () => {
                                 }}
                                 className={'hover:scale-105 duration-500 text-black px-2 py-[2px] text-nowrap ' + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-black font-bold' : '')}
                                 onMouseEnter={() => categoryHover(category.categoryId)}
-                            // onMouseLeave={() => categoryHover(null)}
                             >
                                 {category.categoryName}
                             </div>
