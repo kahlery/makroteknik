@@ -79,7 +79,7 @@ const CategoriesTop = () => {
                                         console.log("removeCategory: ", category.categoryName);
                                     }
                                 }}
-                                className={'hover:scale-105 duration-500 text-black px-2 py-[2px] text-nowrap ' + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-black font-bold' : '')}
+                                className={'hover:scale-105 duration-500 text-black px-2 py-[2px] text-nowrap ' + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-secondary' : '')}
                                 onMouseEnter={() => categoryHover(category.categoryId)}
                             >
                                 {category.categoryName}

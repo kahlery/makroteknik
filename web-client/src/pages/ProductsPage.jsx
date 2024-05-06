@@ -21,7 +21,7 @@ const ProductsPage = () => {
 
     return (
         <div>
-            <FilterSection />
+            {/* <FilterSection /> */}
             <TopBanner />
             <CategoriesQuickAccess />
             <div className="w-screen mt-4 px-0 md:px-64 pt-4 pb-10 min-h-96">
