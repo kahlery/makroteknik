@@ -42,6 +42,8 @@ const NavBar = () => {
                         <Link to="/products" className="flex-row items-center hover:text-secondary"
                             onClick={() => {
                                 categories.map((category) => addCategories(category.categoryId));
+                                // scroll to top
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
                             }
                             }
                         >
