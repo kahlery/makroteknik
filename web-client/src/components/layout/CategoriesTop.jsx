@@ -66,7 +66,7 @@ const CategoriesTop = () => {
             <Link to="/products" className='text-white border-b bg-white fixed top-[55px] sm:top-[105px] z-50 w-screen text-[12px]'
                 onMouseLeave={() => categoryHover(null)}
             >
-                <div className='md:px-64 flex md:flex-wrap md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
+                <div className='md:px-64 grid grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
                     {categories.map((category) => (
                         <div key={category.categoryId} className='static z-50'>
                             <div
@@ -98,7 +98,7 @@ const CategoriesTop = () => {
                     ))}
                 </div>
             </Link>
-            <div className='block fixed top-[80px] sm:top-48 md:top-[130px] right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
+            <div className='block fixed top-[110px] sm:top-48 md:top-[130px] right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
                     z-50 text-secondary p-2 animate-pulse pointer-events-none'>
                 <span className='md:hidden'>Swipe to see more / </span>
                 {selectedCategories.length} selected
