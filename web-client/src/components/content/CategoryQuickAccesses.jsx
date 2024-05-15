@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Close } from '@mui/icons-material';
 import { useCategoriesFilterStore } from '../../stores/CategoriesFilterStore';
 
-const CategoriesQuickAccess = () => {
+const CategoryQuickAccesses = () => {
     const [categories, setCategories] = useState([]);
     const selectedCategories = useCategoriesFilterStore((state) => state.selectedCategories);
     const removeCategories = useCategoriesFilterStore((state) => state.removeCategories);
@@ -31,4 +31,4 @@ const CategoriesQuickAccess = () => {
     );
 };
 
-export default CategoriesQuickAccess;
+export default CategoryQuickAccesses;

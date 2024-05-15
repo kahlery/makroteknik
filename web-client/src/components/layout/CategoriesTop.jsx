@@ -61,51 +61,55 @@ const CategoriesTop = () => {
         return categoryId === hoveredCategoryId;
     }
 
-    return (
-        <>
-            <Link to="/products" className='text-white border-b bg-white fixed top-[55px] sm:top-[105px] z-50 w-screen text-[12px]'
-                onMouseLeave={() => categoryHover(null)}
-            >
-                <div className='md:px-64 grid grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
-                    {categories.map((category) => (
-                        <div key={category.categoryId} className='static z-50'>
-                            <div
-                                onClick={() => {
-                                    if (!selectedCategories.includes(category.categoryId)) {
-                                        addCategories(category.categoryId);
-                                        console.log("addCategory: ", category.categoryName);
-                                    } else {
-                                        removeCategories(category.categoryId);
-                                        console.log("removeCategory: ", category.categoryName);
-                                    }
-                                }}
-                                className={'hover:scale-105 duration-500 text-black px-2 py-[2px] text-nowrap ' + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-secondary' : '')}
-                                onMouseEnter={() => categoryHover(category.categoryId)}
-                            >
-                                {category.categoryName}
-                            </div>
-                            {isCategoryHovered(category.categoryId) && !location.pathname.endsWith("/products") &&
-                                (
-                                    <div id='hover-dropdown' className="fixed top-[173px] left-0 w-screen z-50">
-                                        <div className='text-black border border-black bg-black bg-opacity-60 px-64 py-4' onMouseLeave={() => categoryHover(null)}>
-                                            {/* Dropdown menu content */}
-                                            <ListingGrid productsList={productsList} categoryId={category.categoryId} isFeatured={true} />
-                                            <div />
+    if (!location.pathname.endsWith("/products")) {
+        return (
+            <>
+                <Link to="/products" className='bg-white text-white border-b fixed top-[55px] sm:top-[105px] z-50 w-screen text-[12px]'
+                    onMouseLeave={() => categoryHover(null)}
+                >
+                    <div className='md:px-64 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
+                        {categories.map((category) => (
+                            <div key={category.categoryId} className='static z-50'>
+                                <div
+                                    onClick={() => {
+                                        if (!selectedCategories.includes(category.categoryId)) {
+                                            addCategories(category.categoryId);
+                                            console.log("addCategory: ", category.categoryName);
+                                        } else {
+                                            removeCategories(category.categoryId);
+                                            console.log("removeCategory: ", category.categoryName);
+                                        }
+                                    }}
+                                    className={'hover:scale-105 duration-500 text-black px-2 py-[2px] text-nowrap ' + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-secondary' : '')}
+                                    onMouseEnter={() => categoryHover(category.categoryId)}
+                                >
+                                    {category.categoryName}
+                                </div>
+                                {isCategoryHovered(category.categoryId) && !location.pathname.endsWith("/products") &&
+                                    (
+                                        <div id='hover-dropdown' className="fixed top-[173px] left-0 w-screen z-50">
+                                            <div className='text-black border border-black bg-black bg-opacity-60 px-64 py-4' onMouseLeave={() => categoryHover(null)}>
+                                                {/* Dropdown menu content */}
+                                                <ListingGrid productsList={productsList} categoryId={category.categoryId} isFeatured={true} />
+                                                <div />
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-                        </div>
-                    ))}
-                </div>
-            </Link>
-            <div className='block fixed top-[110px] sm:top-48 md:top-[130px] right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
+                                    )}
+                            </div>
+                        ))}
+                    </div>
+                </Link>
+                <div className='block fixed top-[80px] sm:top-48 md:top-[130px] right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
                     z-50 text-secondary p-2 animate-pulse pointer-events-none'>
-                <span className='md:hidden'>Swipe to see more / </span>
-                {selectedCategories.length} selected
-                <Swipe className="mx-1" />
-            </div>
-        </>
-    );
+                    <span className='md:hidden'>Swipe to see more / </span>
+                    {selectedCategories.length} selected
+                    <Swipe className="mx-1" />
+                </div>
+            </>
+        );
+    } else {
+        return null;
+    }
 }
 
 export default CategoriesTop;

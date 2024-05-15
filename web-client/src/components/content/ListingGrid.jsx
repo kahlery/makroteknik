@@ -83,9 +83,9 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
                     return (
                         <React.Fragment key={'category_' + category.categoryId}>
                             {!shouldHide && (
-                                <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
+                                <h2 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                                     {category.categoryName}:
-                                </h1>
+                                </h2>
                             )}
                             {categoryProducts.map(product => (
                                 <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
@@ -133,9 +133,9 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
 
         return (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {categoryId == undefined && <h1 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
+                {categoryId == undefined && <h2 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                     Featured Products:
-                </h1>}
+                </h2>}
                 {featuredProducts.map(product => (
                     <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
                     hover:scale-110 hover:cursor-pointer">
