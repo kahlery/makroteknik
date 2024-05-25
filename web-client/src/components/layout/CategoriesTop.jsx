@@ -64,7 +64,7 @@ const CategoriesTop = () => {
     if (!location.pathname.endsWith("/products")) {
         return (
             <>
-                <Link to="/products" className='bg-white text-white border-b fixed top-[55px] sm:top-[105px] z-50 w-screen text-[12px]'
+                <Link to="/products" className='bg-secondary border-b fixed top-[55px] sm:top-[105px] z-50 w-screen text-[12px]'
                     onMouseLeave={() => categoryHover(null)}
                 >
                     <div className='md:px-64 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
@@ -80,7 +80,8 @@ const CategoriesTop = () => {
                                             console.log("removeCategory: ", category.categoryName);
                                         }
                                     }}
-                                    className={'hover:scale-105 duration-500 text-black px-2 py-[2px] text-nowrap ' + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-secondary' : '')}
+                                    className={'hover:scale-105 duration-500 text-white font-extrabold px-3 py-[5px] text-nowrap rounded-md shadow-md border-[1px] tracking-wide border-sky-700 '
+                                        + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-secondary' : '')}
                                     onMouseEnter={() => categoryHover(category.categoryId)}
                                 >
                                     {category.categoryName}

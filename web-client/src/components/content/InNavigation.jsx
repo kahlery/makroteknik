@@ -12,17 +12,17 @@ const InNavigation = ({ itemsList, isSearchActive }) => {
                     </button>
                 </div>
                 <nav className="flex-grow">
-                    <div className="grid grid-cols text-base">
+                    <div className="grid grid-cols gap-14 text-base">
                         {itemsList.map((category, index) => (
                             <div key={index}>
                                 <h2 className='text-xs text-black font-bold'>{category.categoryName}</h2>
-                                <a href="#">
+                                {/* <a href="#">
                                     <ul>
                                         {category.items.map((item, itemIndex) => (
                                             <li className='my-2 text-xs text-gray-500 duration-100 hover:text-secondary hover:scale-110' key={itemIndex}>{item}</li>
                                         ))}
                                     </ul>
-                                </a>
+                                </a> */}
                             </div>
                         ))}
                     </div>

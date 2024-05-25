@@ -3,19 +3,21 @@ import React from 'react';
 const Hero = ({ imageIndex, height }) => {
 
     const index = imageIndex || 55;
-    const imageUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
+    // const imageUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
+    const imageUrl = process.env.PUBLIC_URL + 'images/bormoro.webp';
 
     return (
-        <div className={`flex pt-24 md:pt-44 h-[320px] md:h-[400px] text-white lg:px-64 bg-center relative shadow-lg`}
+        <div className={`flex pt-24 md:pt-44 h-[320px] md:h-[400px] text-white lg:px-64 relative shadow-lg`}
             style={{
                 backgroundImage: `url(${imageUrl})`,
+                backgroundPosition: '50% -20%',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 alt: 'hero image backround white ducting store',
             }
             }
         >
-            <div className="text-start flex justify-center my-auto mx-4 sm:mx-24 lg:mx-0 py-6 
+            <div className="text-start flex my-auto mx-4 sm:mx-24 lg:mx-0 py-6 
                 lg:w-[30rem] bg-black shadow-md bg-opacity-[0.85] z-20">
                 <div className="flex flex-col justify-center">
                     <h2 className="text-sm px-6 sm:px-10 mb-3">
