@@ -7,7 +7,7 @@ const Hero = ({ imageIndex, height }) => {
     const imageUrl = process.env.PUBLIC_URL + 'images/bormoro.webp';
 
     return (
-        <div className={`flex pt-24 md:pt-44 h-[320px] md:h-[400px] text-white lg:px-64 relative shadow-lg`}
+        <div className={`flex pt-24 md:pt-48 h-[320px] md:h-[400px] text-white lg:px-64 relative shadow-lg`}
             style={{
                 backgroundImage: `url(${imageUrl})`,
                 backgroundPosition: '50% -20%',

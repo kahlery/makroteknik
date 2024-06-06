@@ -88,7 +88,7 @@ const CategoriesTop = () => {
                                 </div>
                                 {isCategoryHovered(category.categoryId) && !location.pathname.endsWith("/products") &&
                                     (
-                                        <div id='hover-dropdown' className="fixed top-[173px] left-0 w-screen z-50">
+                                        <div id='hover-dropdown' className="fixed top-[190px] left-0 w-screen z-50">
                                             <div className='text-black border border-black bg-black bg-opacity-60 px-64 py-4' onMouseLeave={() => categoryHover(null)}>
                                                 {/* Dropdown menu content */}
                                                 <ListingGrid productsList={productsList} categoryId={category.categoryId} isFeatured={true} />

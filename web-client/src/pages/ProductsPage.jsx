@@ -40,7 +40,7 @@ const ProductsPage = () => {
 
     return (
         <div>
-            <TopBanner />
+            <div className="h-12 md:h-24" />
             <CategoryCards />
             <div className="w-screen mt-4 px-0 md:px-64 pt-4 pb-10 min-h-96">
                 <div className="mx-4">
