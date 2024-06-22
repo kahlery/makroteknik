@@ -1,0 +1,54 @@
+[
+    {
+        "categoryId": 0,
+        "categoryName": "Fans"
+    },
+    {
+        "categoryId": 1,
+        "categoryName": "Fan Controllers & Accessories"
+    },
+    {
+        "categoryId": 2,
+        "categoryName": "Air Handling Units"
+    },
+    {
+        "categoryId": 3,
+        "categoryName": "Spiral Ducting & Fittings"
+    },
+    {
+        "categoryId": 4,
+        "categoryName": "Fixing + Supports"
+    },
+    {
+        "categoryId": 5,
+        "categoryName": "Flexible Ducting"
+    },
+    {
+        "categoryId": 6,
+        "categoryName": "Filters & Filter Boxes"
+    },
+    {
+        "categoryId": 7,
+        "categoryName": "Dampres & Access Doors"
+    },
+    {
+        "categoryId": 8,
+        "categoryName": "Grills & Louvres"
+    },
+    {
+        "categoryId": 9,
+        "categoryName": "Flashings"
+    },
+    {
+        "categoryId": 10,
+        "categoryName": "Tapes, Sealants & Ductwrap"
+    },
+    {
+        "categoryId": 11,
+        "categoryName": "Silencers"
+    },
+    {
+        "categoryId": 12,
+        "categoryName": "Flanges"
+    }
+]

@@ -1,0 +1,730 @@
+[
+    {
+        "productId": 0,
+        "categoryId": 0,
+        "title": "Plate Mounted Axial Flow Fan",
+        "imageUrl": "https://picsum.photos/500",
+        "productCode": "0001",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 1,
+        "categoryId": 0,
+        "title": "Low Pressure Cased Axial Fans",
+        "imageUrl": "https://picsum.photos/503",
+        "productCode": "0002",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 2,
+        "categoryId": 0,
+        "title": "High Pressure Contra Rotating Cased Axial Fans",
+        "imageUrl": "https://picsum.photos/504",
+        "productCode": "0003",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 3,
+        "categoryId": 0,
+        "title": "Slimline Centrigual Circular Duct Fans",
+        "imageUrl": "https://picsum.photos/505",
+        "productCode": "0004",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 4,
+        "categoryId": 0,
+        "title": "Centrifugal Inline Fans",
+        "imageUrl": "https://picsum.photos/506",
+        "productCode": "0005",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 5,
+        "categoryId": 0,
+        "title": "CBM Low Pressure Centrifugal Fan",
+        "imageUrl": "https://picsum.photos/507",
+        "productCode": "0006",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 6,
+        "categoryId": 0,
+        "title": "Low Energy Circular Duct Fans",
+        "imageUrl": "https://picsum.photos/508",
+        "productCode": "0007",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 7,
+        "categoryId": 0,
+        "title": "Accoustic Extarct Box Fans",
+        "imageUrl": "https://picsum.photos/509",
+        "productCode": "0008",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 8,
+        "categoryId": 0,
+        "title": "High Temperature Centrifugal Box Fans ",
+        "imageUrl": "https://picsum.photos/510",
+        "productCode": "0009",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 9,
+        "categoryId": 0,
+        "title": "Accoustic Cabinet Fans",
+        "imageUrl": "https://picsum.photos/511",
+        "productCode": "0010",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 10,
+        "categoryId": 0,
+        "title": "Acoustic Axial Flow Fan Box",
+        "imageUrl": "https://picsum.photos/512",
+        "productCode": "0011",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 11,
+        "categoryId": 0,
+        "title": "Acoustic L Flow High Temperature Fan Box",
+        "imageUrl": "https://picsum.photos/513",
+        "productCode": "0012",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 12,
+        "categoryId": 0,
+        "title": "Acoustic Short Case Side Discharge Fan Box",
+        "imageUrl": "https://picsum.photos/514",
+        "productCode": "0013",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 13,
+        "categoryId": 0,
+        "title": "Axial Fans",
+        "imageUrl": "https://picsum.photos/515",
+        "productCode": "0014",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 14,
+        "categoryId": 0,
+        "title": "GBW 560/4-1 PH Giga Box Fan - HELIOS /",
+        "imageUrl": "https://picsum.photos/516",
+        "productCode": "0015",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 15,
+        "categoryId": 0,
+        "title": "GBW 500/4-1 PH Giga Box Fan - HELIOS ",
+        "imageUrl": "https://picsum.photos/517",
+        "productCode": "0016",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 16,
+        "categoryId": 0,
+        "title": "56JM/\u200b16/\u200b4/\u200b5/\u200b32/\u200b1PH LONG CASED AXIAL ",
+        "imageUrl": "https://picsum.photos/518",
+        "productCode": "0017",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 17,
+        "categoryId": 0,
+        "title": "50JM/\u200b20/\u200b4/\u200b6/\u200b20/\u200b1PH LONG CASED AXIAL FLOW EXTRACT FAN BY FLAKT WOODS",
+        "imageUrl": "https://picsum.photos/519",
+        "productCode": "0018",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 18,
+        "categoryId": 1,
+        "title": "Fan Flangees",
+        "imageUrl": "https://picsum.photos/520",
+        "productCode": "0019",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 19,
+        "categoryId": 1,
+        "title": "Mounting Feet",
+        "imageUrl": "https://picsum.photos/521",
+        "productCode": "0020",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 20,
+        "categoryId": 1,
+        "title": "KSE - Anti Vibration Mounts",
+        "imageUrl": "https://picsum.photos/522",
+        "productCode": "0021",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 21,
+        "categoryId": 1,
+        "title": "Controllers",
+        "imageUrl": "https://picsum.photos/523",
+        "productCode": "0022",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 22,
+        "categoryId": 1,
+        "title": "Strut Foot H Frame",
+        "imageUrl": "https://picsum.photos/524",
+        "productCode": "0023",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 23,
+        "categoryId": 2,
+        "title": "Electrostatic Air Cleaner",
+        "imageUrl": "https://picsum.photos/525",
+        "productCode": "0024",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 24,
+        "categoryId": 2,
+        "title": "UV Lights",
+        "imageUrl": "https://picsum.photos/526",
+        "productCode": "0025",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 25,
+        "categoryId": 3,
+        "title": "3 Meter Spiral",
+        "imageUrl": "https://picsum.photos/527",
+        "productCode": "0026",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 26,
+        "categoryId": 3,
+        "title": "90 Bends",
+        "imageUrl": "https://picsum.photos/528",
+        "productCode": "0027",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 27,
+        "categoryId": 3,
+        "title": "45 Bends",
+        "imageUrl": "https://picsum.photos/529",
+        "productCode": "0028",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 28,
+        "categoryId": 3,
+        "title": "Bird Beaks",
+        "imageUrl": "https://picsum.photos/530",
+        "productCode": "0029",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 29,
+        "categoryId": 3,
+        "title": "MAle Couplers",
+        "imageUrl": "https://picsum.photos/531",
+        "productCode": "0030",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 30,
+        "categoryId": 3,
+        "title": "Female Couplers",
+        "imageUrl": "https://picsum.photos/532",
+        "productCode": "0031",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 31,
+        "categoryId": 3,
+        "title": "Reducers",
+        "imageUrl": "https://picsum.photos/533",
+        "productCode": "0032",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 32,
+        "categoryId": 3,
+        "title": "Pressed Saddles",
+        "imageUrl": "https://picsum.photos/534",
+        "productCode": "0033",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 33,
+        "categoryId": 3,
+        "title": "Flange Spigots",
+        "imageUrl": "https://picsum.photos/535",
+        "productCode": "0034",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 34,
+        "categoryId": 3,
+        "title": "Flat Shoe",
+        "imageUrl": "https://picsum.photos/536",
+        "productCode": "0035",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 35,
+        "categoryId": 3,
+        "title": "Equal Tee Pieces",
+        "imageUrl": "https://picsum.photos/537",
+        "productCode": "0036",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 36,
+        "categoryId": 3,
+        "title": "Dampers - Single Blade",
+        "imageUrl": "https://picsum.photos/538",
+        "productCode": "0037",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 37,
+        "categoryId": 3,
+        "title": "Weather Cowls",
+        "imageUrl": "https://picsum.photos/539",
+        "productCode": "0038",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 38,
+        "categoryId": 3,
+        "title": "Curved Boots",
+        "imageUrl": "https://picsum.photos/540",
+        "productCode": "0039",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 39,
+        "categoryId": 3,
+        "title": "Y Bends",
+        "imageUrl": "https://picsum.photos/541",
+        "productCode": "0040",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 40,
+        "categoryId": 3,
+        "title": "Non-return Dampers",
+        "imageUrl": "https://picsum.photos/542",
+        "productCode": "0041",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 41,
+        "categoryId": 3,
+        "title": "Mesh End Cap",
+        "imageUrl": "https://picsum.photos/543",
+        "productCode": "0042",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 42,
+        "categoryId": 3,
+        "title": "End Cap",
+        "imageUrl": "https://picsum.photos/544",
+        "productCode": "0043",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 43,
+        "categoryId": 3,
+        "title": "Jet Cowls",
+        "imageUrl": "https://picsum.photos/545",
+        "productCode": "0044",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 44,
+        "categoryId": 4,
+        "title": "Suspension Ring",
+        "imageUrl": "https://picsum.photos/546",
+        "productCode": "0045",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 45,
+        "categoryId": 4,
+        "title": "Split Ring",
+        "imageUrl": "https://picsum.photos/547",
+        "productCode": "0046",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 46,
+        "categoryId": 4,
+        "title": "Base Plate",
+        "imageUrl": "https://picsum.photos/548",
+        "productCode": "0047",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 47,
+        "categoryId": 4,
+        "title": "Rivets",
+        "imageUrl": "https://picsum.photos/549",
+        "productCode": "0048",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 48,
+        "categoryId": 4,
+        "title": "Square Head - Self Tapping Screws",
+        "imageUrl": "https://picsum.photos/550",
+        "productCode": "0049",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 49,
+        "categoryId": 4,
+        "title": "Wood Screws",
+        "imageUrl": "https://picsum.photos/551",
+        "productCode": "0050",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 50,
+        "categoryId": 4,
+        "title": "Anchor",
+        "imageUrl": "https://picsum.photos/552",
+        "productCode": "0051",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 51,
+        "categoryId": 4,
+        "title": "Channel Nuts",
+        "imageUrl": "https://picsum.photos/553",
+        "productCode": "0052",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 52,
+        "categoryId": 4,
+        "title": "Wedge Nut",
+        "imageUrl": "https://picsum.photos/554",
+        "productCode": "0053",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 53,
+        "categoryId": 4,
+        "title": "Clamps",
+        "imageUrl": "https://picsum.photos/555",
+        "productCode": "0054",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 54,
+        "categoryId": 4,
+        "title": "Washer, Bolts & Nuts",
+        "imageUrl": "https://picsum.photos/556",
+        "productCode": "0055",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 55,
+        "categoryId": 4,
+        "title": "Channel End Caps",
+        "imageUrl": "https://picsum.photos/557",
+        "productCode": "0056",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 56,
+        "categoryId": 4,
+        "title": "Platewashers",
+        "imageUrl": "https://picsum.photos/558",
+        "productCode": "0057",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 57,
+        "categoryId": 4,
+        "title": "Slotted Channels",
+        "imageUrl": "https://picsum.photos/559",
+        "productCode": "0058",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 58,
+        "categoryId": 4,
+        "title": "Cantilever Arms",
+        "imageUrl": "https://picsum.photos/560",
+        "productCode": "0059",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 59,
+        "categoryId": 4,
+        "title": "3M Rods",
+        "imageUrl": "https://picsum.photos/561",
+        "productCode": "0060",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 60,
+        "categoryId": 4,
+        "title": "Cutting Discs",
+        "imageUrl": "https://picsum.photos/562",
+        "productCode": "0061",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 61,
+        "categoryId": 5,
+        "title": "Combi Flexible Ducting",
+        "imageUrl": "https://picsum.photos/563",
+        "productCode": "0062",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 62,
+        "categoryId": 5,
+        "title": "Insulated Flexible Ducting",
+        "imageUrl": "https://picsum.photos/564",
+        "productCode": "0063",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 63,
+        "categoryId": 5,
+        "title": "Non-Insulated Flexible Ducting",
+        "imageUrl": "https://picsum.photos/565",
+        "productCode": "0064",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 64,
+        "categoryId": 6,
+        "title": "Pleated Filters",
+        "imageUrl": "https://picsum.photos/566",
+        "productCode": "0065",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 65,
+        "categoryId": 6,
+        "title": "Glass Fibre Filter",
+        "imageUrl": "https://picsum.photos/567",
+        "productCode": "0066",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 66,
+        "categoryId": 6,
+        "title": "Filter Boxes",
+        "imageUrl": "https://picsum.photos/568",
+        "productCode": "0067",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 67,
+        "categoryId": 6,
+        "title": "Bag filter",
+        "imageUrl": "https://picsum.photos/569",
+        "productCode": "0068",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 68,
+        "categoryId": 6,
+        "title": "Baffle Filters",
+        "imageUrl": "https://picsum.photos/570",
+        "productCode": "0069",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 69,
+        "categoryId": 6,
+        "title": "Mesh Filter",
+        "imageUrl": "https://picsum.photos/571",
+        "productCode": "0070",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 70,
+        "categoryId": 6,
+        "title": "Carbon Filter",
+        "imageUrl": "https://picsum.photos/572",
+        "productCode": "0071",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 71,
+        "categoryId": 7,
+        "title": "Fire Dampers",
+        "imageUrl": "https://picsum.photos/573",
+        "productCode": "0072",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 72,
+        "categoryId": 7,
+        "title": "Squre Access Doors",
+        "imageUrl": "https://picsum.photos/574",
+        "productCode": "0073",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 73,
+        "categoryId": 7,
+        "title": "Curved Access Doors",
+        "imageUrl": "https://picsum.photos/575",
+        "productCode": "0074",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 74,
+        "categoryId": 7,
+        "title": "Rectangular Access Doors",
+        "imageUrl": "https://picsum.photos/576",
+        "productCode": "0075",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 75,
+        "categoryId": 8,
+        "title": "Egg Crate Grilles",
+        "imageUrl": "https://picsum.photos/577",
+        "productCode": "0076",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 76,
+        "categoryId": 8,
+        "title": "weather louvres",
+        "imageUrl": "https://picsum.photos/578",
+        "productCode": "0077",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 77,
+        "categoryId": 8,
+        "title": "Diffusers",
+        "imageUrl": "https://picsum.photos/579",
+        "productCode": "0078",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 78,
+        "categoryId": 8,
+        "title": "Supply Valves",
+        "imageUrl": "https://picsum.photos/580",
+        "productCode": "0079",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 79,
+        "categoryId": 8,
+        "title": "Extract Valves",
+        "imageUrl": "https://picsum.photos/581",
+        "productCode": "0080",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 80,
+        "categoryId": 8,
+        "title": "Round Ceiling Diffusers",
+        "imageUrl": "https://picsum.photos/582",
+        "productCode": "0081",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 81,
+        "categoryId": 8,
+        "title": "Circular Weather Louvres",
+        "imageUrl": "https://picsum.photos/583",
+        "productCode": "0082",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 82,
+        "categoryId": 8,
+        "title": "Volume Control Grils",
+        "imageUrl": "https://picsum.photos/584",
+        "productCode": "0083",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 83,
+        "categoryId": 9,
+        "title": "Rubber Roof Flashing - Black",
+        "imageUrl": "https://picsum.photos/585",
+        "productCode": "0084",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 84,
+        "categoryId": 10,
+        "title": "Aluminium Foil Tapes",
+        "imageUrl": "https://picsum.photos/586",
+        "productCode": "0085",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 85,
+        "categoryId": 10,
+        "title": "Doby Gaskets",
+        "imageUrl": "https://picsum.photos/587",
+        "productCode": "0086",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 86,
+        "categoryId": 10,
+        "title": "Bostic Sealant",
+        "imageUrl": "https://picsum.photos/588",
+        "productCode": "0087",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 87,
+        "categoryId": 10,
+        "title": "Makro Teknik Sealant",
+        "imageUrl": "https://picsum.photos/589",
+        "productCode": "0088",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 88,
+        "categoryId": 10,
+        "title": "Ode Starflex Glasswool",
+        "imageUrl": "https://picsum.photos/590",
+        "productCode": "0089",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 89,
+        "categoryId": 11,
+        "title": "Silencers",
+        "imageUrl": "https://picsum.photos/591",
+        "productCode": "0090",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    },
+    {
+        "productId": 90,
+        "categoryId": 12,
+        "title": "Flanges",
+        "imageUrl": "https://picsum.photos/592",
+        "productCode": "0091",
+        "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
+    }
+]
