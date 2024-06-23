@@ -91,25 +91,26 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
                                 <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
                     hover:scale-110 hover:cursor-pointer">
                                     <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
-                                    <button className="bg-white text-black font-extrabold flex p-[6px] border rounded-full absolute right-0"
-                                        onClick={() => {
-                                            addProducts(product.productId);
-                                            console.log('added product:', product.productId);
-                                        }}
-                                    >
-                                        <ShoppingCart className="text-black" sx={{ fontSize: '1.2rem' }} />
-                                    </button>
                                     <div className="p-2 md:p-4 flex flex-col h-full">
                                         <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
-                                        <p className="font-extrabold text-xs flex justify-between">
-                                            £ 33.00
-                                        </p>
                                         <p className="text-xs text-gray-500 mb-2">{product.code}</p>
                                         <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
                                         <div className="h-2" />
                                         <div className="flex mt-auto items-center align-bottom">
-
                                         </div>
+                                        <p className="font-extrabold text-xs flex justify-between">
+                                            <p className="text-secondary pt-[5px]">
+                                                £ 33.00
+                                            </p>
+                                            <button className="bg-white text-black font-extrabold flex px-8 py-1 border-secondary border"
+                                                onClick={() => {
+                                                    addProducts(product.productId);
+                                                    console.log('added product:', product.productId);
+                                                }}
+                                            >
+                                                <ShoppingCart className="text-black" sx={{ fontSize: '1rem' }} />
+                                            </button>
+                                        </p>
                                     </div>
                                 </div>
                             ))}
