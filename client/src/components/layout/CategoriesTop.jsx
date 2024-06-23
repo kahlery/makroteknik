@@ -77,10 +77,13 @@ const CategoriesTop = () => {
     if (!location.pathname.endsWith("/products")) {
         return (
             <>
-                <Link to="/products" className='bg-secondary border-b fixed top-[55px] sm:top-[105px] z-50 w-screen text-[12px]'
+                <div
+                    className='bg-slate-100 border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-50 w-screen text-[10.2px] shadow-lg'
                     onMouseLeave={handleMouseLeave}
                 >
-                    <div className='md:px-64 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
+                    <div
+                        className='md:px-16 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center 
+                        md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
                         {categories.map((category) => (
                             <div key={category.categoryId} className='static z-50'>
                                 <div
@@ -93,8 +96,8 @@ const CategoriesTop = () => {
                                             console.log("removeCategory: ", category.categoryName);
                                         }
                                     }}
-                                    className={'hover:scale-105 duration-500 text-white font-extrabold px-3 py-[5px] text-nowrap rounded-md shadow-md border-[1px] tracking-wide border-sky-700 '
-                                        + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-secondary' : '')}
+                                    className={'hover:scale-105 duration-500 bg-white text-black font-extrabold px-3 py-[5px] text-nowrap border-[1px] border-gray-400 tracking-wide  '
+                                        + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-black' : '')}
                                     onMouseEnter={() => handleMouseEnter(category.categoryId)}
                                     onMouseLeave={() => {
                                         if (hoverTimeout) {
@@ -123,11 +126,10 @@ const CategoriesTop = () => {
                             </div>
                         ))}
                     </div>
-                </Link>
-                <div className='block fixed top-[80px] sm:top-48 md:top-[130px] right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
-                    z-50 text-secondary p-2 animate-pulse pointer-events-none'>
-                    <span className='md:hidden'>Swipe to see more / </span>
-                    {selectedCategories.length} selected
+                </div>
+                <div className='block fixed top-[80px] sm:top-48 md:hidden right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
+                    z-50 text-red-700 p-2 animate-pulse pointer-events-none'>
+                    <span className='md:hidden'>Swipe to see more</span>
                     <Swipe className="mx-1" />
                 </div>
             </>

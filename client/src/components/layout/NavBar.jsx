@@ -19,15 +19,15 @@ const NavBar = () => {
     }, []);
 
     return (
-        <nav className="bg-secondary md:bg-white flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
-        justify-between gap-4 w-full fixed bottom-0 sm:top-[50px] z-50 text-center border-b border-t md:border-t-0">
-            <div className="flex items-center justify-center md:mx-0 text-secondary">
+        <nav className="bg-white md:bg-white flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
+        justify-between gap-4 w-full fixed bottom-0 sm:top-[40px] z-50 text-center border-b border-t md:border-t-0">
+            <div className="hidden md:flex items-center justify-center md:mx-0 text-secondary">
                 <a href="https://www.makroteknik.com.tr" target="_blank" rel="noreferrer">
                     <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mt-1 h-[45px]" alt="logo" />
                 </a>
             </div>
             <div>
-                <h1 className="text-xl font-bold text-secondary">MAKRO TECH</h1>
+                {/* <h1 className="text-xl hidden md:block font-bold text-secondary">MAKRO TECH</h1> */}
             </div>
             <div className="flex items-center justify-center md:mx-0 text-secondary">
                 <ul className="flex space-x-6 lg:space-x-8">
@@ -42,7 +42,7 @@ const NavBar = () => {
                                 sx={{ fontSize: '1.3rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }}
                             />
                             <p
-                                className='text-[0.8rem]'
+                                className='text-[0.7rem]'
                             >
                                 Home
                             </p>
@@ -59,7 +59,7 @@ const NavBar = () => {
                                 sx={{ fontSize: '1.3rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }}
                             />
                             <p
-                                className='text-[0.8rem]'
+                                className='text-[0.7rem]'
                             >
                                 About
                             </p>
@@ -81,7 +81,7 @@ const NavBar = () => {
                                 sx={{ fontSize: '1.3rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }}
                             />
                             <p
-                                className='text-[0.8rem]'
+                                className='text-[0.7rem]'
                             >
                                 Products
                             </p>
@@ -98,7 +98,7 @@ const NavBar = () => {
                                 sx={{ fontSize: '1.3rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }}
                             />
                             <p
-                                className='text-[0.8rem]'
+                                className='text-[0.7rem]'
                             >
                                 Cart
                             </p>
@@ -111,7 +111,7 @@ const NavBar = () => {
                     <li>
                         <Link to="/products" className="flex-row items-center hover:text-secondary" onClick={() => resetCategories()}>
                             <FilterAlt sx={{ fontSize: '1.3rem', '@media (max-width: 1024px)': { fontSize: '1.2rem' } }} />
-                            <p className='text-[0.8rem] text-black'>
+                            <p className='text-[0.7rem] text-black'>
                                 Filter
                             </p>
                         </Link>

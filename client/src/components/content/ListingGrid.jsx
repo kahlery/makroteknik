@@ -90,7 +90,8 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
                             {categoryProducts.map(product => (
                                 <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
                     hover:scale-110 hover:cursor-pointer">
-                                    <button className="text-black absolute right-0 top-3 font-extrabold rounded-l-xl shadow-md backdrop-blur-sm py-1 px-3"
+                                    <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
+                                    <button className="bg-white text-black font-extrabold flex p-[6px] border rounded-full absolute right-0"
                                         onClick={() => {
                                             addProducts(product.productId);
                                             console.log('added product:', product.productId);
@@ -98,12 +99,11 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
                                     >
                                         <ShoppingCart className="text-black" sx={{ fontSize: '1.2rem' }} />
                                     </button>
-                                    <div className="text-black absolute left-0 top-3 font-extrabold text-xs rounded-r-xl shadow-md backdrop-blur-sm py-1 px-3">
-                                        £ 33.00
-                                    </div>
-                                    <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                                     <div className="p-2 md:p-4 flex flex-col h-full">
                                         <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
+                                        <p className="font-extrabold text-xs flex justify-between">
+                                            £ 33.00
+                                        </p>
                                         <p className="text-xs text-gray-500 mb-2">{product.code}</p>
                                         <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
                                         <div className="h-2" />
