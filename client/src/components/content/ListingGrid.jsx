@@ -4,10 +4,13 @@ import { useCartStore } from '../../stores/CartStore';
 
 const categoriesListUrl = process.env.PUBLIC_URL + '/data/categories.json';
 
-const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) => {
+const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isHorizontalNorVertical }) => {
+
+    // states
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
 
+    // stores
     const addProducts = useCartStore((state) => state.addProducts);
 
     useEffect(() => {
@@ -26,6 +29,7 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
             .catch(error => console.error('Error loading products:', error));
     }, []);
 
+    // cart products
     if (cartProductIds) {
         return (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -68,9 +72,10 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
         );
     }
 
+    // normal products
     if (!isFeatured) {
         return (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className={`${isHorizontalNorVertical ? 'flex flex-nowrap' : 'grid grid-cols-2 md:grid-cols-4 gap-4'} gap-4`}>
                 {
                     !productsList.length &&
                     <p className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
@@ -116,11 +121,12 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
                             ))}
                         </React.Fragment>
                     );
-                })
-                }
-            </div >
+                })}
+            </div>
         );
     }
+
+    // featured products
     else {
         let featuredProducts;
 
@@ -133,13 +139,13 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
         }
 
         return (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className={`${isHorizontalNorVertical ? 'flex flex-nowrap' : 'grid grid-cols-2 md:grid-cols-4 gap-4'} gap-4`}>
                 {categoryId == undefined && <h2 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                     Featured Products:
                 </h2>}
                 {featuredProducts.map(product => (
-                    <div key={product.productId} className="bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
-                                hover:scale-110 hover:cursor-pointer">
+                    <div key={product.productId} className={`bg-white relative flex flex-col text-sm duration-500 h-90 border shadow-md 
+                                hover:scale-110 hover:cursor-pointer ${isHorizontalNorVertical ? 'w-48' : ''}`}>
                         <img src={process.env.PUBLIC_URL + product.imageUrl} alt={product.title} className="h-36 object-scale-down" />
                         <div className="p-2 md:p-4 flex flex-col h-full">
                             <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
@@ -152,7 +158,7 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds }) =
                                 <p className="text-secondary pt-[5px]">
                                     £ 33.00
                                 </p>
-                                <button className="bg-white text-black font-extrabold flex px-8 py-1 border-secondary border"
+                                <button className="bg-white text-black font-extrabold flex px-4 rounded-md py-1 border-secondary border"
                                     onClick={() => {
                                         addProducts(product.productId);
                                         console.log('added product:', product.productId);

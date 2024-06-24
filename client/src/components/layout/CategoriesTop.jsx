@@ -46,7 +46,7 @@ const CategoriesTop = () => {
             let opacity = 0;
             const interval = setInterval(() => {
                 if (opacity < 1) {
-                    opacity += 0.04;
+                    opacity += 0.06;
                     hoverDropdown.style.opacity = opacity;
                 } else {
                     hoverDropdown.style.opacity = 1;
@@ -78,7 +78,7 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className='bg-slate-100 border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-50 w-screen text-[10.2px] shadow-lg'
+                    className='bg-secondary border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-50 w-screen text-[10.2px] shadow-lg'
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
@@ -108,21 +108,23 @@ const CategoriesTop = () => {
                                 >
                                     {category.categoryName}
                                 </div>
+
+                                {/* Hover dropdown */}
                                 {isCategoryHovered(category.categoryId) && !location.pathname.endsWith("/products") &&
                                     (
-                                        <div id='hover-dropdown' className="fixed top-[190px] left-0 w-screen z-50">
+                                        <div id='hover-dropdown' className="fixed top-[90px] md:top-[175px] left-0 w-screen h-fit z-50 overflow-x-scroll">
                                             <div
-                                                className='text-black border border-black bg-black bg-opacity-60 px-64 py-4'
+                                                className='text-black text-left border w-fit min-w-full border-black bg-black bg-opacity-80 px-4 md:px-4 py-4'
                                             >
-
                                                 {/* Dropdown menu content */}
-                                                <ListingGrid productsList={productsList} categoryId={category.categoryId} isFeatured={true} />
-
+                                                <ListingGrid productsList={productsList} categoryId={category.categoryId} isFeatured={true} isHorizontalNorVertical={true} />
                                                 <div />
 
                                             </div>
                                         </div>
-                                    )}
+                                    )
+                                }
+
                             </div>
                         ))}
                     </div>

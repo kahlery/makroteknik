@@ -19,15 +19,15 @@ const NavBar = () => {
     }, []);
 
     return (
-        <nav className="bg-white md:bg-white flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
-        justify-center w-full fixed bottom-0 sm:top-[40px] z-50 text-center border-b border-t md:border-t-0">
+        <nav className="bg-white bg-opacity-90 md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
+        justify-center md:justify-between w-full fixed bottom-0 sm:top-[40px] z-50 text-center md:border-b border-t md:border-t-0">
             <div className="hidden md:flex items-center justify-center md:mx-0 text-secondary">
                 <a href="https://www.makroteknik.com.tr" target="_blank" rel="noreferrer">
                     <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mt-1 h-[45px]" alt="logo" />
                 </a>
             </div>
-            <div className="flex items-center justify-center text-secondary">
-                <ul className="flex space-x-10 lg:space-x-8">
+            <div className="w-full flex text-secondary">
+                <ul className="flex w-full justify-evenly md:justify-end md:space-x-6">
                     <li>
                         <Link
                             to=""
