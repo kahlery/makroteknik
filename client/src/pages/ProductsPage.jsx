@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import ListingGrid from "../components/content/ListingGrid";
 import FilterSection from "../components/content/FilterSection";
-import { useCategoriesFilterStore } from '../stores/CategoriesFilterStore';
+import { useCategoryStore } from '../stores/CategoryStore';
 import TopBanner from "../components/content/TopBanner";
 import CategoryCards from "../components/content/CategoryCards";
 import CategoryQuickAccesses from "../components/content/CategoryQuickAccesses";
 
 const ProductsPage = () => {
+    // states
     const [productsList, setProductsList] = useState([]);
     const [showScrollToTop, setShowScrollToTop] = useState(false);
-    const selectedCategories = useCategoriesFilterStore((state) => state.selectedCategories);
+
+    // stores
+    const selectedCategories = useCategoryStore((state) => state.selectedCategories);
+    const fetchCategories = useCategoryStore((state) => state.fetchCategories);
 
     useEffect(() => {
         fetch(process.env.PUBLIC_URL + '/data/products.json')
@@ -36,7 +40,7 @@ const ProductsPage = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const filteredProductsList = productsList.filter(product => selectedCategories.includes(product.categoryId));
+    const filteredProductsList = productsList
 
     return (
         <div>
@@ -52,7 +56,7 @@ const ProductsPage = () => {
             {showScrollToTop && (
                 <button
                     className="fixed bottom-20 md:bottom-8 right-6 md:right-64 p-2 bg-secondary text-white
-                     text-xs shadow-lg hover:bg-black hover:scale-125 transition-all duration-1000 focus:outline-none"
+                     text-xs shadow-lg hover:bg-black hover:scale-125 transition-all duration-1000 focus:outline-none z-40"
                     onClick={handleScrollToTop}
                 >
                     Scroll to Top

@@ -1,7 +1,15 @@
 import { create } from 'zustand';
 
-export const useCategoriesFilterStore = create((set) => ({
+export const useCategoryStore = create((set) => ({
+    // fetch from /data/products.json at the start
     selectedCategories: [],
+
+    fetchCategories: async () => {
+        const response = await fetch('/data/categories.json');
+        const categories = await response.json();
+        console.log('categories:', categories);
+        set({ selectedCategories: categories });
+    },
 
     addCategories: (category) => set((state) => {
         if (!state.selectedCategories.includes(category)) {

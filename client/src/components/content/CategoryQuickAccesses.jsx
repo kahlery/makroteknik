@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Close } from '@mui/icons-material';
-import { useCategoriesFilterStore } from '../../stores/CategoriesFilterStore';
+import { useCategoryStore } from '../../stores/CategoryStore';
 
 const CategoryQuickAccesses = () => {
     const [categories, setCategories] = useState([]);
-    const selectedCategories = useCategoriesFilterStore((state) => state.selectedCategories);
-    const removeCategories = useCategoriesFilterStore((state) => state.removeCategories);
+    const selectedCategories = useCategoryStore((state) => state.selectedCategories);
+    const removeCategories = useCategoryStore((state) => state.removeCategories);
 
     useEffect(() => {
         fetch('/data/categories.json')

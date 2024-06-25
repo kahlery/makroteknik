@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Swipe } from '@mui/icons-material';
-import { useCategoriesFilterStore } from '../../stores/CategoriesFilterStore';
+import { useCategoryStore } from '../../stores/CategoryStore';
 import { Link, useLocation } from "react-router-dom";
 import ListingGrid from '../content/ListingGrid';
 
@@ -15,9 +15,9 @@ const CategoriesTop = () => {
     const [hoverTimeout, setHoverTimeout] = useState(null);
 
     // stores
-    const selectedCategories = useCategoriesFilterStore((state) => state.selectedCategories);
-    const addCategories = useCategoriesFilterStore((state) => state.addCategories);
-    const removeCategories = useCategoriesFilterStore((state) => state.removeCategories);
+    const selectedCategories = useCategoryStore((state) => state.selectedCategories);
+    const addCategories = useCategoryStore((state) => state.addCategories);
+    const removeCategories = useCategoryStore((state) => state.removeCategories);
 
     // hooks
     const location = useLocation();
@@ -78,14 +78,14 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className='bg-secondary border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-50 w-screen text-[10.2px] shadow-lg'
+                    className='bg-secondary border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-40 w-screen text-[10.2px] shadow-lg'
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
                         className='md:px-16 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center 
                         md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll'>
                         {categories.map((category) => (
-                            <div key={category.categoryId} className='static z-50'>
+                            <div key={category.categoryId} className='static z-40'>
                                 <div
                                     onClick={() => {
                                         if (!selectedCategories.includes(category.categoryId)) {
@@ -112,7 +112,7 @@ const CategoriesTop = () => {
                                 {/* Hover dropdown */}
                                 {isCategoryHovered(category.categoryId) && !location.pathname.endsWith("/products") &&
                                     (
-                                        <div id='hover-dropdown' className="fixed top-[90px] md:top-[175px] left-0 w-screen h-fit z-50 overflow-x-scroll">
+                                        <div id='hover-dropdown' className="fixed top-[90px] md:top-[175px] left-0 w-screen h-fit z-40 overflow-x-scroll">
                                             <div
                                                 className='text-black text-left border w-fit min-w-full border-black bg-black bg-opacity-80 px-4 md:px-4 py-4'
                                             >
@@ -130,7 +130,7 @@ const CategoriesTop = () => {
                     </div>
                 </div>
                 <div className='block fixed top-[80px] sm:top-48 md:hidden right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
-                    z-50 text-red-700 p-2 animate-pulse pointer-events-none'>
+                    z-40 text-red-700 p-2 animate-pulse pointer-events-none'>
                     <span className='md:hidden'>Swipe to see more</span>
                     <Swipe className="mx-1" />
                 </div>

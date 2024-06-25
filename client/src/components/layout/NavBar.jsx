@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Home, Groups, PrecisionManufacturing, ShoppingCart, FilterAlt } from '@mui/icons-material';
 import { Link } from "react-router-dom";
-import { useCategoriesFilterStore } from '../../stores/CategoriesFilterStore';
+import { useCategoryStore } from '../../stores/CategoryStore';
 
 const NavBar = () => {
 
@@ -9,8 +9,8 @@ const NavBar = () => {
     const [categories, setCategories] = useState([]);
 
     // stores
-    const resetCategories = useCategoriesFilterStore((state) => state.resetCategories);
-    const addCategories = useCategoriesFilterStore((state) => state.addCategories);
+    const resetCategories = useCategoryStore((state) => state.resetCategories);
+    const addCategories = useCategoryStore((state) => state.addCategories);
 
     useEffect(() => {
         fetch('/data/categories.json')
@@ -19,8 +19,8 @@ const NavBar = () => {
     }, []);
 
     return (
-        <nav className="bg-white bg-opacity-90 md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
-        justify-center md:justify-between w-full fixed bottom-0 sm:top-[40px] z-50 text-center md:border-b border-t md:border-t-0">
+        <nav className="bg-white md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
+        justify-center md:justify-between w-full fixed bottom-0 sm:top-[40px] z-40 text-center md:border-b border-t md:border-t-0">
             <div className="hidden md:flex items-center justify-center md:mx-0 text-secondary">
                 <a href="https://www.makroteknik.com.tr" target="_blank" rel="noreferrer">
                     <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mt-1 h-[45px]" alt="logo" />

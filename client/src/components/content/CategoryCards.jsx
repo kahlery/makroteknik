@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useCategoriesFilterStore } from '../../stores/CategoriesFilterStore';
+import { useCategoryStore } from '../../stores/CategoryStore';
 
 const CategoryCards = () => {
     const [categories, setCategories] = useState([]);
