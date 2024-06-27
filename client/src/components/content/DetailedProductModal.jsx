@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Close } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
 
 const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, addProducts }) => {
+
     return (
         <div
             className={`fixed top-0 left-0 w-screen h-screen bg-black backdrop-blur-sm bg-opacity-80 z-50
@@ -31,33 +32,37 @@ const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, ad
                             <Close />
                         </IconButton>
                     </div>
-                    <div className="flex flex-col md:flex-row items-center h-full bg-blue-500">
+                    <div className="flex flex-col md:flex-row items-center h-full">
                         <img
                             src={process.env.PUBLIC_URL + selectedProduct.imageUrl}
                             alt={selectedProduct.title}
-                            className="md:w-1/2 object-cover rounded-md mr-0 md:mr-4 mb-4 md:my-0"
+                            className="md:w-1/2 object-cover rounded-md mr-0 mb-4 md:my-0 shadow-lg"
                         />
-                        <div className="flex flex-col md:w-1/2 justify-between bg-red-500">
-                            <h2 className="text-2xl text-black font-bold mb-2">{selectedProduct.title}</h2>
-                            <p className="text-sm text-gray-500 mb-1">{selectedProduct.code}</p>
-                            <p className="text-sm text-gray-500 mb-4">{selectedProduct.description}</p>
-                            <div className="font-extrabold text-xl mb-2 text-black">£ 33.00</div>
-                            <button
-                                className="bg-black text-white font-bold px-4 py-2 rounded-md w-full shadow-lg"
-                                onClick={() => {
-                                    addProducts(selectedProduct.productId);
-                                    console.log('added product:', selectedProduct.productId);
-                                }}
-                            >
-                                <ShoppingCart className="text-white mr-2" sx={{ fontSize: '1rem' }} />
-                                Add to Cart
-                            </button>
-                        </div>
+                        {renderProductDetails()}
                     </div>
                 </div>
             )}
         </div>
     );
+
+    function renderProductDetails() {
+        return <div className="flex flex-col md:w-1/2 justify-between h-full md:ml-8 md:mr-4 pb-6">
+            <h2 className="text-2xl text-black font-bold mb-2">{selectedProduct.title}</h2>
+            <p className="text-sm text-gray-500 mb-1">{selectedProduct.code}</p>
+            <p className="text-sm text-gray-500 mb-4">{selectedProduct.description}</p>
+            <div className="font-extrabold text-xl mb-4 text-black">£ 33.00</div>
+            <button
+                className="bg-black text-white font-bold px-4 py-2 rounded-md w-full shadow-lg"
+                onClick={() => {
+                    addProducts(selectedProduct.productId);
+                    console.log('added product:', selectedProduct.productId);
+                }}
+            >
+                <ShoppingCart className="text-white mr-2" sx={{ fontSize: '1rem' }} />
+                Add to Cart
+            </button>
+        </div>;
+    }
 };
 
 export default DetailedProductModal;
