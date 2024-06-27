@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Home, Groups, PrecisionManufacturing, ShoppingCart, FilterAlt } from '@mui/icons-material';
+import { ShoppingCart } from '@mui/icons-material';
+import { useCartStore } from '../../stores/CartStore';
 
-const ProductCard = ({ product, isHorizontalNorVertical, addProducts, setSelectedProduct, setIsModalOpen }) => {
+const ProductCard = ({ product, isHorizontalNorVertical, setSelectedProduct, setIsModalOpen }) => {
+    // stores
+    const addProducts = useCartStore((state) => state.addProducts);
+
     return (
         <div
             key={product.productId}
@@ -28,13 +32,14 @@ const ProductCard = ({ product, isHorizontalNorVertical, addProducts, setSelecte
                 <div className="flex mt-auto items-center align-bottom">
                 </div>
                 <div className="font-extrabold text-xs flex">
-                    <p className="text-black pt-[5px]">£ 33.00</p>
+                    <p className="text-black pt-[1.5px]">£ 33.00</p>
                 </div>
                 <button
-                    className="bg-black text-white font-extrabold flex px-2 py-1 mt-2 border-black border"
+                    className="bg-black text-white font-extrabold flex px-2 py-1 mt-2 border-black border justify-center rounded-md w-full shadow-lg"
                     onClick={
                         (e) => {
                             e.stopPropagation();
+                            // add product to cart
                             addProducts(product.productId);
                             console.log('added product:', product.productId);
                         }

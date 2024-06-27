@@ -78,7 +78,7 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className='bg-secondary border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-40 w-screen text-[10.2px] shadow-lg'
+                    className='bg-gray-300 border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-40 w-screen text-[10.2px] shadow-lg'
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
@@ -96,7 +96,7 @@ const CategoriesTop = () => {
                                             console.log("removeCategory: ", category.categoryName);
                                         }
                                     }}
-                                    className={'hover:scale-105 duration-500 bg-white text-black font-extrabold px-3 py-[5px] text-nowrap border-[1px] border-gray-400 tracking-wide  '
+                                    className={'hover:scale-105 duration-500 bg-white text-black font-extrabold shadow-lg px-3 py-[5px] text-nowrap border-[1px] border-gray-400 rounded-md tracking-wide  '
                                         + (selectedCategories.includes(category.categoryId) ? 'border-b-2 border-black' : '')}
                                     onMouseEnter={() => handleMouseEnter(category.categoryId)}
                                     onMouseLeave={() => {

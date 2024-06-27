@@ -92,9 +92,11 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isH
                     Featured Products:
                 </h2>}
             {featuredProducts.map(product => (
-                <ProductCard key={product.productId} product={product}
+                <ProductCard
+                    key={product.productId} product={product}
                     isHorizontalNorVertical={isHorizontalNorVertical} addProducts={addProducts}
-                    setSelectedProduct={setSelectedProduct} setIsModalOpen={setIsModalOpen} />
+                    setSelectedProduct={setSelectedProduct} setIsModalOpen={setIsModalOpen}
+                />
             ))}
         </div>;
     }
@@ -116,9 +118,11 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isH
                             </h2>
                         )}
                         {categoryProducts.map(product => (
-                            <ProductCard key={product.productId} product={product}
+                            <ProductCard
+                                key={product.productId} product={product}
                                 isHorizontalNorVertical={isHorizontalNorVertical} addProducts={addProducts}
-                                setSelectedProduct={setSelectedProduct} setIsModalOpen={setIsModalOpen} />
+                                setSelectedProduct={setSelectedProduct} setIsModalOpen={setIsModalOpen}
+                            />
                         ))}
                     </React.Fragment>
                 );
@@ -134,7 +138,11 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isH
                 </p>}
             {cartProductIds.map(productId => {
                 const product = products.find(product => product.productId === productId);
-                return <ProductCard key={product.productId} product={product} isHorizontalNorVertical={isHorizontalNorVertical} addProducts={addProducts} />;
+                return <ProductCard
+                    key={product.productId} product={product}
+                    isHorizontalNorVertical={isHorizontalNorVertical}
+                    addProducts={addProducts}
+                />;
             })}
         </div>;
     }

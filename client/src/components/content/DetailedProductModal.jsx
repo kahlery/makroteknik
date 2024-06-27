@@ -17,10 +17,10 @@ const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, ad
         >
             {isModalOpen && (
                 <div
-                    className="relative bg-white md:w-4/6 h-fit mt-16 md:mt-0 max-h-[560px] md:max-h-none p-4 m-4 md:m-0 rounded-md shadow-lg overflow-y-scroll"
+                    className="relative bg-white md:w-4/6 h-[85%] md:h-fit mt-16 md:mt-0 md:max-h-none p-4 m-4 md:m-0 rounded-md shadow-lg overflow-y-scroll"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <div className="absolute right-6 top-6 flex rounded-full bg-slate-50 bg-opacity-50">
+                    <div className="md:absolute fixed right-10 top-[15%] md:top-4 flex rounded-full bg-slate-50 bg-opacity-50">
                         <h2 className="text-2xl text-black font-bold mb-2 mt-2 ml-auto"></h2>
                         <IconButton
                             className="absolute ml-auto text-black bg-red-500"
@@ -31,19 +31,19 @@ const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, ad
                             <Close />
                         </IconButton>
                     </div>
-                    <div className="flex flex-col md:flex-row items-center">
+                    <div className="flex flex-col md:flex-row items-center h-full bg-blue-500">
                         <img
                             src={process.env.PUBLIC_URL + selectedProduct.imageUrl}
                             alt={selectedProduct.title}
-                            className="md:w-1/2 object-cover rounded-md mr-0 md:mr-8 mb-4 md:my-0"
+                            className="md:w-1/2 object-cover rounded-md mr-0 md:mr-4 mb-4 md:my-0"
                         />
-                        <div>
+                        <div className="flex flex-col md:w-1/2 justify-between bg-red-500">
                             <h2 className="text-2xl text-black font-bold mb-2">{selectedProduct.title}</h2>
                             <p className="text-sm text-gray-500 mb-1">{selectedProduct.code}</p>
                             <p className="text-sm text-gray-500 mb-4">{selectedProduct.description}</p>
                             <div className="font-extrabold text-xl mb-2 text-black">£ 33.00</div>
                             <button
-                                className="bg-black text-white font-bold px-4 py-2 rounded-md"
+                                className="bg-black text-white font-bold px-4 py-2 rounded-md w-full shadow-lg"
                                 onClick={() => {
                                     addProducts(selectedProduct.productId);
                                     console.log('added product:', selectedProduct.productId);

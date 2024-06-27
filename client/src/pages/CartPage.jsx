@@ -4,6 +4,7 @@ import TopBanner from "../components/content/TopBanner";
 import { useCartStore } from "../stores/CartStore";
 
 const ProductsPage = () => {
+    // stores
     const cartProductIds = useCartStore((state) => state.cartProductIds);
     const loadCartFromLocalStorage = useCartStore((state) => state.loadCartFromLocalStorage);
 
@@ -14,8 +15,7 @@ const ProductsPage = () => {
 
     return (
         <div>
-            <TopBanner />
-            <div className="w-screen mt-4 px-0 md:px-64 pt-4 pb-10 min-h-96">
+            <div className="w-screen mt-[100px] md:mt-[190px] px-0 md:px-64 pt-4 pb-10 min-h-96">
                 <div className="mx-4">
                     <ListingGrid cartProductIds={cartProductIds} />
                 </div>

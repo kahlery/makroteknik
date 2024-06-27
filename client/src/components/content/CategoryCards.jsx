@@ -31,7 +31,8 @@ const CategoryCards = () => {
                 {categories.map((category, index) => (
                     <button
                         key={category.categoryId}
-                        className={`p-2 w-[30%] h-11 xl:h-10 sm:w-[22.5%] xl:w-[23.5%] text-[10px] md:text-[11px] shadow-md hover:opacity-75 border bg-secondary text-white`}
+                        className={`p-2 w-[30%] h-11 xl:h-10 sm:w-[22.5%] xl:w-[23.5%] text-[10px] 
+                            md:text-[11px] hover:opacity-75 bg-black text-white rounded-md shadow-lg`}
                         onClick={() => handleScrollToHeader(category.categoryName)}
                     >
                         {category.categoryName}
