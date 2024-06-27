@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { ShoppingCart } from '@mui/icons-material';
+import { ShoppingCart, Close } from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton';
 
 const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, addProducts }) => {
     return (
@@ -17,17 +17,28 @@ const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, ad
         >
             {isModalOpen && (
                 <div
-                    className="bg-white w-1/2 h-fit p-8 rounded-md shadow-lg"
+                    className="relative bg-white md:w-4/6 h-fit mt-16 md:mt-0 max-h-[560px] md:max-h-none p-4 m-4 md:m-0 rounded-md shadow-lg overflow-y-scroll"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <div className="flex items-center">
+                    <div className="absolute right-6 top-6 flex rounded-full bg-slate-50 bg-opacity-50">
+                        <h2 className="text-2xl text-black font-bold mb-2 mt-2 ml-auto"></h2>
+                        <IconButton
+                            className="absolute ml-auto text-black bg-red-500"
+                            onClick={() => {
+                                setIsModalOpen(false);
+                            }}
+                        >
+                            <Close />
+                        </IconButton>
+                    </div>
+                    <div className="flex flex-col md:flex-row items-center">
                         <img
                             src={process.env.PUBLIC_URL + selectedProduct.imageUrl}
                             alt={selectedProduct.title}
-                            className="h-32 object-cover rounded-md mr-8"
+                            className="md:w-1/2 object-cover rounded-md mr-0 md:mr-8 mb-4 md:my-0"
                         />
                         <div>
-                            <h2 className="text-2xl font-bold mb-2">{selectedProduct.title}</h2>
+                            <h2 className="text-2xl text-black font-bold mb-2">{selectedProduct.title}</h2>
                             <p className="text-sm text-gray-500 mb-1">{selectedProduct.code}</p>
                             <p className="text-sm text-gray-500 mb-4">{selectedProduct.description}</p>
                             <div className="font-extrabold text-xl mb-2 text-black">£ 33.00</div>
@@ -44,7 +55,6 @@ const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, ad
                         </div>
                     </div>
                 </div>
-
             )}
         </div>
     );
