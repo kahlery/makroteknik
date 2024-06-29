@@ -132,18 +132,14 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isH
 
     function renderCartProducts() {
         return <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {!cartProductIds.length &&
-                <p className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
-                    Your cart is empty.
-                </p>}
-            {cartProductIds.map(productId => {
-                const product = products.find(product => product.productId === productId);
-                return <ProductCard
+            {products.filter(product => cartProductIds.includes(product.productId)).map(product => (
+                <ProductCard
                     key={product.productId} product={product}
-                    isHorizontalNorVertical={isHorizontalNorVertical}
-                    addProducts={addProducts}
-                />;
-            })}
+                    isHorizontalNorVertical={isHorizontalNorVertical} addProducts={addProducts}
+                    setSelectedProduct={setSelectedProduct} setIsModalOpen={setIsModalOpen}
+                    isCartProduct={true}
+                />
+            ))}
         </div>;
     }
 };

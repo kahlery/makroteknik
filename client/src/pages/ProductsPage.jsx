@@ -56,7 +56,7 @@ const ProductsPage = () => {
             {showScrollToTop && (
                 <button
                     className="fixed bottom-20 md:bottom-8 right-6 md:right-64 p-2 bg-secondary text-white
-                     text-xs shadow-lg hover:bg-black hover:scale-125 transition-all duration-1000 focus:outline-none z-40"
+                     text-xs shadow-lg hover:bg-black hover:scale-125 transition-all duration-1000 focus:outline-none z-30"
                     onClick={handleScrollToTop}
                 >
                     Scroll to Top

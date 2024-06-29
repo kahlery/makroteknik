@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { ShoppingCart } from '@mui/icons-material';
+
+// stores
 import { useCartStore } from '../../stores/CartStore';
 
-const ProductCard = ({ product, isHorizontalNorVertical, setSelectedProduct, setIsModalOpen }) => {
+const ProductCard = ({
+    product, isHorizontalNorVertical,
+    setSelectedProduct, setIsModalOpen,
+    isCartProduct = false
+}) => {
     // stores
     const addProducts = useCartStore((state) => state.addProducts);
+    const removeProducts = useCartStore((state) => state.removeProducts);
 
     return (
         <div
@@ -40,16 +47,24 @@ const ProductCard = ({ product, isHorizontalNorVertical, setSelectedProduct, set
                         (e) => {
                             e.stopPropagation();
                             // add product to cart
+                            if (isCartProduct) {
+                                removeProducts(product.productId);
+                                return;
+                            }
                             addProducts(product.productId);
-                            console.log('added product:', product.productId);
                         }
                     }
                 >
-                    <ShoppingCart
-                        className="text-white"
-                        sx={{ fontSize: '1rem' }}
-                    />
-                    <p className="ml-2 text-xs">Add to Cart</p>
+                    {!isCartProduct &&
+                        <ShoppingCart
+                            className="text-white"
+                            sx={{ fontSize: '1rem' }}
+                        />
+                    }
+
+                    <p className="ml-2 text-xs">
+                        {!isCartProduct ? 'Add to cart' : 'Remove from cart'}
+                    </p>
                 </button>
             </div>
         </div>
