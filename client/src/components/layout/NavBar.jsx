@@ -10,13 +10,13 @@ const NavBar = () => {
     const [showDialog, setShowDialog] = useState(false);
     const [dialogMessage, setDialogMessage] = useState('');
 
-    // refs
-    const previousCartProductIdsLength = useRef(0);
-
     // stores
     const resetCategories = useCategoryStore((state) => state.resetCategories);
     const addCategories = useCategoryStore((state) => state.addCategories);
     const cartProductIds = useCartStore((state) => state.cartProductIds);
+
+    // refs
+    const previousCartProductIdsLength = useRef(cartProductIds.length);
 
     useEffect(() => {
         fetch('/data/categories.json')
