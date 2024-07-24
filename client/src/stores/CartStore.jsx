@@ -1,36 +1,54 @@
 import { create } from 'zustand';
 
 export const useCartStore = create((set, get) => ({
-    cartProductIds: [],
+    cartProducts: {},
 
     addProducts: (productId) => set((state) => {
-        if (!state.cartProductIds.includes(productId)) {
-            const newCartProductIds = [...state.cartProductIds, productId];
-            localStorage.setItem('cart', JSON.stringify(newCartProductIds));
+        if (!state.cartProducts[productId]) {
+            const newCartProducts = { ...state.cartProducts, [productId]: 1 };
+            localStorage.setItem('cart', JSON.stringify(newCartProducts));
             console.log('added product:', productId, 'to the cart');
             return {
-                cartProductIds: newCartProductIds
+                cartProducts: newCartProducts
             };
         }
         return state;
     }),
 
-    resetProducts: () => set({ cartProductIds: [] }),
+    incrementProductQuantity: (productId) => set((state) => {
+        const newCartProducts = { ...state.cartProducts, [productId]: (state.cartProducts[productId] || 0) + 1 };
+        localStorage.setItem('cart', JSON.stringify(newCartProducts));
+        return { cartProducts: newCartProducts };
+    }),
+
+    decrementProductQuantity: (productId) => set((state) => {
+        if (state.cartProducts[productId] > 1) {
+            const newCartProducts = { ...state.cartProducts, [productId]: state.cartProducts[productId] - 1 };
+            localStorage.setItem('cart', JSON.stringify(newCartProducts));
+            return { cartProducts: newCartProducts };
+        } else {
+            const newCartProducts = { ...state.cartProducts };
+            delete newCartProducts[productId];
+            localStorage.setItem('cart', JSON.stringify(newCartProducts));
+            return { cartProducts: newCartProducts };
+        }
+    }),
+
+    resetProducts: () => set({ cartProducts: {} }),
 
     removeProducts: (productId) => set((state) => {
-        const newCartProductIds = state.cartProductIds.filter((cartProduct) => cartProduct !== productId);
-        localStorage.setItem('cart', JSON.stringify(newCartProductIds));
+        const newCartProducts = { ...state.cartProducts };
+        delete newCartProducts[productId];
+        localStorage.setItem('cart', JSON.stringify(newCartProducts));
         console.log('removed product:', productId, 'from the cart');
-        return {
-            cartProductIds: newCartProductIds
-        };
+        return { cartProducts: newCartProducts };
     }),
 
     loadCartFromLocalStorage: () => {
         const cart = localStorage.getItem('cart');
         if (cart) {
-            set({ cartProductIds: JSON.parse(cart) });
-            console.log('cart loaded from localStorage:', get().cartProductIds);
+            set({ cartProducts: JSON.parse(cart) });
+            console.log('cart loaded from localStorage:', get().cartProducts);
             return true;
         }
         console.log('cart not loaded from localStorage');

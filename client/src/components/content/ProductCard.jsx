@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ShoppingCart } from '@mui/icons-material';
 
 // stores
@@ -6,21 +6,24 @@ import { useCartStore } from '../../stores/CartStore';
 
 const ProductCard = ({
     product, isHorizontalNorVertical,
-    setSelectedProduct, setIsModalOpen,
-    isCartProduct = false
+    setSelectedProduct, setIsModalOpen
 }) => {
     // stores
     const addProducts = useCartStore((state) => state.addProducts);
     const removeProducts = useCartStore((state) => state.removeProducts);
+    const incrementProductQuantity = useCartStore((state) => state.incrementProductQuantity);
+    const decrementProductQuantity = useCartStore((state) => state.decrementProductQuantity);
+    const cartProducts = useCartStore((state) => state.cartProducts);
 
-    console.log(process.env.PUBLIC_URL + product.imageUrl);
+    const isCartProduct = cartProducts[product.productId];
 
     return (
         <div
             key={product.productId}
-            className={`bg-white relative flex flex-col text-sm duration-1000 h-90 border shadow-md 
-            hover:scale-105 hover:cursor-pointer hover:border-secondary hover:border-2 hover:rounded-md
-            hover:shadow-lg ${isHorizontalNorVertical ? 'w-48' : ''}`}
+            className={`bg-white relative flex flex-col text-sm duration-1000 h-90 border shadow-md pb-4
+            hover:scale-100 hover:cursor-pointer hover:rounded-md 
+            hover:shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+            ${isHorizontalNorVertical ? 'w-48' : ''} ${isCartProduct ? 'border-4 rounded-md border-[rgba(0,_98,_90,_0.3)]' : ''}`}
             onClick={() => {
                 // show product detail in a modal
                 console.log('product detail:', product.productId);
@@ -31,43 +34,57 @@ const ProductCard = ({
             <img
                 src={process.env.PUBLIC_URL + product.imageUrl}
                 alt={product.title}
-                className="h-36 object-scale-down"
+                className="h-32 object-scale-down p-4 min-h-32"
             />
-            <div className="p-2 md:p-4 flex flex-col h-full">
-                <h2 className="text-xs mb-2 text-black font-bold">{product.title}</h2>
+            <hr className="border-gray-200 shadow-md my-3 mx-4" />
+            <div className="px-3 md:px-4 flex flex-col h-full">
+                <h2 className="text-xs mb-2 text-black font-bold line-clamp-1">{product.title}</h2>
                 <p className="text-xs text-gray-500 mb-2">{product.code}</p>
-                <p className="text-xs text-gray-500 line-clamp-3">{product.description}</p>
-                <div className="h-2" />
-                <div className="flex mt-auto items-center align-bottom">
-                </div>
+                <p className="text-xs text-gray-500 line-clamp-4">{product.description}</p>
+                <hr className="border-gray-200 shadow-md my-3" />
                 <div className="font-extrabold text-xs flex">
                     <p className="text-black pt-[1.5px]">£ 33.00</p>
                 </div>
-                <button
-                    className="bg-black text-white font-extrabold flex px-2 py-1 mt-2 border-black border justify-center rounded-md w-full shadow-lg"
-                    onClick={
-                        (e) => {
-                            e.stopPropagation();
-                            // add product to cart
-                            if (isCartProduct) {
-                                removeProducts(product.productId);
-                                return;
+                {!isCartProduct ? (
+                    <button
+                        className="bg-black text-white font-extrabold flex px-2 py-1 mt-2 border-black border justify-center rounded-md w-full shadow-lg"
+                        onClick={
+                            (e) => {
+                                e.stopPropagation();
+                                addProducts(product.productId);
                             }
-                            addProducts(product.productId);
                         }
-                    }
-                >
-                    {!isCartProduct &&
-                        <ShoppingCart
-                            className="text-white"
-                            sx={{ fontSize: '1rem' }}
-                        />
-                    }
-
-                    <p className="ml-2 text-xs">
-                        {!isCartProduct ? 'Add to cart' : 'Remove from cart'}
-                    </p>
-                </button>
+                    >
+                        <ShoppingCart className="text-white" sx={{ fontSize: '1rem' }} />
+                        <p className="ml-2 text-xs">Add to cart</p>
+                    </button>
+                ) : (
+                    <div className="flex items-center justify-between mt-2">
+                        <button
+                            className="text-black font-extrabold flex px-4 py-1 border-black border rounded-md shadow-lg"
+                            onClick={
+                                (e) => {
+                                    e.stopPropagation();
+                                    decrementProductQuantity(product.productId);
+                                }
+                            }
+                        >
+                            -
+                        </button>
+                        <p className="mx-4 text-black">{cartProducts[product.productId]}</p>
+                        <button
+                            className="text-black font-extrabold flex px-4 py-1 border-black border rounded-md shadow-lg"
+                            onClick={
+                                (e) => {
+                                    e.stopPropagation();
+                                    incrementProductQuantity(product.productId);
+                                }
+                            }
+                        >
+                            +
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

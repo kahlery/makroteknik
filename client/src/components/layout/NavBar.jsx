@@ -13,10 +13,10 @@ const NavBar = () => {
     // stores
     const resetCategories = useCategoryStore((state) => state.resetCategories);
     const addCategories = useCategoryStore((state) => state.addCategories);
-    const cartProductIds = useCartStore((state) => state.cartProductIds);
+    const cartProducts = useCartStore((state) => state.cartProducts);
 
     // refs
-    const previousCartProductIdsLength = useRef(cartProductIds.length);
+    const previouscartProductsLength = useRef(cartProducts.length);
 
     useEffect(() => {
         fetch('/data/categories.json')
@@ -25,21 +25,21 @@ const NavBar = () => {
     }, []);
 
     useEffect(() => {
-        if (cartProductIds.length > previousCartProductIdsLength.current) {
+        if (cartProducts.length > previouscartProductsLength.current) {
             setDialogMessage('Added to cart');
         }
-        else if (cartProductIds.length < previousCartProductIdsLength.current) {
-            console.log(cartProductIds.length, previousCartProductIdsLength.current)
+        else if (cartProducts.length < previouscartProductsLength.current) {
+            console.log(cartProducts.length, previouscartProductsLength.current)
             setDialogMessage('Removed from cart');
         }
         else {
             return;
         }
-        previousCartProductIdsLength.current = cartProductIds.length;
+        previouscartProductsLength.current = cartProducts.length;
         setShowDialog(true);
         const timer = setTimeout(() => setShowDialog(false), 2000);
         return () => clearTimeout(timer);
-    }, [cartProductIds]);
+    }, [cartProducts]);
 
     return (
         <nav className="bg-white md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
@@ -114,9 +114,9 @@ const NavBar = () => {
                             onClick={() => resetCategories()}
                         >
                             <div className="relative z-50">
-                                {cartProductIds.length > 0 &&
+                                {cartProducts.length > 0 &&
                                     <div className="absolute -top-[1px] -right-[1px] h-3 w-3 bg-red-500 rounded-full text-white text-[0.55rem] flex items-center justify-center">
-                                        {cartProductIds.length}
+                                        {cartProducts.length}
                                     </div>
                                 }
                                 {showDialog && (

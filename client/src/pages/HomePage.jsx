@@ -27,7 +27,7 @@ const HomePage = () => {
             <video autoPlay loop muted className='overflow-hidden flex mx-auto h-[450px] lg:h-[500px] w-full bg-black shadow-lg'>
                 <source src={videoUrl} type="video/mp4" />
             </video>
-            <LatestNewsGrid />
+            {/* <LatestNewsGrid /> */}
         </div >
     );
 };
