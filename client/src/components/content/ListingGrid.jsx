@@ -11,6 +11,8 @@ const categoriesListUrl = process.env.PUBLIC_URL + '/data/categories.json';
 
 const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isHorizontalNorVertical }) => {
 
+    console.log('cartProductIds:', cartProductIds);
+
     // states
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
