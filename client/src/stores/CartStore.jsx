@@ -44,6 +44,12 @@ export const useCartStore = create((set, get) => ({
         return { cartProducts: newCartProducts };
     }),
 
+    clearCart: () => set((state) => {
+        localStorage.removeItem('cart');
+        return { cartProducts: {} };
+    }
+    ),
+
     loadCartFromLocalStorage: () => {
         const cart = localStorage.getItem('cart');
         if (cart) {

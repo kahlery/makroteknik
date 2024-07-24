@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutPage = () => {
     return (
-        <main className="rounded-lg mt-24 md:mt-56 mb-8 md:px-64 w-screen p-8 text-center">
+        <main className="rounded-lg mt-24 md:mt-48 mb-8 md:px-64 w-screen p-8 text-center">
             <h1 className="text-4xl font-bold mb-8 text-center">About Us</h1>
             <p className="text-lg leading-relaxed mb-4">
                 Makroteknik is a company founded in the year 1998, built upon an 18-year-long tradition in application, which produces HVAC components. Our company is equipped with a customer-centered corporate understanding and has its principles arranged according to this.
