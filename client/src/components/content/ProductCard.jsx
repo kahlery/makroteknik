@@ -13,6 +13,8 @@ const ProductCard = ({
     const addProducts = useCartStore((state) => state.addProducts);
     const removeProducts = useCartStore((state) => state.removeProducts);
 
+    console.log(process.env.PUBLIC_URL + product.imageUrl);
+
     return (
         <div
             key={product.productId}
