@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ShoppingCart } from '@mui/icons-material';
 
 // stores
@@ -13,17 +13,22 @@ const ProductCard = ({
     const removeProducts = useCartStore((state) => state.removeProducts);
     const incrementProductQuantity = useCartStore((state) => state.incrementProductQuantity);
     const decrementProductQuantity = useCartStore((state) => state.decrementProductQuantity);
+    const setProductQuantity = useCartStore((state) => state.setProductQuantity);
     const cartProducts = useCartStore((state) => state.cartProducts);
 
     const isCartProduct = cartProducts[product.productId];
+
+    const handleQuantityChange = (e) => {
+        const quantity = Math.max(0, parseInt(e.target.value) || 0); // Ensure non-negative integers
+        setProductQuantity(product.productId, quantity);
+    };
 
     return (
         <div
             key={product.productId}
             className={`bg-white relative flex flex-col text-sm duration-1000 h-90 border shadow-md pb-4
-            hover:scale-100 hover:cursor-pointer hover:rounded-md 
-            hover:shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
-            ${isHorizontalNorVertical ? 'w-48' : ''} ${isCartProduct ? 'border-2 border-black' : ''}`}
+            hover:scale-100 hover:cursor-pointer hover:rounded-md hover:shadow-md hover:border-secondary hover:border-2 hover:shadow-black
+            ${isHorizontalNorVertical ? 'w-48' : ''} ${isCartProduct ? ' shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3)]' : ''}`}
             onClick={() => {
                 // show product detail in a modal
                 console.log('product detail:', product.productId);
@@ -71,7 +76,13 @@ const ProductCard = ({
                         >
                             -
                         </button>
-                        <p className="mx-4 text-black">{cartProducts[product.productId]}</p>
+                        <input
+                            type="number"
+                            value={cartProducts[product.productId]}
+                            onChange={handleQuantityChange}
+                            className="w-full text-center border-b-2 border-secondary text-black mx-4"
+                            onClick={(e) => e.stopPropagation()}
+                        />
                         <button
                             className="text-black font-extrabold flex px-4 py-1 border-black border rounded-md shadow-lg"
                             onClick={

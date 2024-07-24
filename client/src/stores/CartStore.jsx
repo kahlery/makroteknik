@@ -15,6 +15,20 @@ export const useCartStore = create((set, get) => ({
         return state;
     }),
 
+    setProductQuantity: (productId, quantity) => set((state) => {
+        if (quantity > 0) {
+            const newCartProducts = { ...state.cartProducts, [productId]: quantity };
+            localStorage.setItem('cart', JSON.stringify(newCartProducts));
+            return { cartProducts: newCartProducts };
+        } else {
+            const newCartProducts = { ...state.cartProducts };
+            delete newCartProducts[productId];
+            localStorage.setItem('cart', JSON.stringify(newCartProducts));
+            return { cartProducts: newCartProducts };
+        }
+    }
+    ),
+
     incrementProductQuantity: (productId) => set((state) => {
         const newCartProducts = { ...state.cartProducts, [productId]: (state.cartProducts[productId] || 0) + 1 };
         localStorage.setItem('cart', JSON.stringify(newCartProducts));

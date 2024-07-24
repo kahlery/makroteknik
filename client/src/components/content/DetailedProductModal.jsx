@@ -30,7 +30,7 @@ const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen }) 
         >
             {isModalOpen && selectedProduct && (
                 <div
-                    className="relative bg-white md:w-4/6 h-[75%] md:h-fit mt-16 md:mt-0 md:max-h-none p-4 m-4 md:m-0 shadow-lg overflow-y-scroll"
+                    className="relative bg-white md:w-4/6 h-[75%] md:h-fit mt-16 md:max-h-none p-4 m-4 md:m-0 shadow-lg overflow-y-scroll"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="md:absolute fixed right-10 md:right-6 top-[20%] md:top-4 flex rounded-full bg-blue-200 bg-opacity-50">
