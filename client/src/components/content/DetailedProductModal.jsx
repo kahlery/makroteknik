@@ -18,10 +18,10 @@ const DetailedProductModal = ({ isModalOpen, selectedProduct, setIsModalOpen, ad
         >
             {isModalOpen && (
                 <div
-                    className="relative bg-white md:w-4/6 h-[85%] md:h-fit mt-16 md:mt-0 md:max-h-none p-4 m-4 md:m-0 rounded-md shadow-lg overflow-y-scroll"
+                    className="relative bg-white md:w-4/6 h-[75%] md:h-fit mt-16 md:mt-0 md:max-h-none p-4 m-4 md:m-0 shadow-lg overflow-y-scroll"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <div className="md:absolute fixed right-10 top-[15%] md:top-4 flex rounded-full bg-slate-50 bg-opacity-50">
+                    <div className="md:absolute fixed right-10 top-[20%] md:top-4 flex rounded-full bg-slate-50 bg-opacity-50">
                         <h2 className="text-2xl text-black font-bold mb-2 mt-2 ml-auto"></h2>
                         <IconButton
                             className="absolute ml-auto text-black bg-red-500"
