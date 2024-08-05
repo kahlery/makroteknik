@@ -88,7 +88,7 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isH
     }
 
     function renderFeaturedProducts(featuredProducts) {
-        return <div className={`${isHorizontalNorVertical ? 'flex flex-nowrap gap-5' : 'grid grid-cols-2 md:grid-cols-4 gap-4'}`}>
+        return <div className={`${isHorizontalNorVertical ? 'flex flex-nowrap gap-5' : 'grid grid-cols-2 xl:grid-cols-4 gap-5'}`}>
             {categoryId == undefined &&
                 <h2 className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                     Featured Products:
@@ -104,7 +104,7 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isH
     }
 
     function renderNormalProducts() {
-        return <div className={`${isHorizontalNorVertical ? 'flex flex-nowrap' : 'grid grid-cols-2 md:grid-cols-4 gap-4'} gap-4`}>
+        return <div className={`${isHorizontalNorVertical ? 'flex flex-nowrap' : 'grid grid-cols-2 xl:grid-cols-4 gap-5'} gap-5`}>
             {!productsList.length &&
                 <p className="text-start text-sm text-black col-span-full underline underline-offset-4 font-extrabold">
                     Please select a category to see products.
@@ -133,7 +133,7 @@ const ListingGrid = ({ productsList, isFeatured, categoryId, cartProductIds, isH
     }
 
     function renderCartProducts() {
-        return <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        return <div className="grid grid-cols-2 xl:grid-cols-4 gap-5">
             {products.filter(product => cartProductIds.includes(product.productId)).map(product => (
                 <ProductCard
                     key={product.productId} product={product}

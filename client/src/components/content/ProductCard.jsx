@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ShoppingCart } from '@mui/icons-material';
+import React from 'react';
+import AdjustCartProduct from './AdjustCartProduct';
 
 // stores
 import { useCartStore } from '../../stores/CartStore';
@@ -9,26 +9,14 @@ const ProductCard = ({
     setSelectedProduct, setIsModalOpen
 }) => {
     // stores
-    const addProducts = useCartStore((state) => state.addProducts);
-    const removeProducts = useCartStore((state) => state.removeProducts);
-    const incrementProductQuantity = useCartStore((state) => state.incrementProductQuantity);
-    const decrementProductQuantity = useCartStore((state) => state.decrementProductQuantity);
-    const setProductQuantity = useCartStore((state) => state.setProductQuantity);
-    const cartProducts = useCartStore((state) => state.cartProducts);
-
-    const isCartProduct = cartProducts[product.productId];
-
-    const handleQuantityChange = (e) => {
-        const quantity = Math.max(0, parseInt(e.target.value) || 0); // Ensure non-negative integers
-        setProductQuantity(product.productId, quantity);
-    };
+    const isCartProduct = useCartStore((state) => state.cartProducts[product.productId]);
 
     return (
         <div
             key={product.productId}
             className={`bg-white relative flex flex-col text-sm duration-1000 h-90 border shadow-md pb-4
-            hover:scale-100 hover:cursor-pointer hover:rounded-md hover:shadow-md hover:border-secondary hover:border-2
-            ${isHorizontalNorVertical ? 'w-48' : ''} ${isCartProduct ? ' shadow-[0_0px_10px_rgba(8,_112,_184,_0.7)]' : ''}`}
+            hover:scale-100 hover:cursor-pointer hover:border-black
+            ${isHorizontalNorVertical ? 'w-48' : ''} ${isCartProduct ? ' shadow-[_5px_5px_rgba(0,_98,_90,_0.2),_10px_10px_rgba(0,_98,_90,_0.1),_15px_15px_rgba(0,_98,_90,_0.05)]' : ' '}`}
             onClick={() => {
                 // show product detail in a modal
                 console.log('product detail:', product.productId);
@@ -50,52 +38,13 @@ const ProductCard = ({
                 <div className="font-extrabold text-xs flex">
                     <p className="text-black pt-[1.5px]">£ 33.00</p>
                 </div>
-                {!isCartProduct ? (
-                    <button
-                        className="bg-black text-white font-extrabold flex px-2 py-1 mt-2 border-black border justify-center rounded-md w-full shadow-lg"
-                        onClick={
-                            (e) => {
-                                e.stopPropagation();
-                                addProducts(product.productId);
-                            }
-                        }
-                    >
-                        <ShoppingCart className="text-white" sx={{ fontSize: '1rem' }} />
-                        <p className="ml-2 text-xs">Add to cart</p>
-                    </button>
-                ) : (
-                    <div className="flex items-center justify-between mt-2">
-                        <button
-                            className="text-black font-extrabold flex px-4 py-1 border-black border rounded-md shadow-lg"
-                            onClick={
-                                (e) => {
-                                    e.stopPropagation();
-                                    decrementProductQuantity(product.productId);
-                                }
-                            }
-                        >
-                            -
-                        </button>
-                        <input
-                            type="number"
-                            value={cartProducts[product.productId]}
-                            onChange={handleQuantityChange}
-                            className="w-full text-center border-b-2 border-secondary text-black mx-4"
-                            onClick={(e) => e.stopPropagation()}
-                        />
-                        <button
-                            className="text-black font-extrabold flex px-4 py-1 border-black border rounded-md shadow-lg"
-                            onClick={
-                                (e) => {
-                                    e.stopPropagation();
-                                    incrementProductQuantity(product.productId);
-                                }
-                            }
-                        >
-                            +
-                        </button>
-                    </div>
-                )}
+            </div>
+            <div className="mt-3 px-3 md:px-4"
+                onClick={(e) => {
+                    e.stopPropagation();
+                }}
+            >
+                <AdjustCartProduct productId={product.productId} />
             </div>
         </div>
     );

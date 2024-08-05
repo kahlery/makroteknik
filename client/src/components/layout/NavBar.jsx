@@ -1,14 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Home, Groups, PrecisionManufacturing, ShoppingCart, FilterAlt } from '@mui/icons-material';
 import { Link } from "react-router-dom";
+
+// stores
 import { useCategoryStore } from '../../stores/CategoryStore';
 import { useCartStore } from '../../stores/CartStore';
+
+// components
+import CartNotification from '../content/CartNotification';
 
 const NavBar = () => {
     // states
     const [categories, setCategories] = useState([]);
-    const [showDialog, setShowDialog] = useState(false);
-    const [dialogMessage, setDialogMessage] = useState('');
 
     // stores
     const resetCategories = useCategoryStore((state) => state.resetCategories);
@@ -18,28 +21,12 @@ const NavBar = () => {
     // refs
     const previouscartProductsLength = useRef(cartProducts.length);
 
+    // effects
     useEffect(() => {
         fetch('/data/categories.json')
             .then((response) => response.json())
             .then((data) => setCategories(data))
     }, []);
-
-    useEffect(() => {
-        if (cartProducts.length > previouscartProductsLength.current) {
-            setDialogMessage('Added to cart');
-        }
-        else if (cartProducts.length < previouscartProductsLength.current) {
-            console.log(cartProducts.length, previouscartProductsLength.current)
-            setDialogMessage('Removed from cart');
-        }
-        else {
-            return;
-        }
-        previouscartProductsLength.current = cartProducts.length;
-        setShowDialog(true);
-        const timer = setTimeout(() => setShowDialog(false), 2000);
-        return () => clearTimeout(timer);
-    }, [cartProducts]);
 
     return (
         <nav className="bg-white md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 lg:px-64 flex-row items-center 
@@ -55,7 +42,17 @@ const NavBar = () => {
                     <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mt-1 h-[45px]" alt="logo" />
                 </a>
             </div>
-            <div className="w-full flex text-secondary">
+            <Link
+                to=""
+            >
+                <div className='text-black mx-auto'>
+                    <p>
+                        MakroTech
+                    </p>
+                </div>
+
+            </Link>
+            <div className="w-full md:w-fit flex text-secondary">
                 <ul className="flex w-full justify-evenly md:justify-end md:space-x-6">
                     <li>
                         <Link
@@ -113,7 +110,7 @@ const NavBar = () => {
                             </p>
                         </Link>
                     </li>
-                    <li>
+                    <li className="relative md:static">
                         <Link
                             to="/cart"
                             className="flex-row items-center text-black hover:text-secondary"
@@ -133,11 +130,6 @@ const NavBar = () => {
                                         </span>
                                     </div>
                                 }
-                                {showDialog && (
-                                    <div className="absolute bottom-3 md:top-10 -right-6 bg-black text-white bg-opacity-70 h-fit text-xl p-2 z-50">
-                                        {dialogMessage}
-                                    </div>
-                                )}
                             </div>
                             <ShoppingCart
                                 className='text-secondary relative'
@@ -147,6 +139,7 @@ const NavBar = () => {
                                 Cart
                             </p>
                         </Link>
+                        <CartNotification />
                     </li>
                 </ul>
             </div>
