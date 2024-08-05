@@ -7,7 +7,7 @@ export const useProductStore = create((set) => ({
     fetchProducts: async () => {
         const response = await fetch('/data/products.json');
         const products = await response.json();
-        console.log('products:', products);
+        console.log('products in store function:', products);
         set({ productsList: products });
     }
 }));
