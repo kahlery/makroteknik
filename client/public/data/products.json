@@ -5,6 +5,14 @@
         "title": "Plate Mounted Axial Flow Fan",
         "imageUrl": "/images/products/0.jpeg",
         "productCode": "0001",
+        "sizeToPrice": [
+            { "250mm": "£212.00 ex vat" },
+            { "315mm": "£233.00 ex vat" },
+            { "355mm": "£256.00 ex vat" },
+            { "400mm": "£291.00 ex vat" },
+            { "450mm": "£335.00 ex vat" },
+            { "500mm": "£372.00 ex vat" }
+        ],
         "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
     },
     {
@@ -13,6 +21,11 @@
         "title": "Low Pressure Cased Axial Fans",
         "imageUrl": "/images/products/1.png",
         "productCode": "0002",
+        "sizeToPrice": [
+            { "100mm": "£1" },
+            { "200mm": "£2" },
+            { "300mm": "£3" }
+        ],
         "description": "Bostik duct sealant is a high performance, water-based sealant that is designed to provide a permanent, flexible seal for ductwork and other HVAC components. The sealant is easy to apply and cures quickly to form a durable, airtight seal that is resistant to water, chemicals, and UV radiation. It is suitable for use on a wide range of materials, including metal, plastic, and fiberglass, and is ideal for sealing joints, seams, and penetrations in ductwork, as well as for sealing around duct boots, registers, and other HVAC components."
     },
     {

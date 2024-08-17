@@ -1,0 +1,40 @@
+name: Build and Upload Installer
+
+on:
+    push:
+        branches:
+            - main
+    tags:
+        - "*"
+
+jobs:
+    build:
+        runs-on: windows-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v3
+              with:
+                  dotnet-version: "7.x"
+
+            - name: Restore dependencies
+              run: dotnet restore
+
+            - name: Build the project
+              run: dotnet build --configuration Release
+
+            - name: Create installer
+              run: |
+                  # You might need to use a tool like WiX or Inno Setup to create an installer
+                  # Example command:
+                  # wixl MyInstaller.wxs
+                  echo "Creating installer..."
+
+            - name: Upload installer
+              uses: actions/upload-artifact@v3
+              with:
+                  name: dcr10-installer
+                  path: path-to-installer
