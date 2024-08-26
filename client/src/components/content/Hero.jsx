@@ -10,12 +10,11 @@ const Hero = ({ imageIndex, height }) => {
         <div
             className={`flex relative justify-center gap-12 pt-24 md:pt-44 2xl:pt-32 h-[320px] md:h-[400px] 2xl:[500px] text-black px-4 border-y border-black border-opacity-20 `}
         >
-            <img
+            {/* <img
                 src={bgUrl}
                 alt="hero"
                 className="absolute inset-0 object-cover w-full h-full z-10 brightness-[1]"
-            />
-
+            /> */}
             <div
                 className="md:text-end flex my-auto py-6 md:border-r-4 border-black 
                 lg:max-w-[30rem] z-20"
@@ -42,7 +41,7 @@ const Hero = ({ imageIndex, height }) => {
             <img
                 src={chars}
                 alt="hero"
-                className="hidden md:flex md:static mt-auto object-scale-down w-fit h-[90%] z-10 brightness-[1] mr-24"
+                className="hidden md:flex md:static mt-auto object-scale-down w-fit max-w-64 h-[90%] mr-24 z-10"
             />
         </div>
     )

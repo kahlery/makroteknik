@@ -5,7 +5,7 @@ const TopBar = () => {
     const logo = process.env.PUBLIC_URL + "/logo.svg"
 
     return (
-        <div className="flex border-b border-black border-opacity-20 flex-row bg-secondary text-white py-[8px] px-2 md:px-[16rem] 2xl:px-[25rem] top-0 text-sx w-full fixed z-[1000]">
+        <div className="flex border-b border-black border-opacity-20 flex-row bg-black text-white py-[8px] px-2 md:px-[16rem] 2xl:px-[25rem] top-0 text-sx w-full fixed z-[1000]">
             <div className="ml-4 flex flex-row items-center w-full">
                 <div className="flex flex-col lg:flex-row gap-1 lg:gap-6 lg:items-center text-xs">
                     <div className="flex flex-row gap-2 items-center">

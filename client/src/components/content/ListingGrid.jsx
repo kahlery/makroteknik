@@ -75,16 +75,16 @@ const ListingGrid = ({
 
     // featured products
     else {
-        let featuredProducts
+        let featuredProducts = productsList.slice(0, 8)
 
-        if (categoryId !== undefined) {
-            featuredProducts = productsList.filter(
-                (product) => product.categoryId === categoryId
-            )
-        } else {
-            // const featuredProducts = productsList.filter(product => product.isFeatured);
-            featuredProducts = productsList.filter((product) => product) // TODO: For testing
-        }
+        // if (categoryId !== undefined) {
+        //     featuredProducts = productsList.filter(
+        //         (product) => product.categoryId === categoryId
+        //     )
+        // } else {
+        //     // const featuredProducts = productsList.filter(product => product.isFeatured);
+        //     featuredProducts = productsList.filter((product) => product) // TODO: For testing
+        // }
 
         return (
             <div>

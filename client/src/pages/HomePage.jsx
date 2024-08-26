@@ -41,7 +41,7 @@ const HomePage = () => {
     return (
         <div className="text-start flex flex-col gap-8 mb-8">
             <Hero height={96} />
-            <div className="text-white pb-12 mx-4 lg:mx-0 md:px-[16rem] 2xl:px-[25rem]">
+            <div className="text-white mx-4 lg:mx-0 md:px-[16rem] 2xl:px-[25rem]">
                 {loading ? (
                     <div className="text-center text-lg text-gray-500 my-8">
                         Loading Products...
@@ -54,14 +54,26 @@ const HomePage = () => {
                 )}
             </div>
 
-            <video
+            {/* <video
                 autoPlay
                 loop
                 muted
-                className="overflow-hidden flex mx-auto h-[450px] lg:h-[500px] w-full bg-black shadow-lg"
+                className="overflow-hidden object-cover flex mx-auto h-[450px] lg:h-[500px] w-full bg-black shadow-lg"
             >
                 <source src={videoUrl} type="video/mp4" />
-            </video>
+            </video> */}
+
+            <iframe
+                className="md:px-[16rem] 2xl:px-[25rem] rounded-md"
+                width=""
+                height="500"
+                src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
+                title="YouTube video player"
+                frameborder="1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+
             {/* <LatestNewsGrid /> */}
         </div>
     )
