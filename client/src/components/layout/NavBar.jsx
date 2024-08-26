@@ -13,7 +13,6 @@ import { useCategoryStore } from "../../stores/CategoryStore"
 import { useCartStore } from "../../stores/CartStore"
 
 // components
-import CartNotification from "../content/CartNotification"
 
 const NavBar = () => {
     // states
@@ -156,7 +155,6 @@ const NavBar = () => {
                             />
                             <p className="text-[0.7rem]">Cart</p>
                         </Link>
-                        <CartNotification />
                     </li>
                 </ul>
             </div>

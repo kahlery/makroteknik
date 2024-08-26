@@ -41,6 +41,18 @@ const HomePage = () => {
     return (
         <div className="text-start flex flex-col gap-8 mb-8">
             <Hero height={96} />
+
+            <iframe
+                className="mx-4 md:mx-[16rem] 2xl:mx-[25rem] rounded-xl outline-8 outline-black"
+                width=""
+                height="490"
+                src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
+                title="YouTube video player"
+                frameborder="1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+
             <div className="text-white mx-4 lg:mx-0 md:px-[16rem] 2xl:px-[25rem]">
                 {loading ? (
                     <div className="text-center text-lg text-gray-500 my-8">
@@ -62,17 +74,6 @@ const HomePage = () => {
             >
                 <source src={videoUrl} type="video/mp4" />
             </video> */}
-
-            <iframe
-                className="md:px-[16rem] 2xl:px-[25rem] rounded-md"
-                width=""
-                height="500"
-                src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
-                title="YouTube video player"
-                frameborder="1"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
 
             {/* <LatestNewsGrid /> */}
         </div>
