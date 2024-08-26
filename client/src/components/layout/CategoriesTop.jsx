@@ -82,7 +82,7 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className="bg-secondary bg-opacity-50 border-b border-gray-700 fixed top-[50px] sm:top-[96px] z-40 w-screen text-[10.2px] shadow-lg"
+                    className="bg-white absolute top-[50px] sm:top-[96px] z-40 w-screen text-[10.2px]"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
@@ -117,7 +117,7 @@ const CategoriesTop = () => {
                                         }
                                     }}
                                     className={
-                                        "hover:scale-105 duration-500 bg-white text-black font-semibold shadow-lg px-3 py-[5px] text-nowrap border-[1px] rounded tracking-wide  "
+                                        "hover:scale-105 duration-500 bg-white text-black font-semibold shadow-sm px-3 py-[5px] text-nowrap border-[1px] rounded-full tracking-wide  "
                                     }
                                     onMouseEnter={() =>
                                         handleMouseEnter(category.categoryId)
@@ -159,13 +159,13 @@ const CategoriesTop = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-                <div
-                    className="block fixed top-[80px] sm:top-48 md:hidden right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
+                    <div
+                        className="absolute top-[35px] sm:top-48 md:hidden right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
                     z-40 text-red-700 p-2 animate-pulse pointer-events-none"
-                >
-                    <span className="md:hidden">Swipe to see more</span>
-                    <Swipe className="mx-1" />
+                    >
+                        <span className="md:hidden">Swipe to see more</span>
+                        <Swipe className="mx-1" />
+                    </div>
                 </div>
             </>
         )

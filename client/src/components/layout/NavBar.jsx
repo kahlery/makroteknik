@@ -36,7 +36,7 @@ const NavBar = () => {
 
     return (
         <nav
-            className="bg-white shadow md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 md:px-[16rem] 2xl:px-[25rem] flex-row items-center 
+            className="bg-white md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 md:px-[16rem] 2xl:px-[25rem] flex-row items-center 
         justify-center md:justify-between w-full fixed bottom-0 sm:top-[40px] z-40 text-center md:border-b border-t md:border-t-0"
             onClick={() => {
                 // scroll to top
@@ -58,7 +58,7 @@ const NavBar = () => {
             </div>
             <Link to="">
                 <div className="text-black mx-auto">
-                    <p>MakroTech</p>
+                    {/* <p>MakroTech</p> */}
                 </div>
             </Link>
             <div className="w-full md:w-fit flex text-secondary">
@@ -136,7 +136,7 @@ const NavBar = () => {
                                     text-white flex items-center justify-center"
                                     >
                                         <span className="relative flex h-4 w-4">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                            <span className="animate-ping duration-1000 absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                                             <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500"></span>
                                         </span>
                                         <span className="absolute text-[0.65rem]">

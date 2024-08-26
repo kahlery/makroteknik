@@ -3,8 +3,8 @@ import React from "react"
 const AboutPage = () => {
     return (
         <main className="rounded-lg mt-12 md:mt-24 mb-8 md:px-[16rem] 2xl:px-[25rem] w-screen p-8 text-start">
-            <h1 className="text-xl font-bold mb-8 text-start">About Us:</h1>
-            <p className="leading-relaxed mb-4 text-opacity-70 text-black">
+            <h1 className="text-lg font-bold mb-10 text-start">About Us:</h1>
+            <p className="leading-relaxed mb-4 text-opacity-70 text-black text-[0.8rem]">
                 Makroteknik is a company founded in the year 1998, built upon an
                 18-year-long tradition in application, which produces HVAC
                 components. Our company is equipped with a customer-centered
@@ -54,7 +54,7 @@ const AboutPage = () => {
                 the needed energy from the satisfaction of our customers.
             </p>
             <br />
-            <address className="mt-8 leading-relaxed border-l-8 pl-4">
+            <address className="mt-4 leading-relaxed border-l-4 border-secondary pl-4 text-[0.9rem]">
                 <strong>Makro Teknik</strong>
                 <br />
                 Unit 32, Nesta Works, Peacock Industrial Estates,

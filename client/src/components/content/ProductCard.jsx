@@ -19,7 +19,7 @@ const ProductCard = ({
     return (
         <div
             key={product.productId}
-            className={`bg-white rounded-md relative flex flex-col text-sm duration-1000 h-90 border shadow-md pb-4
+            className={`bg-white rounded-md relative flex flex-col text-sm duration-1000 h-90 border shadow-sm pb-4
             hover:scale-100 hover:cursor-pointer hover:border-black
             ${isHorizontalNorVertical ? "w-48" : ""} ${
                 isCartProduct
@@ -40,7 +40,7 @@ const ProductCard = ({
             />
             <hr className="border-gray-200 shadow-md my-3 mx-4" />
             <div className="px-3 md:px-4 flex flex-col h-full gap-[.35rem]">
-                <h2 className="text-xs h-4 text-black font-bold">
+                <h2 className="text-xs h-4 text-black font-bold line-clamp-4">
                     {product.title}
                 </h2>
                 <p className="text-xs text-black text-opacity-60 mt-auto">

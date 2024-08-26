@@ -30,7 +30,7 @@ const CategoryCards = () => {
                     <button
                         key={category.categoryId}
                         className={`p-2 w-[30%] h-11 xl:h-10 sm:w-[22.5%] xl:w-[23.5%] text-[10px] 
-                            md:text-[11px] hover:opacity-75 bg-white text-black rounded-md shadow-md border`}
+                            md:text-[11px] hover:opacity-75 bg-white font-bold shadow-sm shadow-secondary text-black rounded-full border-black border`}
                         onClick={() =>
                             handleScrollToHeader(category.categoryName)
                         }
