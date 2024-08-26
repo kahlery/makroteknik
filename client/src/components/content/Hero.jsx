@@ -8,7 +8,7 @@ const Hero = ({ imageIndex, height }) => {
 
     return (
         <div
-            className={`flex relative justify-center gap-12 pt-24 md:pt-44 2xl:pt-32 h-[320px] md:h-[400px] 2xl:[500px] text-black px-4 border-y `}
+            className={`flex relative justify-center gap-12 pt-24 md:pt-44 2xl:pt-32 h-[320px] md:h-[400px] 2xl:[500px] text-black px-4 border-y border-black border-opacity-20 `}
         >
             <img
                 src={bgUrl}
@@ -33,7 +33,7 @@ const Hero = ({ imageIndex, height }) => {
                         <button className="font-bold rounded-full text-white bg-secondary py-2 px-2">
                             Inspectate Our Products
                         </button>
-                        <button className="font-bold shadow-secondary shadow-sm rounded-full border border-black text-whitepy-2 px-2 shadow-lg hover:bg-white hover:text-black transition-colors duration-500">
+                        <button className="font-bold shadow-secondary shadow-sm rounded-full border border-black text-whitepy-2 px-2 hover:bg-white hover:text-black transition-colors duration-500">
                             Get An Offer
                         </button>
                     </div>
