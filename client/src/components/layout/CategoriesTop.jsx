@@ -75,11 +75,14 @@ const CategoriesTop = () => {
         return categoryId === hoveredCategoryId
     }
 
-    if (!location.pathname.endsWith("/products")) {
+    if (
+        !location.pathname.endsWith("/products") &&
+        !location.pathname.endsWith("/about")
+    ) {
         return (
             <>
                 <div
-                    className="bg-secondary border-b border-gray-400 fixed top-[50px] sm:top-[96px] z-40 w-screen text-[10.2px] shadow-lg"
+                    className="bg-secondary bg-opacity-50 border-b border-gray-700 fixed top-[50px] sm:top-[96px] z-40 w-screen text-[10.2px] shadow-lg"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
@@ -114,12 +117,7 @@ const CategoriesTop = () => {
                                         }
                                     }}
                                     className={
-                                        "hover:scale-105 duration-500 bg-white text-black font-extrabold shadow-lg px-3 py-[5px] text-nowrap border-[1px] border-gray-400 rounded-md tracking-wide  " +
-                                        (selectedCategories.includes(
-                                            category.categoryId
-                                        )
-                                            ? "border-b-2 border-black"
-                                            : "")
+                                        "hover:scale-105 duration-500 bg-white text-black font-semibold shadow-lg px-3 py-[5px] text-nowrap border-[1px] rounded tracking-wide  "
                                     }
                                     onMouseEnter={() =>
                                         handleMouseEnter(category.categoryId)

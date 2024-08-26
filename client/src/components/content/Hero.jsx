@@ -3,20 +3,20 @@ import React from "react"
 const Hero = ({ imageIndex, height }) => {
     const index = imageIndex || 55
     // const imageUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
-    const imageUrl = process.env.PUBLIC_URL + "images/bormoro.webp"
+    const imageUrl = process.env.PUBLIC_URL + "images/heros/4.jpg"
 
     return (
         <div
-            className={`flex relative pt-24 md:pt-44 h-[320px] md:h-[400px] 2xl:[500px] text-white lg:px-64 shadow-lg `}
+            className={`flex relative pt-24 md:pt-44 2xl:pt-32 h-[320px] md:h-[400px] 2xl:[500px] text-white lg:px-64 shadow-lg `}
         >
             <img
                 src={imageUrl}
                 alt="hero"
-                className="absolute inset-0 object-cover w-full h-full z-10 brightness-[.65]"
+                className="absolute inset-0 object-cover w-full h-full z-10 brightness-[.8]"
             />
             <div
-                className="text-start flex my-auto mx-4 sm:mx-24 lg:mx-0 py-6 
-                lg:w-[30rem] bg-black shadow-md bg-opacity-[0.85] z-20"
+                className="text-start flex mx-auto my-auto py-6 
+                lg:w-[30rem] bg-black rounded-md shadow-md bg-opacity-[0.8] z-20"
             >
                 <div className="flex flex-col justify-center">
                     <h2 className="text-sm px-6 sm:px-10 mb-3">

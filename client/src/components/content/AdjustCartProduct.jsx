@@ -46,7 +46,7 @@ const AdjustCartProduct = ({ productId, className }) => {
         >
             <div className="flex items-center">
                 <button
-                    className="text-black font-extrabold flex px-4 py-1 border border-black shadow-md"
+                    className="text-black bg-white font-extrabold flex px-4 py-1 border border-black shadow-md"
                     onClick={() => {
                         decrementProductQuantity(productId)
                         if (quantity === 1) {
@@ -60,10 +60,10 @@ const AdjustCartProduct = ({ productId, className }) => {
                     type="number"
                     value={quantity}
                     onChange={handleQuantityChange}
-                    className="text-black flex px-0 mx-2 md:mx-4 py-1 border rounded-md w-full text-center"
+                    className="text-black flex px-0 mx-2 md:mx-4 py-1 border text-opacity-60 text-center"
                 />
                 <button
-                    className="text-black font-extrabold flex px-4 py-1 border border-black shadow-md"
+                    className="text-black bg-white font-extrabold flex px-4 py-1 border border-black shadow-md"
                     onClick={() => incrementProductQuantity(productId)}
                 >
                     +

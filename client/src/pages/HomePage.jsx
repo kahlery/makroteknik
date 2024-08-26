@@ -41,7 +41,7 @@ const HomePage = () => {
     return (
         <div className="text-start flex flex-col gap-8 mb-8">
             <Hero height={96} />
-            <div className="text-white pb-12 mx-4 lg:mx-0 lg:px-64">
+            <div className="text-white pb-12 mx-4 lg:mx-0 md:px-[16rem] 2xl:px-[25rem]">
                 {loading ? (
                     <div className="text-center text-lg text-gray-500 my-8">
                         Loading Products...

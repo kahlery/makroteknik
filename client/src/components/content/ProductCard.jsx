@@ -1,5 +1,6 @@
 import React from "react"
 import { ShoppingCart } from "@mui/icons-material"
+import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
 import { useCartStore } from "../../stores/CartStore"
@@ -18,7 +19,7 @@ const ProductCard = ({
     return (
         <div
             key={product.productId}
-            className={`bg-white relative flex flex-col text-sm duration-1000 h-90 border shadow-md pb-4
+            className={`bg-white rounded-md relative flex flex-col text-sm duration-1000 h-90 border shadow-md pb-4
             hover:scale-100 hover:cursor-pointer hover:border-black
             ${isHorizontalNorVertical ? "w-48" : ""} ${
                 isCartProduct
@@ -35,44 +36,41 @@ const ProductCard = ({
             <img
                 src={process.env.PUBLIC_URL + product.imageUrl}
                 alt={product.title}
-                className="h-32 object-scale-down p-4 min-h-32"
+                className="h-36 object-scale-down p-4 min-h-32"
             />
             <hr className="border-gray-200 shadow-md my-3 mx-4" />
-            <div className="px-3 md:px-4 flex flex-col h-full">
-                <h2 className="text-xs mb-2 text-black font-bold line-clamp-1">
+            <div className="px-3 md:px-4 flex flex-col h-full gap-[.35rem]">
+                <h2 className="text-xs h-4 text-black font-bold">
                     {product.title}
                 </h2>
-                <p className="text-xs text-gray-500 mb-2">{product.code}</p>
-                <p className="text-xs text-gray-500 line-clamp-4">
-                    {product.description}
+                <p className="text-xs text-black text-opacity-60 mt-auto">
+                    {product.productCode}
                 </p>
-                <hr className="border-gray-200 shadow-md my-3" />
-                <div className="font-extrabold text-xs flex">
-                    <p className="text-black pt-[1.5px]">£ 33.00</p>
+                <p className="text-xs text-black text-opacity-60 flex">
+                    {product.sizeToPrice && product.sizeToPrice.length > 0 ? (
+                        (() => {
+                            const [_, price] = Object.entries(
+                                product.sizeToPrice[0]
+                            )[0] // Extract size and price from the first entry
+                            return (
+                                <p className="text-secondary py-[1.6px]">
+                                    {price}
+                                </p>
+                            )
+                        })()
+                    ) : (
+                        <p className="text-secondary py-[1.6px]">
+                            No Prices Available
+                        </p>
+                    )}
+                </p>
+                <div className="bg-secondary bg-opacity-10 w-fit text-xs flex">
+                    <p className="text-black pt-[1.6px] flex gap-1 items-center">
+                        <TbRulerMeasure size={15} />
+                        {product.sizeToPrice ? product.sizeToPrice.length : 1}
+                        &nbsp;Size(s) Available
+                    </p>
                 </div>
-            </div>
-            <div
-                className="mt-3 px-3 md:px-4"
-                onClick={(e) => {
-                    e.stopPropagation()
-                }}
-            >
-                <button
-                    className="bg-black text-white font-bold px-4 py-2 rounded-md w-full shadow-lg"
-                    onClick={() => {
-                        addProducts(setSelectedProduct.productId)
-                        console.log(
-                            "added product:",
-                            setSelectedProduct.productId
-                        )
-                    }}
-                >
-                    <ShoppingCart
-                        className="text-white mr-2"
-                        sx={{ fontSize: "1rem" }}
-                    />
-                    Add to Cart
-                </button>
             </div>
         </div>
     )
