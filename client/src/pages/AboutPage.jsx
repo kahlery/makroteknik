@@ -65,7 +65,7 @@ const AboutPage = () => {
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
-            <address className="leading-relaxed border-l-4 border-secondary pl-4 text-[0.9rem]">
+            <address className="leading-relaxed border-l-4 border-secondary pl-4 text-[0.8rem]">
                 <strong>Makro Teknik</strong>
                 <br />
                 Unit 32, Nesta Works, Peacock Industrial Estates,

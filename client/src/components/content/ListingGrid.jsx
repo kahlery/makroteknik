@@ -109,7 +109,7 @@ const ListingGrid = ({
                 }`}
             >
                 {categoryId == undefined && (
-                    <h2 className="text-start text-sm text-black col-span-full underline underline-offset-4">
+                    <h2 className="text-start text-sm text-black col-span-full">
                         Featured Products:
                     </h2>
                 )}
@@ -137,7 +137,7 @@ const ListingGrid = ({
                 } gap-5`}
             >
                 {!productsList.length && (
-                    <p className="text-start text-sm text-black col-span-full underline underline-offset-4">
+                    <p className="text-start text-sm text-black col-span-full  underline-offset-4">
                         Please select a category to see products.
                     </p>
                 )}
@@ -149,7 +149,7 @@ const ListingGrid = ({
                     return (
                         <React.Fragment key={"category_" + category.categoryId}>
                             {!shouldHide && (
-                                <h2 className="text-start text-sm text-black col-span-full underline underline-offset-4">
+                                <h2 className="text-start text-sm text-black col-span-full  underline-offset-4">
                                     {category.categoryName}:
                                 </h2>
                             )}
