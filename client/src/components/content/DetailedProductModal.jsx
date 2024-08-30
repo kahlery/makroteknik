@@ -72,36 +72,43 @@ const DetailedProductModal = ({
                                     }`}
                                 </p>
                                 <div className="relative gap-4 md:gap-2 pb-2 flex overflow-x-scroll md:overflow-clip md:flex-wrap max-w-[80vw] md:max-w-[100%] justify-start mb-4">
-                                    {selectedProduct.sizeToPrice.map(
-                                        (val, index) => {
-                                            const [size, price] =
-                                                Object.entries(val)[0]
-                                            return (
-                                                <button
-                                                    className={`flex items-center shadow-md rounded-md border p-2 ${
-                                                        index ==
-                                                        selectedSizeIndex
-                                                            ? "border-secondary border-[2.5px]"
-                                                            : ""
-                                                    }`}
-                                                    key={index}
-                                                    onClick={() => {
-                                                        setSelectedSizeIndex(
-                                                            index
-                                                        )
-                                                    }}
-                                                >
-                                                    <div className="flex flex-col items-center">
-                                                        <p className="text-black font-bold text-[0.8rem]">
-                                                            {size}
-                                                        </p>
-                                                        <p className="text-green-700 text-nowrap text-[0.8rem]">
-                                                            {price}
-                                                        </p>
-                                                    </div>
-                                                </button>
-                                            )
-                                        }
+                                    {selectedProduct.sizeToPrice ? (
+                                        selectedProduct.sizeToPrice.map(
+                                            (val, index) => {
+                                                const [size, price] =
+                                                    Object.entries(val)[0]
+                                                return (
+                                                    <button
+                                                        className={`flex items-center shadow-md rounded-md border p-2 ${
+                                                            index ==
+                                                            selectedSizeIndex
+                                                                ? "border-secondary border-[2.5px]"
+                                                                : ""
+                                                        }`}
+                                                        key={index}
+                                                        onClick={() => {
+                                                            setSelectedSizeIndex(
+                                                                index
+                                                            )
+                                                        }}
+                                                    >
+                                                        <div className="flex flex-col items-center">
+                                                            <p className="text-black font-bold text-[0.8rem]">
+                                                                {size}
+                                                            </p>
+                                                            <p className="text-green-700 text-nowrap text-[0.8rem]">
+                                                                {price}
+                                                            </p>
+                                                        </div>
+                                                    </button>
+                                                )
+                                            }
+                                        )
+                                    ) : (
+                                        <p className="text-black underline font-bold text-[0.8rem] text-opacity-70">
+                                            1 size available, no other size
+                                            options to select
+                                        </p>
                                     )}
                                 </div>
                                 <div className="flex flex-row -mt-2 gap-4 items-center text-xs font-bold">
