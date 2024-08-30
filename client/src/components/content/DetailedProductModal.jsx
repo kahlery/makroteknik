@@ -54,15 +54,14 @@ const DetailedProductModal = ({
                                 alt={selectedProduct.title}
                                 className="hidden md:flex md:w-[30vw] object-cover mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
                             />
-                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:justify-center gap-2 h-full md:ml-8 md:mr-4 my-2 md:my-8">
-                                <h2 className="text-xl text-black font-bold mb-2">
+                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:justify-center gap-4 h-full md:ml-8 md:mr-4 my-2 md:my-8">
+                                <h2 className="text-xl text-black font-bold mb-2 text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-xs text-black text-opacity-60 mb-2">
+                                <p className="text-xs text-black text-opacity-60 mb-2 border-l-4 border-black border-opacity-20 pl-3">
                                     {selectedProduct.description}
                                 </p>
-                                <hr className="border-gray-200 shadow-md mt-2 md:mt-0 mb-3" />
-                                <div className="relative gap-4 md:gap-2 flex overflow-x-scroll max-w-[80vw] md:max-w-[100%] justify-start mb-4">
+                                <div className="relative gap-4 md:gap-2 pb-2 flex overflow-x-scroll md:overflow-clip md:flex-wrap max-w-[80vw] md:max-w-[100%] justify-start mb-4">
                                     {selectedProduct.sizeToPrice.map(
                                         (val, index) => {
                                             const [size, price] =
@@ -72,7 +71,7 @@ const DetailedProductModal = ({
                                                     className={`flex items-center shadow-md rounded-md border p-2 ${
                                                         index ==
                                                         selectedSizeIndex
-                                                            ? "border-secondary border-2"
+                                                            ? "border-black border-[3px]"
                                                             : ""
                                                     }`}
                                                     key={index}
@@ -83,10 +82,10 @@ const DetailedProductModal = ({
                                                     }}
                                                 >
                                                     <div className="flex flex-col items-center">
-                                                        <p className="text-black text-[0.8rem]">
+                                                        <p className="text-black font-bold text-[0.8rem]">
                                                             {size}
                                                         </p>
-                                                        <p className="text-black font-bold text-nowrap text-[0.8rem]">
+                                                        <p className="text-green-700 text-nowrap text-[0.8rem]">
                                                             {price}
                                                         </p>
                                                     </div>
@@ -95,18 +94,19 @@ const DetailedProductModal = ({
                                         }
                                     )}
                                 </div>
-                                <div className="text-black text-base flex flex-col gap-4 items-start text-[.7rem] font-bold">
-                                    <button className="flex items-center gap-2 text-white bg-secondary bg-opacity-100 py-2 px-4 rounded-full shadow-md">
+                                <div className="flex flex-row -mt-2 gap-4 items-center text-xs font-bold">
+                                    <button className="flex items-center text-nowrap gap-2 text-black border border-black bg-white bg-opacity-100 py-2 px-3 rounded-full shadow-md">
                                         <ShoppingCart
                                             sx={{
-                                                fontSize: "1.3rem",
-                                                "@media (max-width: 1024px)": {
-                                                    fontSize: "1.5rem",
-                                                },
+                                                fontSize: "1rem",
                                             }}
                                         />
                                         <p>Add to Cart</p>
                                     </button>
+                                    <p className="text-black text-opacity-60">
+                                        Quantity can be adjusted in the cart
+                                        page
+                                    </p>
                                 </div>
                             </div>
                             <img

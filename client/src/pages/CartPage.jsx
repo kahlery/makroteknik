@@ -58,8 +58,8 @@ const ProductsPage = () => {
                         />
                     ) : (
                         <div className="text-center text-lg text-gray-500 mt-32">
-                            Your cart is empty, add some products to see them
-                            here.&nbsp;
+                            Your cart is empty, add some products to get an
+                            offer!&nbsp;
                             <button
                                 onClick={() =>
                                     window.location.replace(
