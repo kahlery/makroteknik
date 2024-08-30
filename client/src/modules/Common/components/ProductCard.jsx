@@ -3,7 +3,7 @@ import { ShoppingCart } from "@mui/icons-material"
 import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
-import { useCartStore } from "../../stores/CartStore"
+import { useCartStore } from "../../Cart/stores/CartStore"
 
 const ProductCard = ({
     product,
@@ -46,7 +46,7 @@ const ProductCard = ({
                 <p className="text-xs text-black text-opacity-60 mt-auto">
                     {product.productCode}
                 </p>
-                <p className="text-xs text-black text-opacity-60 flex">
+                <div className="text-xs text-black text-opacity-60 flex">
                     {product.sizeToPrice && product.sizeToPrice.length > 0 ? (
                         (() => {
                             const [_, price] = Object.entries(
@@ -63,7 +63,7 @@ const ProductCard = ({
                             No Prices Available
                         </p>
                     )}
-                </p>
+                </div>
                 <div className="bg-secondary bg-opacity-10 w-fit text-xs flex">
                     <p className="text-black pt-[1.6px] flex gap-1 items-center">
                         <TbRulerMeasure size={15} />

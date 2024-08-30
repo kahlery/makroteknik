@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react"
 
 // stores
-import { useCartStore } from "../stores/CartStore"
+import { useCartStore } from "../Cart/stores/CartStore"
 
 // components
-import Hero from "../components/content/Hero"
-import LatestNewsGrid from "../components/home/LatestNewsGrid"
-import ListingGrid from "../components/content/ListingGrid"
+import Hero from "./components/Hero"
+import LatestNewsGrid from "./components/LatestNewsGrid"
+import ListingGrid from "../Common/components/ListingGrid"
 
 const productsListUrl = process.env.PUBLIC_URL + "/data/products.json"
 const videoUrl = process.env.PUBLIC_URL + "/videos/hero.mp4"
 
-const HomePage = () => {
+const HomeContainer = () => {
     // stores
     const [loading, setLoading] = useState(true)
     const loadCartFromLocalStorage = useCartStore(
@@ -64,9 +64,7 @@ const HomePage = () => {
                     height="490"
                     src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
                     title="YouTube video player"
-                    frameborder="1"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
                 ></iframe>
             </div>
 
@@ -84,4 +82,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default HomeContainer

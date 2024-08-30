@@ -1,11 +1,11 @@
 import React from "react"
 
-const AboutPage = () => {
+const AboutContainer = () => {
     return (
         <main className="rounded-lg mt-12 md:mt-24 mb-8 md:px-[16rem] 2xl:px-[25rem] w-screen p-8 text-start flex flex-col gap-12">
             <div className="leading-relaxed text-opacity-70 text-black text-[0.8rem]">
                 <h1 className="text-lg font-bold text-start mb-4">About Us:</h1>
-                <p>
+                <div>
                     Makroteknik is a company founded in the year 1998, built
                     upon an 18-year-long tradition in application, which
                     produces HVAC components. Our company is equipped with a
@@ -54,16 +54,15 @@ const AboutPage = () => {
                     every investment we make, and in every project we start, we
                     draw the needed energy from the satisfaction of our
                     customers.
-                </p>
+                </div>
             </div>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.8949248855433!2d-0.07130325069532596!3d51.606546596438946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761fd4262f50d3%3A0xc4e9ed421c7d91d6!2sMakro%20Tech%20Ltd!5e0!3m2!1sen!2str!4v1724669133510!5m2!1sen!2str"
                 width=""
                 height="450"
                 style={{ border: 0 }}
-                allowfullscreen=""
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
+                referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
             <address className="leading-relaxed border-l-4 border-secondary pl-4 text-[0.8rem]">
                 <strong>Makro Teknik</strong>
@@ -80,4 +79,4 @@ const AboutPage = () => {
     )
 }
 
-export default AboutPage
+export default AboutContainer

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
 import ProductCard from "./ProductCard"
 
 // stores
-import { useCartStore } from "../../stores/CartStore"
+import { useCartStore } from "../../Cart/stores/CartStore"
 import DetailedProductModal from "./DetailedProductModal"
 
 const categoriesListUrl = process.env.PUBLIC_URL + "/data/categories.json"
@@ -165,6 +165,7 @@ const ListingGrid = ({
                                     setIsModalOpen={setIsModalOpen}
                                 />
                             ))}
+                            <hr className="col-span-full border-black border-opacity-20 border-dashed" />
                         </React.Fragment>
                     )
                 })}

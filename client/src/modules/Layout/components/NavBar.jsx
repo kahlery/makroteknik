@@ -1,26 +1,24 @@
 import React, { useEffect, useState, useRef } from "react"
+
+// icons
 import {
     Home,
     Groups,
     PrecisionManufacturing,
     ShoppingCart,
-    FilterAlt,
 } from "@mui/icons-material"
+
+// router v6
 import { Link } from "react-router-dom"
 
 // stores
-import { useCategoryStore } from "../../stores/CategoryStore"
-import { useCartStore } from "../../stores/CartStore"
-
-// components
+import { useCartStore } from "../../Cart/stores/CartStore"
 
 const NavBar = () => {
     // states
     const [categories, setCategories] = useState([])
 
     // stores
-    const resetCategories = useCategoryStore((state) => state.resetCategories)
-    const addCategories = useCategoryStore((state) => state.addCategories)
     const cartProducts = useCartStore((state) => state.cartProducts)
 
     // refs
@@ -66,7 +64,6 @@ const NavBar = () => {
                         <Link
                             to=""
                             className="flex-row items-center text-black hover:text-secondary"
-                            onClick={() => resetCategories()}
                         >
                             <Home
                                 className="text-secondary"
@@ -86,7 +83,6 @@ const NavBar = () => {
                         <Link
                             to="/about"
                             className="flex-row items-center text-black hover:text-secondary"
-                            onClick={() => resetCategories()}
                         >
                             <Groups
                                 className="text-secondary"
@@ -107,9 +103,6 @@ const NavBar = () => {
                             to="/products"
                             className="flex-row items-center text-black hover:text-secondary"
                             onClick={() => {
-                                categories.map((category) =>
-                                    addCategories(category.categoryId)
-                                )
                                 // scroll to top
                                 window.scrollTo({ top: 0, behavior: "smooth" })
                             }}
@@ -132,7 +125,6 @@ const NavBar = () => {
                         <Link
                             to="/cart"
                             className="flex-row items-center text-black hover:text-secondary"
-                            onClick={() => resetCategories()}
                         >
                             <div className="relative z-50">
                                 {Object.keys(cartProducts).length > 0 && (

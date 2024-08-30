@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react"
-import { Swipe } from "@mui/icons-material"
+
+// router v6
 import { useLocation } from "react-router-dom"
-import ListingGrid from "../content/ListingGrid"
+
+// icons
+import { Swipe } from "@mui/icons-material"
+
+// components
+import ListingGrid from "../../Common/components/ListingGrid"
 
 const productsListUrl = process.env.PUBLIC_URL + "/data/products.json"
 

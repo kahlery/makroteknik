@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-const CategoryCards = () => {
+const QuickAccessCategoriesSection = () => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
@@ -59,4 +59,4 @@ const CategoryCards = () => {
     )
 }
 
-export default CategoryCards
+export default QuickAccessCategoriesSection

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react"
-import ListingGrid from "../components/content/ListingGrid"
-import CategoryCards from "../components/content/CategoryCards"
+
+// components
+import ListingGrid from "../Common/components/ListingGrid"
+import CategoryCards from "./components/QuickAccessCategoriesSection"
+
+// icons
 import { FaAngleUp } from "react-icons/fa"
 
-const ProductsPage = () => {
+const ProductsContainer = () => {
     // states
     const [productsList, setProductsList] = useState([])
     const [showScrollToTop, setShowScrollToTop] = useState(false)
@@ -57,4 +61,4 @@ const ProductsPage = () => {
     )
 }
 
-export default ProductsPage
+export default ProductsContainer

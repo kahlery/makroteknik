@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { ShoppingCart, Close } from "@mui/icons-material"
 import IconButton from "@mui/material/IconButton"
-import { useCartStore } from "../../stores/CartStore"
+import { useCartStore } from "../../Cart/stores/CartStore"
 
 const DetailedProductModal = ({
     isModalOpen,

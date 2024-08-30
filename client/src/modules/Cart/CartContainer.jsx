@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import ListingGrid from "../components/content/ListingGrid"
-import { useCartStore } from "../stores/CartStore"
+import ListingGrid from "../Common/components/ListingGrid"
+import { useCartStore } from "./stores/CartStore"
 
-const ProductsPage = () => {
+const CartContainer = () => {
     // stores
     const cartProducts = useCartStore((state) => state.cartProducts)
     const loadCartFromLocalStorage = useCartStore(
@@ -94,4 +94,4 @@ const ProductsPage = () => {
     )
 }
 
-export default ProductsPage
+export default CartContainer
