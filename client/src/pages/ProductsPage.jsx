@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from "react"
 import ListingGrid from "../components/content/ListingGrid"
-import FilterSection from "../components/content/FilterSection"
-import { useCategoryStore } from "../stores/CategoryStore"
-import TopBanner from "../components/content/TopBanner"
 import CategoryCards from "../components/content/CategoryCards"
-import CategoryQuickAccesses from "../components/content/CategoryQuickAccesses"
 import { FaAngleUp } from "react-icons/fa"
 
 const ProductsPage = () => {
     // states
     const [productsList, setProductsList] = useState([])
     const [showScrollToTop, setShowScrollToTop] = useState(false)
-
-    // stores
-    const selectedCategories = useCategoryStore(
-        (state) => state.selectedCategories
-    )
-    const fetchCategories = useCategoryStore((state) => state.fetchCategories)
 
     useEffect(() => {
         fetch(process.env.PUBLIC_URL + "/data/products.json")

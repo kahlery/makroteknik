@@ -15,7 +15,27 @@ const CategoryCards = () => {
             header.textContent.includes(`${categoryName}:`)
         )
         if (header) {
-            header.scrollIntoView({ behavior: "smooth", block: "center" })
+            // scroll to the header smoothly but add 100px offset
+            window.scrollTo({
+                top: header.offsetTop - 100,
+                behavior: "smooth",
+            })
+
+            // highlight the category
+            header.classList.add(
+                "border-b-4",
+                "border-secondary",
+                "bg-secondary",
+                "bg-opacity-20"
+            )
+            setTimeout(() => {
+                header.classList.remove(
+                    "border-b-4",
+                    "border-secondary",
+                    "bg-secondary",
+                    "bg-opacity-20"
+                )
+            }, 1500)
         }
     }
 

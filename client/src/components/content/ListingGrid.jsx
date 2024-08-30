@@ -104,7 +104,7 @@ const ListingGrid = ({
             <div
                 className={`${
                     isHorizontalNorVertical
-                        ? "flex flex-nowrap gap-5"
+                        ? "flex flex-wrap justify-center overflow-y-scroll gap-5"
                         : "grid grid-cols-2 xl:grid-cols-4 gap-5"
                 }`}
             >
@@ -149,7 +149,7 @@ const ListingGrid = ({
                     return (
                         <React.Fragment key={"category_" + category.categoryId}>
                             {!shouldHide && (
-                                <h2 className="text-start text-sm text-black col-span-full  underline-offset-4">
+                                <h2 className="text-start text-sm text-black col-span-full underline-offset-4 transition-all duration-[1s]">
                                     {category.categoryName}:
                                 </h2>
                             )}

@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import { ShoppingCart, Close } from "@mui/icons-material"
 import IconButton from "@mui/material/IconButton"
 import { useCartStore } from "../../stores/CartStore"
-import AdjustCartProduct from "./AdjustCartProduct"
-import { Swipe } from "@mui/icons-material"
 
 const DetailedProductModal = ({
     isModalOpen,
@@ -31,11 +29,11 @@ const DetailedProductModal = ({
 
     return (
         <div
-            className={`fixed top-0 left-0 w-screen h-[100svh] z-[1000] flex flex-col justify-center items-center gap-8 bg-black bg-opacity-70
+            className={`fixed top-0 left-0 w-screen h-[100svh] z-[1000] flex flex-col justify-center items-center transition-opacity duration-[.5s] gap-8 bg-black bg-opacity-70
                  ${
                      isModalOpen
-                         ? "transition-opacity duration-[1s] opacity-100"
-                         : "transition-opacity duration-[1s] opacity-0 pointer-events-none"
+                         ? "opacity-100"
+                         : "opacity-0 pointer-events-none"
                  }`}
             onClick={() => {
                 setIsModalOpen(false)

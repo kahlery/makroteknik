@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Swipe } from "@mui/icons-material"
-import { useCategoryStore } from "../../stores/CategoryStore"
-import { Link, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import ListingGrid from "../content/ListingGrid"
 
 const productsListUrl = process.env.PUBLIC_URL + "/data/products.json"
@@ -75,7 +74,7 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className="bg-white border-black border-b border-opacity-20 absolute top-[51px] sm:top-[96px] z-40 w-screen text-[10.2px] cursor-pointer"
+                    className="h-fit bg-white border-black border-b border-opacity-20 absolute top-[51px] sm:top-[96px] z-40 w-screen text-[10.2px] cursor-pointer"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
@@ -110,21 +109,44 @@ const CategoriesTop = () => {
                                     ) && (
                                         <div
                                             id="hover-dropdown"
-                                            className="fixed top-[90px] md:top-[173px] 2xl:top-[138px] left-0 w-screen h-fit z-40 overflow-x-scroll"
+                                            className="fixed top-[90px] md:top-[173px] h-full 2xl:top-[138px] left-0 flex flex-wrap w-screen z-40 "
                                         >
-                                            <div className="text-black text-left w-fit min-w-full border-black border-y-2  bg-fon shadow-black bg-opacity-100 shadow-lg px-4 md:px-4 py-4">
-                                                {/* Dropdown menu content */}
-                                                <ListingGrid
-                                                    productsList={productsList}
-                                                    categoryId={
-                                                        category.categoryId
-                                                    }
-                                                    isFeatured={true}
-                                                    isHorizontalNorVertical={
-                                                        true
-                                                    }
-                                                />
-                                                <div />
+                                            <div
+                                                className="text-black overflow-y-scroll text-left
+                                            items-center w-screen border-black border-y-2 
+                                            bg-fon bg-opacity-100 shadow-lg px-4 md:px-4 py-4
+                                            h-[calc(100vh-90px)] md:h-[calc(100vh-173px)] 2xl:h-[calc(100vh-138px)]
+                                            "
+                                            >
+                                                <div className="flex flex-col gap-4">
+                                                    {/* Dropdown menu content */}
+                                                    <button
+                                                        className="flex mx-auto w-fit rounded-full bg-red-500"
+                                                        onClick={() =>
+                                                            setHoveredCategoryId(
+                                                                null
+                                                            )
+                                                        }
+                                                    >
+                                                        <span className="text-white text-xs px-3 py-2 rounded-full font-bold">
+                                                            Close
+                                                        </span>
+                                                    </button>
+                                                    <div>
+                                                        <ListingGrid
+                                                            productsList={
+                                                                productsList
+                                                            }
+                                                            categoryId={
+                                                                category.categoryId
+                                                            }
+                                                            isFeatured={true}
+                                                            isHorizontalNorVertical={
+                                                                true
+                                                            }
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     )}

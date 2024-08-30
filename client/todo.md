@@ -1,0 +1,2 @@
+-   Fix the DetailedProductModal in CategoriesTop
+-   Size and quantity in CartPage
