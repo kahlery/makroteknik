@@ -81,8 +81,6 @@ const CategoriesTop = () => {
             clearTimeout(hoverTimeout)
         }
         setHoveredCategoryId(null)
-        // show category buttons
-        const categoryButtons = document.querySelectorAll(".category-button")
     }
 
     const isCategoryHovered = (categoryId) => {
@@ -134,7 +132,7 @@ const CategoriesTop = () => {
                                                             )
                                                         }
                                                     >
-                                                        <span className="text-white text-xs px-3 py-2 rounded-full font-bold">
+                                                        <span className="text-white text-xs px-4 py-2 rounded-full font-bold">
                                                             Close
                                                         </span>
                                                     </button>
@@ -175,8 +173,8 @@ const CategoriesTop = () => {
                         ))}
                     </div>
                     <div
-                        className="absolute top-[25px] sm:top-48 md:hidden right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
-                    z-40 text-black p-2 animate-pulse pointer-events-none"
+                        className="category-button absolute top-[25px] sm:top-48 md:hidden right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
+                    z-40 text-secondary p-2 pointer-events-none"
                     >
                         {/* <span className="md:hidden">Swipe to see more</span> */}
                         <Swipe className="mx-1" />
