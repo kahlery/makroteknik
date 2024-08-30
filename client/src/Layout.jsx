@@ -6,13 +6,13 @@ import CategoriesTop from "./components/layout/CategoriesTop"
 
 const Layout = () => {
     return (
-        <>
+        <main className="relative">
             <TopBar />
             <CategoriesTop />
             <NavBar />
             <Outlet />
             <Footer />
-        </>
+        </main>
     )
 }
 

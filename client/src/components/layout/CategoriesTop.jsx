@@ -46,6 +46,26 @@ const CategoriesTop = () => {
                     clearInterval(interval)
                 }
             }, 30)
+
+            // hide category buttons
+            const categoryButtons =
+                document.querySelectorAll(".category-button")
+            categoryButtons.forEach((button) => {
+                button.style.opacity = 0
+            })
+        }
+
+        return () => {
+            if (hoverDropdown) {
+                hoverDropdown.style.opacity = 0
+            }
+
+            // show category buttons
+            const categoryButtons =
+                document.querySelectorAll(".category-button")
+            categoryButtons.forEach((button) => {
+                button.style.opacity = 1
+            })
         }
     }, [hoveredCategoryId])
 
@@ -61,6 +81,8 @@ const CategoriesTop = () => {
             clearTimeout(hoverTimeout)
         }
         setHoveredCategoryId(null)
+        // show category buttons
+        const categoryButtons = document.querySelectorAll(".category-button")
     }
 
     const isCategoryHovered = (categoryId) => {
@@ -74,7 +96,7 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className="h-fit bg-white border-black border-b border-opacity-20 absolute top-[51px] sm:top-[96px] z-40 w-screen text-[10.2px] cursor-pointer"
+                    className="h-fit bg-white border-black border-b border-opacity-20 fixed top-[51px] sm:top-[96px] z-50 w-screen text-[10.2px] cursor-pointer"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
@@ -86,22 +108,6 @@ const CategoriesTop = () => {
                                 key={category.categoryId}
                                 className="static z-40"
                             >
-                                <div
-                                    className={
-                                        "hover:scale-105 select-none duration-500 text-black font-semibold shadow-sm px-3 py-[5px] text-nowrap border border-black border-opacity-20 rounded-full tracking-wide  "
-                                    }
-                                    onMouseEnter={() =>
-                                        handleMouseEnter(category.categoryId)
-                                    }
-                                    onMouseLeave={() => {
-                                        if (hoverTimeout) {
-                                            clearTimeout(hoverTimeout)
-                                        }
-                                    }}
-                                >
-                                    {category.categoryName}
-                                </div>
-
                                 {/* Hover dropdown */}
                                 {isCategoryHovered(category.categoryId) &&
                                     !location.pathname.endsWith(
@@ -109,11 +115,11 @@ const CategoriesTop = () => {
                                     ) && (
                                         <div
                                             id="hover-dropdown"
-                                            className="fixed top-[90px] md:top-[173px] h-full 2xl:top-[138px] left-0 flex flex-wrap w-screen z-40 "
+                                            className="fixed top-[90px] md:top-[173px] h-full 2xl:top-[138px] left-0 flex flex-wrap w-screen z-[999] "
                                         >
                                             <div
                                                 className="text-black overflow-y-scroll text-left
-                                            items-center w-screen border-black border-y-2 
+                                            items-center w-screen border-black border-y-2 z-[999]
                                             bg-fon bg-opacity-100 shadow-lg px-4 md:px-4 py-4
                                             h-[calc(100vh-90px)] md:h-[calc(100vh-173px)] 2xl:h-[calc(100vh-138px)]
                                             "
@@ -150,6 +156,21 @@ const CategoriesTop = () => {
                                             </div>
                                         </div>
                                     )}
+                                <button
+                                    className={
+                                        "category-button hover:scale-105 select-none duration-500 text-black font-semibold shadow-sm px-3 -z-10 py-[5px] text-nowrap border border-black border-opacity-20 rounded-full tracking-wide  "
+                                    }
+                                    onMouseEnter={() =>
+                                        handleMouseEnter(category.categoryId)
+                                    }
+                                    onMouseLeave={() => {
+                                        if (hoverTimeout) {
+                                            clearTimeout(hoverTimeout)
+                                        }
+                                    }}
+                                >
+                                    {category.categoryName}
+                                </button>
                             </div>
                         ))}
                     </div>
