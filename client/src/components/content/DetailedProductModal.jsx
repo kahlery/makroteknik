@@ -58,13 +58,13 @@ const DetailedProductModal = ({
                                 <h2 className="text-xl text-black font-bold mb-2 text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-xs text-black text-opacity-60 mb-2 border-l-4 border-black border-opacity-20 pl-2">
+                                <p className="text-xs text-black text-opacity-100 mb-2 border-l-4 border-secondary border-opacity-40 pl-2">
                                     {selectedProduct.productCode}
                                 </p>
                                 <p className="text-xs text-black text-opacity-60 mb-2 border-black border-opacity-20">
                                     {selectedProduct.description}
                                 </p>
-                                <p className="text-black font-bold text-[0.8rem]">
+                                <p className="text-black font-bold text-[0.8rem] text-opacity-70">
                                     {`Select a size to add to cart: ${
                                         screen.width < 768
                                             ? "(swipe to see more)"
