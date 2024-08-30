@@ -8,7 +8,7 @@ const Hero = ({ imageIndex, height }) => {
 
     return (
         <div
-            className={`flex relative bg-black bg-opacity-15 justify-center gap-12 pt-24 md:pt-44 2xl:pt-32 h-[320px] md:h-[400px] 2xl:[500px] text-black px-4 border-y border-black border-opacity-20 `}
+            className={`flex relative bg-fon justify-center gap-12 pt-24 md:pt-44 2xl:pt-32 h-[370px] md:h-[400px] 2xl:[500px] text-black px-4 border-y border-black border-opacity-20 `}
         >
             {/* <img
                 src={bgUrl}
@@ -20,10 +20,16 @@ const Hero = ({ imageIndex, height }) => {
                 lg:max-w-[30rem] z-20"
             >
                 <div className="flex flex-col justify-center text-black">
-                    <h2 className="text-sm px-6 sm:px-10 mb-3">
+                    <img
+                        src={process.env.PUBLIC_URL + "/logo.svg"}
+                        className="md:hidden h-[65px] -mt-2"
+                        alt="logo"
+                    />
+                    <hr className="md:hidden border-black border-opacity-20 my-3" />
+                    <h2 className="px-4 sm:px-10 mb-3">
                         It's All About Trust & Years of Experience
                     </h2>
-                    <p className="text-xs mb-4 px-6 sm:px-10 text-black text-opacity-60">
+                    <p className="text-[.75rem] mb-4 sm:px-10 text-black text-opacity-60">
                         We are more than just a supplier of HVAC products. We
                         are your partner in creating comfortable, efficient, and
                         sustainable indoor environments.

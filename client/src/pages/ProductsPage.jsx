@@ -60,7 +60,7 @@ const ProductsPage = () => {
                      text-xs shadow-lg hover:bg-black hover:scale-125 transition-all duration-1000 focus:outline-none z-30"
                     onClick={handleScrollToTop}
                 >
-                    <FaAngleUp size={20} className="text-white" />
+                    <FaAngleUp size={30} className="text-white" />
                 </button>
             )}
         </div>

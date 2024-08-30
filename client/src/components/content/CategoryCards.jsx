@@ -3,9 +3,6 @@ import React, { useEffect, useState } from "react"
 const CategoryCards = () => {
     const [categories, setCategories] = useState([])
 
-    // Array of rainbow colors
-    const rainbowColors = ["bg-blue-50", "bg-indigo-50", "bg-sky-50"]
-
     useEffect(() => {
         fetch("/data/categories.json")
             .then((response) => response.json())
