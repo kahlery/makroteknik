@@ -15,21 +15,8 @@ import { Link } from "react-router-dom"
 import { useCartStore } from "../../Cart/stores/CartStore"
 
 const NavBar = () => {
-    // states
-    const [categories, setCategories] = useState([])
-
     // stores
     const cartProducts = useCartStore((state) => state.cartProducts)
-
-    // refs
-    const previouscartProductsLength = useRef(cartProducts.length)
-
-    // effects
-    useEffect(() => {
-        fetch("/data/categories.json")
-            .then((response) => response.json())
-            .then((data) => setCategories(data))
-    }, [])
 
     return (
         <nav
