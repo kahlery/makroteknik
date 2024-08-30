@@ -58,8 +58,18 @@ const DetailedProductModal = ({
                                 <h2 className="text-xl text-black font-bold mb-2 text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-xs text-black text-opacity-60 mb-2 border-l-4 border-black border-opacity-20 pl-3">
+                                <p className="text-xs text-black text-opacity-60 mb-2 border-l-4 border-black border-opacity-20 pl-2">
+                                    {selectedProduct.productCode}
+                                </p>
+                                <p className="text-xs text-black text-opacity-60 mb-2 border-black border-opacity-20">
                                     {selectedProduct.description}
+                                </p>
+                                <p className="text-black font-bold text-[0.8rem]">
+                                    {`Select a size to add to cart: ${
+                                        screen.width < 768
+                                            ? "(swipe to see more)"
+                                            : ""
+                                    }`}
                                 </p>
                                 <div className="relative gap-4 md:gap-2 pb-2 flex overflow-x-scroll md:overflow-clip md:flex-wrap max-w-[80vw] md:max-w-[100%] justify-start mb-4">
                                     {selectedProduct.sizeToPrice.map(
@@ -71,7 +81,7 @@ const DetailedProductModal = ({
                                                     className={`flex items-center shadow-md rounded-md border p-2 ${
                                                         index ==
                                                         selectedSizeIndex
-                                                            ? "border-black border-[3px]"
+                                                            ? "border-secondary border-[2.5px]"
                                                             : ""
                                                     }`}
                                                     key={index}
@@ -95,7 +105,7 @@ const DetailedProductModal = ({
                                     )}
                                 </div>
                                 <div className="flex flex-row -mt-2 gap-4 items-center text-xs font-bold">
-                                    <button className="flex items-center text-nowrap gap-2 text-black border border-black bg-white bg-opacity-100 py-2 px-3 rounded-full shadow-md">
+                                    <button className="flex items-center text-nowrap gap-2 text-white bg-secondary bg-opacity-100 py-2 px-3 rounded-full shadow-md">
                                         <ShoppingCart
                                             sx={{
                                                 fontSize: "1rem",
