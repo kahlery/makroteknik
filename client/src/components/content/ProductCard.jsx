@@ -53,13 +53,13 @@ const ProductCard = ({
                                 product.sizeToPrice[0]
                             )[0] // Extract size and price from the first entry
                             return (
-                                <p className="text-secondary py-[1.6px]">
+                                <p className="text-green-600 py-[1.6px]">
                                     {price}
                                 </p>
                             )
                         })()
                     ) : (
-                        <p className="text-secondary py-[1.6px]">
+                        <p className="text-red-600 py-[1.6px]">
                             No Prices Available
                         </p>
                     )}
