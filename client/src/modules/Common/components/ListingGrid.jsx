@@ -138,7 +138,7 @@ const ListingGrid = ({
             >
                 {!productsList.length && (
                     <p className="text-start text-sm text-black col-span-full  underline-offset-4">
-                        Please select a category to see products.
+                        Loading Products...
                     </p>
                 )}
                 {categories.map((category) => {
