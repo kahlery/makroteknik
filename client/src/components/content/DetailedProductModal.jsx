@@ -42,7 +42,7 @@ const DetailedProductModal = ({
             {isModalOpen && selectedProduct && (
                 <>
                     <div
-                        className="relative flex flex-col gap-2 mt-2 border-black border-opacity-20 border-2 bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-4 mx-5 md:m-0 overflow-y-scroll"
+                        className="relative flex flex-col gap-2 mt-2 rounded-xl bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-4 mx-5 md:m-0 overflow-y-scroll"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex flex-col md:flex-row items-center h-fit">
