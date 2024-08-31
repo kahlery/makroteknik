@@ -96,11 +96,11 @@ const DetailedProductModal = ({
                                                     Object.entries(val)[0]
                                                 return (
                                                     <button
-                                                        className={`flex items-center rounded-md border border-black border-opacity-20 p-2 ${
+                                                        className={`flex items-center rounded-md border border-black p-2 ${
                                                             index ==
                                                             selectedSizeIndex
-                                                                ? "border-opacity-100 border-[2.5px]"
-                                                                : ""
+                                                                ? "border-opacity-100 border-[3px]"
+                                                                : "border-opacity-20"
                                                         }`}
                                                         key={index}
                                                         onClick={() => {
@@ -146,7 +146,7 @@ const DetailedProductModal = ({
                                 <p className="text-black font-bold text-[0.8rem] text-opacity-70">
                                     Details:
                                 </p>
-                                <p className="text-xs text-black text-opacity-100 border-l-4 px-2 py-2 border-black border-opacity-20 bg-black bg-opacity-5">
+                                <p className="text-xs text-black text-opacity-100 border-l-4 px-2 py-2 border-black border-opacity-20 bg-black bg-opacity-5 mb-12">
                                     {selectedProduct.description}
                                 </p>
                             </div>
