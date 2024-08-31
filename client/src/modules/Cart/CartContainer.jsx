@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react"
 
 // components
-import ListingGrid from "../Common/components/ListingGrid"
+import { CartTable } from "./components/CartTable"
 
 // stores
 import { useCartStore } from "./stores/CartStore"
-import { CartTable } from "./components/CartTable"
+import { useProductStore } from "../Products/stores/ProductStore"
 
 // icons
 import { FaRegCopy } from "react-icons/fa"
 
 const CartContainer = () => {
     // stores
+    const productsList = useProductStore((state) => state.productsList)
     const cartProducts = useCartStore((state) => state.cartProducts)
     const loadCartFromLocalStorage = useCartStore(
         (state) => state.loadCartFromLocalStorage
@@ -31,10 +32,36 @@ const CartContainer = () => {
     }, [loadCartFromLocalStorage])
 
     const sendEmail = () => {
-        const subject = encodeURIComponent("Cart Product IDs")
-        const body = encodeURIComponent(
-            `Here are the product IDs in the cart: ${cartProductIds}`
-        )
+        const subject = encodeURIComponent("Cart Product Details")
+
+        // Construct the body of the email with cart product details
+        const cartDetails = Object.entries(cartProducts)
+            .map(([productId, sizes]) => {
+                const productDetails = productsList.find(
+                    (product) => product.productId === parseInt(productId, 10)
+                )
+                if (!productDetails) return ""
+
+                return sizes
+                    .map((sizeObj, index) => {
+                        const size = Object.keys(sizeObj)[0]
+                        const quantity = sizeObj[size]
+                        const price = productDetails.sizeToPrice[size]
+                            ? Object.values(productDetails.sizeToPrice[size])[0]
+                            : "N/A"
+                        return `
+    Product: ${productDetails.title || "Unknown"}
+    Product Code: ${productDetails.productCode || "Unknown"}
+    Size: ${size}
+    Price: ${price}
+    Quantity: ${quantity}
+                    `.trim()
+                    })
+                    .join("\n\n")
+            })
+            .join("\n\n")
+
+        const body = encodeURIComponent(cartDetails)
         window.location.href = `mailto:garpayyasla@gmail.com?subject=${subject}&body=${body}`
     }
 
@@ -68,16 +95,35 @@ const CartContainer = () => {
                                         The cart will be sent to provider for an
                                         offer.
                                     </p>
-                                    <button className="text-[.8rem] text-black text-opacity-60 underline">
+                                    <button
+                                        className="text-[.8rem] text-black text-opacity-60 underline"
+                                        onClick={() => {
+                                            // Copy the cart product IDs to the clipboard
+                                            navigator.clipboard.writeText(
+                                                cartProductIds.join(", ")
+                                            )
+
+                                            // Show a toast message
+                                            alert(
+                                                "The cart product IDs have been copied to the clipboard."
+                                            )
+                                        }}
+                                    >
                                         Copy the cart records
                                         <FaRegCopy className="inline-block ml-1 text-[1rem] text-black text-opacity-60" />
                                     </button>
                                 </div>
                                 <div className="flex gap-4 text-[.7rem] items-center">
-                                    <button className="bg-white px-4 py-2 font-bold text-black border border-black rounded-full">
+                                    <button
+                                        className="bg-white px-4 py-2 font-bold text-black border border-black rounded-full"
+                                        onClick={sendEmail}
+                                    >
                                         Get an Offer With Cart
                                     </button>
-                                    <button className="bg-red-500 bg-opacity-10 px-4 py-2 h-fit font-bold text-red-500 rounded-full">
+                                    <button
+                                        className="bg-red-500 bg-opacity-10 px-4 py-2 h-fit font-bold text-red-500 rounded-full"
+                                        onClick={handleClearCart}
+                                    >
                                         Reset the Cart
                                     </button>
                                 </div>

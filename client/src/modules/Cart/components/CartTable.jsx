@@ -17,7 +17,7 @@ export const CartTable = () => {
     }
 
     const handleQuantityChange = (productId, size, e) => {
-        const quantity = parseInt(e.target.value, 10)
+        const quantity = parseInt(e.target.value, 10) || 0
         setEditQuantity((prev) => ({
             ...prev,
             [`${productId}-${size}`]: quantity,

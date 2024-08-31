@@ -70,7 +70,7 @@ export const useCartStore = create((set, get) => ({
     },
 
     setSizeQuantity: (productId, sizeIndex = 0, quantity) => {
-        if (quantity <= 0) {
+        if (quantity <= -1) {
             if (window.confirm("Do you want to remove this item?")) {
                 get().removeProduct(productId, sizeIndex)
             }
