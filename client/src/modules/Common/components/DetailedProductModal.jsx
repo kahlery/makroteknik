@@ -71,7 +71,7 @@ const DetailedProductModal = ({
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-xs text-black text-opacity-100 border-l-4 border-black border-opacity-30 pl-2">
+                                <p className="text-blue-900 font-bold border-l-4 px-2 bg-blue-500 bg-opacity-25 border-blue-500 text-[0.8rem] text-opacity-60 w-fit">
                                     {selectedProduct.productCode}
                                 </p>
                                 <hr className="border-black border-opacity-20" />
@@ -129,7 +129,7 @@ const DetailedProductModal = ({
                                     )}
                                 </div>
                                 <div className="flex flex-row -mt-6 gap-4 items-center text-[.7rem] font-bold">
-                                    <button className="flex items-center text-nowrap gap-2 text-white bg-secondary bg-opacity-100 py-2 px-4 rounded-full">
+                                    <button className="flex items-center text-nowrap gap-2 bg-blue-500 bg-opacity-100 py-2 px-4 rounded-full">
                                         <ShoppingCart
                                             sx={{
                                                 fontSize: "1.1rem",
@@ -146,7 +146,7 @@ const DetailedProductModal = ({
                                 <p className="text-black font-bold text-[0.8rem] text-opacity-70">
                                     Details:
                                 </p>
-                                <p className="text-xs text-black text-opacity-60 mb-2 border-l-4 border-black border-opacity-30 pl-2">
+                                <p className="text-xs text-black text-opacity-70 border-l-4 pl-2 py-2 border-black border-opacity-20 bg-black bg-opacity-5">
                                     {selectedProduct.description}
                                 </p>
                             </div>
