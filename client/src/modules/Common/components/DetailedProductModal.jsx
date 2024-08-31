@@ -58,10 +58,10 @@ const DetailedProductModal = ({
                                 className="hidden md:flex md:w-[30vw] object-cover mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
                             />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:justify-center gap-4 h-full md:ml-8 md:mr-4 my-2 md:my-8">
-                                <h2 className="text-xl text-black font-bold mb-2 text-opacity-70">
+                                <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-xs text-black text-opacity-100 mb-2 border-l-4 border-secondary border-opacity-40 pl-2">
+                                <p className="text-xs text-black text-opacity-100 mb-2 border-l-4 border-black border-opacity-40 pl-2">
                                     {selectedProduct.productCode}
                                 </p>
                                 <p className="text-xs text-black text-opacity-60 mb-2 border-black border-opacity-20">
@@ -114,11 +114,11 @@ const DetailedProductModal = ({
                                         </p>
                                     )}
                                 </div>
-                                <div className="flex flex-row -mt-2 gap-4 items-center text-xs font-bold">
-                                    <button className="flex items-center text-nowrap gap-2 text-white bg-secondary bg-opacity-100 py-2 px-3 rounded-full shadow-md">
+                                <div className="flex flex-row -mt-2 gap-4 items-center text-[.8rem] font-bold">
+                                    <button className="flex items-center text-nowrap gap-2 text-white bg-secondary bg-opacity-100 py-2 px-4 rounded-full shadow-md">
                                         <ShoppingCart
                                             sx={{
-                                                fontSize: "1rem",
+                                                fontSize: "1.2rem",
                                             }}
                                         />
                                         <p>Add to Cart</p>
@@ -139,7 +139,7 @@ const DetailedProductModal = ({
                             />
                         </div>
                     </div>
-                    <div className="flex gap-3 md:hidden rounded-full mt-4 bg-red-500 py-[8px] px-[20px]">
+                    <div className="flex gap-3 md:hidden rounded-full bg-red-500 py-[8px] px-[20px]">
                         <p className="text-white font-bold">Close</p>
                     </div>
                 </>
