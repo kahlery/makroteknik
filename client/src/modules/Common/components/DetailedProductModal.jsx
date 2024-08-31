@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 // icons
 import { ShoppingCart } from "@mui/icons-material"
@@ -7,7 +7,6 @@ import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
 import { useCartStore } from "../../Cart/stores/CartStore"
-import ProductCard from "./ProductCard"
 
 const DetailedProductModal = ({
     isModalOpen = false,
@@ -18,9 +17,12 @@ const DetailedProductModal = ({
     const [selectedSizeIndex, setSelectedSizeIndex] = useState(0)
 
     // stores
+    const cartProducts = useCartStore((state) => state.cartProducts) // to get the cart products
     const addProduct = useCartStore((state) => state.addProduct) // to add the product's size
     const removeProduct = useCartStore((state) => state.removeProduct) // to remove product's size
     const isInCart = useCartStore((state) => state.isInCart) // to change button from add to remove if size exists in cart
+
+    useEffect(() => {}, [cartProducts])
 
     return (
         <div
