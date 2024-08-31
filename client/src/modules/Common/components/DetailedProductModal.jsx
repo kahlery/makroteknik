@@ -42,36 +42,32 @@ const DetailedProductModal = ({
             {isModalOpen && selectedProduct && (
                 <>
                     <div
-                        className="relative shadow-2xl flex flex-col gap-2 bg-white md:w-fit h-[100%] md:h-fit md:max-h-none p-4 pt-0 md:pt-4 md:m-0 overflow-y-scroll"
+                        className="relative shadow-2xl flex flex-col gap-2 bg-white md:w-fit h-[100%] md:h-fit md:max-h-none p-4 md:m-0 overflow-y-scroll"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex flex-col md:flex-row h-fit">
-                            <button
-                                className="sticky top-0 gap-1 z-50 md:hidden flex flex-row items-center bg-white w-full py-3"
-                                onClick={() => {
-                                    setIsModalOpen(false)
-                                }}
-                            >
-                                <IoIosArrowBack
-                                    size="1.5rem"
-                                    fontWeight={"60rem"}
-                                    className="text-secondary"
-                                />
-                                <p className="text-black">Close</p>
-                            </button>
                             <img
                                 src={
                                     process.env.PUBLIC_URL +
                                     selectedProduct.imageUrl
                                 }
                                 alt={selectedProduct.title}
-                                className="md:flex max-h-[50vh] md:w-[40vw] md:max-h-[72svh] object-scale-down mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
+                                className="md:flex max-h-[50vh] md:w-[40vw] md:max-h-[66svh] object-scale-down mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
                             />
-                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[72svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
+                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[64svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
+                                <button
+                                    className="md:hidden bg-red-500 flex bg-opacity-10 px-2 py-1 h-fit w-fit font-bold text-red-500"
+                                    onClick={() => {
+                                        setIsModalOpen(false)
+                                    }}
+                                >
+                                    <IoIosArrowBack size="1.5rem" />
+                                    <p>Close</p>
+                                </button>
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-secondary font-bold border-l-4 px-2 bg-secondary bg-opacity-10 border-secondary text-[0.8rem] text-opacity-60 w-fit">
+                                <p className="text-secondary font-bold border-l-4 px-2 bg-secondary bg-opacity-10 border-secondary text-[0.8rem] text-opacity-60">
                                     {selectedProduct.productCode}
                                 </p>
                                 <hr className="border-black border-opacity-20" />
@@ -146,7 +142,7 @@ const DetailedProductModal = ({
                                 <p className="text-black font-bold text-[0.8rem] text-opacity-70">
                                     Details:
                                 </p>
-                                <p className="text-xs text-black text-opacity-100 border-l-4 px-2 py-2 border-black border-opacity-20 bg-black bg-opacity-5 mb-12">
+                                <p className="text-xs text-black text-opacity-100 py-2 mb-16">
                                     {selectedProduct.description}
                                 </p>
                             </div>
