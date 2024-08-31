@@ -27,7 +27,7 @@ const DetailedProductModal = ({
 
     return (
         <div
-            className={`fixed left-0 top-0 w-screen h-[100svh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] gap-8 bg-black bg-opacity-75
+            className={`fixed left-0 top-0 w-screen h-[100vh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] gap-8 bg-black bg-opacity-75
                  ${
                      isModalOpen
                          ? "opacity-100"
