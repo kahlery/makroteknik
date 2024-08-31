@@ -73,22 +73,6 @@ const CartContainer = () => {
                         </div>
                     )}
                 </div>
-                {Object.keys(cartProducts).length > 0 && (
-                    <div className="text-center mt-10 flex justify-center space-x-4 absolute z-50 text-xs md:text-base">
-                        <button
-                            onClick={sendEmail}
-                            className="bg-secondary text-white font-bold py-2 px-3 rounded hover:bg-blue-700 transition duration-300 fixed bottom-16 md:bottom-4 right-4 shadow-lg"
-                        >
-                            Get an Offer with this Cart
-                        </button>
-                        <button
-                            onClick={handleClearCart}
-                            className="bg-red-500 text-white font-bold py-2 px-3 rounded hover:bg-red-700 transition duration-300 bottom-16 fixed md:bottom-4 left-4 shadow-lg"
-                        >
-                            Empty Cart
-                        </button>
-                    </div>
-                )}
             </div>
         </div>
     )

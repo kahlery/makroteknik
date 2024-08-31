@@ -1,6 +1,9 @@
 import React, { useState } from "react"
-import { ShoppingCart, Close } from "@mui/icons-material"
-import IconButton from "@mui/material/IconButton"
+
+// icons
+import { ShoppingCart } from "@mui/icons-material"
+
+// stores
 import { useCartStore } from "../../Cart/stores/CartStore"
 
 const DetailedProductModal = ({
@@ -29,7 +32,7 @@ const DetailedProductModal = ({
 
     return (
         <div
-            className={`fixed left-0 top-0 w-screen h-[100svh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] gap-8 bg-black bg-opacity-70
+            className={`fixed left-0 top-0 w-screen h-[100svh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] gap-8 bg-opacity-100 bg-fon md:bg-black md:bg-opacity-70
                  ${
                      isModalOpen
                          ? "opacity-100"
@@ -42,7 +45,7 @@ const DetailedProductModal = ({
             {isModalOpen && selectedProduct && (
                 <>
                     <div
-                        className="relative flex flex-col gap-2 mt-2 rounded-xl bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-4 mx-5 md:m-0 overflow-y-scroll"
+                        className="relative shadow-md flex flex-col gap-2 mt-2 rounded-xl bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-4 mx-5 md:m-0 overflow-y-scroll"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex flex-col md:flex-row items-center h-fit">
@@ -136,15 +139,8 @@ const DetailedProductModal = ({
                             />
                         </div>
                     </div>
-                    <div className="flex md:hidden rounded-full bg-white">
-                        <IconButton
-                            className="absolute w-16 h-12 ml-auto text-white "
-                            onClick={() => {
-                                setIsModalOpen(false)
-                            }}
-                        >
-                            <Close />
-                        </IconButton>
+                    <div className="flex gap-3 md:hidden rounded-full mt-4 bg-red-500 py-[8px] px-[20px]">
+                        <p className="text-white font-bold">Close</p>
                     </div>
                 </>
             )}
