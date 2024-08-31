@@ -27,7 +27,7 @@ const DetailedProductModal = ({
 
     return (
         <div
-            className={`fixed left-0 top-0 w-screen h-[100svh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] gap-8 bg-black bg-opacity-70
+            className={`fixed left-0 top-0 w-screen h-[100svh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] gap-8 bg-black bg-opacity-75
                  ${
                      isModalOpen
                          ? "opacity-100"
@@ -40,7 +40,7 @@ const DetailedProductModal = ({
             {isModalOpen && selectedProduct && (
                 <>
                     <div
-                        className="relative shadow-2xl flex flex-col gap-2 mt-2 rounded-2xl bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-4 mx-5 md:m-0 overflow-y-scroll"
+                        className="relative shadow-2xl flex flex-col gap-2 mt-2 bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-4 mx-5 md:m-0 overflow-y-scroll"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex flex-col md:flex-row items-center h-fit">
@@ -50,9 +50,9 @@ const DetailedProductModal = ({
                                     selectedProduct.imageUrl
                                 }
                                 alt={selectedProduct.title}
-                                className="hidden md:flex md:w-[30vw] max-h-[80svh] object-cover mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
+                                className="hidden md:flex md:w-[30vw] max-h-[70svh] object-cover mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
                             />
-                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:justify-center gap-4 h-full md:ml-8 md:mr-4 my-2 md:my-8">
+                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] max-h-[70svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4 my-2 md:my-8">
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
@@ -145,7 +145,7 @@ const DetailedProductModal = ({
                             />
                         </div>
                     </div>
-                    <div className="flex gap-3 md:hidden rounded-full py-[8px] px-[20px]">
+                    <div className="flex gap-3 md:hidden rounded-full py-[8px]">
                         <AiOutlineClose
                             size="2rem"
                             fontWeight={"60rem"}
