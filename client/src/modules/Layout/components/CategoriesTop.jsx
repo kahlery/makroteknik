@@ -100,7 +100,7 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className="h-fit bg-white border-black border-b border-opacity-20 fixed top-[51px] sm:top-[96px] z-50 w-screen text-[10.2px] cursor-pointer"
+                    className="h-fit bg-white shadow-md fixed top-[51px] sm:top-[96px] z-50 w-screen text-[10.2px] cursor-pointer"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
@@ -162,7 +162,7 @@ const CategoriesTop = () => {
                                     )}
                                 <button
                                     className={
-                                        "category-button hover:scale-105 select-none duration-500 text-black font-semibold shadow-sm px-3 -z-10 py-[5px] text-nowrap border border-black border-opacity-20 rounded-full tracking-wide  "
+                                        "category-button hover:scale-105 select-none duration-500 text-black font-semibold px-3 py-[5px] text-nowrap border-black border-opacity-20 tracking-wide "
                                     }
                                     onMouseEnter={() =>
                                         handleMouseEnter(category.categoryId)
