@@ -41,7 +41,7 @@ const ProductCard = ({
                 className="h-36 object-scale-down p-4 min-h-32"
             />
             <hr className="border-gray-200 shadow-md my-3 mx-4" />
-            <div className="px-3 md:px-4 flex flex-col h-full gap-[.35rem]">
+            <div className="px-3 md:px-4 flex flex-col h-full gap-[.30rem]">
                 <h2 className="text-xs h-4 text-black font-bold line-clamp-4">
                     {product.title}
                 </h2>
@@ -55,7 +55,7 @@ const ProductCard = ({
                                 product.sizeToPrice[0]
                             )[0] // Extract size and price from the first entry
                             return (
-                                <p className="text-green-700 py-[1.6px]">
+                                <p className="text-secondary py-[1.6px]">
                                     {price}
                                 </p>
                             )
@@ -66,11 +66,11 @@ const ProductCard = ({
                         </p>
                     )}
                 </div>
-                <div className="bg-secondary bg-opacity-20 w-fit text-xs flex">
-                    <p className="text-black pt-[1.6px] flex gap-1 items-center">
+                <div className="w-fit text-xs flex">
+                    <p className="text-black text-opacity-80 pt-[1.6px] flex gap-1 items-center">
                         <TbRulerMeasure size={15} />
                         {product.sizeToPrice ? product.sizeToPrice.length : 1}
-                        &nbsp;Size(s) Available
+                        &nbsp;Size Available
                     </p>
                 </div>
             </div>

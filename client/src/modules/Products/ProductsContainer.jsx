@@ -50,11 +50,11 @@ const ProductsContainer = () => {
             </div>
             {showScrollToTop && (
                 <button
-                    className="fixed bottom-20 md:bottom-8 right-6 md:right-64 p-2 rounded-full bg-secondary  bg-opacity-100  text-white
+                    className="fixed bottom-20 md:bottom-8 right-6 md:right-64 p-3 rounded-full bg-secondary  bg-opacity-100  text-white
                      text-xs shadow-lg hover:bg-black hover:scale-125 transition-all duration-1000 focus:outline-none z-30"
                     onClick={handleScrollToTop}
                 >
-                    <FaAngleUp size={30} className="text-white" />
+                    <FaAngleUp size={25} className="text-white" />
                 </button>
             )}
         </div>

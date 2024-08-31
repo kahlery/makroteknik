@@ -57,13 +57,13 @@ const DetailedProductModal = ({
                                     selectedProduct.imageUrl
                                 }
                                 alt={selectedProduct.title}
-                                className="hidden md:flex md:w-[30vw] object-cover mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
+                                className="hidden md:flex md:w-[30vw] max-h-[80svh] object-cover mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
                             />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:justify-center gap-4 h-full md:ml-8 md:mr-4 my-2 md:my-8">
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-xs text-black text-opacity-100 border-l-4 border-black border-opacity-40 pl-2">
+                                <p className="text-xs text-black text-opacity-100 border-l-4 border-black border-opacity-30 pl-2">
                                     {selectedProduct.productCode}
                                 </p>
                                 <hr className="border-black border-opacity-20" />
@@ -105,7 +105,7 @@ const DetailedProductModal = ({
                                                             <p className="text-black font-bold text-[0.8rem]">
                                                                 {size}
                                                             </p>
-                                                            <p className="text-green-700 text-nowrap text-[0.8rem]">
+                                                            <p className="text-secondary text-nowrap text-[0.8rem]">
                                                                 {price}
                                                             </p>
                                                         </div>
@@ -135,7 +135,10 @@ const DetailedProductModal = ({
                                     </p>
                                 </div>
                                 <hr className="border-black border-opacity-20" />
-                                <p className="text-xs text-black text-opacity-60 mb-2 border-black border-opacity-20">
+                                <p className="text-black font-bold text-[0.8rem] text-opacity-70">
+                                    Details:
+                                </p>
+                                <p className="text-xs text-black text-opacity-60 mb-2 border-l-4 border-black border-opacity-30 pl-2">
                                     {selectedProduct.description}
                                 </p>
                             </div>
