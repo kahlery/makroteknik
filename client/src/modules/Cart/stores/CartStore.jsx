@@ -1,94 +1,87 @@
 import { create } from "zustand"
 
 export const useCartStore = create((set, get) => ({
-    cartProducts: [],
+    cartProducts: {},
 
-    //
-    addProducts: (productId, sizeIndex = 0) => {
+    addProduct: (productId, sizeIndex = 0, quantity = 1) => {
         set((state) => {
-            if (!state.cartProducts[productId]) {
+            const cartProducts = { ...state.cartProducts }
+
+            // initialize the product if doesn't exist in the cart
+            if (!cartProducts[productId]) {
+                cartProducts[productId] = []
             }
-        })
-    },
-    // set((state) => {
-    //     if (!state.cartProducts[productId]) {
-    //         const newCartProducts = {
-    //             ...state.cartProducts,
-    //             [productId]: 1,
-    //         }
-    //         localStorage.setItem("cart", JSON.stringify(newCartProducts))
-    //         console.log("added product:", productId, "to the cart")
-    //         return {
-    //             cartProducts: newCartProducts,
-    //         }
-    //     }
-    //     return state
-    // }),
 
-    setProductQuantity: (productId, quantity) =>
-        set((state) => {
-            if (quantity > 0) {
-                const newCartProducts = {
-                    ...state.cartProducts,
-                    [productId]: quantity,
-                }
-                localStorage.setItem("cart", JSON.stringify(newCartProducts))
-                return { cartProducts: newCartProducts }
+            // check if the sizeIndex already exists for the product
+            const existingSizeIndex = cartProducts[productId].findIndex(
+                (item) => item[sizeIndex] !== undefined
+            )
+
+            if (existingSizeIndex !== -1) {
+                // update the quantity for the existing size
+                cartProducts[productId][existingSizeIndex][sizeIndex] = 1
             } else {
-                const newCartProducts = { ...state.cartProducts }
-                delete newCartProducts[productId]
-                localStorage.setItem("cart", JSON.stringify(newCartProducts))
-                return { cartProducts: newCartProducts }
+                // add new size and quantity
+                cartProducts[productId].push({ [sizeIndex]: quantity })
             }
-        }),
 
-    incrementProductQuantity: (productId) =>
-        set((state) => {
-            const newCartProducts = {
-                ...state.cartProducts,
-                [productId]: (state.cartProducts[productId] || 0) + 1,
-            }
-            localStorage.setItem("cart", JSON.stringify(newCartProducts))
-            return { cartProducts: newCartProducts }
-        }),
+            // save the updated cart to local storage
+            localStorage.setItem("cart", JSON.stringify(cartProducts))
 
-    decrementProductQuantity: (productId) => {
+            return { cartProducts }
+        })
+    },
+
+    isInCart: (productId, sizeIndex = 0) => {
+        const cartProducts = get().cartProducts
+
+        if (!cartProducts[productId]) return false
+
+        const isIn = cartProducts[productId].findIndex(
+            (item) => item[sizeIndex] !== undefined
+        )
+
+        if (isIn !== -1) return true
+        return false
+    },
+
+    removeProduct: (productId, sizeIndex = 0) => {
         set((state) => {
-            if (state.cartProducts[productId] > 1) {
-                const newCartProducts = {
-                    ...state.cartProducts,
-                    [productId]: state.cartProducts[productId] - 1,
+            const cartProducts = { ...state.cartProducts }
+
+            if (cartProducts[productId]) {
+                // Find the index of the size to be removed
+                const existingSizeIndex = cartProducts[productId].findIndex(
+                    (item) => item[sizeIndex] !== undefined
+                )
+
+                if (existingSizeIndex !== -1) {
+                    // Remove the size
+                    cartProducts[productId].splice(existingSizeIndex, 1)
+
+                    // If no sizes left for the product, remove the product itself
+                    if (cartProducts[productId].length === 0) {
+                        delete cartProducts[productId]
+                    }
+
+                    // Update local storage
+                    localStorage.setItem("cart", JSON.stringify(cartProducts))
+
+                    return { cartProducts }
                 }
-                localStorage.setItem("cart", JSON.stringify(newCartProducts))
-                return { cartProducts: newCartProducts }
-            } else {
-                const newCartProducts = { ...state.cartProducts }
-                delete newCartProducts[productId]
-                localStorage.setItem("cart", JSON.stringify(newCartProducts))
-                return { cartProducts: newCartProducts }
             }
+
+            return state // No changes if the product/size was not found
         })
     },
 
-    removeProducts: (productId) => {
-        set((state) => {
-            const newCartProducts = { ...state.cartProducts }
-            delete newCartProducts[productId]
-            localStorage.setItem("cart", JSON.stringify(newCartProducts))
-            console.log("removed product:", productId, "from the cart")
-            return { cartProducts: newCartProducts }
-        })
-    },
-
-    //
     clearCart: () => {
         localStorage.removeItem("cart")
         set({
-            cartProducts: [],
+            cartProducts: {},
         })
     },
 
-    //
     loadCartFromLocalStorage: () => {
         const cart = localStorage.getItem("cart")
         if (cart) {

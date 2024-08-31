@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react"
 import ProductCard from "./ProductCard"
 
 // stores
-import { useCartStore } from "../../Cart/stores/CartStore"
 import DetailedProductModal from "./DetailedProductModal"
 
 const categoriesListUrl = process.env.PUBLIC_URL + "/data/categories.json"
@@ -23,9 +22,6 @@ const ListingGrid = ({
     const [products, setProducts] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(null)
-
-    // stores
-    const addProducts = useCartStore((state) => state.addProducts)
 
     useEffect(() => {
         // Kategorileri yükle
@@ -51,7 +47,6 @@ const ListingGrid = ({
                     isModalOpen={isModalOpen}
                     selectedProduct={selectedProduct}
                     setIsModalOpen={setIsModalOpen}
-                    addProducts={addProducts}
                 />
                 {renderCartProducts()}
             </div>
@@ -66,7 +61,6 @@ const ListingGrid = ({
                     isModalOpen={isModalOpen}
                     selectedProduct={selectedProduct}
                     setIsModalOpen={setIsModalOpen}
-                    addProducts={addProducts}
                 />
                 {renderNormalProducts()}
             </div>
@@ -92,7 +86,6 @@ const ListingGrid = ({
                     isModalOpen={isModalOpen}
                     selectedProduct={selectedProduct}
                     setIsModalOpen={setIsModalOpen}
-                    addProducts={addProducts}
                 />
                 {renderFeaturedProducts(featuredProducts)}
             </div>
@@ -118,7 +111,6 @@ const ListingGrid = ({
                         key={product.productId}
                         product={product}
                         isHorizontalNorVertical={isHorizontalNorVertical}
-                        addProducts={addProducts}
                         setSelectedProduct={setSelectedProduct}
                         setIsModalOpen={setIsModalOpen}
                     />
@@ -160,7 +152,6 @@ const ListingGrid = ({
                                     isHorizontalNorVertical={
                                         isHorizontalNorVertical
                                     }
-                                    addProducts={addProducts}
                                     setSelectedProduct={setSelectedProduct}
                                     setIsModalOpen={setIsModalOpen}
                                 />
@@ -185,7 +176,6 @@ const ListingGrid = ({
                             key={product.productId}
                             product={product}
                             isHorizontalNorVertical={isHorizontalNorVertical}
-                            addProducts={addProducts}
                             setSelectedProduct={setSelectedProduct}
                             setIsModalOpen={setIsModalOpen}
                             isCartProduct={true}

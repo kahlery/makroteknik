@@ -7,23 +7,21 @@ import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
 import { useCartStore } from "../../Cart/stores/CartStore"
+import ProductCard from "./ProductCard"
 
 const DetailedProductModal = ({
     isModalOpen = false,
-    selectedProduct,
+    selectedProduct = 0,
     setIsModalOpen,
 }) => {
     // states
     const [selectedSizeIndex, setSelectedSizeIndex] = useState(0)
 
     // stores
-    const addProducts = useCartStore((state) => state.addProducts) // to add the product with its size
-    const cartProducts = useCartStore((state) => state.cartProducts) // to check if the product and size added
-
-    if (!selectedProduct) return null
-
-    const isCartProduct = cartProducts[selectedProduct.productId]
-    const quantity = isCartProduct || 0
+    const addProduct = useCartStore((state) => state.addProduct) // to add the product's size
+    const removeProduct = useCartStore((state) => state.removeProduct) // to remove product's size
+    const cartProducts = useCartStore((state) => state.cartProducts) // to check if the product's size has been added
+    const isInCart = useCartStore((state) => state.isInCart) // to change button from add to remove if size exists in cart
 
     return (
         <div
@@ -56,13 +54,13 @@ const DetailedProductModal = ({
                             />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[64svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
                                 <button
-                                    className="md:hidden bg-red-500 flex bg-opacity-10 px-2 py-1 h-fit w-fit font-bold text-red-500"
+                                    className="md:hidden flex bg-opacity-10 underline py-1 h-fit w-fit font-bold text-red-500"
                                     onClick={() => {
                                         setIsModalOpen(false)
                                     }}
                                 >
                                     <IoIosArrowBack size="1.5rem" />
-                                    <p>Close</p>
+                                    <p className="text-black">Close</p>
                                 </button>
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
@@ -92,11 +90,11 @@ const DetailedProductModal = ({
                                                     Object.entries(val)[0]
                                                 return (
                                                     <button
-                                                        className={`flex items-center rounded-md border border-black p-2 ${
+                                                        className={`flex items-center rounded-md border p-2 ${
                                                             index ==
                                                             selectedSizeIndex
-                                                                ? "border-opacity-100 border-[3px]"
-                                                                : "border-opacity-20"
+                                                                ? "border-opacity-100 border-[3px] border-black"
+                                                                : "border-opacity-20 border-black"
                                                         }`}
                                                         key={index}
                                                         onClick={() => {
@@ -125,14 +123,44 @@ const DetailedProductModal = ({
                                     )}
                                 </div>
                                 <div className="flex flex-row -mt-4 gap-4 items-center text-[.7rem] font-bold">
-                                    <button className="flex items-center text-nowrap text-white gap-2 bg-secondary bg-opacity-100 py-2 px-4 rounded-full">
-                                        <ShoppingCart
-                                            sx={{
-                                                fontSize: "1.1rem",
+                                    {!isInCart(
+                                        selectedProduct.productId,
+                                        selectedSizeIndex
+                                    ) ? (
+                                        <button
+                                            className="flex items-center text-nowrap text-white gap-2 bg-secondary bg-opacity-100 py-2 px-4 rounded-full"
+                                            onClick={() => {
+                                                addProduct(
+                                                    selectedProduct.productId,
+                                                    selectedSizeIndex
+                                                )
                                             }}
-                                        />
-                                        <p>Add to Cart</p>
-                                    </button>
+                                        >
+                                            <ShoppingCart
+                                                sx={{
+                                                    fontSize: "1.1rem",
+                                                }}
+                                            />
+                                            <p>Add to Cart</p>
+                                        </button>
+                                    ) : (
+                                        <button
+                                            className="flex items-center text-nowrap text-white gap-2 bg-red-500 bg-opacity-100 py-2 px-4 rounded-full"
+                                            onClick={() => {
+                                                removeProduct(
+                                                    selectedProduct.productId,
+                                                    selectedSizeIndex
+                                                )
+                                            }}
+                                        >
+                                            <ShoppingCart
+                                                sx={{
+                                                    fontSize: "1.1rem",
+                                                }}
+                                            />
+                                            <p>Remove from Cart</p>
+                                        </button>
+                                    )}
                                     <p className="text-black text-opacity-60">
                                         Quantity can be adjusted in the cart
                                         page
