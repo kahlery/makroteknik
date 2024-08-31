@@ -47,7 +47,7 @@ const DetailedProductModal = ({
                     >
                         <div className="flex flex-col md:flex-row h-fit">
                             <button
-                                className="sticky top-0 gap-1 z-50 md:hidden flex flex-row items-center bg-white w-full mb-4 py-3"
+                                className="sticky top-0 gap-1 z-50 md:hidden flex flex-row items-center bg-white w-full py-3"
                                 onClick={() => {
                                     setIsModalOpen(false)
                                 }}
@@ -55,7 +55,7 @@ const DetailedProductModal = ({
                                 <IoIosArrowBack
                                     size="1.5rem"
                                     fontWeight={"60rem"}
-                                    className="text-black"
+                                    className="text-secondary"
                                 />
                                 <p className="text-black">Close</p>
                             </button>
