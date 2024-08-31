@@ -1,4 +1,6 @@
 import React from "react"
+
+// icons
 import { ShoppingCart } from "@mui/icons-material"
 import { TbRulerMeasure } from "react-icons/tb"
 
@@ -64,7 +66,7 @@ const ProductCard = ({
                         </p>
                     )}
                 </div>
-                <div className="bg-secondary bg-opacity-10 w-fit text-xs flex">
+                <div className="bg-secondary bg-opacity-20 w-fit text-xs flex">
                     <p className="text-black pt-[1.6px] flex gap-1 items-center">
                         <TbRulerMeasure size={15} />
                         {product.sizeToPrice ? product.sizeToPrice.length : 1}

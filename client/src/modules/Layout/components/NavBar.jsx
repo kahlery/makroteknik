@@ -21,7 +21,7 @@ const NavBar = () => {
     return (
         <nav
             className="bg-white md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 md:px-[16rem] 2xl:px-[25rem] flex-row items-center 
-        justify-center md:justify-between shadow-[0px_-10px_30px_0px_#00000024] md:shadow-none w-full fixed bottom-0 sm:top-[40px] z-40 text-center md:border-b border-t md:border-t-0 border-black border-opacity-20"
+        justify-center md:justify-between shadow-top md:shadow-none w-full fixed bottom-0 sm:top-[40px] z-40 text-center md:border-b border-t md:border-t-0 border-black border-opacity-20"
             onClick={() => {
                 // scroll to top
                 window.scrollTo({ top: 0, behavior: "smooth" })
@@ -53,7 +53,7 @@ const NavBar = () => {
                             className="flex-row items-center text-black hover:text-secondary"
                         >
                             <Home
-                                className="text-secondary"
+                                className="text-black text-opacity-60"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -72,7 +72,7 @@ const NavBar = () => {
                             className="flex-row items-center text-black hover:text-secondary"
                         >
                             <Groups
-                                className="text-secondary"
+                                className="text-black text-opacity-60"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -95,7 +95,7 @@ const NavBar = () => {
                             }}
                         >
                             <PrecisionManufacturing
-                                className="text-secondary"
+                                className="text-black text-opacity-60"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -130,7 +130,7 @@ const NavBar = () => {
                                 )}
                             </div>
                             <ShoppingCart
-                                className="text-secondary relative"
+                                className="text-black relative text-opacity-60"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {

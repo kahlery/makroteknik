@@ -3,6 +3,7 @@ import React, { useState } from "react"
 // icons
 import { ShoppingCart } from "@mui/icons-material"
 import { AiOutlineClose } from "react-icons/ai"
+import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
 import { useCartStore } from "../../Cart/stores/CartStore"
@@ -62,19 +63,23 @@ const DetailedProductModal = ({
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-xs text-black text-opacity-100 mb-2 border-l-4 border-black border-opacity-40 pl-2">
+                                <p className="text-xs text-black text-opacity-100 border-l-4 border-black border-opacity-40 pl-2">
                                     {selectedProduct.productCode}
                                 </p>
-                                <p className="text-xs text-black text-opacity-60 mb-2 border-black border-opacity-20">
-                                    {selectedProduct.description}
-                                </p>
-                                <p className="text-black font-bold text-[0.8rem] text-opacity-70">
-                                    {`Select a size to add to cart: ${
-                                        screen.width < 768
-                                            ? "(swipe to see more)"
-                                            : ""
-                                    }`}
-                                </p>
+                                <hr className="border-black border-opacity-20" />
+                                <div className="flex gap-2 items-center">
+                                    <TbRulerMeasure
+                                        className="text-black"
+                                        size={"1.2rem"}
+                                    />
+                                    <p className="text-black font-bold text-[0.8rem] text-opacity-70">
+                                        {`Select a size: ${
+                                            screen.width < 768
+                                                ? "(swipe to see more)"
+                                                : ""
+                                        }`}
+                                    </p>
+                                </div>
                                 <div className="relative gap-4 md:gap-2 pb-2 flex overflow-x-scroll md:overflow-clip md:flex-wrap max-w-[80vw] md:max-w-[100%] justify-start mb-4">
                                     {selectedProduct.sizeToPrice ? (
                                         selectedProduct.sizeToPrice.map(
@@ -86,7 +91,7 @@ const DetailedProductModal = ({
                                                         className={`flex items-center shadow-md rounded-md border p-2 ${
                                                             index ==
                                                             selectedSizeIndex
-                                                                ? "border-secondary border-[2.5px]"
+                                                                ? "border-black border-[2.5px]"
                                                                 : ""
                                                         }`}
                                                         key={index}
@@ -109,14 +114,14 @@ const DetailedProductModal = ({
                                             }
                                         )
                                     ) : (
-                                        <p className="text-black underline font-bold text-[0.8rem] text-opacity-70">
+                                        <p className="text-blue-900 font-bold border-l-4 px-2 bg-blue-500 bg-opacity-25 border-blue-500 text-[0.8rem] text-opacity-60">
                                             1 size available, no other size
                                             options to select
                                         </p>
                                     )}
                                 </div>
-                                <div className="flex flex-row -mt-2 gap-4 items-center text-[.8rem] font-bold">
-                                    <button className="flex items-center text-nowrap gap-2 text-white bg-secondary bg-opacity-100 py-2 px-4 rounded-full shadow-md">
+                                <div className="flex flex-row -mt-6 gap-4 items-center text-[.8rem] font-bold">
+                                    <button className="flex items-center text-nowrap gap-2 text-white bg-black bg-opacity-100 py-2 px-4 rounded-full shadow-md">
                                         <ShoppingCart
                                             sx={{
                                                 fontSize: "1.2rem",
@@ -129,6 +134,10 @@ const DetailedProductModal = ({
                                         page
                                     </p>
                                 </div>
+                                <hr className="border-black border-opacity-20" />
+                                <p className="text-xs text-black text-opacity-60 mb-2 border-black border-opacity-20">
+                                    {selectedProduct.description}
+                                </p>
                             </div>
                             <img
                                 src={

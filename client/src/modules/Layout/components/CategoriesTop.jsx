@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom"
 
 // icons
 import { Swipe } from "@mui/icons-material"
+import { FaAngleDown } from "react-icons/fa"
 
 // components
 import ListingGrid from "../../Common/components/ListingGrid"
@@ -105,12 +106,12 @@ const CategoriesTop = () => {
                 >
                     <div
                         className="md:px-16 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center 
-                        md:justify-center gap-2 px-4 py-[8px] no-scrollbar overflow-x-scroll"
+                        md:justify-center gap-x-6 gap-y-2 px-4 py-[8px] no-scrollbar overflow-x-scroll"
                     >
                         {categories.map((category) => (
                             <div
                                 key={category.categoryId}
-                                className="static z-40"
+                                className="static z-40 flex items-center gap-[1px]"
                             >
                                 {/* Hover dropdown */}
                                 {isCategoryHovered(category.categoryId) &&
@@ -131,14 +132,14 @@ const CategoriesTop = () => {
                                                 <div className="flex flex-col gap-4">
                                                     {/* Dropdown menu content */}
                                                     <button
-                                                        className="flex mx-auto w-fit rounded-full bg-red-500"
+                                                        className="flex mx-auto w-fit rounded-full bg-red-500 bg-opacity-30"
                                                         onClick={() =>
                                                             setHoveredCategoryId(
                                                                 null
                                                             )
                                                         }
                                                     >
-                                                        <span className="text-white text-xs px-4 py-2 rounded-full font-bold">
+                                                        <span className="text-red-700 text-xs px-4 py-2 rounded-full font-bold">
                                                             Close
                                                         </span>
                                                     </button>
@@ -162,7 +163,7 @@ const CategoriesTop = () => {
                                     )}
                                 <button
                                     className={
-                                        "category-button hover:scale-105 select-none duration-500 text-black font-semibold px-3 py-[5px] text-nowrap border-black border-opacity-20 tracking-wide "
+                                        "category-button hover:scale-105 select-none duration-500 text-black font-semibold py-[5px] text-nowrap border-black border-opacity-20 tracking-wide "
                                     }
                                     onMouseEnter={() =>
                                         handleMouseEnter(category.categoryId)
@@ -175,12 +176,16 @@ const CategoriesTop = () => {
                                 >
                                     {category.categoryName}
                                 </button>
+                                <FaAngleDown
+                                    className="category-button text-secondary"
+                                    size={".9rem"}
+                                />
                             </div>
                         ))}
                     </div>
                     <div
                         className="category-button absolute top-[25px] sm:top-48 md:hidden right-4 md:right-64 md:-rotate-12 items-center gap-2 text-xs
-                    z-40 text-secondary p-2 pointer-events-none"
+                    z-40 text-black text-opacity-50 p-2 pointer-events-none"
                     >
                         {/* <span className="md:hidden">Swipe to see more</span> */}
                         <Swipe className="mx-1" />
