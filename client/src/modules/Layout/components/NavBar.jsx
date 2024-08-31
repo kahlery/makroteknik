@@ -120,8 +120,8 @@ const NavBar = () => {
                                     text-white flex items-center justify-center"
                                     >
                                         <span className="relative flex h-4 w-4">
-                                            <span className="animate-ping duration-1000 absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                            <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500"></span>
+                                            <span className="animate-ping duration-1000 absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
                                         </span>
                                         <span className="absolute text-[0.65rem]">
                                             {Object.keys(cartProducts).length}

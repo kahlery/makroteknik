@@ -55,7 +55,7 @@ const DetailedProductModal = ({
                             />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[64svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
                                 <button
-                                    className="md:hidden flex bg-opacity-10 underline py-1 h-fit w-fit font-bold text-red-500"
+                                    className="md:hidden flex bg-opacity-10 underline py-1 h-fit w-fit font-bold text-black"
                                     onClick={() => {
                                         setIsModalOpen(false)
                                     }}
@@ -146,7 +146,7 @@ const DetailedProductModal = ({
                                         </button>
                                     ) : (
                                         <button
-                                            className="flex items-center text-nowrap text-white gap-2 bg-red-500 bg-opacity-100 py-2 px-4 rounded-full"
+                                            className="flex items-center text-nowrap text-black border-black border gap-2 bg-white bg-opacity-100 py-2 px-4 rounded-full"
                                             onClick={() => {
                                                 removeProduct(
                                                     selectedProduct.productId.toString(),
