@@ -9,7 +9,7 @@ import { TbRulerMeasure } from "react-icons/tb"
 import { useCartStore } from "../../Cart/stores/CartStore"
 
 const DetailedProductModal = ({
-    isModalOpen,
+    isModalOpen = false,
     selectedProduct,
     setIsModalOpen,
 }) => {
@@ -27,7 +27,9 @@ const DetailedProductModal = ({
 
     return (
         <div
-            className={`fixed left-0 top-0 w-screen h-[100vh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] bg-white bg-opacity-100 md:bg-black md:bg-opacity-75
+            className={`fixed left-0 top-0 w-screen h-[100vh] z-[10000] flex flex-col justify-center 
+                items-center transition-opacity duration-[.5s] bg-white bg-opacity-100 md:bg-black md:bg-opacity-75
+                opacity-0 
                  ${
                      isModalOpen
                          ? "opacity-100"
@@ -44,16 +46,8 @@ const DetailedProductModal = ({
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex flex-col md:flex-row h-fit">
-                            <img
-                                src={
-                                    process.env.PUBLIC_URL +
-                                    selectedProduct.imageUrl
-                                }
-                                alt={selectedProduct.title}
-                                className="hidden md:flex md:w-[40vw] max-h-[72svh] object-scale-down mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
-                            />
                             <button
-                                className="sticky top-0 gap-1 z-50 md:hidden flex flex-row items-center bg-white w-full mb-2 py-4 border-b border-black border-opacity-20"
+                                className="sticky top-0 gap-1 z-50 md:hidden flex flex-row items-center bg-white w-full mb-4 py-3"
                                 onClick={() => {
                                     setIsModalOpen(false)
                                 }}
@@ -65,6 +59,14 @@ const DetailedProductModal = ({
                                 />
                                 <p className="text-black">Close</p>
                             </button>
+                            <img
+                                src={
+                                    process.env.PUBLIC_URL +
+                                    selectedProduct.imageUrl
+                                }
+                                alt={selectedProduct.title}
+                                className="md:flex max-h-[50vh] md:w-[40vw] md:max-h-[72svh] object-scale-down mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
+                            />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[72svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4 md:py-3">
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
@@ -126,11 +128,11 @@ const DetailedProductModal = ({
                                         </p>
                                     )}
                                 </div>
-                                <div className="flex flex-row -mt-6 gap-4 items-center text-[.8rem] font-bold">
-                                    <button className="flex items-center text-nowrap gap-2 text-white bg-black bg-opacity-100 py-2 px-4 rounded-full shadow-md">
+                                <div className="flex flex-row -mt-6 gap-4 items-center text-[.7rem] font-bold">
+                                    <button className="flex items-center text-nowrap gap-2 text-white bg-secondary bg-opacity-100 py-2 px-4 rounded-full">
                                         <ShoppingCart
                                             sx={{
-                                                fontSize: "1.2rem",
+                                                fontSize: "1.1rem",
                                             }}
                                         />
                                         <p>Add to Cart</p>
@@ -148,14 +150,6 @@ const DetailedProductModal = ({
                                     {selectedProduct.description}
                                 </p>
                             </div>
-                            <img
-                                src={
-                                    process.env.PUBLIC_URL +
-                                    selectedProduct.imageUrl
-                                }
-                                alt={selectedProduct.title}
-                                className="flex md:hidden mt-4 object-cover mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
-                            />
                         </div>
                     </div>
                 </>
