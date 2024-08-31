@@ -20,7 +20,6 @@ const DetailedProductModal = ({
     // stores
     const addProduct = useCartStore((state) => state.addProduct) // to add the product's size
     const removeProduct = useCartStore((state) => state.removeProduct) // to remove product's size
-    const cartProducts = useCartStore((state) => state.cartProducts) // to check if the product's size has been added
     const isInCart = useCartStore((state) => state.isInCart) // to change button from add to remove if size exists in cart
 
     return (
@@ -148,8 +147,8 @@ const DetailedProductModal = ({
                                             className="flex items-center text-nowrap text-white gap-2 bg-red-500 bg-opacity-100 py-2 px-4 rounded-full"
                                             onClick={() => {
                                                 removeProduct(
-                                                    selectedProduct.productId,
-                                                    selectedSizeIndex
+                                                    selectedProduct.productId.toString(),
+                                                    selectedSizeIndex.toString()
                                                 )
                                             }}
                                         >

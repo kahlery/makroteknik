@@ -7,7 +7,7 @@ export const useCartStore = create((set, get) => ({
         set((state) => {
             const cartProducts = { ...state.cartProducts }
 
-            // initialize the product if doesn't exist in the cart
+            // initialize the product if it doesn't exist in the cart
             if (!cartProducts[productId]) {
                 cartProducts[productId] = []
             }
@@ -19,7 +19,8 @@ export const useCartStore = create((set, get) => ({
 
             if (existingSizeIndex !== -1) {
                 // update the quantity for the existing size
-                cartProducts[productId][existingSizeIndex][sizeIndex] = 1
+                cartProducts[productId][existingSizeIndex][sizeIndex] +=
+                    quantity
             } else {
                 // add new size and quantity
                 cartProducts[productId].push({ [sizeIndex]: quantity })
@@ -32,22 +33,9 @@ export const useCartStore = create((set, get) => ({
         })
     },
 
-    isInCart: (productId, sizeIndex = 0) => {
-        const cartProducts = get().cartProducts
-
-        if (!cartProducts[productId]) return false
-
-        const isIn = cartProducts[productId].findIndex(
-            (item) => item[sizeIndex] !== undefined
-        )
-
-        if (isIn !== -1) return true
-        return false
-    },
-
     removeProduct: (productId, sizeIndex = 0) => {
         set((state) => {
-            const cartProducts = { ...state.cartProducts }
+            let cartProducts = { ...state.cartProducts }
 
             if (cartProducts[productId]) {
                 // Find the index of the size to be removed
@@ -56,12 +44,18 @@ export const useCartStore = create((set, get) => ({
                 )
 
                 if (existingSizeIndex !== -1) {
+                    console.log("removing product:", productId, sizeIndex)
+
                     // Remove the size
                     cartProducts[productId].splice(existingSizeIndex, 1)
 
-                    // If no sizes left for the product, remove the product itself
+                    // If no sizes left for the product, remove the product itself from the list
                     if (cartProducts[productId].length === 0) {
-                        delete cartProducts[productId]
+                        cartProducts = Object.fromEntries(
+                            Object.entries(cartProducts).filter(
+                                ([key]) => key !== productId
+                            )
+                        )
                     }
 
                     // Update local storage
@@ -72,6 +66,34 @@ export const useCartStore = create((set, get) => ({
             }
 
             return state // No changes if the product/size was not found
+        })
+    },
+
+    setSizeQuantity: (productId, sizeIndex = 0, quantity) => {
+        if (quantity <= 0) {
+            if (window.confirm("Do you want to remove this item?")) {
+                get().removeProduct(productId, sizeIndex)
+            }
+            return
+        }
+
+        set((state) => {
+            const cartProducts = { ...state.cartProducts }
+
+            if (cartProducts[productId]) {
+                const existingSizeIndex = cartProducts[productId].findIndex(
+                    (item) => item[sizeIndex] !== undefined
+                )
+
+                if (existingSizeIndex !== -1) {
+                    cartProducts[productId][existingSizeIndex][sizeIndex] =
+                        quantity
+                    localStorage.setItem("cart", JSON.stringify(cartProducts))
+                    return { cartProducts }
+                }
+            }
+
+            return state
         })
     },
 

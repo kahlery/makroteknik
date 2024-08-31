@@ -1,42 +1,34 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 // components
 import ProductCard from "./ProductCard"
-
-// stores
 import DetailedProductModal from "./DetailedProductModal"
 
-const categoriesListUrl = process.env.PUBLIC_URL + "/data/categories.json"
+// store
+import { useProductStore } from "../../Products/stores/ProductStore"
 
 const ListingGrid = ({
-    productsList,
     isFeatured,
     categoryId,
     cartProductIds,
     isHorizontalNorVertical,
 }) => {
-    cartProductIds ? console.log("cartProductIds:", cartProductIds) : null
-
-    // states
+    // States
     const [categories, setCategories] = useState([])
-    const [products, setProducts] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(null)
 
+    // Stores
+    const productsList = useProductStore((state) => state.productsList)
+
+    // Load categories only once
     useEffect(() => {
-        // Kategorileri yükle
+        const categoriesListUrl =
+            process.env.PUBLIC_URL + "/data/categories.json"
         fetch(categoriesListUrl)
             .then((response) => response.json())
             .then((data) => setCategories(data))
             .catch((error) => console.error("Error loading categories:", error))
-    }, [])
-
-    useEffect(() => {
-        // Ürünleri yükle
-        fetch("/data/products.json")
-            .then((response) => response.json())
-            .then((data) => setProducts(data))
-            .catch((error) => console.error("Error loading products:", error))
     }, [])
 
     // cart products
@@ -70,15 +62,6 @@ const ListingGrid = ({
     // featured products
     else {
         let featuredProducts = productsList.slice(0, 8)
-
-        // if (categoryId !== undefined) {
-        //     featuredProducts = productsList.filter(
-        //         (product) => product.categoryId === categoryId
-        //     )
-        // } else {
-        //     // const featuredProducts = productsList.filter(product => product.isFeatured);
-        //     featuredProducts = productsList.filter((product) => product) // TODO: For testing
-        // }
 
         return (
             <div>
@@ -167,7 +150,7 @@ const ListingGrid = ({
     function renderCartProducts() {
         return (
             <div className="grid grid-cols-2 xl:grid-cols-4 gap-5">
-                {products
+                {productsList
                     .filter((product) =>
                         cartProductIds.includes(product.productId)
                     )
