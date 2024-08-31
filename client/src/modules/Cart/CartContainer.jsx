@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react"
+
+// components
 import ListingGrid from "../Common/components/ListingGrid"
+
+// stores
 import { useCartStore } from "./stores/CartStore"
+import { CartTable } from "./components/CartTable"
+
+// icons
+import { FaRegCopy } from "react-icons/fa"
 
 const CartContainer = () => {
     // stores
@@ -12,7 +20,6 @@ const CartContainer = () => {
 
     // constants
     const cartProductIds = Object.keys(cartProducts)
-
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -47,15 +54,42 @@ const CartContainer = () => {
 
     return (
         <div className="relative">
-            <div className="w-screen mt-[100px] md:mt-[190px] px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96">
+            <div className="w-screen max-w-[vw] mt-[100px] md:mt-[190px] px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96">
                 <div className="mx-4">
                     {Object.keys(cartProducts).length > 0 ? (
-                        <ListingGrid
-                            key="cart"
-                            cartProductIds={Object.keys(cartProducts).map(
-                                (productId) => parseInt(productId)
-                            )}
-                        />
+                        <div className="flex flex-col gap-8">
+                            <div className="flex flex-col md:flex-row w-full gap-4 md:gap-0 justify-between rounded-2xl">
+                                <div>
+                                    <h2 className="text-base font-bold">
+                                        Your Cart ({cartProductIds.length}{" "}
+                                        Products)
+                                    </h2>
+                                    <p className="text-[.8rem] text-black text-opacity-60">
+                                        The cart will be sent to provider for an
+                                        offer.
+                                    </p>
+                                    <button className="text-[.8rem] text-black text-opacity-60 underline">
+                                        Copy the cart records
+                                        <FaRegCopy className="inline-block ml-1 text-[1rem] text-black text-opacity-60" />
+                                    </button>
+                                </div>
+                                <div className="flex gap-4 text-[.7rem] items-center">
+                                    <button className="bg-white px-4 py-2 font-bold text-black border border-black rounded-full">
+                                        Get an Offer With Cart
+                                    </button>
+                                    <button className="bg-red-500 bg-opacity-10 px-4 py-2 h-fit font-bold text-red-500 rounded-full">
+                                        Reset the Cart
+                                    </button>
+                                </div>
+                            </div>
+                            <CartTable />
+                            {/* <ListingGrid
+                                key="cart"
+                                cartProductIds={Object.keys(cartProducts).map(
+                                    (productId) => parseInt(productId)
+                                )}
+                            /> */}
+                        </div>
                     ) : (
                         <div className="text-center text-lg text-gray-500 mt-32">
                             Your cart is empty, add some products to get an

@@ -67,11 +67,11 @@ const DetailedProductModal = ({
                                 alt={selectedProduct.title}
                                 className="md:flex max-h-[50vh] md:w-[40vw] md:max-h-[72svh] object-scale-down mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
                             />
-                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[72svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4 md:py-3">
+                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[72svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
-                                <p className="text-blue-900 font-bold border-l-4 px-2 bg-blue-500 bg-opacity-25 border-blue-500 text-[0.8rem] text-opacity-60 w-fit">
+                                <p className="text-secondary font-bold border-l-4 px-2 bg-secondary bg-opacity-10 border-secondary text-[0.8rem] text-opacity-60 w-fit">
                                     {selectedProduct.productCode}
                                 </p>
                                 <hr className="border-black border-opacity-20" />
@@ -122,14 +122,14 @@ const DetailedProductModal = ({
                                             }
                                         )
                                     ) : (
-                                        <p className="text-blue-900 font-bold border-l-4 px-2 bg-blue-500 bg-opacity-25 border-blue-500 text-[0.8rem] text-opacity-60">
+                                        <p className="text-secondary font-bold border-l-4 px-2 bg-secondary bg-opacity-10 border-secondary text-[0.8rem] text-opacity-60">
                                             1 size available, no other size
                                             options to select
                                         </p>
                                     )}
                                 </div>
-                                <div className="flex flex-row -mt-6 gap-4 items-center text-[.7rem] font-bold">
-                                    <button className="flex items-center text-nowrap gap-2 bg-blue-500 bg-opacity-100 py-2 px-4 rounded-full">
+                                <div className="flex flex-row -mt-4 gap-4 items-center text-[.7rem] font-bold">
+                                    <button className="flex items-center text-nowrap text-white gap-2 bg-secondary bg-opacity-100 py-2 px-4 rounded-full">
                                         <ShoppingCart
                                             sx={{
                                                 fontSize: "1.1rem",
@@ -146,7 +146,7 @@ const DetailedProductModal = ({
                                 <p className="text-black font-bold text-[0.8rem] text-opacity-70">
                                     Details:
                                 </p>
-                                <p className="text-xs text-black text-opacity-70 border-l-4 pl-2 py-2 border-black border-opacity-20 bg-black bg-opacity-5">
+                                <p className="text-xs text-black text-opacity-100 border-l-4 px-2 py-2 border-black border-opacity-20 bg-black bg-opacity-5">
                                     {selectedProduct.description}
                                 </p>
                             </div>
