@@ -40,19 +40,19 @@ const DetailedProductModal = ({
             {isModalOpen && selectedProduct && (
                 <>
                     <div
-                        className="relative shadow-2xl flex flex-col gap-2 mt-2 bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-4 mx-5 md:m-0 overflow-y-scroll"
+                        className="relative shadow-2xl flex flex-col gap-2 mt-2 bg-white md:w-fit h-[80%] md:h-fit md:max-h-none p-3 mx-5 md:m-0 overflow-y-scroll"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="flex flex-col md:flex-row items-center h-fit">
+                        <div className="flex flex-col md:flex-row h-fit">
                             <img
                                 src={
                                     process.env.PUBLIC_URL +
                                     selectedProduct.imageUrl
                                 }
                                 alt={selectedProduct.title}
-                                className="hidden md:flex md:w-[30vw] max-h-[70svh] object-cover mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
+                                className="hidden md:flex md:w-[40vw] max-h-[72svh] object-scale-down mr-0 mb-4 md:my-0 rounded-md border border-black border-opacity-20 shadow-md"
                             />
-                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] max-h-[70svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4 my-2 md:my-8">
+                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[72svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4 md:py-3">
                                 <h2 className="text-xl text-black font-bold text-opacity-70">
                                     {selectedProduct.title}
                                 </h2>
