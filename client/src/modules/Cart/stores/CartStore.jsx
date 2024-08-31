@@ -97,6 +97,12 @@ export const useCartStore = create((set, get) => ({
         })
     },
 
+    isInCart: (productId, sizeIndex = 0) => {
+        return !!get().cartProducts[productId]?.find(
+            (item) => item[sizeIndex] !== undefined
+        )
+    },
+
     clearCart: () => {
         localStorage.removeItem("cart")
         set({
