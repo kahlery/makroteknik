@@ -17,15 +17,8 @@ const DetailedProductModal = ({
     const [selectedSizeIndex, setSelectedSizeIndex] = useState(0)
 
     // stores
-    const addProducts = useCartStore((state) => state.addProducts)
-    const removeProducts = useCartStore((state) => state.removeProducts)
-    const incrementProductQuantity = useCartStore(
-        (state) => state.incrementProductQuantity
-    )
-    const decrementProductQuantity = useCartStore(
-        (state) => state.decrementProductQuantity
-    )
-    const cartProducts = useCartStore((state) => state.cartProducts)
+    const addProducts = useCartStore((state) => state.addProducts) // to add the product with its size
+    const cartProducts = useCartStore((state) => state.cartProducts) // to check if the product and size added
 
     if (!selectedProduct) return null
 
@@ -81,17 +74,17 @@ const DetailedProductModal = ({
                                     </p>
                                 </div>
                                 <div className="relative gap-4 md:gap-2 pb-2 flex overflow-x-scroll md:overflow-clip md:flex-wrap max-w-[80vw] md:max-w-[100%] justify-start mb-4">
-                                    {selectedProduct.sizeToPrice ? (
+                                    {selectedProduct.sizeToPrice.length > 1 ? (
                                         selectedProduct.sizeToPrice.map(
                                             (val, index) => {
                                                 const [size, price] =
                                                     Object.entries(val)[0]
                                                 return (
                                                     <button
-                                                        className={`flex items-center shadow-md rounded-md border p-2 ${
+                                                        className={`flex items-center rounded-md border border-black border-opacity-20 p-2 ${
                                                             index ==
                                                             selectedSizeIndex
-                                                                ? "border-black border-[2.5px]"
+                                                                ? "border-opacity-100 border-[2.5px]"
                                                                 : ""
                                                         }`}
                                                         key={index}
@@ -102,7 +95,7 @@ const DetailedProductModal = ({
                                                         }}
                                                     >
                                                         <div className="flex flex-col items-center">
-                                                            <p className="text-black font-bold text-[0.8rem]">
+                                                            <p className="text-black text-opacity-60 text-[0.8rem]">
                                                                 {size}
                                                             </p>
                                                             <p className="text-secondary text-nowrap text-[0.8rem]">
