@@ -90,9 +90,7 @@ const CartContainer = () => {
                 const quantity = Object.values(sizeIndexToQuantityPair)[0]
                 const price = productDetails.sizeToPrice[sizeIndex][
                     Object.keys(productDetails.sizeToPrice[sizeIndex])[0]
-                ]
-                    .replace("£", "")
-                    .replace("ex vat", "")
+                ].replace(/[^0-9]/g, "")
                 console.log(
                     price,
                     quantity,
