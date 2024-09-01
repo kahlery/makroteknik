@@ -56,14 +56,14 @@ const DetailedProductModal = ({
                             <hr className="border-black border-opacity-20 mb-4" />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[64svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
                                 <button
-                                    className="md:hidden flex items-center bg-opacity-10 py-1 h-fit w-fit font-bold text-black"
+                                    className="flex items-center bg-opacity-10 h-fit w-fit -mx-1 font-bold text-black"
                                     onClick={() => {
                                         setIsModalOpen(false)
                                     }}
                                 >
                                     <IoIosArrowBack size="1.3rem" />
                                     <p className="text-black text-[1rem]">
-                                        Close
+                                        Back
                                     </p>
                                 </button>
                                 <h2 className="text-xl text-black font-bold text-opacity-70">

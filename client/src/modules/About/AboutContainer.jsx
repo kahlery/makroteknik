@@ -65,7 +65,7 @@ const AboutContainer = () => {
                 referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
             <address className="leading-relaxed border-l-4 border-secondary pl-4 text-[0.8rem]">
-                <strong>Makro Teknik</strong>
+                <strong>Makro Tech</strong>
                 <br />
                 Unit 32, Nesta Works, Peacock Industrial Estates,
                 <br />

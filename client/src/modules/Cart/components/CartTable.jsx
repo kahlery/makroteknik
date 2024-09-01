@@ -87,7 +87,7 @@ export const CartTable = () => {
                                                 <tr
                                                     key={`${productId}-${size}-${index}`}
                                                 >
-                                                    <td className="px-1 py-4 whitespace-nowrap text-sm text-gray-800">
+                                                    <td className="px-1 py-4 whitespace-nowrap max-w-20 text-sm text-gray-800">
                                                         <input
                                                             type="number"
                                                             value={
