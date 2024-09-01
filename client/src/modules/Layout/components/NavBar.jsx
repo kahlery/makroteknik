@@ -53,7 +53,7 @@ const NavBar = () => {
                             className="flex-row items-center text-black hover:text-secondary"
                         >
                             <Home
-                                className="text-black text-opacity-60"
+                                className="text-black text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -72,7 +72,7 @@ const NavBar = () => {
                             className="flex-row items-center text-black hover:text-secondary"
                         >
                             <Groups
-                                className="text-black text-opacity-60"
+                                className="text-black text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -95,7 +95,7 @@ const NavBar = () => {
                             }}
                         >
                             <PrecisionManufacturing
-                                className="text-black text-opacity-60"
+                                className="text-black text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -130,7 +130,7 @@ const NavBar = () => {
                                 )}
                             </div>
                             <ShoppingCart
-                                className="text-black relative text-opacity-60"
+                                className="text-black relative text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {

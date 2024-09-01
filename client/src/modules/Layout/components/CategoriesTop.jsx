@@ -145,9 +145,6 @@ const CategoriesTop = () => {
                                                     </button>
                                                     <div>
                                                         <ListingGrid
-                                                            productsList={
-                                                                productsList
-                                                            }
                                                             categoryId={
                                                                 category.categoryId
                                                             }

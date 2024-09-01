@@ -61,7 +61,11 @@ const ListingGrid = ({
 
     // featured products
     else {
-        let featuredProducts = productsList.slice(0, 8)
+        const featuredProducts = isHorizontalNorVertical
+            ? productsList.filter(
+                  (product) => product.categoryId === categoryId
+              )
+            : productsList.slice(0, 8)
 
         return (
             <div>
