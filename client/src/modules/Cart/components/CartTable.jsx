@@ -79,23 +79,71 @@ export const CartTable = () => {
                                                 <tr
                                                     key={`${productId}-${size}-${index}`}
                                                 >
-                                                    <td className="px-1 py-4 whitespace-nowrap max-w-20 text-sm text-gray-800">
-                                                        <input
-                                                            type="number"
-                                                            value={
-                                                                editQuantity[
-                                                                    `${productId}-${size}`
-                                                                ] || quantity
-                                                            }
-                                                            onChange={(e) =>
-                                                                handleQuantityChange(
-                                                                    productId,
-                                                                    size,
-                                                                    e
-                                                                )
-                                                            }
-                                                            className="w-full px-2 py-1 border border-gray-300 rounded"
-                                                        />
+                                                    <td className="px-1 py-4 whitespace-nowrap text-sm md:w-32 text-gray-800">
+                                                        <div className="flex items-center w-24">
+                                                            <button
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    handleQuantityChange(
+                                                                        productId,
+                                                                        size,
+                                                                        {
+                                                                            target: {
+                                                                                value:
+                                                                                    (editQuantity[
+                                                                                        `${productId}-${size}`
+                                                                                    ] ||
+                                                                                        quantity) -
+                                                                                    1,
+                                                                            },
+                                                                        }
+                                                                    )
+                                                                }
+                                                                className="px-2 py-1 border border-gray-300 rounded-l bg-gray-200 hover:bg-gray-300"
+                                                            >
+                                                                -
+                                                            </button>
+                                                            <input
+                                                                type="number"
+                                                                inputMode="numeric"
+                                                                value={
+                                                                    editQuantity[
+                                                                        `${productId}-${size}`
+                                                                    ] ||
+                                                                    quantity
+                                                                }
+                                                                onChange={(e) =>
+                                                                    handleQuantityChange(
+                                                                        productId,
+                                                                        size,
+                                                                        e
+                                                                    )
+                                                                }
+                                                                className="w-full px-2 py-1 border-t border-b border-gray-300"
+                                                            />
+                                                            <button
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    handleQuantityChange(
+                                                                        productId,
+                                                                        size,
+                                                                        {
+                                                                            target: {
+                                                                                value:
+                                                                                    (editQuantity[
+                                                                                        `${productId}-${size}`
+                                                                                    ] ||
+                                                                                        quantity) +
+                                                                                    1,
+                                                                            },
+                                                                        }
+                                                                    )
+                                                                }
+                                                                className="px-2 py-1 border border-gray-300 rounded-r bg-gray-200 hover:bg-gray-300"
+                                                            >
+                                                                +
+                                                            </button>
+                                                        </div>
                                                     </td>
                                                     <td className="px-3 py-0 whitespace-nowrap text-center">
                                                         <button
