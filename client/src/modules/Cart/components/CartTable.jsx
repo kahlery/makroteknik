@@ -35,6 +35,18 @@ export const CartTable = () => {
                                 <tr>
                                     <th
                                         scope="col"
+                                        className="px-1 py-3 text-start text-xs font-medium text-gray-500 uppercase"
+                                    >
+                                        Count
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        className="px-3 py-3 text-end text-xs font-medium text-gray-500 uppercase"
+                                    >
+                                        Remove
+                                    </th>
+                                    <th
+                                        scope="col"
                                         className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                                     >
                                         Product
@@ -57,18 +69,6 @@ export const CartTable = () => {
                                     >
                                         Price
                                     </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Count
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Remove
-                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,6 +87,38 @@ export const CartTable = () => {
                                                 <tr
                                                     key={`${productId}-${size}-${index}`}
                                                 >
+                                                    <td className="px-1 py-4 whitespace-nowrap text-sm text-gray-800">
+                                                        <input
+                                                            type="number"
+                                                            value={
+                                                                editQuantity[
+                                                                    `${productId}-${size}`
+                                                                ] || quantity
+                                                            }
+                                                            onChange={(e) =>
+                                                                handleQuantityChange(
+                                                                    productId,
+                                                                    size,
+                                                                    e
+                                                                )
+                                                            }
+                                                            className="w-full px-2 py-1 border border-gray-300 rounded"
+                                                        />
+                                                    </td>
+                                                    <td className="px-3 py-0 whitespace-nowrap text-center">
+                                                        <button
+                                                            type="button"
+                                                            className="inline-flex items-center gap-x-2 font-semibold rounded-lg border border-transparent text-gray-800 disabled:pointer-events-none"
+                                                            onClick={() =>
+                                                                removeProduct(
+                                                                    productId,
+                                                                    size
+                                                                )
+                                                            }
+                                                        >
+                                                            <MdDeleteOutline className="text-[1.5rem] text-opacity-60 text-black" />
+                                                        </button>
+                                                    </td>
                                                     <td className="flex flex-row items-center gap-3 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                         <img
                                                             src={
@@ -121,38 +153,6 @@ export const CartTable = () => {
                                                                 "sizeToPrice"
                                                             ][size]
                                                         )}
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                                                        <input
-                                                            type="number"
-                                                            value={
-                                                                editQuantity[
-                                                                    `${productId}-${size}`
-                                                                ] || quantity
-                                                            }
-                                                            onChange={(e) =>
-                                                                handleQuantityChange(
-                                                                    productId,
-                                                                    size,
-                                                                    e
-                                                                )
-                                                            }
-                                                            className="w-full px-2 py-1 border border-gray-300 rounded"
-                                                        />
-                                                    </td>
-                                                    <td className="px-6 py-0 whitespace-nowrap text-end">
-                                                        <button
-                                                            type="button"
-                                                            className="inline-flex items-center gap-x-2 font-semibold rounded-lg border border-transparent text-gray-800 disabled:pointer-events-none"
-                                                            onClick={() =>
-                                                                removeProduct(
-                                                                    productId,
-                                                                    size
-                                                                )
-                                                            }
-                                                        >
-                                                            <MdDeleteOutline className="text-[1.5rem]" />
-                                                        </button>
                                                     </td>
                                                 </tr>
                                             )

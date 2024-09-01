@@ -115,13 +115,13 @@ const CartContainer = () => {
                                 </div>
                                 <div className="flex gap-4 text-[.7rem] items-center">
                                     <button
-                                        className="bg-white px-4 py-2 font-bold text-black border border-black rounded-full"
+                                        className="bg-secondary px-4 py-2 font-bold text-white rounded-full"
                                         onClick={sendEmail}
                                     >
                                         Get an Offer With Cart
                                     </button>
                                     <button
-                                        className="bg-red-500 bg-opacity-10 px-4 py-2 h-fit font-bold text-red-500 rounded-full"
+                                        className="bg-white px-4 py-2 font-bold text-black border border-black rounded-full"
                                         onClick={handleClearCart}
                                     >
                                         Reset the Cart
