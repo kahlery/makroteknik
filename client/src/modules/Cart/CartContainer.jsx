@@ -60,10 +60,13 @@ const CartContainer = () => {
     const sendEmail = () => {
         const subject = encodeURIComponent("Cart Product Details")
 
-        // Construct the body of the email with cart product details
         const cartDetails = getCartDetails()
+        const total = calculateTotalPrice()
 
-        const body = encodeURIComponent(cartDetails)
+        const body = encodeURIComponent(
+            `Hello, I would like to get an offer for the following products:\n\n${cartDetails}\n\nTotal Price: £${total}`
+        )
+
         window.location.href = `mailto:garpayyasla@gmail.com?subject=${subject}&body=${body}`
     }
 
