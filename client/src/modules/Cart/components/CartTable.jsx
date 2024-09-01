@@ -42,20 +42,12 @@ export const CartTable = () => {
                                     <th
                                         scope="col"
                                         className="px-3 py-3 text-end text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Remove
-                                    </th>
+                                    ></th>
                                     <th
                                         scope="col"
                                         className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
                                     >
                                         Product
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Code
                                     </th>
                                     <th
                                         scope="col"
@@ -134,11 +126,12 @@ export const CartTable = () => {
                                                         <p className="pr-6">
                                                             {productDetails?.title ||
                                                                 "Product Name"}
+                                                            <br />
+                                                            <span className="text-xs text-gray-500">
+                                                                {productDetails?.productCode ||
+                                                                    "Product Code"}
+                                                            </span>
                                                         </p>
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                                                        {productDetails?.productCode ||
-                                                            "Product Code"}
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                                         {Object.keys(

@@ -35,7 +35,7 @@ const NavBar = () => {
                 >
                     <img
                         src={process.env.PUBLIC_URL + "/logo.svg"}
-                        className="mt-1 h-[45px]"
+                        className="mt-1 h-[42px]"
                         alt="logo"
                     />
                 </a>
