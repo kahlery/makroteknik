@@ -53,6 +53,7 @@ const DetailedProductModal = ({
                                 alt={selectedProduct.title}
                                 className="md:flex max-h-[50vh] md:w-[40vw] md:max-h-[66svh] object-scale-down mr-0 mb-4 md:my-0 "
                             />
+                            <hr className="border-black border-opacity-20 mb-4" />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[64svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
                                 <button
                                     className="md:hidden flex items-center bg-opacity-10 py-1 h-fit w-fit font-bold text-black"
