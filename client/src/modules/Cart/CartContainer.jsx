@@ -22,6 +22,7 @@ const CartContainer = () => {
     // constants
     const cartProductIds = Object.keys(cartProducts)
     const [loading, setLoading] = useState(true)
+    const productsLoaded = productsList.length > 0
 
     useEffect(() => {
         const loadCart = async () => {
@@ -37,17 +38,20 @@ const CartContainer = () => {
                 const productDetails = productsList.find(
                     (product) => product.productId === parseInt(productId, 10)
                 )
-                if (!productDetails) return ""
+                if (!productDetails) return "N/A"
 
-                return sizes.map((sizeObj, index) => {
+                return sizes.map((sizeObj, _) => {
                     const size = Object.keys(
                         productDetails.sizeToPrice[Object.keys(sizeObj)[0]]
                     )
-                    const quantity = sizeObj[size]
-                    const price = productDetails.sizeToPrice[size]
-                        ? Object.values(productDetails.sizeToPrice[size])[0]
-                        : "N/A"
-                    return `${productDetails.title} - Size: ${size} - Quantity: ${quantity} - Price: ${price}`
+                    const quantity = Object.values(sizeObj)[0]
+                    const price = Object.values(
+                        productDetails.sizeToPrice[Object.keys(sizeObj)[0]]
+                    )[0]
+                    return `${productDetails.title}\n${productDetails.productCode}
+                    Size: ${size}
+                    Quantity: ${quantity}
+                    Price: ${price}`
                 })
             })
             .join("\n\n")
@@ -70,26 +74,47 @@ const CartContainer = () => {
     }
 
     const calculateTotalPrice = () => {
-        return cartProductIds.reduce((acc, productId) => {
-            const product = productsList.find(
+        const result = cartProductIds.reduce((acc, productId) => {
+            const productDetails = productsList.find(
                 (product) => product.productId === parseInt(productId, 10)
             )
-            if (!product) return acc
+            if (!productDetails) return acc
 
-            const productPrice = Object.entries(cartProducts[productId]).reduce(
-                (acc, [size, quantity]) => {
-                    const price = product.sizeToPrice[size]
-                        ? Object.values(product.sizeToPrice[size])[0]
-                        : 0
-                    return acc + price * quantity
-                },
-                0
-            )
-            return acc + productPrice
+            const productTotalPrice = Object.entries(
+                cartProducts[productId]
+            ).reduce((acc, [productId, sizeIndexToQuantityPair]) => {
+                const sizeIndex = Object.keys(sizeIndexToQuantityPair)[0]
+                const quantity = Object.values(sizeIndexToQuantityPair)[0]
+                const price = productDetails.sizeToPrice[sizeIndex][
+                    Object.keys(productDetails.sizeToPrice[sizeIndex])[0]
+                ]
+                    .replace("£", "")
+                    .replace("ex vat", "")
+                console.log(
+                    price,
+                    quantity,
+                    acc,
+                    productId,
+                    sizeIndexToQuantityPair
+                )
+
+                return acc + quantity * price
+            }, 0)
+            return acc + productTotalPrice
         }, 0)
+
+        return result
     }
 
     if (loading) {
+        return (
+            <div className="text-center text-lg text-gray-500 mt-32">
+                Loading...
+            </div>
+        )
+    }
+
+    if (loading || !productsLoaded) {
         return (
             <div className="text-center text-lg text-gray-500 mt-32">
                 Loading...

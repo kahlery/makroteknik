@@ -16,7 +16,9 @@ const LayoutContainer = () => {
     const fetchProducts = useProductStore((state) => state.fetchProducts)
 
     useEffect(() => {
-        fetchProducts()
+        fetchProducts().then(() => {
+            console.log("Products fetched")
+        })
     }, [fetchProducts])
 
     return (
