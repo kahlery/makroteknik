@@ -31,11 +31,8 @@ const CartContainer = () => {
         loadCart()
     }, [loadCartFromLocalStorage])
 
-    const sendEmail = () => {
-        const subject = encodeURIComponent("Cart Product Details")
-
-        // Construct the body of the email with cart product details
-        const cartDetails = Object.entries(cartProducts)
+    const getCartDetails = () => {
+        return Object.entries(cartProducts)
             .map(([productId, sizes]) => {
                 const productDetails = productsList.find(
                     (product) => product.productId === parseInt(productId, 10)
@@ -49,17 +46,25 @@ const CartContainer = () => {
                         const price = productDetails.sizeToPrice[size]
                             ? Object.values(productDetails.sizeToPrice[size])[0]
                             : "N/A"
-                        return `
-    Product: ${productDetails.title || "Unknown"}
-    Product Code: ${productDetails.productCode || "Unknown"}
-    Size: ${size}
-    Price: ${price}
-    Quantity: ${quantity}
-                    `.trim()
+                        return JSON.stringify({
+                            product: productDetails.title || "Unknown",
+                            productCode:
+                                productDetails.productCode || "Unknown",
+                            size,
+                            price,
+                            quantity,
+                        })
                     })
-                    .join("\n\n")
+                    .join("\n")
             })
-            .join("\n\n")
+            .join("\n")
+    }
+
+    const sendEmail = () => {
+        const subject = encodeURIComponent("Cart Product Details")
+
+        // Construct the body of the email with cart product details
+        const cartDetails = getCartDetails()
 
         const body = encodeURIComponent(cartDetails)
         window.location.href = `mailto:garpayyasla@gmail.com?subject=${subject}&body=${body}`
@@ -124,9 +129,16 @@ const CartContainer = () => {
                                     <button
                                         className="text-[.8rem] text-black text-opacity-60 underline"
                                         onClick={() => {
+                                            // Copy the cart details to the clipboard
+                                            navigator.clipboard.writeText(
+                                                getCartDetails()
+                                            )
+
                                             // Show a toast message
                                             alert(
-                                                "The cart product IDs have been copied to the clipboard."
+                                                "Cart details copied to clipboard!" +
+                                                    "\n\n" +
+                                                    getCartDetails()
                                             )
                                         }}
                                     >
