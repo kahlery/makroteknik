@@ -41,8 +41,8 @@ const NavBar = () => {
                 </a>
             </div>
             <Link to="">
-                <div className="text-black mx-auto">
-                    {/* <p>MakroTech</p> */}
+                <div className="text-secondary font-bold mx-auto">
+                    <p>MakroTech</p>
                 </div>
             </Link>
             <div className="w-full md:w-fit flex text-secondary">
