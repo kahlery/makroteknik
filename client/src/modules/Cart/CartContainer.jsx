@@ -39,25 +39,18 @@ const CartContainer = () => {
                 )
                 if (!productDetails) return ""
 
-                return sizes
-                    .map((sizeObj, index) => {
-                        const size = Object.keys(sizeObj)[0]
-                        const quantity = sizeObj[size]
-                        const price = productDetails.sizeToPrice[size]
-                            ? Object.values(productDetails.sizeToPrice[size])[0]
-                            : "N/A"
-                        return JSON.stringify({
-                            product: productDetails.title || "Unknown",
-                            productCode:
-                                productDetails.productCode || "Unknown",
-                            size,
-                            price,
-                            quantity,
-                        })
-                    })
-                    .join("\n")
+                return sizes.map((sizeObj, index) => {
+                    const size = Object.keys(
+                        productDetails.sizeToPrice[Object.keys(sizeObj)[0]]
+                    )
+                    const quantity = sizeObj[size]
+                    const price = productDetails.sizeToPrice[size]
+                        ? Object.values(productDetails.sizeToPrice[size])[0]
+                        : "N/A"
+                    return `${productDetails.title} - Size: ${size} - Quantity: ${quantity} - Price: ${price}`
+                })
             })
-            .join("\n")
+            .join("\n\n")
     }
 
     const sendEmail = () => {
