@@ -90,7 +90,7 @@ const CartContainer = () => {
                 const quantity = Object.values(sizeIndexToQuantityPair)[0]
                 const price = productDetails.sizeToPrice[sizeIndex][
                     Object.keys(productDetails.sizeToPrice[sizeIndex])[0]
-                ].replace(/[^0-9]/g, "")
+                ].replace(/[^\d.]/g, "")
                 console.log(
                     price,
                     quantity,
