@@ -71,6 +71,26 @@ const CartContainer = () => {
         }
     }
 
+    const calculateTotalPrice = () => {
+        return cartProductIds.reduce((acc, productId) => {
+            const product = productsList.find(
+                (product) => product.productId === parseInt(productId, 10)
+            )
+            if (!product) return acc
+
+            const productPrice = Object.entries(cartProducts[productId]).reduce(
+                (acc, [size, quantity]) => {
+                    const price = product.sizeToPrice[size]
+                        ? Object.values(product.sizeToPrice[size])[0]
+                        : 0
+                    return acc + price * quantity
+                },
+                0
+            )
+            return acc + productPrice
+        }, 0)
+    }
+
     if (loading) {
         return (
             <div className="text-center text-lg text-gray-500 mt-32">
@@ -95,14 +115,15 @@ const CartContainer = () => {
                                         The cart will be sent to provider for an
                                         offer.
                                     </p>
+                                    <p className="text-[.8rem] text-secondary text-opacity-60">
+                                        Total Price:{" "}
+                                        <span className="font-bold">
+                                            £{calculateTotalPrice()}
+                                        </span>
+                                    </p>
                                     <button
                                         className="text-[.8rem] text-black text-opacity-60 underline"
                                         onClick={() => {
-                                            // Copy the cart product IDs to the clipboard
-                                            navigator.clipboard.writeText(
-                                                cartProductIds.join(", ")
-                                            )
-
                                             // Show a toast message
                                             alert(
                                                 "The cart product IDs have been copied to the clipboard."
