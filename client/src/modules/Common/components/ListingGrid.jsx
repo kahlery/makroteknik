@@ -14,22 +14,12 @@ const ListingGrid = ({
     isHorizontalNorVertical,
 }) => {
     // States
-    const [categories, setCategories] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(null)
 
     // Stores
     const productsList = useProductStore((state) => state.productsList)
-
-    // Load categories only once
-    useEffect(() => {
-        const categoriesListUrl =
-            process.env.PUBLIC_URL + "/data/categories.json"
-        fetch(categoriesListUrl)
-            .then((response) => response.json())
-            .then((data) => setCategories(data))
-            .catch((error) => console.error("Error loading categories:", error))
-    }, [])
+    const categoriesList = useProductStore((state) => state.categoriesList)
 
     // cart products
     if (cartProductIds) {
@@ -95,7 +85,7 @@ const ListingGrid = ({
                 )}
                 {featuredProducts.map((product) => (
                     <ProductCard
-                        key={product.productId}
+                        key={product._id.$oid}
                         product={product}
                         isHorizontalNorVertical={isHorizontalNorVertical}
                         setSelectedProduct={setSelectedProduct}
@@ -120,7 +110,7 @@ const ListingGrid = ({
                         Loading Products...
                     </p>
                 )}
-                {categories.map((category) => {
+                {categoriesList.map((category) => {
                     const categoryProducts = productsList.filter(
                         (product) => product.categoryId === category.categoryId
                     )
@@ -134,7 +124,7 @@ const ListingGrid = ({
                             )}
                             {categoryProducts.map((product) => (
                                 <ProductCard
-                                    key={product.productId}
+                                    key={product._id.$oid}
                                     product={product}
                                     isHorizontalNorVertical={
                                         isHorizontalNorVertical
@@ -156,11 +146,11 @@ const ListingGrid = ({
             <div className="grid grid-cols-2 xl:grid-cols-4 gap-5">
                 {productsList
                     .filter((product) =>
-                        cartProductIds.includes(product.productId)
+                        cartProductIds.includes(product._id.$oid)
                     )
                     .map((product) => (
                         <ProductCard
-                            key={product.productId}
+                            key={product._id.$oid}
                             product={product}
                             isHorizontalNorVertical={isHorizontalNorVertical}
                             setSelectedProduct={setSelectedProduct}

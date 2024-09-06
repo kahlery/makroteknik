@@ -7,17 +7,17 @@ import CategoryCards from "./components/QuickAccessCategoriesSection"
 // icons
 import { FaAngleUp } from "react-icons/fa"
 
+// stores
+import { useProductStore } from "./stores/ProductStore"
+
 const ProductsContainer = () => {
     // states
-    const [productsList, setProductsList] = useState([])
     const [showScrollToTop, setShowScrollToTop] = useState(false)
 
-    useEffect(() => {
-        fetch(process.env.PUBLIC_URL + "/data/products.json")
-            .then((response) => response.json())
-            .then((data) => setProductsList(data))
-            .catch((error) => console.error("Error loading products:", error))
+    // stores
+    const productsList = useProductStore((state) => state.productsList)
 
+    useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 200) {
                 setShowScrollToTop(true)

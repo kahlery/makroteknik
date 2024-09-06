@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react"
 
 // stores
 import { useCartStore } from "../Cart/stores/CartStore"
+import { useProductStore } from "../Products/stores/ProductStore"
 
 // components
 import Hero from "./components/Hero"
 import LatestNewsGrid from "./components/LatestNewsGrid"
 import ListingGrid from "../Common/components/ListingGrid"
 
-const productsListUrl = process.env.PUBLIC_URL + "/data/products.json"
 const videoUrl = process.env.PUBLIC_URL + "/videos/hero.mp4"
 
 const HomeContainer = () => {
@@ -18,9 +18,7 @@ const HomeContainer = () => {
         (state) => state.loadCartFromLocalStorage
     )
     const cartProducts = useCartStore((state) => state.cartProducts)
-
-    // states
-    const [productsList, setProductsList] = useState([])
+    const productsList = useProductStore((state) => state.productsList)
 
     useEffect(() => {
         const loadCart = async () => {
@@ -29,14 +27,6 @@ const HomeContainer = () => {
         }
         loadCart()
     }, [loadCartFromLocalStorage])
-
-    useEffect(() => {
-        // Ürünleri yükle
-        fetch(productsListUrl)
-            .then((response) => response.json())
-            .then((data) => setProductsList(data))
-            .catch((error) => console.error("Error loading products:", error))
-    }, [])
 
     return (
         <div className="text-start flex flex-col gap-8 mb-8">

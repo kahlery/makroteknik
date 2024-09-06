@@ -36,7 +36,7 @@ const CartContainer = () => {
         return Object.entries(cartProducts)
             .map(([productId, sizes]) => {
                 const productDetails = productsList.find(
-                    (product) => product.productId === parseInt(productId, 10)
+                    (product) => product._id.$oid === productId
                 )
                 if (!productDetails) return "N/A"
 
@@ -79,7 +79,7 @@ const CartContainer = () => {
     const calculateTotalPrice = () => {
         const result = cartProductIds.reduce((acc, productId) => {
             const productDetails = productsList.find(
-                (product) => product.productId === parseInt(productId, 10)
+                (product) => product._id.$oid === productId
             )
             if (!productDetails) return acc
 
@@ -91,13 +91,14 @@ const CartContainer = () => {
                 const price = productDetails.sizeToPrice[sizeIndex][
                     Object.keys(productDetails.sizeToPrice[sizeIndex])[0]
                 ].replace(/[^\d.]/g, "")
-                console.log(
-                    price,
-                    quantity,
-                    acc,
-                    productId,
-                    sizeIndexToQuantityPair
-                )
+
+                // console.log(
+                //     price,
+                //     quantity,
+                //     acc,
+                //     productId,
+                //     sizeIndexToQuantityPair
+                // )
 
                 return acc + quantity * price
             }, 0)
@@ -181,12 +182,6 @@ const CartContainer = () => {
                                 </div>
                             </div>
                             <CartTable />
-                            {/* <ListingGrid
-                                key="cart"
-                                cartProductIds={Object.keys(cartProducts).map(
-                                    (productId) => parseInt(productId)
-                                )}
-                            /> */}
                         </div>
                     ) : (
                         <div className="text-center text-lg text-gray-500 mt-32">

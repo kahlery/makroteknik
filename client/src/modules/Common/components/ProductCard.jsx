@@ -15,12 +15,12 @@ const ProductCard = ({
 }) => {
     // stores
     const isCartProduct = useCartStore(
-        (state) => state.cartProducts[product.productId]
+        (state) => state.cartProducts[product._id.$oid]
     )
 
     return (
         <div
-            key={product.productId}
+            key={product._id.$oid}
             className={`bg-white md:min-w-[200px] rounded-md relative flex flex-col text-sm duration-1000 h-90 border-black border-opacity-20 border shadow-sm pb-4
             hover:scale-100 hover:cursor-pointer hover:border-black
             ${isHorizontalNorVertical ? "w-48" : ""} ${
@@ -30,7 +30,7 @@ const ProductCard = ({
             }`}
             onClick={() => {
                 // show product detail in a modal
-                console.log("product detail:", product.productId)
+                console.log("product detail:", product._id.$oid)
                 setSelectedProduct(product)
                 setIsModalOpen(true)
             }}

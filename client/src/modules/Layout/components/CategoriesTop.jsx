@@ -7,34 +7,22 @@ import { useLocation } from "react-router-dom"
 import { Swipe } from "@mui/icons-material"
 import { FaAngleDown } from "react-icons/fa"
 
+// stores
+import { useProductStore } from "../../Products/stores/ProductStore"
+
 // components
 import ListingGrid from "../../Common/components/ListingGrid"
 
-const productsListUrl = process.env.PUBLIC_URL + "/data/products.json"
-
 const CategoriesTop = () => {
     // states
-    const [productsList, setProductsList] = useState([])
-    const [categories, setCategories] = useState([])
     const [hoveredCategoryId, setHoveredCategoryId] = useState(null)
     const [hoverTimeout, setHoverTimeout] = useState(null)
 
+    // stores
+    const categoriesList = useProductStore((state) => state.categoriesList)
+
     // hooks
     const location = useLocation()
-
-    useEffect(() => {
-        // Load products
-        fetch(productsListUrl)
-            .then((response) => response.json())
-            .then((data) => setProductsList(data))
-            .catch((error) => console.error("Error loading products:", error))
-    }, [])
-
-    useEffect(() => {
-        fetch("/data/categories.json")
-            .then((response) => response.json())
-            .then((data) => setCategories(data))
-    }, [])
 
     // start opacity-0 to opacity-100 duration-500
     useEffect(() => {
@@ -101,14 +89,14 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className="h-fit bg-white shadow-md fixed top-[51px] sm:top-[96px] z-50 w-screen text-[10.2px] cursor-pointer"
+                    className="h-fit bg-secondary shadow-md fixed top-[51px] sm:top-[96px] z-50 w-screen text-[10.2px] cursor-pointer"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
                         className="md:px-16 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center 
                         md:justify-center gap-x-6 gap-y-2 px-4 py-[8px] no-scrollbar overflow-x-scroll"
                     >
-                        {categories.map((category) => (
+                        {categoriesList.map((category) => (
                             <div
                                 key={category.categoryId}
                                 className="static z-40 flex items-center gap-[1px]"
@@ -160,7 +148,7 @@ const CategoriesTop = () => {
                                     )}
                                 <button
                                     className={
-                                        "category-button hover:scale-105 select-none duration-500 text-black font-semibold py-[5px] text-nowrap border-black border-opacity-20 tracking-wide "
+                                        "category-button text-[0.8rem] hover:scale-105 select-none duration-500 text-white font-semibold py-[5px] text-nowrap border-black border-opacity-20 tracking-wide "
                                     }
                                     onMouseEnter={() =>
                                         handleMouseEnter(category.categoryId)
@@ -174,7 +162,7 @@ const CategoriesTop = () => {
                                     {category.categoryName}
                                 </button>
                                 <FaAngleDown
-                                    className="category-button text-secondary"
+                                    className="category-button text-white"
                                     size={".9rem"}
                                 />
                             </div>

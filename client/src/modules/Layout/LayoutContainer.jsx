@@ -14,12 +14,16 @@ import { useProductStore } from "../Products/stores/ProductStore"
 
 const LayoutContainer = () => {
     const fetchProducts = useProductStore((state) => state.fetchProducts)
+    const fetchCategories = useProductStore((state) => state.fetchCategories)
 
     useEffect(() => {
         fetchProducts().then(() => {
             console.log("Products fetched")
         })
-    }, [fetchProducts])
+        fetchCategories().then(() => {
+            console.log("Categories fetched")
+        })
+    }, [fetchProducts, fetchCategories])
 
     return (
         <main className="relative">

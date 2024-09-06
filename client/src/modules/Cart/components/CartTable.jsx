@@ -13,7 +13,7 @@ export const CartTable = () => {
 
     // Helper function to get product details by ID
     const getProductDetails = (productId) => {
-        return productsList.find((product) => product.productId === productId)
+        return productsList.find((product) => product._id.$oid === productId)
     }
 
     const handleQuantityChange = (productId, size, e) => {
@@ -67,9 +67,7 @@ export const CartTable = () => {
                                 {Object.entries(cartProducts).map(
                                     ([productId, sizes]) => {
                                         const productDetails =
-                                            getProductDetails(
-                                                parseInt(productId, 10)
-                                            )
+                                            getProductDetails(productId)
 
                                         return sizes.map((sizeObj, index) => {
                                             const size = Object.keys(sizeObj)[0]

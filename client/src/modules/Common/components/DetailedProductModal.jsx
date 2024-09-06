@@ -128,14 +128,14 @@ const DetailedProductModal = ({
                                 </div>
                                 <div className="flex flex-row -mt-4 gap-4 items-center text-[.7rem] font-bold">
                                     {!isInCart(
-                                        selectedProduct.productId,
+                                        selectedProduct._id.$oid,
                                         selectedSizeIndex
                                     ) ? (
                                         <button
                                             className="flex items-center text-nowrap text-white gap-2 bg-secondary bg-opacity-100 py-2 px-4 rounded-full"
                                             onClick={() => {
                                                 addProduct(
-                                                    selectedProduct.productId,
+                                                    selectedProduct._id.$oid,
                                                     selectedSizeIndex
                                                 )
                                             }}
@@ -152,7 +152,7 @@ const DetailedProductModal = ({
                                             className="flex items-center text-nowrap text-black border-black border gap-2 bg-white bg-opacity-100 py-2 px-4 rounded-full"
                                             onClick={() => {
                                                 removeProduct(
-                                                    selectedProduct.productId.toString(),
+                                                    selectedProduct._id.$oid.toString(),
                                                     selectedSizeIndex.toString()
                                                 )
                                             }}

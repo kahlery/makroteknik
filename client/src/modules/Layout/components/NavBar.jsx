@@ -41,9 +41,11 @@ const NavBar = () => {
                 </a>
             </div>
             <Link to="">
-                <div className="text-secondary font-bold mx-auto">
-                    <p>MakroTech</p>
-                </div>
+                <img
+                    src={process.env.PUBLIC_URL + "/logo.png"}
+                    className="mt-3 h-[47px] mx-auto"
+                    alt="logo"
+                />
             </Link>
             <div className="w-full md:w-fit flex text-secondary">
                 <ul className="flex w-full justify-evenly md:justify-end md:space-x-6">
@@ -53,7 +55,7 @@ const NavBar = () => {
                             className="flex-row items-center text-black hover:text-secondary"
                         >
                             <Home
-                                className="text-black text-opacity-80"
+                                className="text-secondary text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -72,7 +74,7 @@ const NavBar = () => {
                             className="flex-row items-center text-black hover:text-secondary"
                         >
                             <Groups
-                                className="text-black text-opacity-80"
+                                className="text-secondary text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -95,7 +97,7 @@ const NavBar = () => {
                             }}
                         >
                             <PrecisionManufacturing
-                                className="text-black text-opacity-80"
+                                className="text-secondary text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -130,7 +132,7 @@ const NavBar = () => {
                                 )}
                             </div>
                             <ShoppingCart
-                                className="text-black relative text-opacity-80"
+                                className="text-secondary relative text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
