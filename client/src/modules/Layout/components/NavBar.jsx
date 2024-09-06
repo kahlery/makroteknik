@@ -52,10 +52,10 @@ const NavBar = () => {
                     <li>
                         <Link
                             to=""
-                            className="flex-row items-center text-black hover:text-secondary"
+                            className="flex-row items-center text-secondary hover:text-primary"
                         >
                             <Home
-                                className="text-secondary text-opacity-80"
+                                className="text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -71,10 +71,10 @@ const NavBar = () => {
                     <li>
                         <Link
                             to="/about"
-                            className="flex-row items-center text-black hover:text-secondary"
+                            className="flex-row items-center text-secondary hover:text-primary"
                         >
                             <Groups
-                                className="text-secondary text-opacity-80"
+                                className="text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -90,14 +90,14 @@ const NavBar = () => {
                     <li>
                         <Link
                             to="/products"
-                            className="flex-row items-center text-black hover:text-secondary"
+                            className="flex-row items-center text-secondary hover:text-primary"
                             onClick={() => {
                                 // scroll to top
                                 window.scrollTo({ top: 0, behavior: "smooth" })
                             }}
                         >
                             <PrecisionManufacturing
-                                className="text-secondary text-opacity-80"
+                                className="text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {
@@ -113,7 +113,7 @@ const NavBar = () => {
                     <li className="relative md:static">
                         <Link
                             to="/cart"
-                            className="flex-row items-center text-black hover:text-secondary"
+                            className="flex-row items-center text-secondary hover:text-primary"
                         >
                             <div className="relative z-50">
                                 {Object.keys(cartProducts).length > 0 && (
@@ -132,7 +132,7 @@ const NavBar = () => {
                                 )}
                             </div>
                             <ShoppingCart
-                                className="text-secondary relative text-opacity-80"
+                                className="relative text-opacity-80"
                                 sx={{
                                     fontSize: "1.3rem",
                                     "@media (max-width: 1024px)": {

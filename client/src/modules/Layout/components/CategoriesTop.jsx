@@ -148,7 +148,7 @@ const CategoriesTop = () => {
                                     )}
                                 <button
                                     className={
-                                        "category-button text-[0.8rem] hover:scale-105 select-none duration-500 text-white font-semibold py-[5px] text-nowrap border-black border-opacity-20 tracking-wide "
+                                        "category-button text-[0.8rem] hover:scale-105 select-none duration-500 text-white py-[5px] text-nowrap border-black border-opacity-20 tracking-wide "
                                     }
                                     onMouseEnter={() =>
                                         handleMouseEnter(category.categoryId)
