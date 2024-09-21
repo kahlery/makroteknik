@@ -1,0 +1,2 @@
+# Hiding config.yaml as it stores tokens, connections string etc.
+config.yaml
