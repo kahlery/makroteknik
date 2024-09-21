@@ -1,18 +1,23 @@
 package main
 
 import (
-	"center/internal/conf"
 	"center/internal/service/auth"
 	"center/internal/service/product"
 	"log"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/joho/godotenv"
 )
 
-func main() {
-	// Load configuration
-	conf.LoadConfig()
+func init() {
+	// Load .env file
+	if err := godotenv.Load("../../.env"); err != nil {
+		log.Fatalf("Error loading .env file: %v", err)
+	}
+}
 
+func main() {
 	// Initialize the Fiber app
 	app := fiber.New()
 
@@ -20,9 +25,9 @@ func main() {
 	setupRoutes(app)
 
 	// Start serving
-	address := conf.Cfg.Server.Address
-	log.Printf("Starting server on %s", address)
-	if err := app.Listen(address); err != nil {
+	port := os.Getenv("PORT")
+	log.Printf("Starting server on %s", port)
+	if err := app.Listen(port); err != nil {
 		log.Fatalf("failed to start server: %v", err)
 	}
 }
