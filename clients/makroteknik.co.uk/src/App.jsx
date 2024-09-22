@@ -9,6 +9,7 @@ import HomeContainer from "./modules/Home/HomeContainer"
 import AboutContainer from "./modules/About/AboutContainer"
 import ProductsContainer from "./modules/Products/ProductsContainer"
 import CartContainer from "./modules/Cart/CartContainer"
+import { AdminContainer } from "./modules/Admin/AdminContainer"
 import NotFoundContainer from "./modules/Common/components/NotFoundContainer"
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
                             element={<ProductsContainer />}
                         />
                         <Route path="cart" element={<CartContainer />} />
+                        <Route path="admin" element={<AdminContainer />} />
                         <Route path="*" element={<NotFoundContainer />} />
                     </Route>
                 </Routes>

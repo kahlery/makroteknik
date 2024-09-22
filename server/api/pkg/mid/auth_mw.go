@@ -1,7 +1,7 @@
 package mid
 
 import (
-	"go/token"
+	"center/pkg/tool"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -14,7 +14,7 @@ func AuthMiddleware(c *fiber.Ctx) error {
 	}
 
 	// Verify token
-	_, err := token.VerifyJWT(authHeader)
+	_, err := tool.VerifyToken(authHeader)
 	if err != nil {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid token"})
 	}
