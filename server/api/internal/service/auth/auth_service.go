@@ -32,6 +32,8 @@ func Login(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusUnauthorized).SendString("Invalid credentials")
 	}
 
+	log.Printf("Generating token for req:%s found:%s", req.UserName, user.UserName)
+
 	// Generate token
 	token, err := tool.GenerateToken(user.UserName)
 	if err != nil {

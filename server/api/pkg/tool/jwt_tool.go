@@ -5,10 +5,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v4"
 )
 
-var secretKey = os.Getenv("TOKEN_SECRET")
+var secretKey = []byte(os.Getenv("TOKEN_SECRET"))
 
 func GenerateToken(userName string) (string, error) {
 	tokenClaims := jwt.MapClaims{
@@ -16,7 +16,7 @@ func GenerateToken(userName string) (string, error) {
 		"exp":      time.Now().Add(time.Minute * 30).Unix(),
 	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodES256, tokenClaims)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, tokenClaims)
 	return token.SignedString(secretKey)
 }
 

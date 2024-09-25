@@ -4,12 +4,16 @@ import (
 	"center/internal/service/auth"
 	"center/internal/service/product"
 	"center/pkg/mid"
+	"context"
 	"log"
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func init() {
@@ -25,8 +29,10 @@ func main() {
 		AppName: "center",
 	})
 
-	setupRoutes(app)
+	mongoClient := setupDbConnection()
+	initServices(mongoClient)
 	setupMiddlewares(app)
+	setupRoutes(app)
 
 	// Start serving
 	port := os.Getenv("PORT")
@@ -34,6 +40,20 @@ func main() {
 	if err := app.Listen(port); err != nil {
 		log.Fatalf("failed to start server: %v", err)
 	}
+}
+
+func initServices(c *mongo.Client) {
+	auth.InitAuthService(c)
+	// product.InitProductService(c)
+}
+
+// Set the database connection
+func setupDbConnection() *mongo.Client {
+	mongoClient, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(os.Getenv("DB")))
+	if err != nil {
+		panic(err)
+	}
+	return mongoClient
 }
 
 // Set the routes
@@ -53,4 +73,10 @@ func setupRoutes(app *fiber.App) {
 // Set the middlewares
 func setupMiddlewares(app *fiber.App) {
 	app.Use(logger.New())
+	app.Use(cors.New(
+		cors.Config{
+			AllowOrigins: "http://localhost:3000, https://makroteknik.vercel.app",
+			AllowHeaders: "Origin, Content-Type, Accept, Authorization",
+		},
+	))
 }

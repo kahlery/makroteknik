@@ -27,9 +27,9 @@ const LayoutContainer = () => {
 
     return (
         <main className="relative">
-            <TopBar />
-            <CategoriesTop />
-            <NavBar />
+            {!document.URL.endsWith("admin") && <TopBar />}
+            {!document.URL.endsWith("admin") && <CategoriesTop />}
+            {!document.URL.endsWith("admin") && <NavBar />}
             <Outlet />
             <Footer />
         </main>

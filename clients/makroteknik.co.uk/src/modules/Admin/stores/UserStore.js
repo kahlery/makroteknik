@@ -11,14 +11,17 @@ export const useUserStore = create((set, get) => ({
 
     login: async (userName, password) => {
         try {
-            const response = await axios.post(apiUrl + "/login", {
+            const { apiUrl } = get()
+            const response = await axios.post(apiUrl + "/auth/login", {
                 userName,
                 password,
             })
             console.log("Logged in:", response.data)
             set({ userName: userName, token: response.data.token })
+            return true
         } catch (err) {
             console.error(err)
+            return false
         }
     },
 }))
