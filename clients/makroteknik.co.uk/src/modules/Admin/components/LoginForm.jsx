@@ -13,28 +13,31 @@ export const LoginForm = ({ setIsLoggedIn }) => {
     }
 
     return (
-        <form
-            onSubmit={handleLogin}
-            className="flex flex-col max-w-52 mx-auto gap-8"
-        >
-            <input
-                type="text"
-                className="text-black border-black border-b px-4 py-1"
-                name="userName"
-                placeholder="Username"
-            />
-            <input
-                type="password"
-                name="password"
-                className="text-black border-black border-b px-4 py-1"
-                placeholder="Password"
-            />
-            <button
-                type="submit"
-                className="bg-black text-white py-2 rounded-md"
+        <div className="flex flex-col gap-12 my-auto">
+            <img src="/logo.png" className="w-52 mx-auto" />
+            <form
+                onSubmit={handleLogin}
+                className="flex flex-col mx-auto gap-6 w-72"
             >
-                Login
-            </button>
-        </form>
+                <input
+                    type="text"
+                    className="text-black border-black border-b px-4 py-2"
+                    name="userName"
+                    placeholder="Username"
+                />
+                <input
+                    type="password"
+                    name="password"
+                    className="text-black border-black border-b px-4 py-2"
+                    placeholder="Password"
+                />
+                <button
+                    type="submit"
+                    className="bg-secondary text-white py-2 rounded-md"
+                >
+                    Login
+                </button>
+            </form>
+        </div>
     )
 }

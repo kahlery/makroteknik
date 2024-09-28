@@ -12,16 +12,20 @@ const ListingGrid = ({
     categoryId,
     cartProductIds,
     isHorizontalNorVertical,
+    passedProductsList, // Renamed to avoid conflict
 }) => {
     // States
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(null)
 
+    if (passedProductsList === undefined) console.error("efwkfwlekf")
+
     // Stores
-    const productsList = useProductStore((state) => state.productsList)
+    const productsList =
+        passedProductsList ?? useProductStore((state) => state.productsList)
     const categoriesList = useProductStore((state) => state.categoriesList)
 
-    // cart products
+    // Render Cart Products
     if (cartProductIds) {
         return (
             <div>
@@ -35,39 +39,27 @@ const ListingGrid = ({
         )
     }
 
-    // normal products
-    if (!isFeatured) {
-        return (
-            <div>
-                <DetailedProductModal
-                    isModalOpen={isModalOpen}
-                    selectedProduct={selectedProduct}
-                    setIsModalOpen={setIsModalOpen}
-                />
-                {renderNormalProducts()}
-            </div>
-        )
-    }
+    // Render Featured or Normal Products
+    const featuredProducts = isFeatured
+        ? renderFeaturedProducts(
+              isHorizontalNorVertical
+                  ? productsList.filter(
+                        (product) => product.categoryId === categoryId
+                    )
+                  : productsList.slice(0, 8)
+          )
+        : renderNormalProducts()
 
-    // featured products
-    else {
-        const featuredProducts = isHorizontalNorVertical
-            ? productsList.filter(
-                  (product) => product.categoryId === categoryId
-              )
-            : productsList.slice(0, 8)
-
-        return (
-            <div>
-                <DetailedProductModal
-                    isModalOpen={isModalOpen}
-                    selectedProduct={selectedProduct}
-                    setIsModalOpen={setIsModalOpen}
-                />
-                {renderFeaturedProducts(featuredProducts)}
-            </div>
-        )
-    }
+    return (
+        <div>
+            <DetailedProductModal
+                isModalOpen={isModalOpen}
+                selectedProduct={selectedProduct}
+                setIsModalOpen={setIsModalOpen}
+            />
+            {featuredProducts}
+        </div>
+    )
 
     function renderFeaturedProducts(featuredProducts) {
         return (
@@ -107,18 +99,17 @@ const ListingGrid = ({
             >
                 {!productsList.length && (
                     <p className="text-start text-sm text-black col-span-full  underline-offset-4">
-                        Loading Products...
+                        No products matched
                     </p>
                 )}
                 {categoriesList.map((category) => {
                     const categoryProducts = productsList.filter(
                         (product) => product.categoryId === category.categoryId
                     )
-                    const shouldHide = categoryProducts.length === 0
                     return (
                         <React.Fragment key={"category_" + category.categoryId}>
-                            {!shouldHide && (
-                                <h2 className="text-start text-sm text-black col-span-full underline-offset-4 transition-all duration-[1s]">
+                            {!!categoryProducts.length && (
+                                <h2 className="text-start text-sm text-black col-span-full underline-offset-4">
                                     {category.categoryName}:
                                 </h2>
                             )}
