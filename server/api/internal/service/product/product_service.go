@@ -1,21 +1,25 @@
 package product
 
 import (
+	"api/internal/service/product/repo"
+
 	"github.com/gofiber/fiber/v2"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
+var productRepo *repo.ProductRepo
+
+// InitProductService function initializes the product service
+//   - Parameters: client *mongo.Client: instance of mongo.Client
+func InitProductService(client *mongo.Client) {
+	productRepo = repo.NewProductRepo(client)
+}
+
 func GetProducts(c *fiber.Ctx) error {
-	return c.SendString("product")
-}
+	products, err := productRepo.GetProducts(c.Context())
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).SendString(err.Error())
+	}
 
-func AddProduct(c *fiber.Ctx) error {
-	return c.SendString("Product has been added")
-}
-
-func UpdateProduct(c *fiber.Ctx) error {
-	return c.SendString("Product has been updated")
-}
-
-func DeleteProduct(c *fiber.Ctx) error {
-	return c.SendString("Product has been deleted")
+	return c.JSON(products)
 }

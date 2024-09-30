@@ -109,7 +109,7 @@ const ListingGrid = ({
                     return (
                         <React.Fragment key={"category_" + category.categoryId}>
                             {!!categoryProducts.length && (
-                                <h2 className="text-start text-sm text-black col-span-full underline-offset-4">
+                                <h2 className="text-start text-sm text-black col-span-full underline-offset-4 font-bold">
                                     {category.categoryName}:
                                 </h2>
                             )}
@@ -124,7 +124,6 @@ const ListingGrid = ({
                                     setIsModalOpen={setIsModalOpen}
                                 />
                             ))}
-                            <hr className="col-span-full border-black border-opacity-20 border-dashed" />
                         </React.Fragment>
                     )
                 })}

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"center/internal/service/auth"
-	"center/internal/service/product"
-	"center/pkg/mid"
+	"api/internal/service/auth"
+	"api/internal/service/product"
+	"api/pkg/mid"
 	"context"
 	"log"
 	"os"
@@ -26,7 +26,7 @@ func init() {
 func main() {
 	// Initialize the Fiber app
 	app := fiber.New(fiber.Config{
-		AppName: "center",
+		AppName: "api",
 	})
 
 	mongoClient := setupDbConnection()
@@ -44,7 +44,7 @@ func main() {
 
 func initServices(c *mongo.Client) {
 	auth.InitAuthService(c)
-	// product.InitProductService(c)
+	product.InitProductService(c)
 }
 
 // Set the database connection
@@ -63,11 +63,12 @@ func setupRoutes(app *fiber.App) {
 	authGroup.Post("/login", auth.Login)
 
 	// Product routes
-	productGroup := app.Group("/products", mid.AuthMiddleware)
+	productGroup := app.Group("/product", mid.AuthMiddleware)
 	productGroup.Get("/", product.GetProducts)
 	productGroup.Post("/add", product.AddProduct)
 	productGroup.Put("/update", product.UpdateProduct)
 	productGroup.Delete("/delete", product.DeleteProduct)
+	productGroup.Get("/category", product.GetCategories)
 }
 
 // Set the middlewares

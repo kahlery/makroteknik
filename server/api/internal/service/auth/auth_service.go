@@ -1,9 +1,9 @@
 package auth
 
 import (
-	"center/internal/service/auth/dto"
-	"center/internal/service/auth/repo"
-	"center/pkg/tool"
+	"api/internal/service/auth/dto"
+	"api/internal/service/auth/repo"
+	"api/pkg/tool"
 	"log"
 
 	"github.com/gofiber/fiber/v2"

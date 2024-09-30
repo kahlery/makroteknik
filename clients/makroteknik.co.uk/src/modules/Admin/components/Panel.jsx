@@ -63,48 +63,74 @@ export const Panel = () => {
     }
 
     // Filter products based on search query
-    const filteredProducts = productsList.filter((product) =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredProducts = productsList.filter(
+        (product) =>
+            product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.description
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
     )
 
     return (
-        <div className="relative w-screen flex flex-wrap">
-            {/* Search Bar */}
-            <div className="fixed top-0 left-0 w-full bg-white p-4 shadow-md z-10">
+        <div className="relative w-screen flex flex-wrap bg-gray-200 py-16 h-full">
+            {/* Top Bar */}
+            <div className="pl-16 fixed flex gap-12 top-0 left-0 w-full bg-white p-4 border z-10 shadow-xl">
                 <input
                     type="text"
                     placeholder="Search Products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full p-2 border rounded"
+                    className="w-72 px-2 py-1 border-b-2 border-primary placeholder:text-primary"
                 />
+                <div className="flex gap-8 mx-auto">
+                    <button className="text-primary">Products</button>
+                    <button className="text-primary">Categories</button>
+                    <button className="text-primary">News</button>
+                </div>
             </div>
 
             {/* List of products */}
-            <div className="flex flex-row w-screen flex-wrap mt-16">
+            <div className="flex flex-row w-screen flex-wrap mt-16 gap-12 px-12">
                 {filteredProducts.map((v) => (
                     <div
                         key={v._id}
-                        className="border-4 p-8 w-[600px] h-[800px]"
+                        className="w-[600px] h-[400px] overflow-y-scroll border rounded-lg p-8 bg-white shadow-xl"
                     >
                         <div className="flex-col flex gap-4">
-                            <div>
-                                <h3 className="text-blue-500 font-bold">
+                            <div className="relative">
+                                <div className="absolute flex gap-2 top-64 right-0">
+                                    {/* Edit and Delete buttons */}
+                                    <button
+                                        className="bg-primary text-white px-2 py-1 rounded"
+                                        onClick={() => handleEditProduct(v)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        className="bg-red-500 text-white px-2 py-1 rounded"
+                                        onClick={() =>
+                                            handleDeleteProduct(v._id)
+                                        }
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                                <h3 className="text-primary font-bold">
                                     Title:
                                 </h3>
-                                <h3>{v.title}</h3>
+                                <h3 className="line-clamp-1">{v.title}</h3>
                                 <hr className="border-black border-opacity-20 my-2" />
-                                <h3 className="text-blue-500 font-bold">
+                                <h3 className="text-primary font-bold">
                                     Product Code:
                                 </h3>
                                 <p>{v.productCode}</p>
                                 <hr className="border-black border-opacity-20 my-2" />
-                                <h3 className="text-blue-500 font-bold">
+                                <h3 className="text-primary font-bold">
                                     Description:
                                 </h3>
-                                <p>{v.description}</p>
+                                <p className="line-clamp-3">{v.description}</p>
                                 <hr className="border-black border-opacity-20 my-2" />
-                                <h3 className="text-blue-500 font-bold">
+                                <h3 className="text-primary font-bold">
                                     Size & Price:
                                 </h3>
                                 <ul>
@@ -114,21 +140,6 @@ export const Panel = () => {
                                         } - ${Object.values(size)[0]}`}</li>
                                     ))}
                                 </ul>
-                            </div>
-                            <div className="flex gap-2">
-                                {/* Edit and Delete buttons */}
-                                <button
-                                    className="bg-blue-500 text-white px-2 py-1 rounded"
-                                    onClick={() => handleEditProduct(v)}
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    className="bg-red-500 text-white px-2 py-1 rounded"
-                                    onClick={() => handleDeleteProduct(v._id)}
-                                >
-                                    Delete
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -179,7 +190,7 @@ export const Panel = () => {
                         <div className="flex gap-4">
                             <button
                                 type="button"
-                                className="bg-blue-500 text-white px-4 py-2 rounded"
+                                className="bg-primary text-white px-4 py-2 rounded"
                                 onClick={handleSaveProduct}
                             >
                                 Save
@@ -198,7 +209,7 @@ export const Panel = () => {
 
             {/* Add new product button */}
             <button
-                className="bg-blue-500 text-white px-4 py-2 rounded fixed right-4 bottom-4"
+                className="bg-primary text-white px-4 py-2 rounded fixed right-2 bottom-4"
                 onClick={() => {
                     setIsEditing(true)
                     setCurrentProduct({

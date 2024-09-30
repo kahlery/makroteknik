@@ -1,7 +1,7 @@
 package repo
 
 import (
-	"center/internal/service/auth/model"
+	"api/internal/service/auth/model"
 	"context"
 
 	"go.mongodb.org/mongo-driver/bson"

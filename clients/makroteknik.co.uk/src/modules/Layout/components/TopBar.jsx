@@ -18,7 +18,7 @@ const TopBar = () => {
                             }}
                         />
                         <div className="text-[0.7rem] text-white text-opacity-80">
-                            info@makroteknik.com.uk
+                            info@makroteknik.co.uk
                         </div>
                     </div>
                     <div className="flex flex-row gap-2 items-center">

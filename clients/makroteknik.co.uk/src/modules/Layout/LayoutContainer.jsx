@@ -31,7 +31,7 @@ const LayoutContainer = () => {
             {!document.URL.endsWith("admin") && <CategoriesTop />}
             {!document.URL.endsWith("admin") && <NavBar />}
             <Outlet />
-            <Footer />
+            {!document.URL.endsWith("admin") && <Footer />}
         </main>
     )
 }
