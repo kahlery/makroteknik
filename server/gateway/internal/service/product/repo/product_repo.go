@@ -1,8 +1,8 @@
 package repo
 
 import (
-	"api/internal/service/product/model"
 	"context"
+	"gateway/internal/service/product/model"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

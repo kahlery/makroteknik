@@ -7,5 +7,4 @@ type GetProductsResponse struct {
 	ImageUrl    string `json:"imageUrl"`
 	ProductCode string `json:"productCode"`
 	Description string `json:"description"`
-	Image
 }

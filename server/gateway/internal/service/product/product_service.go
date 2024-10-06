@@ -1,7 +1,7 @@
 package product
 
 import (
-	"api/internal/service/product/repo"
+	"gateway/internal/service/product/repo"
 
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/mongo"
