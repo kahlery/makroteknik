@@ -4,7 +4,6 @@ import (
 	"context"
 	"gateway/internal/service/auth"
 	"gateway/internal/service/product"
-	"gateway/pkg/mid"
 	"log"
 	"os"
 
@@ -63,12 +62,14 @@ func setupRoutes(app *fiber.App) {
 	authGroup.Post("/login", auth.Login)
 
 	// Product routes
-	productGroup := app.Group("/product", mid.AuthMiddleware)
+	productGroup := app.Group("/product")
 	productGroup.Get("/", product.GetProducts)
-	// productGroup.Post("/add", product.AddProduct)
-	// productGroup.Put("/update", product.UpdateProduct)
-	// productGroup.Delete("/delete", product.DeleteProduct)
-	// productGroup.Get("/category", product.GetCategories)
+	// productGroup.Post("/add", product.AddProduct, mid.AuthMiddleware)
+	// productGroup.Put("/update", product.UpdateProduct, mid.AuthMiddleware)
+	// productGroup.Delete("/delete", product.DeleteProduct, mid.AuthMiddleware)
+
+	// Category routes
+	productGroup.Get("/category", product.GetCategories)
 }
 
 // Set the middlewares

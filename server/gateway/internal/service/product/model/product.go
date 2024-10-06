@@ -2,8 +2,10 @@
 
 package model
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
 type Product struct {
-	ID          string              `json:"_id"`
+	ID          primitive.ObjectID  `bson:"_id,omitempty" json:"id"`
 	CategoryId  int                 `json:"categoryId"`
 	Title       string              `json:"title"`
 	ImageUrl    string              `json:"imageUrl"`

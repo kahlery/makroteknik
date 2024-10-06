@@ -57,7 +57,7 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 			return nil, err
 		}
 
-		tool.LogInfo("Fetch is succesfull from MongoDB!")
+		tool.LogSuccess("Fetch is succesfull from MongoDB!")
 		fmt.Println("Last element in the list from db:")
 		fmt.Println(string(beautified))
 		fmt.Println()

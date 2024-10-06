@@ -6,8 +6,10 @@ import (
 	"bytes"
 	"context"
 	"encoding/base64"
+	"encoding/json"
 	"gateway/internal/service/product/dto"
 	"gateway/internal/service/product/repo"
+	"gateway/pkg/tool"
 	"io"
 	"os"
 
@@ -23,6 +25,9 @@ var productRepo *repo.ProductRepo
 // s3Client is the client for s3 service
 var s3Client *s3.Client
 
+// bucketName is the working bucket's tag on S3
+var bucketName string
+
 // InitProductService function initializes the product service
 //   - Parameters: client *mongo.Client: instance of mongo.Client
 func InitProductService(client *mongo.Client) {
@@ -34,6 +39,13 @@ func InitProductService(client *mongo.Client) {
 	if err != nil {
 		panic("unable to load AWS SDK config, " + err.Error())
 	}
+
+	// Else log the config content
+	tool.LogSuccess("AWS SDK config loaded: " + cfg.Region)
+
+	// Get the bucket name from .env
+	bucketName = os.Getenv("S3_BUCKET_NAME")
+
 	s3Client = s3.NewFromConfig(cfg)
 }
 
@@ -42,20 +54,31 @@ func GetProducts(c *fiber.Ctx) error {
 	// 1. Fetch products from MongoDB
 	products, err := productRepo.GetProducts(c.Context())
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from mongo: " + err.Error())
+		return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from MongoDB: " + err.Error())
 	}
+
+	last := products[len(products)-1]
+	jsonizedLast, _ := json.MarshalIndent(last, " ", " ")
+	tool.LogDebug(string(jsonizedLast))
+	tool.LogDebug("last element's ID: " + last.ID.Hex())
 
 	// 2. Fetch images from S3
 	var productResponses []dto.Product
+	var imageData string
 	for _, product := range products {
-		imageData, err := fetchImageFromS3(product.ImageUrl)
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch image " + product.ID + " from S3: " + err.Error())
+		if product.ImageUrl == "" {
+			tool.LogError("product.ImageUrl is empty")
+		} else {
+			tool.LogWarn("fetching from: " + product.ImageUrl + " ...")
+			imageData, err = fetchImageFromS3(product.ImageUrl)
+			if err != nil {
+				return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch image " + product.ID.Hex() + " from S3: " + err.Error())
+			}
 		}
 
 		// 3. Prepare the product response with base64 image data
 		productResponse := dto.Product{
-			ID:          product.ID,
+			ID:          product.ID.Hex(),
 			CategoryId:  product.CategoryId,
 			Title:       product.Title,
 			ProductCode: product.ProductCode,
@@ -76,19 +99,18 @@ func GetProducts(c *fiber.Ctx) error {
 // fetchImageFromS3 helper function fetches an image from S3 and returns its base64-encoded content
 func fetchImageFromS3(imageKey string) (string, error) {
 	// 1. Get the image from S3
-	bucketName := os.Getenv("S3_BUCKET_NAME")
-	resp, err := s3Client.GetObject(context.TODO(), &s3.GetObjectInput{
+	res, err := s3Client.GetObject(context.TODO(), &s3.GetObjectInput{
 		Bucket: &bucketName,
 		Key:    &imageKey,
 	})
 	if err != nil {
 		return "", err
 	}
-	defer resp.Body.Close()
+	defer res.Body.Close()
 
 	// 2. Read the image content into memory
 	buf := new(bytes.Buffer)
-	_, err = io.Copy(buf, resp.Body)
+	_, err = io.Copy(buf, res.Body)
 	if err != nil {
 		return "", nil
 	}

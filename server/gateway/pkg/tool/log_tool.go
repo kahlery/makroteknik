@@ -31,12 +31,12 @@ func LogError(str string) {
 }
 
 // LogInfo logs an informational message in green, with a timestamp
-func LogInfo(str string) {
+func LogSuccess(str string) {
 	// Get the current timestamp
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
-	// Print the log with green color for info
-	fmt.Printf("%s%s [INFO] %s%s\n", green, timestamp, str, reset)
+	// Print the log with green color for success
+	fmt.Printf("%s%s [SUCESS] %s%s\n", green, timestamp, str, reset)
 }
 
 // LogWarn logs a warning message in yellow, with a timestamp
