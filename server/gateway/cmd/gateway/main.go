@@ -1,10 +1,10 @@
 package main
 
 import (
-	"api/internal/service/auth"
-	"api/internal/service/product"
-	"api/pkg/mid"
 	"context"
+	"gateway/internal/service/auth"
+	"gateway/internal/service/product"
+	"gateway/pkg/mid"
 	"log"
 	"os"
 

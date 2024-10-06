@@ -1,3 +1,5 @@
+// server/gateway/internal/service/product/model/product.go
+
 package model
 
 type Product struct {

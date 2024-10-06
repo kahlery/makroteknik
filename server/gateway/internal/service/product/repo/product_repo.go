@@ -1,3 +1,5 @@
+// server/gateway/internal/service/product/repo/product_repo.go
+
 package repo
 
 import (
