@@ -65,10 +65,10 @@ func setupRoutes(app *fiber.App) {
 	// Product routes
 	productGroup := app.Group("/product", mid.AuthMiddleware)
 	productGroup.Get("/", product.GetProducts)
-	productGroup.Post("/add", product.AddProduct)
-	productGroup.Put("/update", product.UpdateProduct)
-	productGroup.Delete("/delete", product.DeleteProduct)
-	productGroup.Get("/category", product.GetCategories)
+	// productGroup.Post("/add", product.AddProduct)
+	// productGroup.Put("/update", product.UpdateProduct)
+	// productGroup.Delete("/delete", product.DeleteProduct)
+	// productGroup.Get("/category", product.GetCategories)
 }
 
 // Set the middlewares

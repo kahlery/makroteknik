@@ -13,10 +13,16 @@ func AuthMiddleware(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Authorization header required"})
 	}
 
+	authHeader = authHeader[7:]
+
 	// Verify token
 	_, err := tool.VerifyToken(authHeader)
 	if err != nil {
-		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid token"})
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			"error":   "Invalid token",
+			"details": err.Error(),
+			"token":   authHeader,
+		})
 	}
 
 	return c.Next()
