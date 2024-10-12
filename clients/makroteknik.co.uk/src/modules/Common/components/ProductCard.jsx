@@ -1,7 +1,6 @@
 import React from "react"
 
 // icons
-import { ShoppingCart } from "@mui/icons-material"
 import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
@@ -36,7 +35,7 @@ const ProductCard = ({
             }}
         >
             <img
-                src={process.env.PUBLIC_URL + product.imageUrl}
+                src={product.image}
                 alt={product.title}
                 className="h-36 object-scale-down p-4 min-h-32"
             />

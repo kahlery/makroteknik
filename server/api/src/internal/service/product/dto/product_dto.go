@@ -15,3 +15,7 @@ type Product struct {
 type GetProductsResponse struct {
 	Products []Product `json:"products"`
 }
+
+type DeleteProductRequest struct {
+	ID string `json:"id"`
+}

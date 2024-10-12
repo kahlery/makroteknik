@@ -1,6 +1,9 @@
 package model
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
 type Category struct {
-	CategoryId   int    `json:"categoryId"`
-	CategoryName string `json:"categoryName"`
+	ID           primitive.ObjectID `bson:"_id" json:"id"`
+	CategoryID   int                `bson:"categoryId" json:"categoryId"`
+	CategoryName string             `bson:"categoryName" json:"categoryName"`
 }

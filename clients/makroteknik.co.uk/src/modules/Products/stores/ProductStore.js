@@ -7,7 +7,7 @@ export const useProductStore = create((set, get) => ({
     categoriesList: [],
     loading: false,
 
-    fetchProducts: async () => {
+    getProducts: async () => {
         console.log(get().apiUrl)
         set({ loading: true }) // Start loading
         try {
@@ -20,31 +20,74 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
-    fetchCategories: async () => {
+    getCategories: async () => {
         try {
             const { apiUrl } = get()
             const response = await axios.get(`${apiUrl}/category`)
-            set({ categoriesList: response.data }) // Assuming categories are directly in the response
+            set({ categoriesList: response.data.categories, loading: false }) // Assuming categories are directly in the response
+        } catch (err) {
+            console.error(err)
+            set({ categoriesList: [] }) // Set empty categories on error
+            set({ loading: false }) // Stop loading on error
+        }
+    },
+
+    postProduct: async (formData) => {
+        try {
+            const { apiUrl } = get()
+            const response = await axios.post(
+                `${apiUrl}/product/post`,
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "application/json", // Adjust as needed
+                    },
+                }
+            )
+            set((state) => ({
+                productsList: [...state.productsList, formData],
+                loading: false,
+            })) // Add new product
         } catch (err) {
             console.error(err)
         }
     },
 
-    addProduct: async (formData) => {
+    patchProduct: async (id, formData) => {
         try {
             const { apiUrl } = get()
-            const response = await axios.post(
-                `${apiUrl}/product/add`,
+            console.log(formData)
+            const response = await axios.patch(
+                `${apiUrl}/product/patch/${id}`,
                 formData,
                 {
                     headers: {
-                        "Content-Type": "multipart/form-data",
+                        "Content-Type": "application/json", // Adjust as needed
                     },
                 }
             )
+            console.log(response)
             set((state) => ({
-                productsList: [...state.productsList, response.data],
-            })) // Add new product
+                productsList: state.productsList.map((product) =>
+                    product._id === id ? formData : product
+                ),
+                loading: false,
+            })) // Update product
+        } catch (err) {
+            console.error(err)
+            console.log("Error response:", err.response)
+        }
+    },
+
+    deleteProduct: async (id) => {
+        try {
+            const { apiUrl } = get()
+            await axios.delete(`${apiUrl}/product/delete/${id}`)
+            set((state) => ({
+                productsList: state.productsList.filter(
+                    (product) => product._id !== id
+                ),
+            })) // Remove product
         } catch (err) {
             console.error(err)
         }

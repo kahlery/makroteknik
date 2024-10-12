@@ -48,7 +48,7 @@ const DetailedProductModal = ({
                             <img
                                 src={
                                     process.env.PUBLIC_URL +
-                                    selectedProduct.imageUrl
+                                    selectedProduct.image
                                 }
                                 alt={selectedProduct.title}
                                 className="md:flex max-h-[50vh] md:w-[40vw] md:max-h-[66svh] object-scale-down mr-0 mb-4 md:my-0 "

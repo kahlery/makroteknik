@@ -2,7 +2,9 @@ package main
 
 import (
 	"api/src/internal/service/auth"
+	"api/src/internal/service/category"
 	"api/src/internal/service/product"
+	"api/src/pkg/mid"
 	"context"
 	"log"
 	"os"
@@ -17,7 +19,7 @@ import (
 
 func init() {
 	// Load .env file
-	if err := godotenv.Load("../../.env"); err != nil {
+	if err := godotenv.Load("../../../.env"); err != nil {
 		log.Printf("Error loading .env file: %v", err)
 	}
 }
@@ -44,6 +46,7 @@ func main() {
 func initServices(c *mongo.Client) {
 	auth.InitAuthService(c)
 	product.InitProductService(c)
+	category.InitCategoryService(c)
 }
 
 // Set the database connection
@@ -64,12 +67,13 @@ func setupRoutes(app *fiber.App) {
 	// Product routes
 	productGroup := app.Group("/product")
 	productGroup.Get("/", product.GetProducts)
-	// productGroup.Post("/add", product.AddProduct, mid.AuthMiddleware)
-	// productGroup.Put("/update", product.UpdateProduct, mid.AuthMiddleware)
-	// productGroup.Delete("/delete", product.DeleteProduct, mid.AuthMiddleware)
+	productGroup.Post("/post", product.PostProduct, mid.AuthMiddleware)
+	productGroup.Patch("/patch/:id", product.PatchProduct, mid.AuthMiddleware)
+	productGroup.Delete("/delete/:id", product.DeleteProduct, mid.AuthMiddleware)
 
 	// Category routes
-	// productGroup.Get("/category", product.GetCategories)
+	categoryGroup := app.Group("/category")
+	categoryGroup.Get("/", category.GetCategories)
 }
 
 // Set the middlewares

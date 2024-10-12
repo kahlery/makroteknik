@@ -160,7 +160,7 @@ export const CartTable = () => {
                                                     <td className="flex flex-row items-center gap-3 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                         <img
                                                             src={
-                                                                productDetails?.imageUrl ||
+                                                                productDetails?.image ||
                                                                 "/images/default-product.png"
                                                             }
                                                             alt={

@@ -4,8 +4,8 @@ import { useProductStore } from "../../Products/stores/ProductStore"
 export const Panel = () => {
     // Stores
     const productsList = useProductStore((s) => s.productsList)
-    const addProduct = useProductStore((s) => s.addProduct)
-    const updateProduct = useProductStore((s) => s.updateProduct)
+    const postProduct = useProductStore((s) => s.postProduct)
+    const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
 
     // State to hold the current product being edited or created
@@ -13,7 +13,7 @@ export const Panel = () => {
         _id: null,
         title: "",
         categoryId: 0,
-        imageUrl: "",
+        image: "",
         productCode: "",
         sizeToPrice: [],
         description: "",
@@ -25,18 +25,60 @@ export const Panel = () => {
     // State to hold the search query
     const [searchQuery, setSearchQuery] = useState("")
 
+    // State to hold new size and price inputs
+    const [sizeInput, setSizeInput] = useState("")
+    const [priceInput, setPriceInput] = useState("")
+
     // Handle form input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target
         setCurrentProduct({ ...currentProduct, [name]: value })
     }
 
+    // Handle image upload and convert to base64
+    const handleImageChange = (e) => {
+        const file = e.target.files[0]
+        const reader = new FileReader()
+        reader.onloadend = () => {
+            setCurrentProduct((prevProduct) => ({
+                ...prevProduct,
+                image: reader.result, // Base64 string
+            }))
+        }
+        if (file) {
+            reader.readAsDataURL(file) // Convert to base64
+        }
+    }
+
+    // Handle adding a new size-price pair
+    const handleAddSizePrice = () => {
+        if (sizeInput && priceInput) {
+            const newSizePrice = { [sizeInput]: priceInput }
+            setCurrentProduct((prevProduct) => ({
+                ...prevProduct,
+                sizeToPrice: [...prevProduct.sizeToPrice, newSizePrice],
+            }))
+            setSizeInput("") // Reset size input
+            setPriceInput("") // Reset price input
+        }
+    }
+
+    // Handle removing a size-price pair
+    const handleRemoveSizePrice = (index) => {
+        setCurrentProduct((prevProduct) => ({
+            ...prevProduct,
+            sizeToPrice: prevProduct.sizeToPrice.filter(
+                (_, idx) => idx !== index
+            ),
+        }))
+    }
+
     // Handle saving the product (either update or add)
     const handleSaveProduct = () => {
         if (currentProduct._id) {
-            updateProduct(currentProduct)
+            patchProduct(currentProduct._id, currentProduct)
         } else {
-            addProduct(currentProduct)
+            postProduct(currentProduct)
         }
         // Reset form and state after saving
         setIsEditing(false)
@@ -44,7 +86,7 @@ export const Panel = () => {
             _id: null,
             title: "",
             categoryId: 0,
-            imageUrl: "",
+            image: "",
             productCode: "",
             sizeToPrice: [],
             description: "",
@@ -55,6 +97,8 @@ export const Panel = () => {
     const handleEditProduct = (product) => {
         setCurrentProduct(product)
         setIsEditing(true)
+        setSizeInput("") // Reset size input on edit
+        setPriceInput("") // Reset price input on edit
     }
 
     // Handle deleting a product
@@ -98,7 +142,7 @@ export const Panel = () => {
                     >
                         <div className="flex-col flex gap-4">
                             <div className="relative">
-                                <div className="absolute flex gap-2 top-64 right-0">
+                                <div className="absolute flex gap-2 top-0 right-0">
                                     {/* Edit and Delete buttons */}
                                     <button
                                         className="bg-primary text-white px-2 py-1 rounded"
@@ -115,6 +159,11 @@ export const Panel = () => {
                                         Delete
                                     </button>
                                 </div>
+                                <img
+                                    src={v.image}
+                                    alt={v.title}
+                                    className="w-24 mx-auto object-scale-down h-fit rounded-lg mb-4"
+                                />
                                 <h3 className="text-primary font-bold">
                                     Title:
                                 </h3>
@@ -134,10 +183,20 @@ export const Panel = () => {
                                     Size & Price:
                                 </h3>
                                 <ul>
-                                    {v.sizeToPrice.map((size, idx) => (
-                                        <li key={idx}>{`${
-                                            Object.keys(size)[0]
-                                        } - ${Object.values(size)[0]}`}</li>
+                                    {v.sizeToPrice.map((sizePrice, idx) => (
+                                        <li key={idx}>
+                                            {`${Object.keys(sizePrice)[0]} - ${
+                                                Object.values(sizePrice)[0]
+                                            }`}
+                                            <button
+                                                className="text-red-500 ml-2"
+                                                onClick={() =>
+                                                    handleRemoveSizePrice(idx)
+                                                }
+                                            >
+                                                Remove
+                                            </button>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>
@@ -172,11 +231,9 @@ export const Panel = () => {
                             className="border p-2 rounded"
                         />
                         <input
-                            type="text"
-                            name="imageUrl"
-                            value={currentProduct.imageUrl}
-                            onChange={handleInputChange}
-                            placeholder="Image URL"
+                            type="file" // File input for image upload
+                            accept="image/*"
+                            onChange={handleImageChange} // Change handler for file
                             className="border p-2 rounded"
                         />
                         <textarea
@@ -186,6 +243,30 @@ export const Panel = () => {
                             placeholder="Product Description"
                             className="border h-64 p-2 rounded"
                         />
+                        {/* Inputs for size and price */}
+                        <div className="flex gap-4">
+                            <input
+                                type="text"
+                                value={sizeInput}
+                                onChange={(e) => setSizeInput(e.target.value)}
+                                placeholder="Size (e.g., 450mm)"
+                                className="border p-2 rounded"
+                            />
+                            <input
+                                type="text"
+                                value={priceInput}
+                                onChange={(e) => setPriceInput(e.target.value)}
+                                placeholder="Price (e.g., £810.00 ex vat)"
+                                className="border p-2 rounded"
+                            />
+                            <button
+                                type="button"
+                                className="bg-primary text-white px-4 py-2 rounded"
+                                onClick={handleAddSizePrice}
+                            >
+                                Add Size/Price
+                            </button>
+                        </div>
                         {/* Buttons to save or cancel */}
                         <div className="flex gap-4">
                             <button
@@ -216,11 +297,13 @@ export const Panel = () => {
                         _id: null,
                         title: "",
                         categoryId: 0,
-                        imageUrl: "",
+                        image: "",
                         productCode: "",
                         sizeToPrice: [],
                         description: "",
                     })
+                    setSizeInput("") // Reset size input
+                    setPriceInput("") // Reset price input
                 }}
             >
                 Add New Product

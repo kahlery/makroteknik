@@ -18,12 +18,14 @@ const ListingGrid = ({
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(null)
 
-    if (passedProductsList === undefined) console.error("efwkfwlekf")
-
     // Stores
     const productsList =
         passedProductsList ?? useProductStore((state) => state.productsList)
     const categoriesList = useProductStore((state) => state.categoriesList)
+
+    console.info(categoriesList)
+    console.error(Array.isArray(categoriesList))
+    console.info(categoriesList)
 
     // Render Cart Products
     if (cartProductIds) {
@@ -94,11 +96,11 @@ const ListingGrid = ({
                 className={`${
                     isHorizontalNorVertical
                         ? "flex flex-nowrap"
-                        : "grid grid-cols-2 xl:grid-cols-4 gap-5"
+                        : "grid grid-cols-2 xl:grid-cols-4"
                 } gap-5`}
             >
                 {!productsList.length && (
-                    <p className="text-start text-sm text-black col-span-full  underline-offset-4">
+                    <p className="text-start text-sm text-black col-span-full underline-offset-4">
                         No products matched
                     </p>
                 )}

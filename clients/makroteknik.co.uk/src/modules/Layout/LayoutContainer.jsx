@@ -13,17 +13,17 @@ import Footer from "./components/Footer"
 import { useProductStore } from "../Products/stores/ProductStore"
 
 const LayoutContainer = () => {
-    const fetchProducts = useProductStore((state) => state.fetchProducts)
-    const fetchCategories = useProductStore((state) => state.fetchCategories)
+    const getProducts = useProductStore((state) => state.getProducts)
+    const getCategories = useProductStore((state) => state.getCategories)
 
     useEffect(() => {
-        fetchProducts().then(() => {
+        getProducts().then(() => {
             console.log("Products fetched")
         })
-        fetchCategories().then(() => {
+        getCategories().then(() => {
             console.log("Categories fetched")
         })
-    }, [fetchProducts, fetchCategories])
+    }, [getProducts, getCategories])
 
     return (
         <main className="relative">

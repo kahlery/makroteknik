@@ -10,27 +10,32 @@ import (
 	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// ProductRepo struct is a type that has a mongodb collection
 type ProductRepo struct {
 	collection *mongo.Collection
 }
 
-// NewProductRepo constructor gets Client pointer
-//   - Parameters: Address of a Client instance from mongo package
-//   - Returns: Pointer of the instance of the ProductRepo
 func NewProductRepo(client *mongo.Client) *ProductRepo {
 	return &ProductRepo{
 		collection: client.Database("makroteknik").Collection("products"),
 	}
 }
 
-// GetProducts function runs a mongodb query to get all products. It returns a list of products
-//   - Receiver: r ProductRepo: instance of ProductRepo struct
-//   - Parameters: ctx Context: instance from context package
-//   - Returns: productList []Product: list of all products
+func (r *ProductRepo) GetProduct(ctx context.Context, id string) (model.Product, error) {
+	objectID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return model.Product{}, err
+	}
+
+	filter := bson.M{"_id": objectID}
+	var product model.Product
+	err = r.collection.FindOne(ctx, filter).Decode(&product)
+	return product, err
+}
+
 func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) {
 	// 1. Perform a MongoDb query to fetch all documents in the products collection
 	cursor, err := r.collection.Find(ctx, bson.D{})
@@ -67,29 +72,46 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 	return productList, nil
 }
 
-// UpdateProduct function runs a mongodb query to update a product. It returns an error
-//   - Receiver: r ProductRepo: instance of ProductRepo struct
-//   - Parameters: ctx Context: instance from context package, product Product: instance of Product struct
-//   - Returns: error: error message
-func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product) error {
-	_, err := r.collection.UpdateOne(ctx, bson.M{"_id": product.ID}, bson.M{"$set": product})
+func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product, id string) error {
+	objectID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		util.LogError("mongo: Error converting ID to ObjectID")
+		return err
+	}
+
+	util.LogWarn("mongo: Updating product with ID: " + id)
+
+	filter := bson.M{"_id": objectID}
+	update := bson.M{
+		"$set": bson.M{
+			"categoryId":  product.CategoryId,
+			"title":       product.Title,
+			"productCode": product.ProductCode,
+			"description": product.Description,
+			"sizeToPrice": product.SizeToPrice,
+		},
+	}
+
+	_, err = r.collection.UpdateOne(ctx, filter, update)
 	return err
 }
 
-// AddProduct function runs a mongodb query to add a product. It returns an error
-//   - Receiver: r ProductRepo: instance of ProductRepo struct
-//   - Parameters: ctx Context: instance from context package, product Product: instance of Product struct
-//   - Returns: error: error message
 func (r *ProductRepo) AddProduct(ctx context.Context, product model.Product) error {
 	_, err := r.collection.InsertOne(ctx, product)
 	return err
 }
 
-// DeleteProduct function runs a mongodb query to delete a product. It returns an error
-//   - Receiver: r ProductRepo: instance of ProductRepo struct
-//   - Parameters: ctx Context: instance from context package, product Product: instance of Product struct
-//   - Returns: error: error message
-func (r *ProductRepo) DeleteProduct(ctx context.Context, product model.Product) error {
-	_, err := r.collection.DeleteOne(ctx, bson.M{"_id": product.ID})
-	return err
+func (r *ProductRepo) DeleteProduct(ctx context.Context, id string) error {
+	// Convert the string ID to an ObjectId
+	objectID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return err // Return error if conversion fails
+	}
+
+	// Create a filter to find the document to delete
+	filter := bson.M{"_id": objectID}
+
+	// Call the DeleteOne method
+	_, err = r.collection.DeleteOne(ctx, filter)
+	return err // Return any errors that occur during deletion
 }
