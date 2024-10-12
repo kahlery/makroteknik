@@ -28,7 +28,7 @@ import (
 func init() {
 	dir, err := os.Getwd()
 	if err != nil {
-		log.Fatal(err)
+		util.LogError("failed to get working directory: " + err.Error())
 	}
 	util.LogSuccess("Binary running on directory: " + dir)
 
