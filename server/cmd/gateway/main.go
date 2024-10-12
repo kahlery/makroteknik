@@ -1,15 +1,15 @@
 package main
 
 import (
-	"api/src/internal/service/auth"
-	"api/src/internal/service/category"
-	"api/src/internal/service/health"
-	"api/src/internal/service/product"
-	"api/src/pkg/mid"
-	"api/src/pkg/util"
 	"context"
 	"log"
 	"os"
+	"server/internal/service/auth"
+	"server/internal/service/category"
+	"server/internal/service/health"
+	"server/internal/service/product"
+	"server/pkg/mid"
+	"server/pkg/util"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -35,11 +35,11 @@ func init() {
 	}
 
 	// Check if the program can reach ../root/assets/images/products
-	_, err = os.Stat("../../../assets/images/products")
+	_, err = os.Stat("../../assets/images/products")
 	if err != nil {
 		util.LogError("failed to reach directory: " + err.Error())
 	} else {
-		util.LogSuccess("successfully reached directory: ../../../assets/images/products")
+		util.LogSuccess("successfully reached directory: ../../assets/images/products")
 	}
 }
 

@@ -1,10 +1,10 @@
 package auth
 
 import (
-	"api/src/internal/service/auth/dto"
-	"api/src/internal/service/auth/repo"
-	"api/src/pkg/util"
 	"log"
+	"server/internal/service/auth/dto"
+	"server/internal/service/auth/repo"
+	"server/pkg/util"
 
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/mongo"

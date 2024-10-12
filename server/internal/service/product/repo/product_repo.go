@@ -1,13 +1,11 @@
-// server/api/src/internal/service/product/repo/product_repo.go
-
 package repo
 
 import (
-	"api/src/internal/service/product/model"
-	"api/src/pkg/util"
 	"context"
 	"encoding/json"
 	"fmt"
+	"server/internal/service/product/model"
+	"server/pkg/util"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

@@ -1,11 +1,11 @@
 package repo
 
 import (
-	"api/src/internal/service/category/model"
-	"api/src/pkg/util"
 	"context"
 	"encoding/json"
 	"fmt"
+	"server/internal/service/category/model"
+	"server/pkg/util"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

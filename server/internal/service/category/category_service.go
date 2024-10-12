@@ -1,8 +1,8 @@
 package category
 
 import (
-	"api/src/internal/service/category/dto"
-	"api/src/internal/service/category/repo"
+	"server/internal/service/category/dto"
+	"server/internal/service/category/repo"
 
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/mongo"

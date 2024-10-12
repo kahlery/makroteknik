@@ -1,7 +1,7 @@
 package mid
 
 import (
-	"api/src/pkg/util"
+	"server/pkg/util"
 
 	"github.com/gofiber/fiber/v2"
 )

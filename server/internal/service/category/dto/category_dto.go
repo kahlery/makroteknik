@@ -1,6 +1,6 @@
 package dto
 
-import "api/src/internal/service/category/model"
+import "server/internal/service/category/model"
 
 type CategoryResponse struct {
 	Categories []model.Category `json:"categories"`

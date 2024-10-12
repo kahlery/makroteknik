@@ -1,14 +1,12 @@
-// server/api/src/internal/service/product/product_service.go
-
 package product
 
 import (
-	"api/src/internal/service/product/dto"
-	"api/src/internal/service/product/model"
-	"api/src/internal/service/product/repo"
-	"api/src/pkg/util"
 	"encoding/base64"
 	"encoding/json"
+	"server/internal/service/product/dto"
+	"server/internal/service/product/model"
+	"server/internal/service/product/repo"
+	"server/pkg/util"
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
@@ -18,6 +16,8 @@ import (
 
 // productRepo is the repository for product service
 var productRepo *repo.ProductRepo
+
+const imagePath = "../../assets/images/products"
 
 // InitProductService function initializes the product service
 //   - Parameters: client *mongo.Client: instance of mongo.Client
@@ -45,7 +45,7 @@ func GetProducts(c *fiber.Ctx) error {
 	productResponses := []dto.Product{}
 	for _, product := range products {
 		// Read the image data
-		imageData, err := util.BufferSingleImageFromDirectory("../../../../assets/images/products", product.ID.Hex()+".webp")
+		imageData, err := util.BufferSingleImageFromDirectory(imagePath, product.ID.Hex()+".webp")
 		if err != nil {
 			util.LogError("failed to read from directory to buffer: " + err.Error())
 			failedImageIds = append(failedImageIds, product.ID.Hex())
@@ -105,7 +105,7 @@ func PostProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to decode base64 image: " + err.Error())
 	}
 
-	if err := util.SaveImageToDirectory("../../../../assets/images/products", mappedProduct.ID.Hex()+".webp", imageData); err != nil {
+	if err := util.SaveImageToDirectory(imagePath, mappedProduct.ID.Hex()+".webp", imageData); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 	}
 
@@ -165,7 +165,7 @@ func PatchProduct(ctx *fiber.Ctx) error {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to decode base64 image: " + err.Error())
 		}
 
-		if err := util.SaveImageToDirectory("../../../../assets/images/products", mappedProduct.ID.Hex()+".webp", imageData); err != nil {
+		if err := util.SaveImageToDirectory(imagePath, mappedProduct.ID.Hex()+".webp", imageData); err != nil {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 		}
 	}
@@ -183,7 +183,7 @@ func DeleteProduct(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
 
 	// 2. Delete the image from ../../assets/images/products
-	if err := util.DeleteImageFromDirectory("../../../../assets/images/products", id+".webp"); err != nil {
+	if err := util.DeleteImageFromDirectory(imagePath, id+".webp"); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete image from directory: " + err.Error())
 	}
 
