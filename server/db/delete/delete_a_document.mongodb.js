@@ -3,5 +3,5 @@
 use("makroteknik")
 
 db.products.deleteOne({
-    title: "test",
+    title: "test2",
 })
