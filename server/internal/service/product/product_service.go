@@ -17,7 +17,8 @@ import (
 // productRepo is the repository for product service
 var productRepo *repo.ProductRepo
 
-const imagePath = "../../assets/images/products"
+// const imagePath = "../../assets/images/products"
+const imagePath = "/opt/render/project/go/src/github.com/KahlerYasla/makroteknik/server/assets/images/products"
 
 // InitProductService function initializes the product service
 //   - Parameters: client *mongo.Client: instance of mongo.Client

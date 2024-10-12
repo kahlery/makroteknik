@@ -25,6 +25,8 @@ import (
 // 	}
 // }
 
+const imagePath = "/opt/render/project/go/src/github.com/KahlerYasla/makroteknik/server/assets/images/products"
+
 func init() {
 	// Check if the program can reach the working directory
 	dir, err := os.Getwd()
@@ -35,11 +37,11 @@ func init() {
 	}
 
 	// Check if the program can reach ../root/assets/images/products
-	_, err = os.Stat("../../assets/images/products")
+	_, err = os.Stat(imagePath)
 	if err != nil {
 		util.LogError("failed to reach directory: " + err.Error())
 	} else {
-		util.LogSuccess("successfully reached directory: ../../assets/images/products")
+		util.LogSuccess("successfully reached directory:" + imagePath)
 	}
 }
 
