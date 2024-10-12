@@ -3,6 +3,7 @@ package main
 import (
 	"api/src/internal/service/auth"
 	"api/src/internal/service/category"
+	"api/src/internal/service/health"
 	"api/src/internal/service/product"
 	"api/src/pkg/mid"
 	"context"
@@ -44,6 +45,7 @@ func main() {
 }
 
 func initServices(c *mongo.Client) {
+	health.InitHealthService(c)
 	auth.InitAuthService(c)
 	product.InitProductService(c)
 	category.InitCategoryService(c)
@@ -60,6 +62,9 @@ func setupDbConnection() *mongo.Client {
 
 // Set the routes
 func setupRoutes(app *fiber.App) {
+	// Ping check
+	app.Get("/ping", health.GetHealth)
+
 	// Auth routes
 	authGroup := app.Group("/auth")
 	authGroup.Post("/login", auth.Login)
