@@ -6,6 +6,7 @@ import (
 	"api/src/internal/service/health"
 	"api/src/internal/service/product"
 	"api/src/pkg/mid"
+	"api/src/pkg/util"
 	"context"
 	"log"
 	"os"
@@ -23,6 +24,21 @@ import (
 // 		log.Printf("Error loading .env file: %v", err)
 // 	}
 // }
+
+func init() {
+	dir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	util.LogSuccess("Binary running on directory: " + dir)
+
+	// Check if the program can reach ../root/assets/images/products
+	_, err = os.Stat("../../../assets/images/products")
+	if err != nil {
+		util.LogError("failed to reach directory: " + err.Error())
+	}
+	util.LogSuccess("successfully reached directory: ../../../assets/images/products")
+}
 
 func main() {
 	// Initialize the Fiber app
