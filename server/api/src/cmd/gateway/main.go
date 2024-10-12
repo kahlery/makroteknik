@@ -26,18 +26,21 @@ import (
 // }
 
 func init() {
+	// Check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
 		util.LogError("failed to get working directory: " + err.Error())
+	} else {
+		util.LogSuccess("Binary running on directory: " + dir)
 	}
-	util.LogSuccess("Binary running on directory: " + dir)
 
 	// Check if the program can reach ../root/assets/images/products
 	_, err = os.Stat("../../../assets/images/products")
 	if err != nil {
 		util.LogError("failed to reach directory: " + err.Error())
+	} else {
+		util.LogSuccess("successfully reached directory: ../../../assets/images/products")
 	}
-	util.LogSuccess("successfully reached directory: ../../../assets/images/products")
 }
 
 func main() {
