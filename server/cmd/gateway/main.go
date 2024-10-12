@@ -107,7 +107,7 @@ func setupMiddlewares(app *fiber.App) {
 	app.Use(logger.New())
 	app.Use(cors.New(
 		cors.Config{
-			AllowOrigins: "http://localhost:3000, https://makroteknik.vercel.app",
+			AllowOrigins: "http://localhost:3000, https://makroteknik.vercel.app, https://test.makroteknik.co.uk/",
 			AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 		},
 	))
