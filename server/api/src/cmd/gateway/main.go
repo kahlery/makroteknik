@@ -21,6 +21,7 @@ import (
 func init() {
 	// Load .env file
 	if err := godotenv.Load("../../../.env"); err != nil {
+		os.Setenv("PORT", "8000")
 		log.Printf("Error loading .env file: %v", err)
 	}
 }
