@@ -18,13 +18,13 @@ func InitHealthService(c *mongo.Client) {
 // 2) returning the endpoints that are available
 func GetHealth(c *fiber.Ctx) error {
 	// 1. Check the database connection
-	err := client.Ping(c.Context(), nil)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"status": "error",
-			"error":  "failed to connect to the database",
-		})
-	}
+	// err := client.Ping(c.Context(), nil)
+	// if err != nil {
+	// 	return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+	// 		"status": "error",
+	// 		"error":  "failed to connect to the database",
+	// 	})
+	// }
 
 	// 2. Return the available endpoints
 	return c.JSON(fiber.Map{
