@@ -71,7 +71,10 @@ func GetProducts(c *fiber.Ctx) error {
 		productResponses = append(productResponses, productResponse)
 	}
 
-	util.LogError("failed to read from directory to buffer on these files: \n" + strings.Join(failedImageIds, ", "))
+	// Log the fail count then failed image IDs
+	util.LogWarn("Failed to read from directory to buffer on" + string(len(failedImageIds)) + " files")
+	marshalledList, _ := json.MarshalIndent(failedImageIds, " ", " ")
+	util.LogError("failed to read from directory to buffer on these files: \n" + string(marshalledList))
 
 	// 4. Return the response
 	return c.Status(fiber.StatusOK).JSON(dto.GetProductsResponse{
