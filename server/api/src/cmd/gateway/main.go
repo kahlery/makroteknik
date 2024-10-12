@@ -13,18 +13,16 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func init() {
-	// Load .env file
-	if err := godotenv.Load("../../../.env"); err != nil {
-		os.Setenv("PORT", "8855")
-		log.Printf("Error loading .env file: %v", err)
-	}
-}
+// func init() {
+// 	// Load .env file
+// 	if err := godotenv.Load("../../../.env"); err != nil {
+// 		log.Printf("Error loading .env file: %v", err)
+// 	}
+// }
 
 func main() {
 	// Initialize the Fiber app
@@ -38,7 +36,8 @@ func main() {
 	setupRoutes(app)
 
 	// Start serving
-	port := os.Getenv("PORT")
+	// port := os.Getenv("PORT")
+	port := ":8855"
 	log.Printf("Starting server on %s", port)
 	if err := app.Listen(port); err != nil {
 		log.Fatalf("failed to start server: %v", err)
