@@ -27,8 +27,14 @@ func GetHealth(c *fiber.Ctx) error {
 	// }
 
 	// 2. Return the available endpoints
-	return c.JSON(fiber.Map{
-		"status":    "ok",
-		"endpoints": []string{"/products", "/categories"},
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"status": "ok",
+		"endpoints": []string{
+			"/health",
+			"/auth/login",
+			"/auth/register",
+			"/products",
+			"/categories",
+		},
 	})
 }
