@@ -47,6 +47,7 @@ func GetProducts(c *fiber.Ctx) error {
 		// Read the image data
 		imageData, err := util.BufferSingleImageFromDirectory("../../../../assets/images/products", product.ID.Hex()+".webp")
 		if err != nil {
+			util.LogError("failed to read from directory to buffer: " + err.Error())
 			failedImageIds = append(failedImageIds, product.ID.Hex())
 			continue
 		}
@@ -71,10 +72,7 @@ func GetProducts(c *fiber.Ctx) error {
 		productResponses = append(productResponses, productResponse)
 	}
 
-	// Log the fail count then failed image IDs
-	util.LogWarn("Failed to read from directory to buffer on" + string(len(failedImageIds)) + " files")
-	marshalledList, _ := json.MarshalIndent(failedImageIds, " ", " ")
-	util.LogError("failed to read from directory to buffer on these files: \n" + string(marshalledList))
+	util.LogError("failed to read from directory to buffer on these files: " + strings.Join(failedImageIds, "-"))
 
 	// 4. Return the response
 	return c.Status(fiber.StatusOK).JSON(dto.GetProductsResponse{
