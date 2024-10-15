@@ -13,17 +13,27 @@ import Footer from "./components/Footer"
 import { useProductStore } from "../Products/stores/ProductStore"
 
 const LayoutContainer = () => {
+    // Stores
     const getProducts = useProductStore((state) => state.getProducts)
     const getCategories = useProductStore((state) => state.getCategories)
+    const productsList = useProductStore((state) => state.productsList)
+    const categoriesList = useProductStore((state) => state.categoriesList)
+    const loading = useProductStore((state) => state.loading)
 
     useEffect(() => {
         getProducts().then(() => {
-            console.log("Products fetched")
+            console.log("Products fetched first time")
         })
         getCategories().then(() => {
-            console.log("Categories fetched")
+            console.log("Categories fetched first time")
         })
-    }, [getProducts, getCategories])
+    }, [])
+
+    if (loading > 0) {
+        return <h1>Loading...</h1>
+    }
+
+    console.log(productsList, categoriesList)
 
     return (
         <main className="relative">

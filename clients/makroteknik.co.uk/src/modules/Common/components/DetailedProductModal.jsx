@@ -56,13 +56,16 @@ const DetailedProductModal = ({
                             <hr className="border-black border-opacity-20 mb-4" />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[64svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
                                 <button
-                                    className="flex items-center bg-opacity-10 h-fit w-fit -mx-1 font-bold text-black"
+                                    className="flex items-center bg-opacity-100 h-fit w-fit -mx-1 font-bold bg-rose-600 px-2"
                                     onClick={() => {
                                         setIsModalOpen(false)
                                     }}
                                 >
-                                    <IoIosArrowBack size="1.3rem" />
-                                    <p className="text-black text-[1rem]">
+                                    <IoIosArrowBack
+                                        size="1.3rem"
+                                        className="text-rose-200"
+                                    />
+                                    <p className="text-rose-200 text-[1rem]">
                                         Back
                                     </p>
                                 </button>
@@ -108,10 +111,10 @@ const DetailedProductModal = ({
                                                         }}
                                                     >
                                                         <div className="flex flex-col items-center">
-                                                            <p className="text-black text-opacity-60 text-[0.8rem]">
+                                                            <p className="text-black text-opacity-60 text-[0.9rem]">
                                                                 {size}
                                                             </p>
-                                                            <p className="text-secondary text-nowrap text-[0.8rem]">
+                                                            <p className="text-secondary text-nowrap text-[0.9rem]">
                                                                 {price}
                                                             </p>
                                                         </div>
@@ -128,14 +131,14 @@ const DetailedProductModal = ({
                                 </div>
                                 <div className="flex flex-row -mt-4 gap-4 items-center text-[.7rem] font-bold">
                                     {!isInCart(
-                                        selectedProduct._id.$oid,
+                                        selectedProduct._id,
                                         selectedSizeIndex
                                     ) ? (
                                         <button
                                             className="flex items-center text-nowrap text-white gap-2 bg-secondary bg-opacity-100 py-2 px-4 rounded-full"
                                             onClick={() => {
                                                 addProduct(
-                                                    selectedProduct._id.$oid,
+                                                    selectedProduct._id,
                                                     selectedSizeIndex
                                                 )
                                             }}
@@ -152,7 +155,7 @@ const DetailedProductModal = ({
                                             className="flex items-center text-nowrap text-black border-black border gap-2 bg-white bg-opacity-100 py-2 px-4 rounded-full"
                                             onClick={() => {
                                                 removeProduct(
-                                                    selectedProduct._id.$oid.toString(),
+                                                    selectedProduct._id.toString(),
                                                     selectedSizeIndex.toString()
                                                 )
                                             }}

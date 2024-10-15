@@ -23,10 +23,6 @@ const ListingGrid = ({
         passedProductsList ?? useProductStore((state) => state.productsList)
     const categoriesList = useProductStore((state) => state.categoriesList)
 
-    console.info(categoriesList)
-    console.error(Array.isArray(categoriesList))
-    console.info(categoriesList)
-
     // Render Cart Products
     if (cartProductIds) {
         return (
@@ -79,7 +75,7 @@ const ListingGrid = ({
                 )}
                 {featuredProducts.map((product) => (
                     <ProductCard
-                        key={product._id.$oid}
+                        key={product._id}
                         product={product}
                         isHorizontalNorVertical={isHorizontalNorVertical}
                         setSelectedProduct={setSelectedProduct}
@@ -117,7 +113,7 @@ const ListingGrid = ({
                             )}
                             {categoryProducts.map((product) => (
                                 <ProductCard
-                                    key={product._id.$oid}
+                                    key={product._id}
                                     product={product}
                                     isHorizontalNorVertical={
                                         isHorizontalNorVertical
@@ -137,12 +133,10 @@ const ListingGrid = ({
         return (
             <div className="grid grid-cols-2 xl:grid-cols-4 gap-5">
                 {productsList
-                    .filter((product) =>
-                        cartProductIds.includes(product._id.$oid)
-                    )
+                    .filter((product) => cartProductIds.includes(product._id))
                     .map((product) => (
                         <ProductCard
-                            key={product._id.$oid}
+                            key={product._id}
                             product={product}
                             isHorizontalNorVertical={isHorizontalNorVertical}
                             setSelectedProduct={setSelectedProduct}

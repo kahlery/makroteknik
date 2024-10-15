@@ -36,7 +36,7 @@ const CartContainer = () => {
         return Object.entries(cartProducts)
             .map(([productId, sizes]) => {
                 const productDetails = productsList.find(
-                    (product) => product._id.$oid === productId
+                    (product) => product._id === productId
                 )
                 if (!productDetails) return "N/A"
 
@@ -77,31 +77,22 @@ const CartContainer = () => {
     }
 
     const calculateTotalPrice = () => {
-        const result = cartProductIds.reduce((acc, productId) => {
-            const productDetails = productsList.find(
-                (product) => product._id.$oid === productId
+        const result = cartProductIds.reduce((acc, _id) => {
+            const product = productsList.find((product) => product._id === _id)
+            console.log("product", product)
+            if (!product) return acc
+            const productTotalPrice = Object.entries(cartProducts[_id]).reduce(
+                (acc, [_, sizeIndexToQuantityPair]) => {
+                    const sizeIndex = Object.keys(sizeIndexToQuantityPair)[0]
+                    const quantity = Object.values(sizeIndexToQuantityPair)[0]
+                    const price =
+                        Object.values(product.sizeToPrice[sizeIndex] ?? 0)[0] ??
+                        0
+                    price.toString().replace(/[^\d.]/g, "")
+                    return acc + quantity * price
+                },
+                0
             )
-            if (!productDetails) return acc
-
-            const productTotalPrice = Object.entries(
-                cartProducts[productId]
-            ).reduce((acc, [productId, sizeIndexToQuantityPair]) => {
-                const sizeIndex = Object.keys(sizeIndexToQuantityPair)[0]
-                const quantity = Object.values(sizeIndexToQuantityPair)[0]
-                const price = productDetails.sizeToPrice[sizeIndex][
-                    Object.keys(productDetails.sizeToPrice[sizeIndex])[0]
-                ].replace(/[^\d.]/g, "")
-
-                // console.log(
-                //     price,
-                //     quantity,
-                //     acc,
-                //     productId,
-                //     sizeIndexToQuantityPair
-                // )
-
-                return acc + quantity * price
-            }, 0)
             return acc + productTotalPrice
         }, 0)
 

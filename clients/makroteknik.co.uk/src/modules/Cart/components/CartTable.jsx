@@ -13,7 +13,7 @@ export const CartTable = () => {
 
     // Helper function to get product details by ID
     const getProductDetails = (productId) => {
-        return productsList.find((product) => product._id.$oid === productId)
+        return productsList.find((product) => product._id === productId)
     }
 
     const handleQuantityChange = (productId, size, e) => {
@@ -183,14 +183,14 @@ export const CartTable = () => {
                                                         {Object.keys(
                                                             productDetails[
                                                                 "sizeToPrice"
-                                                            ][size]
+                                                            ][size] ?? {}
                                                         )}
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                                         {Object.values(
                                                             productDetails[
                                                                 "sizeToPrice"
-                                                            ][size]
+                                                            ][size] ?? {}
                                                         )}
                                                     </td>
                                                 </tr>
