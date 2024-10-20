@@ -33,7 +33,7 @@ func init() {
 	if err != nil {
 		util.LogError("failed to get working directory: " + err.Error())
 	} else {
-		util.LogSuccess("Binary running on directory: " + dir)
+		util.LogSuccess("Working directory can be reached: " + dir)
 	}
 
 	// Check if the program can reach ../root/assets/images/products
@@ -48,7 +48,7 @@ func init() {
 func main() {
 	// Initialize the Fiber app
 	app := fiber.New(fiber.Config{
-		AppName: "api",
+		AppName: "api", // Set the app name
 	})
 
 	mongoClient := setupDbConnection()
