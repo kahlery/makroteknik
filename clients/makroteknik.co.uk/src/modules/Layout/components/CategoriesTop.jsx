@@ -89,12 +89,13 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className="h-fit bg-secondary shadow-md fixed top-[51px] sm:top-[96px] z-50 w-screen text-[10.2px] cursor-pointer"
+                    className="h-fit bg-secondary shadow-md  fixed top-[51px] sm:top-[96px] z-50 w-screen text-[10.2px] cursor-pointer"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
-                        className="md:px-16 grid md:grid-rows-2 grid-flow-col md:flex md:flex-wrap text-center 
-                        md:justify-center gap-x-6 gap-y-2 px-4 py-[8px] no-scrollbar overflow-x-scroll"
+                        className="md:px-16 grid md:grid-rows-2 grid-flow-col md:flex
+                         md:flex-wrap text-center md:justify-center gap-x-6 gap-y-2 
+                         px-4 py-[8px] no-scrollbar overflow-x-scroll"
                     >
                         {categoriesList.map((category) => (
                             <div

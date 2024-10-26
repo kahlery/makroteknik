@@ -22,7 +22,20 @@ const DetailedProductModal = ({
     const removeProduct = useCartStore((state) => state.removeProduct) // to remove product's size
     const isInCart = useCartStore((state) => state.isInCart) // to change button from add to remove if size exists in cart
 
-    useEffect(() => {}, [cartProducts])
+    // close modal on "esc" key press
+    useEffect(() => {
+        const handleESC = (e) => {
+            if (e.key === "Escape") {
+                setIsModalOpen(false)
+            }
+        }
+
+        if (isModalOpen) window.addEventListener("keydown", handleESC)
+
+        return () => {
+            window.removeEventListener("keydown", handleESC)
+        }
+    }, [isModalOpen, setIsModalOpen])
 
     return (
         <div
@@ -56,16 +69,16 @@ const DetailedProductModal = ({
                             <hr className="border-black border-opacity-20 mb-4" />
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] md:max-h-[64svh] overflow-y-scroll md:justify-start gap-4 h-full md:ml-8 md:mr-4">
                                 <button
-                                    className="flex items-center bg-opacity-100 h-fit w-fit -mx-1 font-bold bg-rose-600 px-2"
+                                    className="flex items-center bg-opacity-100 h-fit w-fit font-bold bg-white rounded-md"
                                     onClick={() => {
                                         setIsModalOpen(false)
                                     }}
                                 >
                                     <IoIosArrowBack
                                         size="1.3rem"
-                                        className="text-rose-200"
+                                        className="text-secondary"
                                     />
-                                    <p className="text-rose-200 text-[1rem]">
+                                    <p className="text-secondary text-[1rem]">
                                         Back
                                     </p>
                                 </button>
@@ -175,8 +188,11 @@ const DetailedProductModal = ({
                                 </div>
                                 <hr className="border-black border-opacity-20" />
                                 <p className="text-black font-bold text-[0.8rem] text-opacity-70">
-                                    Details:
+                                    Description:
                                 </p>
+                                <button className="text-black w-fit">
+                                    Click to download PDF
+                                </button>
                                 <p className="text-xs text-black text-opacity-100 py-2 mb-16">
                                     {selectedProduct.description}
                                 </p>

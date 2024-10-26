@@ -4,6 +4,7 @@ import { useProductStore } from "../../Products/stores/ProductStore"
 export const Panel = () => {
     // Stores
     const productsList = useProductStore((s) => s.productsList)
+    const categoriesList = useProductStore((s) => s.categoriesList)
     const postProduct = useProductStore((s) => s.postProduct)
     const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
@@ -17,6 +18,7 @@ export const Panel = () => {
         productCode: "",
         sizeToPrice: [],
         description: "",
+        pdf: null,
     })
 
     // State to control whether the form is visible for editing/adding
@@ -90,6 +92,7 @@ export const Panel = () => {
             productCode: "",
             sizeToPrice: [],
             description: "",
+            pdf: null,
         })
     }
 
@@ -104,6 +107,15 @@ export const Panel = () => {
     // Handle deleting a product
     const handleDeleteProduct = (id) => {
         deleteProduct(id)
+    }
+
+    // handle PDF upload
+    const handlePDFChange = (e) => {
+        const file = e.target.files[0]
+        setCurrentProduct((prevProduct) => ({
+            ...prevProduct,
+            pdf: file,
+        }))
     }
 
     // Filter products based on search query
@@ -231,6 +243,30 @@ export const Panel = () => {
                             className="border p-2 rounded"
                         />
                         <input
+                            type="file"
+                            accept="application/pdf"
+                            onChange={handlePDFChange}
+                            className="border p-2 rounded"
+                        />
+                        {/* dropdown to select category */}
+                        <select
+                            name="categoryId"
+                            value={currentProduct.categoryId}
+                            onChange={handleInputChange}
+                            className="border p-2 rounded"
+                        >
+                            <option value={0}>Select Category</option>
+                            {/* Map over categories to create options */}
+                            {categoriesList.map((category) => (
+                                <option
+                                    key={category.categoryId}
+                                    value={category.categoryId}
+                                >
+                                    {category.categoryName}
+                                </option>
+                            ))}
+                        </select>
+                        <input
                             type="file" // File input for image upload
                             accept="image/*"
                             onChange={handleImageChange} // Change handler for file
@@ -301,6 +337,7 @@ export const Panel = () => {
                         productCode: "",
                         sizeToPrice: [],
                         description: "",
+                        pdf: null,
                     })
                     setSizeInput("") // Reset size input
                     setPriceInput("") // Reset price input

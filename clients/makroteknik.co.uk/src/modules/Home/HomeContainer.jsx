@@ -30,7 +30,7 @@ const HomeContainer = () => {
 
     return (
         <div className="text-start flex flex-col gap-8 mb-8">
-            <Hero height={96} />
+            <Hero height={128} />
             <div className="text-white mx-4 lg:mx-0 md:px-[16rem] 2xl:px-[25rem]">
                 {loading ? (
                     <div className="text-center text-lg text-gray-500 my-8">
@@ -58,7 +58,7 @@ const HomeContainer = () => {
                 ></iframe>
             </div>
 
-            <LatestNewsGrid />
+            {/* <LatestNewsGrid /> */}
 
             {/* <video
                 autoPlay

@@ -33,7 +33,7 @@ const LayoutContainer = () => {
         return <h1>Loading...</h1>
     }
 
-    console.log(productsList, categoriesList)
+    console.log("productsList:", productsList, "categoriesList", categoriesList)
 
     return (
         <main className="relative">
