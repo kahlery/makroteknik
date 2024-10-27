@@ -24,7 +24,7 @@ func NewCategoryRepo(client *mongo.Client) *CategoryRepo {
 // functions: --------------------------------------------------------------------
 
 func (c *CategoryRepo) GetCategories(ctx context.Context) ([]model.Category, error) {
-	// 1. Perform a MongoDb query to fetch all documents in the products collection
+	// 1. mongo query to fetch all documents in the products collection
 	cursor, err := c.collection.Find(ctx, bson.D{})
 	if err != nil {
 		return nil, err
@@ -38,19 +38,18 @@ func (c *CategoryRepo) GetCategories(ctx context.Context) ([]model.Category, err
 		return nil, err
 	}
 
-	// Fetch is sucessfull, print the last element of the list
+	// got categories from mongo:
 	if len(categoryList) > 0 {
-		// Get the last element in the productList
+		// get the last element in the productList
 		last := categoryList[len(categoryList)-1]
 
-		// Convert the last product to a beautified JSON string
+		// conver the last product to a beautified JSON string
 		beautified, err := json.MarshalIndent(last, " ", " ")
 		if err != nil {
 			return nil, err
 		}
 
-		util.LogSuccess("Fetch is succesfull from MongoDB!")
-		fmt.Println("Last element in the list from db:")
+		util.LogSuccess("got categories from mongo, showing latest:")
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}

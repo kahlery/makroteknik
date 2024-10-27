@@ -51,7 +51,7 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 		return nil, err
 	}
 
-	// Fetch is sucessfull, print the last element of the list
+	// get is sucessfull, print the last element of the list
 	if len(productList) > 0 {
 		// Get the last element in the productList
 		last := productList[len(productList)-1]
@@ -62,8 +62,7 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 			return nil, err
 		}
 
-		util.LogSuccess("Fetch is succesfull from MongoDB!")
-		fmt.Println("Last element in the list from db:")
+		util.LogSuccess("got products from mongo, showing latest:")
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}
@@ -75,7 +74,7 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product, id string) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		util.LogError("mongo: Error converting ID to ObjectID")
+		util.LogError("mongo: error converting id to objectId, " + err.Error())
 		return err
 	}
 

@@ -6,6 +6,7 @@ import (
 	"api/internal/service/category"
 	"api/internal/service/health"
 	"api/internal/service/product"
+	"fmt"
 
 	// pkg services:
 	"api/pkg/service/aws"
@@ -75,8 +76,7 @@ func init() {
 			"environment variables:" + "\n" +
 				os.Getenv("DB") + "\n" +
 				os.Getenv("PORT") + "\n" +
-				os.Getenv("S3_BUCKET_NAME") + "\n" +
-				os.Getenv("JWT_SECRET"),
+				os.Getenv("S3_BUCKET_NAME"),
 		)
 	}
 
@@ -91,10 +91,14 @@ func init() {
 	if err != nil {
 		util.LogError("failed to get working directory: " + err.Error())
 	} else {
-		util.LogSuccess("Working directory can be reached: " + dir)
+		util.LogSuccess("working directory can be reached:")
+		fmt.Println(dir)
 	}
 
 	// check if all clients initialized successfully
+	if s3Client == nil || mongoClient == nil {
+		util.LogError("failed to initialize clients")
+	}
 }
 
 func main() {

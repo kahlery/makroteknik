@@ -14,19 +14,19 @@ type CategoryService struct {
 
 func NewCategoryService(m *mongo.Client, c *repo.CategoryRepo) *CategoryService {
 	return &CategoryService{
-		categoryRepo: c,
+		categoryRepo: repo.NewCategoryRepo(m),
 	}
 }
 
 // functions --------------------------------------------------------------------
 
-func (cs *CategoryService) GetCategories(c *fiber.Ctx) error {
-	categories, err := cs.categoryRepo.GetCategories(c.Context())
+func (cs *CategoryService) GetCategories(ctx *fiber.Ctx) error {
+	categories, err := cs.categoryRepo.GetCategories(ctx.Context())
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).SendString(err.Error())
+		return ctx.Status(fiber.StatusInternalServerError).SendString(err.Error())
 	}
 
-	return c.Status(fiber.StatusOK).JSON(dto.CategoryResponse{
+	return ctx.Status(fiber.StatusOK).JSON(dto.CategoryResponse{
 		Categories: categories,
 	})
 }
