@@ -52,7 +52,7 @@ var (
 	categoryService *category.CategoryService
 )
 
-// repositories:
+// repos:
 var (
 	userRepo     *authPackage.UserRepo
 	productRepo  *productPackage.ProductRepo
@@ -67,8 +67,7 @@ var imagePath = new(string)
 func init() {
 	envType := os.Getenv("ENV")
 	if envType != "prod" {
-		err := godotenv.Load("../../.env")
-		if err != nil {
+		if err := godotenv.Load("../../.env"); err != nil {
 			log.Fatalf("error loading .env, %v", err)
 		}
 	} else {
@@ -82,11 +81,11 @@ func init() {
 
 	*imagePath = "images/products/"
 
-	// init clients
-	s3Client = aws.NewS3Service()
-	mongoClient = setupDbConnection()
+	initClients()
+	initRepos()
+	initServices()
 
-	// Check if the program can reach the working directory
+	// check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
 		util.LogError("failed to get working directory: " + err.Error())
@@ -102,16 +101,13 @@ func init() {
 }
 
 func main() {
-	// Initialize the Fiber app
 	app := fiber.New(fiber.Config{
-		AppName: "api", // Set the app name
+		AppName: "api",
 	})
 
-	initServices()
 	setupMiddlewares(app)
 	setupRoutes(app)
 
-	// Start serving
 	port := os.Getenv("PORT")
 	log.Printf("Starting server on %s", port)
 	if err := app.Listen(port); err != nil {
@@ -120,6 +116,11 @@ func main() {
 }
 
 // inits: --------------------------------------------------------------------
+
+func initClients() {
+	s3Client = aws.NewS3Service()
+	mongoClient = setupDbConnection()
+}
 
 func initRepos() {
 	userRepo = authPackage.NewUserRepo(mongoClient)
@@ -137,7 +138,6 @@ func initServices() {
 
 // setups: --------------------------------------------------------------------
 
-// Set the database connection
 func setupDbConnection() *mongo.Client {
 	mongoClient, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(os.Getenv("DB")))
 	if err != nil {
@@ -146,7 +146,6 @@ func setupDbConnection() *mongo.Client {
 	return mongoClient
 }
 
-// Set the routes
 func setupRoutes(app *fiber.App) {
 	// Ping check
 	app.Get("/ping", healthService.GetHealth)
@@ -167,7 +166,6 @@ func setupRoutes(app *fiber.App) {
 	categoryGroup.Get("/", categoryService.GetCategories)
 }
 
-// Set the middlewares
 func setupMiddlewares(app *fiber.App) {
 	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
