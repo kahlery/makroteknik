@@ -66,7 +66,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 		imageName := product.ID.Hex() + ".webp"
 		imageData, err := p.s3Service.GetFile(p.imagePath, &imageName)
 		if err != nil {
-			util.LogError("failed to read from directory to buffer: " + err.Error())
+			// util.LogError("failed to read from directory to buffer: " + err.Error())
 			failedImageIds = append(failedImageIds, product.ID.Hex())
 			continue
 		}
