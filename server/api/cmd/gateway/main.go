@@ -60,9 +60,12 @@ var (
 // main: --------------------------------------------------------------------
 
 func init() {
-	err := godotenv.Load("../../.env")
-	if err != nil {
-		log.Fatalf("error loading .env, %v", err)
+	envType := os.Getenv("ENV")
+	if envType != "prod" {
+		err := godotenv.Load("../../.env")
+		if err != nil {
+			log.Fatalf("error loading .env, %v", err)
+		}
 	}
 
 	// init clients
