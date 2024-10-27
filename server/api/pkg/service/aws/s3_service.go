@@ -38,7 +38,7 @@ func InitS3Client() *s3.Client {
 
 func (s *S3Service) GetFile(path *string, fileName *string) ([]byte, error) {
 	// define full key
-	key := *path + "/" + *fileName
+	key := *path + *fileName
 
 	// set up the GetObject input
 	input := &s3.GetObjectInput{
@@ -64,7 +64,7 @@ func (s *S3Service) GetFile(path *string, fileName *string) ([]byte, error) {
 
 func (s *S3Service) PostFile(path *string, fileName *string, data []byte) error {
 	// define full key
-	key := *path + "/" + *fileName
+	key := *path + *fileName
 
 	// set up PutObject input
 	input := &s3.PutObjectInput{
@@ -84,7 +84,7 @@ func (s *S3Service) PostFile(path *string, fileName *string, data []byte) error 
 
 func (s *S3Service) DeleteFile(path string, fileName string) error {
 	// Define the full key for S3
-	key := path + "/" + fileName
+	key := path + fileName
 
 	// Set up the DeleteObject input
 	input := &s3.DeleteObjectInput{

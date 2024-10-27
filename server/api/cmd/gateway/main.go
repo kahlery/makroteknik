@@ -35,6 +35,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+// vars: --------------------------------------------------------------------
+
 // clients:
 var (
 	s3Client    *aws.S3Service
@@ -57,6 +59,8 @@ var (
 	// postRepo *postPackage.PostRepo
 )
 
+var imagePath = new(string)
+
 // main: --------------------------------------------------------------------
 
 func init() {
@@ -67,6 +71,8 @@ func init() {
 			log.Fatalf("error loading .env, %v", err)
 		}
 	}
+
+	*imagePath = "images/products/"
 
 	// init clients
 	s3Client = aws.NewS3Service()
@@ -106,7 +112,7 @@ func main() {
 func initServices() {
 	healthService = health.NewHealthService(mongoClient)
 	authService = auth.NewAuthService(mongoClient, userRepo)
-	productService = product.NewProductService(mongoClient, productRepo, s3Client, nil)
+	productService = product.NewProductService(mongoClient, productRepo, s3Client, imagePath)
 	categoryService = category.NewCategoryService(mongoClient, categoryRepo)
 }
 
