@@ -167,7 +167,27 @@ func setupRoutes(app *fiber.App) {
 }
 
 func setupMiddlewares(app *fiber.App) {
-	app.Use(logger.New())
+	// custom logger, dont log /ping
+	app.Use(
+		func(c *fiber.Ctx) error {
+			// define routes that should not be logged
+			exludePaths := map[string]bool{
+				"/ping": true,
+			}
+
+			// check if the current route is in the exclude list
+			if _, ok := exludePaths[c.Path()]; !ok {
+				return logger.New(logger.Config{
+					Format:     "${time} ${status} - ${latency} ${method} ${path}\n",
+					TimeFormat: "2006-01-02 15:04:05",
+				})(c)
+			}
+
+			// continue to the next middleware/handler
+			return c.Next()
+		},
+	)
+
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "http://localhost:3000, https://makroteknik-4yemjdfdu-vafaill.vercel.app, https://makroteknik.vercel.app, https://test.makroteknik.co.uk",
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
