@@ -1,33 +1,74 @@
 package main
 
 import (
+	// services:
 	"api/internal/service/auth"
 	"api/internal/service/category"
 	"api/internal/service/health"
 	"api/internal/service/product"
+
+	// pkg services:
+	"api/pkg/service/aws"
+
+	// repos:
+	authPackage "api/internal/service/auth/repo"
+	categoryPackage "api/internal/service/category/repo"
+	productPackage "api/internal/service/product/repo"
+
+	// utils & middlewares:
 	"api/pkg/mid"
 	"api/pkg/util"
+
+	// built-in utils:
 	"context"
 	"log"
 	"os"
 
+	// fiber:
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/joho/godotenv"
+
+	// mongodb:
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// func init() {
-// 	// Load .env file
-// 	if err := godotenv.Load("../../../.env"); err != nil {
-// 		log.Printf("Error loading .env file: %v", err)
-// 	}
-// }
+// clients:
+var (
+	s3Client    *aws.S3Service
+	mongoClient *mongo.Client
+)
 
-const imagePath = "/opt/render/project/go/src/github.com/KahlerYasla/makroteknik/server/assets/images/products"
+// services:
+var (
+	healthService   *health.HealthService
+	authService     *auth.AuthService
+	productService  *product.ProductService
+	categoryService *category.CategoryService
+)
+
+// repositories:
+var (
+	userRepo     *authPackage.UserRepo
+	productRepo  *productPackage.ProductRepo
+	categoryRepo *categoryPackage.CategoryRepo
+	// postRepo *postPackage.PostRepo
+)
+
+// main: --------------------------------------------------------------------
 
 func init() {
+	err := godotenv.Load("../../.env")
+	if err != nil {
+		log.Fatalf("error loading .env, %v", err)
+	}
+
+	// init clients
+	s3Client = aws.NewS3Service()
+	mongoClient = setupDbConnection()
+
 	// Check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
@@ -36,13 +77,7 @@ func init() {
 		util.LogSuccess("Working directory can be reached: " + dir)
 	}
 
-	// Check if the program can reach ../root/assets/images/products
-	_, err = os.Stat(imagePath)
-	if err != nil {
-		util.LogError("failed to reach directory: " + err.Error())
-	} else {
-		util.LogSuccess("successfully reached directory:" + imagePath)
-	}
+	// check if all clients initialized successfully
 }
 
 func main() {
@@ -51,25 +86,25 @@ func main() {
 		AppName: "api", // Set the app name
 	})
 
-	mongoClient := setupDbConnection()
-	initServices(mongoClient)
+	initServices()
 	setupMiddlewares(app)
 	setupRoutes(app)
 
 	// Start serving
-	// port := os.Getenv("PORT")
-	port := ":8855"
+	port := os.Getenv("PORT")
 	log.Printf("Starting server on %s", port)
 	if err := app.Listen(port); err != nil {
 		log.Fatalf("failed to start server: %v", err)
 	}
 }
 
-func initServices(c *mongo.Client) {
-	health.InitHealthService(c)
-	auth.InitAuthService(c)
-	product.InitProductService(c)
-	category.InitCategoryService(c)
+// functions: --------------------------------------------------------------------
+
+func initServices() {
+	healthService = health.NewHealthService(mongoClient)
+	authService = auth.NewAuthService(mongoClient, userRepo)
+	productService = product.NewProductService(mongoClient, productRepo, s3Client, nil)
+	categoryService = category.NewCategoryService(mongoClient, categoryRepo)
 }
 
 // Set the database connection
@@ -84,22 +119,22 @@ func setupDbConnection() *mongo.Client {
 // Set the routes
 func setupRoutes(app *fiber.App) {
 	// Ping check
-	app.Get("/ping", health.GetHealth)
+	app.Get("/ping", healthService.GetHealth)
 
 	// Auth routes
 	authGroup := app.Group("/auth")
-	authGroup.Post("/login", auth.Login)
+	authGroup.Post("/login", authService.Login)
 
 	// Product routes
 	productGroup := app.Group("/product")
-	productGroup.Get("/", product.GetProducts)
-	productGroup.Post("/post", product.PostProduct, mid.AuthMiddleware)
-	productGroup.Patch("/patch/:id", product.PatchProduct, mid.AuthMiddleware)
-	productGroup.Delete("/delete/:id", product.DeleteProduct, mid.AuthMiddleware)
+	productGroup.Get("/", productService.GetProducts)
+	productGroup.Post("/post", productService.PostProduct, mid.AuthMiddleware)
+	productGroup.Patch("/patch/:id", productService.PatchProduct, mid.AuthMiddleware)
+	productGroup.Delete("/delete/:id", productService.DeleteProduct, mid.AuthMiddleware)
 
 	// Category routes
 	categoryGroup := app.Group("/category")
-	categoryGroup.Get("/", category.GetCategories)
+	categoryGroup.Get("/", categoryService.GetCategories)
 }
 
 // Set the middlewares

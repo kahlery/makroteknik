@@ -21,6 +21,8 @@ func NewCategoryRepo(client *mongo.Client) *CategoryRepo {
 	}
 }
 
+// functions: --------------------------------------------------------------------
+
 func (c *CategoryRepo) GetCategories(ctx context.Context) ([]model.Category, error) {
 	// 1. Perform a MongoDb query to fetch all documents in the products collection
 	cursor, err := c.collection.Find(ctx, bson.D{})

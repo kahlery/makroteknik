@@ -1,3 +1,7 @@
-# Hiding environemnt variables as it stores tokens, connections string etc.
+# hiding environemnt variables as it stores tokens, connections string etc.
 config.yaml
 .env*
+
+# ignore /assets folder as it contains static files and large files
+# which are already deployed into S3 bucket
+/assets

@@ -22,6 +22,8 @@ func NewProductRepo(client *mongo.Client) *ProductRepo {
 	}
 }
 
+// functions: --------------------------------------------------------------------
+
 func (r *ProductRepo) GetProduct(ctx context.Context, id string) (model.Product, error) {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {

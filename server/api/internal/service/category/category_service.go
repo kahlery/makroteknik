@@ -8,14 +8,20 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-var categoryRepo *repo.CategoryRepo
-
-func InitCategoryService(client *mongo.Client) {
-	categoryRepo = repo.NewCategoryRepo(client)
+type CategoryService struct {
+	categoryRepo *repo.CategoryRepo
 }
 
-func GetCategories(c *fiber.Ctx) error {
-	categories, err := categoryRepo.GetCategories(c.Context())
+func NewCategoryService(m *mongo.Client, c *repo.CategoryRepo) *CategoryService {
+	return &CategoryService{
+		categoryRepo: c,
+	}
+}
+
+// functions --------------------------------------------------------------------
+
+func (cs *CategoryService) GetCategories(c *fiber.Ctx) error {
+	categories, err := cs.categoryRepo.GetCategories(c.Context())
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString(err.Error())
 	}

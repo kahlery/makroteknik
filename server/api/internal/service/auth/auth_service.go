@@ -10,19 +10,27 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-var userRepo *repo.UserRepo
-
-func InitAuthService(client *mongo.Client) {
-	userRepo = repo.NewUserRepo(client)
+type AuthService struct {
+	mongoClient *mongo.Client
+	userRepo    *repo.UserRepo
 }
 
-func Login(c *fiber.Ctx) error {
+func NewAuthService(mongoClient *mongo.Client, userRepo *repo.UserRepo) *AuthService {
+	return &AuthService{
+		mongoClient: mongoClient,
+		userRepo:    userRepo,
+	}
+}
+
+// functions: --------------------------------------------------------------------
+
+func (a *AuthService) Login(c *fiber.Ctx) error {
 	var req dto.LoginRequest
 	if err := c.BodyParser(&req); err != nil {
 		return c.Status(fiber.StatusBadRequest).SendString("Invalid input")
 	}
 
-	user, err := userRepo.FindByUserName(c.Context(), req.UserName)
+	user, err := a.userRepo.FindByUserName(c.Context(), req.UserName)
 	if err != nil {
 		return c.Status(fiber.StatusUnauthorized).SendString("Invalid credentials")
 	}

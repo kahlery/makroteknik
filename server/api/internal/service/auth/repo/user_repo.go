@@ -18,6 +18,8 @@ func NewUserRepo(client *mongo.Client) *UserRepo {
 	}
 }
 
+// functions: --------------------------------------------------------------------
+
 func (r *UserRepo) FindByUserName(ctx context.Context, userName string) (*model.User, error) {
 	var user model.User
 
