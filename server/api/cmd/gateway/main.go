@@ -150,6 +150,8 @@ func setupRoutes(app *fiber.App) {
 	// Ping check
 	app.Get("/ping", healthService.GetHealth)
 
+	app.Use(logger.New())
+
 	// Auth routes
 	authGroup := app.Group("/auth")
 	authGroup.Post("/login", authService.Login)
@@ -167,22 +169,6 @@ func setupRoutes(app *fiber.App) {
 }
 
 func setupMiddlewares(app *fiber.App) {
-	// custom logger
-	app.Use(
-		func(c *fiber.Ctx) error {
-			// define routes that should not be logged
-			exludePaths := map[string]bool{
-				"/ping": true,
-			}
-
-			if _, ok := exludePaths[c.Path()]; !ok {
-				return logger.New()(c)
-			} else {
-				return c.Next()
-			}
-		},
-	)
-
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "http://localhost:3000, https://makroteknik-4yemjdfdu-vafaill.vercel.app, https://makroteknik.vercel.app, https://test.makroteknik.co.uk",
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
