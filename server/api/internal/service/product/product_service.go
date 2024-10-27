@@ -13,7 +13,6 @@ import (
 
 	// encoding:
 	"encoding/base64"
-	"encoding/json"
 
 	// built-in utils
 	"strings"
@@ -49,12 +48,6 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from MongoDB: " + err.Error())
 	}
-
-	// log latest element to see if products got successfully
-	last := products[len(products)-1]
-	jsonizedLast, _ := json.MarshalIndent(last, " ", " ")
-	util.LogDebug(string(jsonizedLast))
-	util.LogDebug("last element's ID: " + last.ID.Hex())
 
 	// 2. Fetch images from ../../assets/images/products
 	// read all images stored in the same directory, named as their _id.webp
@@ -209,7 +202,7 @@ func (p *ProductService) DeleteProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete image from directory: " + err.Error())
 	}
 
-	util.LogDebug("Image deleted from directory: " + id + ".webp")
+	util.LogSuccess("S3: image deleted from directory: " + id + ".webp")
 
 	// 3. Delete the product from MongoDB
 	if err := p.productRepo.DeleteProduct(ctx.Context(), id); err != nil {
