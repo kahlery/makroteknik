@@ -70,6 +70,14 @@ func init() {
 		if err != nil {
 			log.Fatalf("error loading .env, %v", err)
 		}
+	} else {
+		util.LogSuccess(
+			"environment variables:" + "\n" +
+				os.Getenv("DB") + "\n" +
+				os.Getenv("PORT") + "\n" +
+				os.Getenv("S3_BUCKET_NAME") + "\n" +
+				os.Getenv("JWT_SECRET"),
+		)
 	}
 
 	*imagePath = "images/products/"
