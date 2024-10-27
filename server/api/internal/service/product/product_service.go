@@ -23,7 +23,6 @@ import (
 
 	// mongo:
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 // ProductRepo is the repository for product service
@@ -33,11 +32,10 @@ type ProductService struct {
 	s3Service   *aws.S3Service
 }
 
-func NewProductService(client *mongo.Client, productRepo *repo.ProductRepo,
-	s3Service *aws.S3Service, imagePath *string) *ProductService {
+func NewProductService(productRepo *repo.ProductRepo, s3Service *aws.S3Service, imagePath *string) *ProductService {
 	return &ProductService{
 		imagePath:   imagePath,
-		productRepo: repo.NewProductRepo(client),
+		productRepo: productRepo,
 		s3Service:   s3Service,
 	}
 }

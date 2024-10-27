@@ -119,14 +119,23 @@ func main() {
 	}
 }
 
-// functions: --------------------------------------------------------------------
+// inits: --------------------------------------------------------------------
+
+func initRepos() {
+	userRepo = authPackage.NewUserRepo(mongoClient)
+	productRepo = productPackage.NewProductRepo(mongoClient)
+	categoryRepo = categoryPackage.NewCategoryRepo(mongoClient)
+	// postRepo = postPackage.NewPostRepo(mongoClient)
+}
 
 func initServices() {
 	healthService = health.NewHealthService(mongoClient)
-	authService = auth.NewAuthService(mongoClient, userRepo)
-	productService = product.NewProductService(mongoClient, productRepo, s3Client, imagePath)
-	categoryService = category.NewCategoryService(mongoClient, categoryRepo)
+	authService = auth.NewAuthService(userRepo)
+	productService = product.NewProductService(productRepo, s3Client, imagePath)
+	categoryService = category.NewCategoryService(categoryRepo)
 }
+
+// setups: --------------------------------------------------------------------
 
 // Set the database connection
 func setupDbConnection() *mongo.Client {

@@ -7,18 +7,15 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type AuthService struct {
-	mongoClient *mongo.Client
-	userRepo    *repo.UserRepo
+	userRepo *repo.UserRepo
 }
 
-func NewAuthService(mongoClient *mongo.Client, userRepo *repo.UserRepo) *AuthService {
+func NewAuthService(userRepo *repo.UserRepo) *AuthService {
 	return &AuthService{
-		mongoClient: mongoClient,
-		userRepo:    userRepo,
+		userRepo: userRepo,
 	}
 }
 
