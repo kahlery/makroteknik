@@ -27,7 +27,7 @@ func LogError(str string) {
 	}
 
 	// Print the log with red color for error
-	fmt.Printf("%s%s [ERROR] %s:%d %s%s\n", red, timestamp, file, line, str, reset)
+	fmt.Printf("[ERROR] %s%s ==> %s:%d %s%s\n", red, timestamp, file, line, str, reset)
 }
 
 // LogInfo logs an informational message in green, with a timestamp
@@ -36,7 +36,7 @@ func LogSuccess(str string) {
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
 	// Print the log with green color for success
-	fmt.Printf("%s%s [SUCESS] %s%s\n", green, timestamp, str, reset)
+	fmt.Printf("[SUCESS] %s%s ==> %s%s\n", green, timestamp, str, reset)
 }
 
 // LogWarn logs a warning message in yellow, with a timestamp
@@ -45,7 +45,7 @@ func LogWarn(str string) {
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
 	// Print the log with yellow color for warning
-	fmt.Printf("%s%s [WARN] %s%s\n", yellow, timestamp, str, reset)
+	fmt.Printf("[WARN] %s%s ==> %s%s\n", yellow, timestamp, str, reset)
 }
 
 // LogDebug logs a debug message in blue, with a timestamp
@@ -54,5 +54,5 @@ func LogDebug(str string) {
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
 	// Print the log with blue color for debug
-	fmt.Printf("%s%s [DEBUG] %s%s\n", blue, timestamp, str, reset)
+	fmt.Printf("[INFO] %s%s ==> %s%s\n", blue, timestamp, str, reset)
 }
