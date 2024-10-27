@@ -167,7 +167,7 @@ func setupRoutes(app *fiber.App) {
 }
 
 func setupMiddlewares(app *fiber.App) {
-	// custom logger, dont log /ping
+	// custom logger
 	app.Use(
 		func(c *fiber.Ctx) error {
 			// define routes that should not be logged
@@ -175,16 +175,11 @@ func setupMiddlewares(app *fiber.App) {
 				"/ping": true,
 			}
 
-			// check if the current route is in the exclude list
 			if _, ok := exludePaths[c.Path()]; !ok {
-				return logger.New(logger.Config{
-					Format:     "${time} ${status} - ${latency} ${method} ${path}\n",
-					TimeFormat: "2006-01-02 15:04:05",
-				})(c)
+				return logger.New()(c)
+			} else {
+				return c.Next()
 			}
-
-			// continue to the next middleware/handler
-			return c.Next()
 		},
 	)
 
