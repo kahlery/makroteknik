@@ -129,19 +129,22 @@ export const Panel = () => {
 
     return (
         <div className="relative w-screen flex flex-wrap bg-gray-200 py-16 h-full">
-            {/* Top Bar */}
-            <div className="pl-16 fixed flex gap-12 top-0 left-0 w-full bg-white p-4 border z-10 shadow-xl">
+            {/* Navbar */}
+            <div className="px-[5%] fixed flex justify-between gap-12 top-0 left-0 w-full bg-white p-4 border z-10 shadow-xl">
                 <input
                     type="text"
-                    placeholder="Search Products..."
+                    placeholder="search..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-72 px-2 py-1 border-b-2 border-primary placeholder:text-primary"
+                    className="w-72 px-2 py-1 border-b-2 border-opacity-40 border-primary placeholder:text-primary"
                 />
-                <div className="flex gap-8 mx-auto">
-                    <button className="text-primary">Products</button>
-                    <button className="text-primary">Categories</button>
-                    <button className="text-primary">News</button>
+                <h1 className="text-2xl font-bold text-primary">
+                    makroteknik.co.uk
+                </h1>
+                <div className="flex gap-8">
+                    <button className="text-primary">products</button>
+                    <button className="text-primary">categories</button>
+                    <button className="text-primary">posts</button>
                 </div>
             </div>
 
@@ -150,25 +153,25 @@ export const Panel = () => {
                 {filteredProducts.map((v) => (
                     <div
                         key={v._id}
-                        className="w-[600px] h-[400px] overflow-y-scroll border rounded-lg p-8 bg-white shadow-xl"
+                        className="w-[350px] h-[450px] overflow-y-scroll border rounded-lg p-8 bg-white shadow-xl"
                     >
                         <div className="flex-col flex gap-4">
                             <div className="relative">
-                                <div className="absolute flex gap-2 top-0 right-0">
+                                <div className="absolute flex gap-2 -top-4 -right-8">
                                     {/* Edit and Delete buttons */}
                                     <button
                                         className="bg-primary text-white px-2 py-1 rounded"
                                         onClick={() => handleEditProduct(v)}
                                     >
-                                        Edit
+                                        edit
                                     </button>
                                     <button
-                                        className="bg-red-500 text-white px-2 py-1 rounded"
+                                        className="bg-rose-600 text-white px-2 py-1 rounded"
                                         onClick={() =>
                                             handleDeleteProduct(v._id)
                                         }
                                     >
-                                        Delete
+                                        delete
                                     </button>
                                 </div>
                                 <img
@@ -201,12 +204,12 @@ export const Panel = () => {
                                                 Object.values(sizePrice)[0]
                                             }`}
                                             <button
-                                                className="text-red-500 ml-2"
+                                                className="text-rose-600 ml-2"
                                                 onClick={() =>
                                                     handleRemoveSizePrice(idx)
                                                 }
                                             >
-                                                Remove
+                                                remove
                                             </button>
                                         </li>
                                     ))}
@@ -220,11 +223,7 @@ export const Panel = () => {
             {/* Form for adding/updating a product */}
             {isEditing && (
                 <div className="bg-gray-100 border-black border-4 p-4 fixed bottom-0 left-0 w-1/2">
-                    <h3>
-                        {currentProduct._id
-                            ? "Edit Product"
-                            : "Add New Product"}
-                    </h3>
+                    <h3>{currentProduct._id ? "edit" : "add new"}</h3>
                     <form className="flex flex-col gap-4">
                         <input
                             type="text"
@@ -310,14 +309,14 @@ export const Panel = () => {
                                 className="bg-primary text-white px-4 py-2 rounded"
                                 onClick={handleSaveProduct}
                             >
-                                Save
+                                save
                             </button>
                             <button
                                 type="button"
-                                className="bg-gray-500 text-white px-4 py-2 rounded"
+                                className="bg-rose-600 text-white px-4 py-2 rounded"
                                 onClick={() => setIsEditing(false)}
                             >
-                                Cancel
+                                cancel
                             </button>
                         </div>
                     </form>
@@ -343,7 +342,7 @@ export const Panel = () => {
                     setPriceInput("") // Reset price input
                 }}
             >
-                Add New Product
+                add new
             </button>
         </div>
     )
