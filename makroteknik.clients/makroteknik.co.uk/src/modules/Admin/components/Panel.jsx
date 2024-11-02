@@ -130,7 +130,10 @@ export const Panel = () => {
     return (
         <div className="relative w-screen flex flex-wrap bg-gray-200 py-16 h-full">
             {/* Navbar */}
-            <div className="px-[5%] fixed flex justify-between gap-12 top-0 left-0 w-full bg-white p-4 border z-10 shadow-xl">
+            <div
+                className="px-[5%] fixed flex justify-between gap-12 top-0 left-0 w-full
+             bg-white p-4 border z-10 border-primary"
+            >
                 <input
                     type="text"
                     placeholder="search..."
@@ -153,7 +156,7 @@ export const Panel = () => {
                 {filteredProducts.map((v) => (
                     <div
                         key={v._id}
-                        className="w-[350px] h-[450px] overflow-y-scroll border rounded-lg p-8 bg-white shadow-xl"
+                        className="w-[350px] h-[450px] overflow-y-scroll border border-primary p-8 bg-white "
                     >
                         <div className="flex-col flex gap-4">
                             <div className="relative">
