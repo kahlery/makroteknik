@@ -12,7 +12,7 @@ const Hero = ({ imageIndex, height }) => {
     return (
         <div
             className={`flex relative bg-fon justify-center gap-12 pt-24 md:pt-44
-                 2xl:pt-32 h-[370px] md:h-[400px] 2xl:[500px]  px-4
+                 2xl:pt-44 h-[370px] md:h-[400px] 2xl:[500px]  px-4
                   border-y border-black border-opacity-20 `}
         >
             {/* <img

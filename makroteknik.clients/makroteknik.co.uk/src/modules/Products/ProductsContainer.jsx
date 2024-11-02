@@ -6,6 +6,7 @@ import CategoryCards from "./components/QuickAccessCategoriesSection"
 
 // icons
 import { FaAngleUp } from "react-icons/fa"
+import { FaSearch } from "react-icons/fa"
 
 // stores
 import { useProductStore } from "./stores/ProductStore"
@@ -40,27 +41,23 @@ const ProductsContainer = () => {
     )
 
     return (
-        <div>
-            <div className="h-12 md:h-24" />
-            {/* Search Bar */}
-            <div className="w-full bg-white p-4 shadow-md z-10">
-                <input
-                    type="text"
-                    placeholder="Search Products..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full p-2 border rounded"
-                />
-            </div>
+        <div className="h-full w-full bg-fon">
+            <div className="md:h-24 mt-6 bg-fon" />
+            {renderSearchBar()}
             <CategoryCards />
-            <div className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96">
+            <div
+                className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10
+             min-h-96 bg-fon"
+            >
                 <div className="mx-4">
                     <ListingGrid passedProductsList={filteredProductsList} />
                 </div>
             </div>
             {showScrollToTop && (
                 <button
-                    className="fixed bottom-20 md:bottom-8 right-6 md:right-64 p-3 rounded-full bg-secondary text-white shadow-lg hover:bg-black hover:scale-125 transition-all duration-1000 focus:outline-none z-30"
+                    className="fixed bottom-20 md:bottom-8 right-6 md:right-64 p-3 rounded-full
+                     bg-secondary text-white shadow-lg hover:bg-black hover:scale-125
+                     transition-all duration-1000 focus:outline-none z-30"
                     onClick={handleScrollToTop}
                 >
                     <FaAngleUp size={25} />
@@ -68,6 +65,24 @@ const ProductsContainer = () => {
             )}
         </div>
     )
+
+    function renderSearchBar() {
+        return (
+            <div
+                className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
+            2xl:mx-[25rem] text-sm border-black border border-opacity-30 rounded-md py-[1px]"
+            >
+                <FaSearch className="p-1 text-primary" size={"20px"} />
+                <input
+                    type="text"
+                    placeholder="Search Products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full p-1 bg-white text-black focus:outline-none"
+                />
+            </div>
+        )
+    }
 }
 
 export default ProductsContainer

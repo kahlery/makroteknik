@@ -21,7 +21,7 @@ const NavBar = () => {
     return (
         <nav
             className="bg-white md:bg-white md:bg-opacity-100 flex h-14 lg:mb-4 py-4 pt-4 lg:py-0 px-6 md:px-[16rem] 2xl:px-[25rem] flex-row items-center 
-        justify-center md:justify-between shadow-top md:shadow-md w-full fixed bottom-0 sm:top-[40px] z-40 text-center md:border-b border-t md:border-t-0 border-black border-opacity-20"
+        justify-center md:justify-between shadow-top w-full fixed bottom-0 sm:top-[40px] z-40 text-center md:border-b border-t md:border-t-0 border-black border-opacity-20"
             onClick={() => {
                 // scroll to top
                 window.scrollTo({ top: 0, behavior: "smooth" })

@@ -40,7 +40,7 @@ const QuickAccessCategoriesSection = () => {
     }
 
     return (
-        <div className="md:px-[16rem] 2xl:px-[25rem] mt-6 px-4">
+        <div className="md:px-[16rem] 2xl:px-[25rem] mt-6 px-4 bg-fon">
             <div className="flex flex-wrap gap-4 justify-start no-scrollbar">
                 {categoriesList.map((category, index) => (
                     <button

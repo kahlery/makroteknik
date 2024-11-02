@@ -79,8 +79,11 @@ const CartContainer = () => {
     const calculateTotalPrice = () => {
         const result = cartProductIds.reduce((acc, _id) => {
             const product = productsList.find((product) => product._id === _id)
-            console.log("product", product)
+
+            console.log("adding product", product, "'s price to total price")
+
             if (!product) return acc
+
             const productTotalPrice = Object.entries(cartProducts[_id]).reduce(
                 (acc, [_, sizeIndexToQuantityPair]) => {
                     const sizeIndex = Object.keys(sizeIndexToQuantityPair)[0]
@@ -88,11 +91,26 @@ const CartContainer = () => {
                     const price =
                         Object.values(product.sizeToPrice[sizeIndex] ?? 0)[0] ??
                         0
-                    price.toString().replace(/[^\d.]/g, "")
-                    return acc + quantity * price
+
+                    console.log("price:", price)
+
+                    price.toString().replace(/[^0-9.]/g, "")
+
+                    console.log(
+                        "price after regex:",
+                        price.toString().replace(/[^0-9.]/g, "")
+                    )
+
+                    return (
+                        acc +
+                        quantity * price.toString().replace(/[^0-9.]/g, "")
+                    )
                 },
                 0
             )
+
+            console.log("productTotalPrice:", productTotalPrice)
+
             return acc + productTotalPrice
         }, 0)
 
