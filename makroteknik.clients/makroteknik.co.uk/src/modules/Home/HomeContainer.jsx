@@ -29,7 +29,7 @@ const HomeContainer = () => {
     }, [loadCartFromLocalStorage])
 
     return (
-        <div className="text-start flex flex-col gap-8 mb-8">
+        <div className="text-start flex flex-col gap-8 mb-8 bg-fon">
             <Hero height={128} />
             <div className="text-white mx-4 lg:mx-0 md:px-[16rem] 2xl:px-[25rem]">
                 {loading ? (

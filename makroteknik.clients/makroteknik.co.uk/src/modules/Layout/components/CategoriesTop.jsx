@@ -24,40 +24,19 @@ const CategoriesTop = () => {
     // hooks
     const location = useLocation()
 
-    // start opacity-0 to opacity-100 duration-500
+    // start opacity-0 to opacity-100
     useEffect(() => {
         const hoverDropdown = document.getElementById("hover-dropdown")
+
+        // get all category buttons
+        const categoryButtons = document.querySelectorAll(".category-button")
+
         if (hoverDropdown) {
-            hoverDropdown.style.opacity = 0
-
-            // add 0.04 to opacity every 30ms
-            let opacity = 0
-            const interval = setInterval(() => {
-                if (opacity < 1) {
-                    opacity += 1
-                    hoverDropdown.style.opacity = opacity
-                } else {
-                    hoverDropdown.style.opacity = 1
-                    clearInterval(interval)
-                }
-            }, 30)
-
-            // hide category buttons
-            const categoryButtons =
-                document.querySelectorAll(".category-button")
+            hoverDropdown.style.opacity = 1
             categoryButtons.forEach((button) => {
                 button.style.opacity = 0
             })
-        }
-
-        return () => {
-            if (hoverDropdown) {
-                hoverDropdown.style.opacity = 0
-            }
-
-            // show category buttons
-            const categoryButtons =
-                document.querySelectorAll(".category-button")
+        } else {
             categoryButtons.forEach((button) => {
                 button.style.opacity = 1
             })

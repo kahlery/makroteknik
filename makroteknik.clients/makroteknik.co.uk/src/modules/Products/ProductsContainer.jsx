@@ -70,7 +70,7 @@ const ProductsContainer = () => {
         return (
             <div
                 className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border border-opacity-30 rounded-md py-[1px] mx-4"
+            2xl:mx-[25rem] text-sm border-black border border-opacity-20 rounded-md py-[2.5px] mx-4"
             >
                 <FaSearch className="p-1 text-primary" size={"20px"} />
                 <input
@@ -78,7 +78,7 @@ const ProductsContainer = () => {
                     placeholder="Search Products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full p-1 bg-white text-black focus:outline-none"
+                    className="w-full p-1 bg-white text-black focus:outline-none placeholder:black placeholder-opacity-80"
                 />
             </div>
         )

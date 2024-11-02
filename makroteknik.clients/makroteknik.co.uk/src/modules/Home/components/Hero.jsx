@@ -1,13 +1,12 @@
 import React from "react"
 import { FaSearch } from "react-icons/fa"
 import { Link } from "react-router-dom"
-import ProductsContainer from "../../Products/ProductsContainer"
 
 const Hero = ({ imageIndex, height }) => {
-    const index = imageIndex || 55
+    // const index = imageIndex || 55
     // const bgUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
-    const bgUrl = process.env.PUBLIC_URL + "images/heros/12.jpeg"
-    const chars = process.env.PUBLIC_URL + "images/heros/9.png"
+    // const chars = process.env.PUBLIC_URL + "images/heros/9.png"
+    const bgUrl = process.env.PUBLIC_URL + "images/heros/0.jpg"
 
     return (
         <div
@@ -15,12 +14,12 @@ const Hero = ({ imageIndex, height }) => {
                  2xl:pt-44 h-[370px] md:h-[400px] 2xl:[500px]  px-4
                   border-y border-black border-opacity-20 `}
         >
-            {/* <img
+            <img
                 src={bgUrl}
                 alt="hero"
-                className="absolute inset-0 object-top object-cover w-full h-full z-10 
-                brightness-[.75] grayscale-[1]"
-            /> */}
+                className="absolute inset-0 object-top object-cover
+                w-full h-full z-10  grayscale-[1]"
+            />
             <div
                 className="text-center md:text-end flex my-auto py-6 md:border-r border-opacity-20 border-black 
                 lg:max-w-[30rem] z-20"
@@ -48,11 +47,15 @@ const Hero = ({ imageIndex, height }) => {
                                 window.scrollTo({ top: 0, behavior: "smooth" })
                             }}
                         >
-                            <button className="rounded-full font-bold text-white text-opacity-100 bg-secondary py-2 px-4 flex gap-2 items-center">
+                            <button
+                                className="font-bold text-white text-opacity-100
+                             bg-secondary py-2 px-4 flex gap-2 items-center
+                              border border-black border-opacity-20 rounded-md"
+                            >
                                 <FaSearch /> Inspectate products!
                             </button>
                         </Link>
-                        <button className="font-bold rounded-full border border-black py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
+                        <button className="font-bold rounded-md border border-black py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
                             Get An Offer
                         </button>
                     </div>
