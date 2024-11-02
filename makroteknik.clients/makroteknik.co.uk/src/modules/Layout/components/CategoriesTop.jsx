@@ -109,13 +109,13 @@ const CategoriesTop = () => {
                                     ) && (
                                         <div
                                             id="hover-dropdown"
-                                            className="fixed top-[90px] md:top-[90px] h-full 2xl:top-[90px] left-0 flex flex-wrap w-screen z-[999]"
+                                            className="fixed top-[85px] md:top-[90px] h-full 2xl:top-[90px] left-0 flex flex-wrap w-screen z-[999]"
                                         >
                                             <div
                                                 className="text-black overflow-y-scroll text-left
-                                            items-center w-screen border-t border-black border-opacity-20 bg-[999] bg-primary
+                                            items-center w-screen border-t border-black border-opacity-20 bg-[999] bg-fon
                                              bg-opacity-[95%] shadow-lg px-4 md:px-4 py-4
-                                            h-[calc(100vh-90px)] md:h-[calc(100vh-173px)] 2xl:h-[calc(100vh-138px)]
+                                            h-[calc(100vh-100px)]
                                             "
                                             >
                                                 <div className="flex flex-col gap-4">

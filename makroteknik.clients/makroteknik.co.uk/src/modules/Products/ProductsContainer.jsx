@@ -42,7 +42,7 @@ const ProductsContainer = () => {
 
     return (
         <div className="h-full w-full bg-fon">
-            <div className="md:h-24 mt-6 bg-fon" />
+            <div className="md:h-24 pt-20 md:mt-6 bg-fon" />
             {renderSearchBar()}
             <CategoryCards />
             <div
@@ -70,7 +70,7 @@ const ProductsContainer = () => {
         return (
             <div
                 className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border border-opacity-30 rounded-md py-[1px]"
+            2xl:mx-[25rem] text-sm border-black border border-opacity-30 rounded-md py-[1px] mx-4"
             >
                 <FaSearch className="p-1 text-primary" size={"20px"} />
                 <input
