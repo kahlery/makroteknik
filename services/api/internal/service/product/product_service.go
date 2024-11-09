@@ -145,7 +145,7 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to fetch product from MongoDB: " + err.Error())
 	}
 
-	if product.CategoryId == 0 {
+	if product.CategoryId == "" {
 		product.CategoryId = foundedProduct.CategoryId
 	}
 	if product.Title == "" {

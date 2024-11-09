@@ -30,6 +30,7 @@ export const Panel = () => {
     // State to hold new size and price inputs
     const [sizeInput, setSizeInput] = useState("")
     const [priceInput, setPriceInput] = useState("")
+    const [isAddNewNorEdit, setIsAddNewNorEdit] = useState(false)
 
     // Handle form input changes
     const handleInputChange = (e) => {
@@ -198,7 +199,7 @@ export const Panel = () => {
                                 <p className="line-clamp-3">{v.description}</p>
                                 <hr className="border-black border-opacity-20 my-2" />
                                 <h3 className="text-primary font-bold">
-                                    Size & Price:
+                                    size & price:
                                 </h3>
                                 <ul>
                                     {v.sizeToPrice.map((sizePrice, idx) => (
@@ -281,6 +282,12 @@ export const Panel = () => {
                             placeholder="Product Description"
                             className="border h-64 p-2 rounded"
                         />
+                        <div>
+                            <h3 className="text-primary font-bold">
+                                Size & Price:
+                            </h3>
+                            <hr className="border-black border-opacity-20 my-2" />
+                        </div>
                         {/* Inputs for size and price */}
                         <div className="flex gap-4">
                             <input
@@ -297,14 +304,43 @@ export const Panel = () => {
                                 placeholder="Price (e.g., £810.00 ex vat)"
                                 className="border p-2 rounded"
                             />
-                            <button
-                                type="button"
-                                className="bg-primary text-white px-4 py-2 rounded"
-                                onClick={handleAddSizePrice}
-                            >
-                                Add Size/Price
-                            </button>
                         </div>
+                        <button
+                            type="button"
+                            className="bg-primary text-white px-4 py-2 rounded"
+                            onClick={handleAddSizePrice}
+                        >
+                            Add Size/Price
+                        </button>
+                        {/* list available sizes */}
+                        {!isAddNewNorEdit &&
+                            Object.keys(currentProduct.sizeToPrice[0]).length >
+                                0 && <p></p> && (
+                                <ul>
+                                    {currentProduct.sizeToPrice.map(
+                                        (sizePrice, idx) => (
+                                            <li key={idx}>
+                                                {`${
+                                                    Object.keys(sizePrice)[0]
+                                                } - ${
+                                                    Object.values(sizePrice)[0]
+                                                }`}
+                                                <button
+                                                    className="text-rose-600 ml-2"
+                                                    onClick={() =>
+                                                        handleRemoveSizePrice(
+                                                            idx
+                                                        )
+                                                    }
+                                                >
+                                                    remove
+                                                </button>
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
+                            )}
+
                         {/* Buttons to save or cancel */}
                         <div className="flex gap-4">
                             <button
@@ -343,6 +379,7 @@ export const Panel = () => {
                     })
                     setSizeInput("") // Reset size input
                     setPriceInput("") // Reset price input
+                    setIsAddNewNorEdit(true)
                 }}
             >
                 add new
