@@ -5,7 +5,6 @@ import { CartTable } from "./components/CartTable"
 
 // stores
 import { useProductStore } from "../product/stores/ProductStore"
-import { useCartStore } from "./stores/CartStore"
 
 // icons
 import { FaRegCopy } from "react-icons/fa"
