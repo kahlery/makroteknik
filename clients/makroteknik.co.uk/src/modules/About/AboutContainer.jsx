@@ -7,7 +7,7 @@ const AboutContainer = () => {
                 <h1 className="text-lg font-bold text-start mb-4">About Us:</h1>
                 <div>
                     Makroteknik is a company founded in the year 1998, built
-                    upon an 18-year-long tradition in application, which
+                    upon an 18 year-long tradition in application, which
                     produces HVAC components. Our company is equipped with a
                     customer-centered corporate understanding and has its
                     principles arranged according to this.
