@@ -5,12 +5,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 // containers
 import ProductContainer from "./modules/product/ProductContainer"
-import CartContainer from "./modules/cart/CartContainer"
 import NotFoundContainer from "./modules/common/components/NotFoundContainer"
 import LayoutContainer from "./modules/layout/LayoutContainer"
 import { AdminContainer } from "./modules/admin/AdminContainer"
 import AboutContainer from "./modules/about/AboutContainer"
 import HomeContainer from "./modules/home/HomeContainer"
+import CartContainer from "./modules/Cart/CartContainer"
 
 class App extends Component {
     render() {
