@@ -1,10 +1,10 @@
 use("makroteknik")
 
-db.products.updateMany({ categoryId: { $type: "int" } }, [
+db.products.updateMany({ categoryID: { $type: "int" } }, [
     {
         $set: {
-            categoryId: {
-                $toString: "$categoryId",
+            categoryID: {
+                $toString: "$categoryID",
             },
         },
     },

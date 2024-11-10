@@ -83,7 +83,7 @@ func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product, 
 	filter := bson.M{"_id": objectID}
 	update := bson.M{
 		"$set": bson.M{
-			"categoryId":  product.CategoryID,
+			"categoryID":  product.CategoryID,
 			"title":       product.Title,
 			"productCode": product.ProductCode,
 			"description": product.Description,

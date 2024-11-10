@@ -15,7 +15,7 @@ import ListingGrid from "../../common/components/ListingGrid"
 
 const CategoriesTop = () => {
     // states
-    const [hoveredCategoryId, setHoveredCategoryId] = useState(null)
+    const [hoveredcategoryID, setHoveredcategoryID] = useState(null)
     const [hoverTimeout, setHoverTimeout] = useState(null)
 
     // stores
@@ -41,11 +41,11 @@ const CategoriesTop = () => {
                 button.style.opacity = 1
             })
         }
-    }, [hoveredCategoryId])
+    }, [hoveredcategoryID])
 
-    const handleMouseEnter = (categoryId) => {
+    const handleMouseEnter = (categoryID) => {
         const timeout = setTimeout(() => {
-            setHoveredCategoryId(categoryId)
+            setHoveredcategoryID(categoryID)
         }, 200)
         setHoverTimeout(timeout)
     }
@@ -54,11 +54,11 @@ const CategoriesTop = () => {
         if (hoverTimeout) {
             clearTimeout(hoverTimeout)
         }
-        setHoveredCategoryId(null)
+        setHoveredcategoryID(null)
     }
 
-    const isCategoryHovered = (categoryId) => {
-        return categoryId === hoveredCategoryId
+    const isCategoryHovered = (categoryID) => {
+        return categoryID === hoveredcategoryID
     }
 
     if (
@@ -78,11 +78,11 @@ const CategoriesTop = () => {
                     >
                         {categoriesList.map((category) => (
                             <div
-                                key={category.categoryId}
+                                key={category._id}
                                 className="static z-40 flex items-center gap-[1px]"
                             >
                                 {/* Hover dropdown */}
-                                {isCategoryHovered(category.categoryId) &&
+                                {isCategoryHovered(category._id) &&
                                     !location.pathname.endsWith(
                                         "/products"
                                     ) && (
@@ -102,7 +102,7 @@ const CategoriesTop = () => {
                                                     {/* <button
                                                         className="flex mx-auto w-fit rounded-full bg-red-500 bg-opacity-100"
                                                         onClick={() =>
-                                                            setHoveredCategoryId(
+                                                            setHoveredcategoryID(
                                                                 null
                                                             )
                                                         }
@@ -113,8 +113,8 @@ const CategoriesTop = () => {
                                                     </button> */}
                                                     <div>
                                                         <ListingGrid
-                                                            categoryId={
-                                                                category.categoryId
+                                                            categoryID={
+                                                                category._id
                                                             }
                                                             isFeatured={true}
                                                             isHorizontalNorVertical={
@@ -131,7 +131,7 @@ const CategoriesTop = () => {
                                         "category-button hover:scale-105 select-none duration-500 text-white py-[5px] text-nowrap border-black border-opacity-20 font-semibold"
                                     }
                                     onMouseEnter={() =>
-                                        handleMouseEnter(category.categoryId)
+                                        handleMouseEnter(category._id)
                                     }
                                     onMouseLeave={() => {
                                         if (hoverTimeout) {

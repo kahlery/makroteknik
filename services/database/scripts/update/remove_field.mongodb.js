@@ -3,6 +3,6 @@
 // Select the database to use.
 use("makroteknik")
 
-db.products.updateMany({}, [{ $unset: "categoryid" }])
+db.products.updateMany({}, [{ $unset: "categoryID" }])
 // Verify the updated documents
 db.products.find()

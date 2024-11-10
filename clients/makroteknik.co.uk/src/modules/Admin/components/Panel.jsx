@@ -13,7 +13,7 @@ export const Panel = () => {
     const [currentProduct, setCurrentProduct] = useState({
         _id: null,
         title: "",
-        categoryId: 0,
+        categoryID: 0,
         image: "",
         productCode: "",
         sizeToPrice: [],
@@ -88,7 +88,7 @@ export const Panel = () => {
         setCurrentProduct({
             _id: null,
             title: "",
-            categoryId: 0,
+            categoryID: 0,
             image: "",
             productCode: "",
             sizeToPrice: [],
@@ -253,18 +253,15 @@ export const Panel = () => {
                         />
                         {/* dropdown to select category */}
                         <select
-                            name="categoryId"
-                            value={currentProduct.categoryId}
+                            name="categoryID"
+                            value={currentProduct.categoryID}
                             onChange={handleInputChange}
                             className="border p-2 rounded"
                         >
                             <option value={0}>Select Category</option>
                             {/* Map over categories to create options */}
                             {categoriesList.map((category) => (
-                                <option
-                                    key={category.categoryId}
-                                    value={category.categoryId}
-                                >
+                                <option key={category._id} value={category._id}>
                                     {category.categoryName}
                                 </option>
                             ))}
@@ -370,7 +367,7 @@ export const Panel = () => {
                     setCurrentProduct({
                         _id: null,
                         title: "",
-                        categoryId: 0,
+                        categoryID: 0,
                         image: "",
                         productCode: "",
                         sizeToPrice: [],
