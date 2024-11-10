@@ -20,10 +20,10 @@ func NewUserRepo(client *mongo.Client) *UserRepo {
 
 // functions: --------------------------------------------------------------------
 
-func (r *UserRepo) FindByUserName(ctx context.Context, userName string) (*model.User, error) {
+func (r *UserRepo) FindByUserName(ctx context.Context, username string) (*model.User, error) {
 	var user model.User
 
-	err := r.collection.FindOne(ctx, bson.M{"userName": userName}).Decode(&user)
+	err := r.collection.FindOne(ctx, bson.M{"username": username}).Decode(&user)
 	if err != nil {
 		return nil, err
 	}
