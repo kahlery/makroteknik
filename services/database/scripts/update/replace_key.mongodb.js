@@ -5,13 +5,14 @@
 use("makroteknik")
 
 // Replace the key of the field.
-db.products.updateMany(
-    {}, // Select all documents
-    [
-        {
-            $set: {
-                imageURL: "$imageUrl", // Replace the key of the field
-            },
+db.users.updateMany(
+    {}, // Match all documents.
+    {
+        $rename: {
+            userName: "username",
         },
-    ]
+    }
 )
+
+// Print the result.
+db.users.find()

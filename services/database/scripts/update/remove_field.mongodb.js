@@ -3,7 +3,6 @@
 // Select the database to use.
 use("makroteknik")
 
-// Remove the imageUrl field from the documents.
-db.products.updateMany({}, [{ $unset: "imageUrl" }])
+db.categories.updateMany({}, [{ $unset: "categoryId" }])
 // Verify the updated documents
-db.products.find()
+db.categories.find()
