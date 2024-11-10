@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { LoginForm } from "./components/LoginForm"
-import { Panel } from "./components/Panel"
 
 export const AdminContainer = ({ className }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
