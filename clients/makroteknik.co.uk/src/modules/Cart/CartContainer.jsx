@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react"
 import { CartTable } from "./components/CartTable"
 
 // stores
+import { useProductStore } from "../product/stores/ProductStore"
 import { useCartStore } from "./stores/CartStore"
-import { useProductStore } from "../Products/stores/ProductStore"
 
 // icons
 import { FaRegCopy } from "react-icons/fa"

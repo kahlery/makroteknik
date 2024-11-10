@@ -8,10 +8,10 @@ import { Swipe } from "@mui/icons-material"
 import { FaAngleDown } from "react-icons/fa"
 
 // stores
-import { useProductStore } from "../../Products/stores/ProductStore"
+import { useProductStore } from "../../product/stores/ProductStore"
 
 // components
-import ListingGrid from "../../Common/components/ListingGrid"
+import ListingGrid from "../../common/components/ListingGrid"
 
 const CategoriesTop = () => {
     // states

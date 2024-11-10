@@ -6,7 +6,7 @@ import { IoIosArrowBack } from "react-icons/io"
 import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
-import { useCartStore } from "../../Cart/stores/CartStore"
+import { useCartStore } from "../../cart/stores/CartStore"
 
 const DetailedProductModal = ({
     isModalOpen = false,

@@ -31,7 +31,7 @@ func (a *AuthService) Login(c *fiber.Ctx) error {
 
 	user, err := a.userRepo.FindByUserName(c.Context(), req.Username)
 	if err != nil {
-		pkgLog.LogError("Error in parsing request body: %v" + err.Error())
+		pkgLog.LogError("Error in parsing request body: %v" + req.Username + req.Password + err.Error())
 		return c.Status(fiber.StatusUnauthorized).SendString("Invalid credentials")
 	}
 

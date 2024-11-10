@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 
 // stores
-import { useProductStore } from "../Products/stores/ProductStore"
+import { useProductStore } from "../product/stores/ProductStore"
 
 const LayoutContainer = () => {
     // Stores

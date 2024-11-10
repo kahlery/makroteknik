@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useProductStore } from "../../Products/stores/ProductStore"
+import { useProductStore } from "../../product/stores/ProductStore"
 
 export const Panel = () => {
     // Stores

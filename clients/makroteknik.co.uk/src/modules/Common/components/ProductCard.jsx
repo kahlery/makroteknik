@@ -4,7 +4,7 @@ import React from "react"
 import { TbRulerMeasure } from "react-icons/tb"
 
 // stores
-import { useCartStore } from "../../Cart/stores/CartStore"
+import { useCartStore } from "../../cart/stores/CartStore"
 
 const ProductCard = ({
     product,

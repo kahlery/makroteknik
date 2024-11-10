@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom"
 
 // stores
-import { useCartStore } from "../../Cart/stores/CartStore"
+import { useCartStore } from "../../cart/stores/CartStore"
 
 const NavBar = () => {
     // stores

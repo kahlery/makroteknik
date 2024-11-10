@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard"
 import DetailedProductModal from "./DetailedProductModal"
 
 // store
-import { useProductStore } from "../../Products/stores/ProductStore"
+import { useProductStore } from "../../product/stores/ProductStore"
 
 const ListingGrid = ({
     isFeatured,

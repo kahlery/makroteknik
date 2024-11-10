@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 // components
-import ListingGrid from "../Common/components/ListingGrid"
+import ListingGrid from "../common/components/ListingGrid"
 import CategoryCards from "./components/QuickAccessCategoriesSection"
 
 // icons
@@ -11,7 +11,7 @@ import { FaSearch } from "react-icons/fa"
 // stores
 import { useProductStore } from "./stores/ProductStore"
 
-const ProductsContainer = () => {
+const ProductContainer = () => {
     // states
     const [showScrollToTop, setShowScrollToTop] = useState(false)
     const [searchQuery, setSearchQuery] = useState("")
@@ -85,4 +85,4 @@ const ProductsContainer = () => {
     }
 }
 
-export default ProductsContainer
+export default ProductContainer

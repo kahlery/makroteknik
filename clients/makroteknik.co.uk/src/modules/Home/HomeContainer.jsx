@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 
 // stores
-import { useCartStore } from "../Cart/stores/CartStore"
-import { useProductStore } from "../Products/stores/ProductStore"
+import { useCartStore } from "../cart/stores/CartStore"
+import { useProductStore } from "../product/stores/ProductStore"
 
 // components
 import Hero from "./components/Hero"
 import LatestNewsGrid from "./components/LatestNewsGrid"
-import ListingGrid from "../Common/components/ListingGrid"
+import ListingGrid from "../common/components/ListingGrid"
 
 const videoUrl = process.env.PUBLIC_URL + "/videos/hero.mp4"
 
