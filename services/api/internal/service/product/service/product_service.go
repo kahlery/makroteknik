@@ -7,7 +7,7 @@ import (
 
 	// utils:
 	aws "api/pkg/aws/service"
-	log "api/pkg/log"
+	pkgLog "api/pkg/log"
 
 	// encoding:
 	"encoding/base64"
@@ -44,6 +44,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 	// 1. Fetch products from MongoDB
 	products, err := p.productRepo.GetProducts(c.Context())
 	if err != nil {
+		pkgLog.LogError("failed to fetch products from MongoDB: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from MongoDB: " + err.Error())
 	}
 
@@ -94,7 +95,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusBadRequest).SendString("failed to parse request body: " + err.Error())
 	}
 
-	log.LogSuccess("Product received: " + product.Title)
+	pkgLog.LogSuccess("Product received: " + product.Title)
 
 	// 2. Map the product to the model
 	mappedProduct := model.Product{
@@ -129,7 +130,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 
 func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
-	log.LogWarn("Product ID will be updated: " + id)
+	pkgLog.LogWarn("Product ID will be updated: " + id)
 
 	// 1. Marshall the product from the response body
 	var product dto.Product
@@ -200,7 +201,7 @@ func (p *ProductService) DeleteProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete image from directory: " + err.Error())
 	}
 
-	log.LogSuccess("S3: image deleted from directory: " + id + ".webp")
+	pkgLog.LogSuccess("S3: image deleted from directory: " + id + ".webp")
 
 	// 3. Delete the product from MongoDB
 	if err := p.productRepo.DeleteProduct(ctx.Context(), id); err != nil {

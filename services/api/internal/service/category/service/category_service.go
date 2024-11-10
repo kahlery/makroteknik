@@ -4,6 +4,8 @@ import (
 	"api/internal/service/category/dto"
 	"api/internal/service/category/repo"
 
+	pkgLog "api/pkg/log"
+
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -22,6 +24,7 @@ func NewCategoryService(categoryRepo *repo.CategoryRepo) *CategoryService {
 func (cs *CategoryService) GetCategories(ctx *fiber.Ctx) error {
 	categories, err := cs.categoryRepo.GetCategories(ctx.Context())
 	if err != nil {
+		pkgLog.LogError("failed to fetch categories from MongoDB: " + err.Error())
 		return ctx.Status(fiber.StatusInternalServerError).SendString(err.Error())
 	}
 
