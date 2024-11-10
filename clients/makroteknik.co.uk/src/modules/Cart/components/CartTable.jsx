@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { useCartStore } from "../stores/CartStore"
 import { useProductStore } from "../../product/stores/ProductStore"
 import { MdDeleteOutline } from "react-icons/md"
 
