@@ -22,7 +22,7 @@ const LayoutContainer = () => {
 
     useEffect(() => {
         getProducts().then(() => {
-            console.log("products fetched first time")
+            console.log("products fetched first time.")
         })
         getCategories().then(() => {
             console.log("categories fetched first time")
