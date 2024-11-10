@@ -2,26 +2,28 @@ package main
 
 import (
 	// services:
-	"api/internal/service/auth"
-	"api/internal/service/category"
-	"api/internal/service/health"
-	"api/internal/service/product"
-	"fmt"
-
-	// pkg services:
-	"api/pkg/service/aws"
+	auth "api/internal/service/auth/service"
+	category "api/internal/service/category/service"
+	health "api/internal/service/health/service"
+	product "api/internal/service/product/service"
 
 	// repos:
 	authPackage "api/internal/service/auth/repo"
 	categoryPackage "api/internal/service/category/repo"
 	productPackage "api/internal/service/product/repo"
 
-	// utils & middlewares:
-	"api/pkg/mid"
-	"api/pkg/util"
+	// aws pkg:
+	aws "api/pkg/aws/service"
+
+	// auth pkg:
+	authPkgMiddleware "api/pkg/auth/middleware"
+
+	// log pkg:
+	logPkg "api/pkg/log"
 
 	// built-in utils:
 	"context"
+	"fmt"
 	"log"
 	"os"
 
@@ -71,7 +73,7 @@ func init() {
 			log.Fatalf("error loading .env, %v", err)
 		}
 	} else {
-		util.LogSuccess(
+		logPkg.LogSuccess(
 			"environment variables:" + "\n" +
 				os.Getenv("DB") + "\n" +
 				os.Getenv("PORT") + "\n" +
@@ -88,15 +90,15 @@ func init() {
 	// check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
-		util.LogError("failed to get working directory: " + err.Error())
+		logPkg.LogError("failed to get working directory: " + err.Error())
 	} else {
-		util.LogSuccess("working directory can be reached:")
+		logPkg.LogSuccess("working directory can be reached:")
 		fmt.Println(dir)
 	}
 
 	// check if all clients initialized successfully
 	if s3Client == nil || mongoClient == nil {
-		util.LogError("failed to initialize clients")
+		logPkg.LogError("failed to initialize clients")
 	}
 }
 
@@ -159,9 +161,9 @@ func setupRoutes(app *fiber.App) {
 	// Product routes
 	productGroup := app.Group("/product")
 	productGroup.Get("/", productService.GetProducts)
-	productGroup.Post("/post", productService.PostProduct, mid.AuthMiddleware)
-	productGroup.Patch("/patch/:id", productService.PatchProduct, mid.AuthMiddleware)
-	productGroup.Delete("/delete/:id", productService.DeleteProduct, mid.AuthMiddleware)
+	productGroup.Post("/post", productService.PostProduct, authPkgMiddleware.AuthMiddleware)
+	productGroup.Patch("/patch/:id", productService.PatchProduct, authPkgMiddleware.AuthMiddleware)
+	productGroup.Delete("/delete/:id", productService.DeleteProduct, authPkgMiddleware.AuthMiddleware)
 
 	// Category routes
 	categoryGroup := app.Group("/category")

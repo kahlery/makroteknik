@@ -2,7 +2,7 @@ package repo
 
 import (
 	"api/internal/service/product/model"
-	"api/pkg/util"
+	"api/pkg/log"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -62,7 +62,7 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 			return nil, err
 		}
 
-		util.LogSuccess("got products from mongo, showing latest:")
+		log.LogSuccess("got products from mongo, showing latest:")
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}
@@ -74,16 +74,16 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product, id string) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		util.LogError("mongo: error converting id to objectId, " + err.Error())
+		log.LogError("mongo: error converting id to objectId, " + err.Error())
 		return err
 	}
 
-	util.LogWarn("mongo: Updating product with ID: " + id)
+	log.LogWarn("mongo: Updating product with ID: " + id)
 
 	filter := bson.M{"_id": objectID}
 	update := bson.M{
 		"$set": bson.M{
-			"categoryId":  product.CategoryId,
+			"categoryId":  product.CategoryID,
 			"title":       product.Title,
 			"productCode": product.ProductCode,
 			"description": product.Description,

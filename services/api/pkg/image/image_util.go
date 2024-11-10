@@ -1,12 +1,14 @@
-package util
+package image
 
 import (
 	"os"
 	"strings"
+
+	"api/pkg/log"
 )
 
 func logNotSupportedImageExtension() {
-	LogError("image extension is not supported" +
+	log.LogError("image extension is not supported" +
 		"\nsupported image extensions: .jpg, .jpeg, .png, .webp")
 }
 

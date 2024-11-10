@@ -3,7 +3,7 @@ package auth
 import (
 	"api/internal/service/auth/dto"
 	"api/internal/service/auth/repo"
-	"api/pkg/util"
+	"api/pkg/auth/token"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
@@ -27,20 +27,20 @@ func (a *AuthService) Login(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).SendString("Invalid input")
 	}
 
-	user, err := a.userRepo.FindByUserName(c.Context(), req.UserName)
+	user, err := a.userRepo.FindByUserName(c.Context(), req.Username)
 	if err != nil {
 		return c.Status(fiber.StatusUnauthorized).SendString("Invalid credentials")
 	}
 
-	err = util.CompareHashAndPassword([]byte(user.HashedPassword), []byte(req.Password))
+	err = token.CompareHashAndPassword([]byte(user.HashedPassword), []byte(req.Password))
 	if err != nil {
 		return c.Status(fiber.StatusUnauthorized).SendString("Invalid credentials")
 	}
 
-	log.Printf("Generating token for req:%s found:%s", req.UserName, user.UserName)
+	log.Printf("Generating token for req:%s found:%s", req.Username, user.Username)
 
 	// Generate token
-	token, err := util.GenerateToken(user.UserName)
+	token, err := token.GenerateToken(user.Username)
 	if err != nil {
 		log.Printf("Error in generating token: %v", err)
 	}

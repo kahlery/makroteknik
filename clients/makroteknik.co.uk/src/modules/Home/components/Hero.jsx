@@ -50,7 +50,7 @@ const Hero = ({ imageIndex, height }) => {
                             <button
                                 className="font-bold text-white text-opacity-100
                              bg-secondary py-2 px-4 flex gap-2 items-center
-                              border border-black border-opacity-20 rounded-md"
+                              rounded-md"
                             >
                                 <FaSearch /> Inspectate products!
                             </button>

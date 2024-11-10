@@ -2,7 +2,7 @@ package repo
 
 import (
 	"api/internal/service/category/model"
-	"api/pkg/util"
+	"api/pkg/log"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -49,7 +49,7 @@ func (c *CategoryRepo) GetCategories(ctx context.Context) ([]model.Category, err
 			return nil, err
 		}
 
-		util.LogSuccess("got categories from mongo, showing latest:")
+		log.LogSuccess("got categories from mongo, showing latest:")
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}

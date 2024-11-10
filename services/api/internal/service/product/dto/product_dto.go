@@ -2,7 +2,7 @@ package dto
 
 type Product struct {
 	ID          string              `json:"_id"`
-	CategoryId  string              `json:"categoryId"`
+	CategoryID  string              `json:"categoryID"`
 	Title       string              `json:"title"`
 	ProductCode string              `json:"productCode"`
 	Description string              `json:"description"`

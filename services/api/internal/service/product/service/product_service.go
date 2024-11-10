@@ -5,11 +5,9 @@ import (
 	"api/internal/service/product/model"
 	"api/internal/service/product/repo"
 
-	// pkg services:
-	"api/pkg/service/aws"
-
-	// project utils:
-	"api/pkg/util"
+	// utils:
+	aws "api/pkg/aws/service"
+	log "api/pkg/log"
 
 	// encoding:
 	"encoding/base64"
@@ -57,7 +55,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 		imageName := product.ID.Hex() + ".webp"
 		imageData, err := p.s3Service.GetFile(p.imagePath, &imageName)
 		if err != nil {
-			// util.LogError("failed to read from directory to buffer: " + err.Error())
+			// log.LogError("failed to read from directory to buffer: " + err.Error())
 			failedImageIds = append(failedImageIds, product.ID.Hex())
 			continue
 		}
@@ -68,7 +66,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 		// 3. Prepare the product response with base64 image data
 		productResponse := dto.Product{
 			ID:          product.ID.Hex(),
-			CategoryId:  product.CategoryId,
+			CategoryID:  product.CategoryID,
 			Title:       product.Title,
 			ProductCode: product.ProductCode,
 			Description: product.Description,
@@ -79,7 +77,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 		productResponses = append(productResponses, productResponse)
 	}
 
-	// util.LogError("failed to read from directory to buffer on these files: " + strings.Join(failedImageIds, "-"))
+	// log.LogError("failed to read from directory to buffer on these files: " + strings.Join(failedImageIds, "-"))
 
 	// 4. Return the response
 	return c.Status(fiber.StatusOK).JSON(dto.GetProductsResponse{
@@ -96,12 +94,12 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusBadRequest).SendString("failed to parse request body: " + err.Error())
 	}
 
-	util.LogSuccess("Product received: " + product.Title)
+	log.LogSuccess("Product received: " + product.Title)
 
 	// 2. Map the product to the model
 	mappedProduct := model.Product{
 		ID:          primitive.NewObjectID(),
-		CategoryId:  product.CategoryId,
+		CategoryID:  product.CategoryID,
 		Title:       product.Title,
 		ProductCode: product.ProductCode,
 		Description: product.Description,
@@ -131,7 +129,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 
 func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
-	util.LogWarn("Product ID will be updated: " + id)
+	log.LogWarn("Product ID will be updated: " + id)
 
 	// 1. Marshall the product from the response body
 	var product dto.Product
@@ -145,8 +143,8 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to fetch product from MongoDB: " + err.Error())
 	}
 
-	if product.CategoryId == "" {
-		product.CategoryId = foundedProduct.CategoryId
+	if product.CategoryID == "" {
+		product.CategoryID = foundedProduct.CategoryID
 	}
 	if product.Title == "" {
 		product.Title = foundedProduct.Title
@@ -163,7 +161,7 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 
 	mappedProduct := model.Product{
 		ID:          foundedProduct.ID,
-		CategoryId:  product.CategoryId,
+		CategoryID:  product.CategoryID,
 		Title:       product.Title,
 		ProductCode: product.ProductCode,
 		Description: product.Description,
@@ -202,7 +200,7 @@ func (p *ProductService) DeleteProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete image from directory: " + err.Error())
 	}
 
-	util.LogSuccess("S3: image deleted from directory: " + id + ".webp")
+	log.LogSuccess("S3: image deleted from directory: " + id + ".webp")
 
 	// 3. Delete the product from MongoDB
 	if err := p.productRepo.DeleteProduct(ctx.Context(), id); err != nil {
