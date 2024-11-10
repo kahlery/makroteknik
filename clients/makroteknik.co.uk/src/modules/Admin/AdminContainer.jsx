@@ -5,7 +5,7 @@ export const AdminContainer = ({ className }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     useEffect(() => {
-        console.log("isLoggedIn:", isLoggedIn)
+        console.log(".isLoggedIn:", isLoggedIn)
     })
 
     return (
