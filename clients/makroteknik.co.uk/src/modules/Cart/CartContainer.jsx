@@ -4,10 +4,11 @@ import React, { useEffect, useState } from "react"
 import { CartTable } from "./components/CartTable"
 
 // stores
-import { useProductStore } from "../product/stores/ProductStore"
 
 // icons
 import { FaRegCopy } from "react-icons/fa"
+import { useCartStore } from "./stores/CartStore"
+import { useProductStore } from "../product/stores/ProductStore"
 
 const CartContainer = () => {
     // stores
