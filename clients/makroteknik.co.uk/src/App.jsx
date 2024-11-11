@@ -6,11 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 // containers
 import ProductContainer from "./modules/product/ProductContainer"
 import NotFoundContainer from "./modules/common/components/NotFoundContainer"
-import AboutContainer from "./modules/about/AboutContainer"
 import HomeContainer from "./modules/home/HomeContainer"
 import LayoutContainer from "./modules/layout/LayoutContainer"
 import { AdminContainer } from "./modules/admin/AdminContainer"
 import CartContainer from "./modules/cart/CartContainer"
+import { AboutContainer } from "./modules/about"
 
 class App extends Component {
     render() {
