@@ -69,7 +69,7 @@ const ListingGrid = ({
                 }`}
             >
                 {categoryID == undefined && (
-                    <h2 className="text-start text-sm text-black col-span-full">
+                    <h2 className="text-start text-sm text-black font-bold col-span-full">
                         Featured Products:
                     </h2>
                 )}

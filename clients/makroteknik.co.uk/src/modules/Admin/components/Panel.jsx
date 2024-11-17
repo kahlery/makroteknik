@@ -99,7 +99,16 @@ export const Panel = () => {
 
     // Handle editing a product
     const handleEditProduct = (product) => {
-        setCurrentProduct(product)
+        setCurrentProduct({
+            _id: product._id,
+            title: product.title ?? "not title",
+            categoryID: product.categoryID ?? "0",
+            image: product.image ?? "",
+            productCode: product.productCode ?? "",
+            sizeToPrice: product.sizeToPrice ?? [],
+            description: product.description ?? "",
+            pdf: product.pdf ?? "",
+        })
         setIsEditing(true)
         setSizeInput("") // Reset size input on edit
         setPriceInput("") // Reset price input on edit

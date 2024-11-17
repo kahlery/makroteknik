@@ -29,12 +29,12 @@ const HomeContainer = () => {
     }, [loadCartFromLocalStorage])
 
     return (
-        <div className="text-start flex flex-col gap-8 mb-8 bg-fon">
+        <div className="text-start flex flex-col gap-8 mb-8 pb-8 bg-fon">
             <Hero height={128} />
             <div className="text-white mx-4 lg:mx-1 md:px-[16rem] 2xl:px-[25rem]">
                 {loading ? (
-                    <div className="text-center text-lg text-gray-500 my-8">
-                        Loading Products...
+                    <div className="text-center text-lg  text-primary font-bold my-8">
+                        Loading...
                     </div>
                 ) : (
                     <ListingGrid
@@ -45,7 +45,7 @@ const HomeContainer = () => {
             </div>
 
             <div className="px-4 md:px-[16rem] 2xl:px-[25rem] gap-4 flex flex-col w-screen">
-                <h1 className="text-start text-sm text-black col-span-full">
+                <h1 className="text-start text-sm text-black col-span-full font-bold">
                     Industrial Footage:
                 </h1>
                 <iframe

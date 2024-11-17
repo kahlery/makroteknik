@@ -21,21 +21,21 @@ export const LoginForm = ({ setIsLoggedIn }) => {
             >
                 <input
                     type="text"
-                    className="text-black border-black border-b px-4 py-2 bg-black bg-opacity-5"
+                    className="text-black border-black border border-opacity-20 rounded-full px-6 py-2 "
                     name="userName"
-                    placeholder="Username"
+                    placeholder="username"
                 />
                 <input
                     type="password"
                     name="password"
-                    className="text-black border-black border-b px-4 py-2 bg-black bg-opacity-5"
-                    placeholder="Password"
+                    className="text-black border-black border rounded-full border-opacity-20 px-6 py-2  "
+                    placeholder="password"
                 />
                 <button
                     type="submit"
-                    className="bg-primary text-white py-2 rounded-md"
+                    className="bg-primary text-white py-2 rounded-full font-bold"
                 >
-                    Login
+                    login
                 </button>
             </form>
         </div>

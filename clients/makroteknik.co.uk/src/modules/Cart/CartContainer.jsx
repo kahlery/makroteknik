@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 
+import { Link } from "react-router-dom"
+
 // components
 import { CartTable } from "./components/CartTable"
 
@@ -135,7 +137,10 @@ const CartContainer = () => {
 
     return (
         <div className="relative">
-            <div className="w-screen max-w-[vw] mt-[100px] md:mt-[190px] px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96">
+            <div
+                className="w-screen mt-[100px] md:mt-[190px] 
+            px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96"
+            >
                 <div className="mx-4">
                     {Object.keys(cartProducts).length > 0 ? (
                         <div className="flex flex-col gap-8">
@@ -193,19 +198,17 @@ const CartContainer = () => {
                             <CartTable />
                         </div>
                     ) : (
-                        <div className="text-center text-lg text-gray-500 mt-32">
-                            clear Your cart is empty, add some products to get
-                            an offer!&nbsp;
-                            <button
-                                onClick={() =>
-                                    window.location.replace(
-                                        process.env.PUBLIC_URL + "/products"
-                                    )
-                                }
+                        <div className="text-center text-primary font-bold mt-32">
+                            <p>
+                                Your cart is empty, add some products to get an
+                                offer!
+                            </p>
+                            <Link
+                                to={"/products"}
                                 className="text-secondary hover:underline transition duration-300"
                             >
-                                Go to Products
-                            </button>
+                                go to products
+                            </Link>
                         </div>
                     )}
                 </div>

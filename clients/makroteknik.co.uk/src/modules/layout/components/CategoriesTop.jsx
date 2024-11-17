@@ -74,7 +74,7 @@ const CategoriesTop = () => {
                     <div
                         className="grid md:grid-rows-2 grid-flow-col md:flex
                          md:flex-wrap text-center md:justify-center gap-x-6 gap-y-2 
-                         py-[8px] no-scrollbar overflow-x-scroll px-4 md:px-[16rem] 2xl:px-[25rem]"
+                         py-[8px] overflow-x-scroll md:overflow-x-clip px-4 md:px-[16rem] 2xl:px-[25rem]"
                     >
                         {categoriesList.map((category) => (
                             <div

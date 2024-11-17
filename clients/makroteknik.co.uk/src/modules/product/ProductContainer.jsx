@@ -46,8 +46,8 @@ const ProductContainer = () => {
             {renderSearchBar()}
             <CategoryCards />
             <div
-                className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10
-             min-h-96 bg-fon"
+                className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] 
+                pt-4 pb-10 min-h-96 bg-fon"
             >
                 <div className="mx-4">
                     <ListingGrid passedProductsList={filteredProductsList} />
@@ -70,7 +70,7 @@ const ProductContainer = () => {
         return (
             <div
                 className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border border-opacity-20 rounded-md py-[2.5px] mx-4"
+            2xl:mx-[25rem] text-sm border-black border border-opacity-20 rounded-full py-[2.5px] mx-4"
             >
                 <FaSearch className="p-1 text-primary" size={"20px"} />
                 <input

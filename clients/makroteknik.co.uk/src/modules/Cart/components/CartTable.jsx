@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useProductStore } from "../../product/stores/ProductStore"
 import { MdDeleteOutline } from "react-icons/md"
+import { useCartStore } from "../stores/CartStore"
 
 export const CartTable = () => {
     const cartProducts = useCartStore((state) => state.cartProducts)

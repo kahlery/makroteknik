@@ -50,12 +50,12 @@ const Hero = ({ imageIndex, height }) => {
                             <button
                                 className="font-bold text-white text-opacity-100
                              bg-secondary py-2 px-4 flex gap-2 items-center
-                              rounded-md"
+                              rounded-full"
                             >
-                                <FaSearch /> Inspectate products!
+                                <FaSearch /> Inspectate Products!
                             </button>
                         </Link>
-                        <button className="font-bold rounded-md border border-black py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
+                        <button className="font-bold rounded-full border border-black py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
                             Get An Offer
                         </button>
                     </div>
