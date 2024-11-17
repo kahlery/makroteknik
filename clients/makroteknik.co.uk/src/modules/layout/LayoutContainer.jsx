@@ -31,7 +31,7 @@ const LayoutContainer = () => {
 
     if (loading > 0) {
         return (
-            <h1 className="absolute font-bold text-primary left-1/2 top-1/2">
+            <h1 className="absolute font-bold text-primary left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 Loading...
             </h1>
         )

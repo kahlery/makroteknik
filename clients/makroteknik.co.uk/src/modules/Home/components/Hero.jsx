@@ -18,7 +18,7 @@ const Hero = ({ imageIndex, height }) => {
                 src={bgUrl}
                 alt="hero"
                 className="absolute inset-0 object-top object-cover
-                w-full h-full z-10  grayscale-[1]"
+                w-full h-full z-10 grayscale-[1] opacity-40 md:opacity-100"
             />
             <div
                 className="text-center md:text-end flex my-auto py-6 md:border-r border-opacity-20 border-black 
@@ -31,7 +31,7 @@ const Hero = ({ imageIndex, height }) => {
                         alt="logo"
                     />
                     <hr className="md:hidden border-black border-opacity-20 my-3" />
-                    <h2 className="px-4 sm:px-10 mb-3">
+                    <h2 className="px-4 sm:px-10 mb-3 font-bold text-primary">
                         It's All About Trust & Years of Experience
                     </h2>
                     <p className="text-[.75rem] mb-4 sm:px-10 text-black text-opacity-60">

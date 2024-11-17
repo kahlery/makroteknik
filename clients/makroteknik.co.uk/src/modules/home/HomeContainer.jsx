@@ -49,9 +49,9 @@ const HomeContainer = () => {
                     Industrial Footage:
                 </h1>
                 <iframe
-                    className="rounded-xl outline-8 outline-black"
+                    className="rounded-lg"
                     width=""
-                    height="490"
+                    height="300"
                     src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

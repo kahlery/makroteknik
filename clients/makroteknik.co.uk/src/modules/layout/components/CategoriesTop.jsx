@@ -68,7 +68,7 @@ const CategoriesTop = () => {
         return (
             <>
                 <div
-                    className="h-fit bg-secondary shadow-md fixed top-[51px] sm:top-[90px] z-50 w-screen text-[10.2px] cursor-pointer"
+                    className="h-fit bg-secondary shadow-md fixed top-[50px] sm:top-[90px] z-50 w-screen text-[10.2px] cursor-pointer"
                     onMouseLeave={handleMouseLeave}
                 >
                     <div
