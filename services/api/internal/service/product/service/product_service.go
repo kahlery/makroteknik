@@ -107,10 +107,15 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 		SizeToPrice: product.SizeToPrice,
 	}
 
-	// 3. Save the image to ../../assets/images/products with the _id.webp name
-	imageData, err := base64.StdEncoding.DecodeString(strings.Split(product.Image, "base64,")[1])
-	if err != nil {
-		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to decode base64 image: " + err.Error())
+	var imageData []byte
+
+	if product.Image != "" {
+		var err error
+		// 3. Save the image to ../../assets/images/products with the _id.webp name
+		imageData, err = base64.StdEncoding.DecodeString(strings.Split(product.Image, "base64,")[1])
+		if err != nil {
+			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to decode base64 image: " + err.Error())
+		}
 	}
 
 	imageName := mappedProduct.ID.Hex() + ".webp"

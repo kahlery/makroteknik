@@ -129,48 +129,48 @@ export const Panel = () => {
     )
 
     return (
-        <div className="relative w-screen flex flex-wrap bg-gray-200 py-16 h-full">
+        <div className="relative w-screen flex flex-wrap bg-gray-200 py-16 h-full min-h-screen">
             {/* Navbar */}
             <div
-                className="px-[5%] fixed flex justify-between gap-12 top-0 left-0 w-full
-             bg-white p-4 border z-10 border-primary"
+                className="px-[5%] fixed flex justify-between gap-12 top-0 left-0 w-full items-center
+             bg-primary p-4 border z-10 border-black border-opacity-20"
             >
-                <input
-                    type="text"
-                    placeholder="search..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-72 px-2 py-1 border-b-2 border-opacity-40 border-primary placeholder:text-primary"
-                />
-                <h1 className="text-2xl font-bold text-primary">
-                    makroteknik.co.uk
+                <h1 className="text-lg font-bold text-white">
+                    makroteknik.co.uk/admin
                 </h1>
                 <div className="flex gap-8">
-                    <button className="text-primary">products</button>
-                    <button className="text-primary">categories</button>
-                    <button className="text-primary">posts</button>
+                    <input
+                        type="text"
+                        placeholder="search..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-72 px-4 py-1 border rounded-full border-opacity-100 border-primary placeholder:text-primary placeholder:text-opacity-60"
+                    />
+                    <button className="text-white font-bold">products</button>
+                    <button className="text-white font-bold">categories</button>
+                    <button className="text-white font-bold">posts</button>
                 </div>
             </div>
 
             {/* List of products */}
-            <div className="flex flex-row w-screen flex-wrap mt-16 gap-12 px-12">
+            <div className="flex flex-row w-screen flex-wrap mt-16 gap-12 px-[5%]">
                 {filteredProducts.map((v) => (
                     <div
                         key={v._id}
-                        className="w-[350px] h-[450px] overflow-y-scroll border border-primary p-8 bg-white "
+                        className="w-[300px] h-[500px] text-black text-opacity-60  border-black border-opacity-20 border p-4 rounded-xl bg-white "
                     >
                         <div className="flex-col flex gap-4">
                             <div className="relative">
-                                <div className="absolute flex gap-2 -top-4 -right-8">
+                                <div className="absolute flex flex-col gap-2 right-0">
                                     {/* Edit and Delete buttons */}
                                     <button
-                                        className="bg-primary text-white px-2 py-1 rounded"
+                                        className="bg-primary text-white px-4 py-2 rounded-full font-bold   "
                                         onClick={() => handleEditProduct(v)}
                                     >
                                         edit
                                     </button>
                                     <button
-                                        className="bg-rose-600 text-white px-2 py-1 rounded"
+                                        className="bg-rose-600 text-white px-4 py-2 rounded-full font-bold"
                                         onClick={() =>
                                             handleDeleteProduct(v._id)
                                         }
@@ -181,25 +181,25 @@ export const Panel = () => {
                                 <img
                                     src={v.image}
                                     alt={v.title}
-                                    className="w-24 mx-auto object-scale-down h-fit rounded-lg mb-4"
+                                    className="w-36 object-scale-down h-fit rounded-lg mb-8"
                                 />
                                 <h3 className="text-primary font-bold">
-                                    Title:
+                                    title:
                                 </h3>
                                 <h3 className="line-clamp-1">{v.title}</h3>
                                 <hr className="border-black border-opacity-20 my-2" />
                                 <h3 className="text-primary font-bold">
-                                    Product Code:
+                                    product code:
                                 </h3>
                                 <p>{v.productCode}</p>
                                 <hr className="border-black border-opacity-20 my-2" />
                                 <h3 className="text-primary font-bold">
-                                    Description:
+                                    description:
                                 </h3>
                                 <p className="line-clamp-3">{v.description}</p>
                                 <hr className="border-black border-opacity-20 my-2" />
                                 <h3 className="text-primary font-bold">
-                                    size & price:
+                                    size-price:
                                 </h3>
                                 <ul>
                                     {v.sizeToPrice.map((sizePrice, idx) => (
@@ -207,14 +207,6 @@ export const Panel = () => {
                                             {`${Object.keys(sizePrice)[0]} - ${
                                                 Object.values(sizePrice)[0]
                                             }`}
-                                            <button
-                                                className="text-rose-600 ml-2"
-                                                onClick={() =>
-                                                    handleRemoveSizePrice(idx)
-                                                }
-                                            >
-                                                remove
-                                            </button>
                                         </li>
                                     ))}
                                 </ul>
@@ -226,31 +218,34 @@ export const Panel = () => {
 
             {/* Form for adding/updating a product */}
             {isEditing && (
-                <div className="bg-gray-100 border-black border-4 p-4 fixed bottom-0 left-0 w-1/2">
-                    <h3>{currentProduct._id ? "edit" : "add new"}</h3>
+                <div className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll">
+                    <h3 className="mb-4 font-bold text-orange-600">
+                        {currentProduct._id ? "EDITTING" : "CREATING"}
+                    </h3>
                     <form className="flex flex-col gap-4">
+                        <label className="text-primary font-bold">title:</label>
                         <input
                             type="text"
                             name="title"
                             value={currentProduct.title}
                             onChange={handleInputChange}
-                            placeholder="Product Title"
+                            placeholder="title"
                             className="border p-2 rounded"
                         />
+                        <label className="text-primary font-bold">
+                            product code:
+                        </label>
                         <input
                             type="text"
                             name="productCode"
                             value={currentProduct.productCode}
                             onChange={handleInputChange}
-                            placeholder="Product Code"
+                            placeholder="product code"
                             className="border p-2 rounded"
                         />
-                        <input
-                            type="file"
-                            accept="application/pdf"
-                            onChange={handlePDFChange}
-                            className="border p-2 rounded"
-                        />
+                        <label className="text-primary font-bold">
+                            category:
+                        </label>
                         {/* dropdown to select category */}
                         <select
                             name="categoryID"
@@ -258,7 +253,7 @@ export const Panel = () => {
                             onChange={handleInputChange}
                             className="border p-2 rounded"
                         >
-                            <option value={0}>Select Category</option>
+                            <option value={0}>select category</option>
                             {/* Map over categories to create options */}
                             {categoriesList.map((category) => (
                                 <option key={category._id} value={category._id}>
@@ -266,64 +261,66 @@ export const Panel = () => {
                                 </option>
                             ))}
                         </select>
+                        <label className="text-primary font-bold">pdf:</label>
                         <input
-                            type="file" // File input for image upload
-                            accept="image/*"
-                            onChange={handleImageChange} // Change handler for file
+                            type="file"
+                            accept="application/pdf"
+                            onChange={handlePDFChange}
                             className="border p-2 rounded"
+                            placeholder=""
                         />
+                        <label className="text-primary font-bold">
+                            product image:
+                        </label>
+                        {currentProduct.image ? (
+                            <div className="flex flex-col gap-4 items-start">
+                                <img
+                                    className="w-full"
+                                    src={currentProduct.image}
+                                />
+                                <button className="py-2 bg-primary rounded-full text-white px-4">
+                                    change
+                                </button>
+                                <button className="py-2 bg-rose-600 rounded-full text-white px-4">
+                                    delete
+                                </button>
+                            </div>
+                        ) : (
+                            <input
+                                type="file" // File input for image upload
+                                accept="image/*"
+                                onChange={handleImageChange} // Change handler for file
+                                className="border p-2 rounded"
+                            />
+                        )}
+                        <label className="text-primary font-bold">
+                            description:
+                        </label>
                         <textarea
                             name="description"
                             value={currentProduct.description}
                             onChange={handleInputChange}
-                            placeholder="Product Description"
+                            placeholder="product description"
                             className="border h-64 p-2 rounded"
                         />
-                        <div>
-                            <h3 className="text-primary font-bold">
-                                Size & Price:
-                            </h3>
-                            <hr className="border-black border-opacity-20 my-2" />
-                        </div>
-                        {/* Inputs for size and price */}
-                        <div className="flex gap-4">
-                            <input
-                                type="text"
-                                value={sizeInput}
-                                onChange={(e) => setSizeInput(e.target.value)}
-                                placeholder="Size (e.g., 450mm)"
-                                className="border p-2 rounded"
-                            />
-                            <input
-                                type="text"
-                                value={priceInput}
-                                onChange={(e) => setPriceInput(e.target.value)}
-                                placeholder="Price (e.g., £810.00 ex vat)"
-                                className="border p-2 rounded"
-                            />
-                        </div>
-                        <button
-                            type="button"
-                            className="bg-primary text-white px-4 py-2 rounded"
-                            onClick={handleAddSizePrice}
-                        >
-                            Add Size/Price
-                        </button>
+                        <label className="text-primary font-bold">
+                            size-price:
+                        </label>
                         {/* list available sizes */}
                         {!isAddNewNorEdit &&
                             Object.keys(currentProduct.sizeToPrice[0]).length >
                                 0 && <p></p> && (
-                                <ul>
+                                <ul className="text-black text-opacity-60">
                                     {currentProduct.sizeToPrice.map(
                                         (sizePrice, idx) => (
-                                            <li key={idx}>
+                                            <li key={idx} className="flex ">
                                                 {`${
                                                     Object.keys(sizePrice)[0]
                                                 } - ${
                                                     Object.values(sizePrice)[0]
                                                 }`}
                                                 <button
-                                                    className="text-rose-600 ml-2"
+                                                    className="text-rose-600 ml-auto font-bold"
                                                     onClick={() =>
                                                         handleRemoveSizePrice(
                                                             idx
@@ -337,19 +334,43 @@ export const Panel = () => {
                                     )}
                                 </ul>
                             )}
+                        {/* Inputs for size and price */}
+                        <div className="flex gap-4">
+                            <input
+                                type="text"
+                                value={sizeInput}
+                                onChange={(e) => setSizeInput(e.target.value)}
+                                placeholder="size (e.g., 450mm)"
+                                className="border p-2 rounded"
+                            />
+                            <input
+                                type="text"
+                                value={priceInput}
+                                onChange={(e) => setPriceInput(e.target.value)}
+                                placeholder="price (e.g., £810.00 ex vat)"
+                                className="border p-2 rounded"
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            className="bg-primary text-white px-4 py-2 rounded"
+                            onClick={handleAddSizePrice}
+                        >
+                            add entered size-price pair
+                        </button>
 
                         {/* Buttons to save or cancel */}
-                        <div className="flex gap-4">
+                        <div className="fixed right-4 top-4 flex  gap-2">
                             <button
                                 type="button"
-                                className="bg-primary text-white px-4 py-2 rounded"
+                                className="bg-primary text-white px-4 py-2 rounded-full"
                                 onClick={handleSaveProduct}
                             >
                                 save
                             </button>
                             <button
                                 type="button"
-                                className="bg-rose-600 text-white px-4 py-2 rounded"
+                                className="bg-rose-600 text-white px-4 py-2 rounded-full"
                                 onClick={() => setIsEditing(false)}
                             >
                                 cancel
@@ -361,7 +382,7 @@ export const Panel = () => {
 
             {/* Add new product button */}
             <button
-                className="bg-primary text-white px-4 py-2 rounded fixed right-2 bottom-4"
+                className="bg-primary text-white px-4 py-2 rounded-full fixed right-2 bottom-4"
                 onClick={() => {
                     setIsEditing(true)
                     setCurrentProduct({

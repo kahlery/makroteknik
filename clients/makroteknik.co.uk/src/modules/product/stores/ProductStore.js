@@ -37,6 +37,14 @@ export const useProductStore = create((set, get) => ({
     postProduct: async (formData) => {
         try {
             const { apiUrl } = get()
+
+            if (
+                formData.categoryID === undefined ||
+                formData.categoryID === 0
+            ) {
+                formData.categoryID = "0"
+            }
+
             const response = await axios.post(
                 `${apiUrl}/product/post`,
                 formData,
