@@ -42,7 +42,7 @@ func (s *S3Service) GetFile(path *string, fileName *string) ([]byte, error) {
 	// define full key
 	key := *path + *fileName
 
-	logger.LogWarn("get requesting on S3 with" + "\nfilename: " + *fileName + "\npath: " + *path + "\nkey: " + key)
+	logger.LogWarn("get requesting on S3 with:" + "| filename: " + *fileName + "| path: " + *path + "| key: " + key)
 
 	// set up the GetObject input
 	input := &s3.GetObjectInput{
