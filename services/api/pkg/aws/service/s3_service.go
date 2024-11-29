@@ -8,6 +8,8 @@ import (
 	"log"
 	"os"
 
+	logger "api/pkg/log"
+
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
@@ -39,6 +41,8 @@ func InitS3Client() *s3.Client {
 func (s *S3Service) GetFile(path *string, fileName *string) ([]byte, error) {
 	// define full key
 	key := *path + *fileName
+
+	logger.LogWarn("get requesting on S3 with" + "\nfilename: " + *fileName + "\npath: " + *path + "\nkey: " + key)
 
 	// set up the GetObject input
 	input := &s3.GetObjectInput{

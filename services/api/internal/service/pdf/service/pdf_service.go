@@ -26,8 +26,6 @@ func (p *PDFService) GetPdfFile(c *fiber.Ctx) error {
 	// S3 file path and name
 	fileName := id + ".pdf"
 
-	log.LogWarn("get requesting on S3 with filename: " + fileName + " and key: " + *p.dirPath)
-
 	// fetch the PDF from S3
 	fileData, err := p.s3Service.GetFile(p.dirPath, &fileName)
 	if err != nil {
