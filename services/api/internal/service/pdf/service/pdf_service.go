@@ -9,13 +9,13 @@ import (
 )
 
 type PDFService struct {
-	dirPath   string
+	dirPath   *string
 	s3Service service.S3Service
 }
 
 func NewPDFService(p *string, s3 *service.S3Service) *PDFService {
 	return &PDFService{
-		dirPath:   *p,
+		dirPath:   p,
 		s3Service: *s3,
 	}
 }
@@ -26,10 +26,10 @@ func (p *PDFService) GetPdfFile(c *fiber.Ctx) error {
 	// S3 file path and name
 	fileName := id + ".pdf"
 
-	log.LogWarn("get requesting on S3 with filename: " + fileName + " and key: " + p.dirPath)
+	log.LogWarn("get requesting on S3 with filename: " + fileName + " and key: " + *p.dirPath)
 
 	// fetch the PDF from S3
-	fileData, err := p.s3Service.GetFile(&p.dirPath, &fileName)
+	fileData, err := p.s3Service.GetFile(p.dirPath, &fileName)
 	if err != nil {
 		log.LogError("failed to fetch file: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching PDF")
@@ -46,7 +46,7 @@ func (p *PDFService) IsFileExist(c *fiber.Ctx) error {
 	// S3 file path and name
 	fileName := id + ".pdf"
 
-	res, err := p.s3Service.IsFileExist(p.dirPath, fileName)
+	res, err := p.s3Service.IsFileExist(*p.dirPath, fileName)
 
 	if err != nil {
 		log.LogError("failed to check existence of the pdf: " + err.Error())
