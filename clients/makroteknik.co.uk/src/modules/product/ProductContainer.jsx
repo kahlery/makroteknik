@@ -49,7 +49,7 @@ const ProductContainer = () => {
                 className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] 
                 pt-4 pb-10 min-h-96 bg-fon"
             >
-                <div className="mx-4">
+                <div className="mx-4 md:mx-0">
                     <ListingGrid passedProductsList={filteredProductsList} />
                 </div>
             </div>
@@ -70,15 +70,18 @@ const ProductContainer = () => {
         return (
             <div
                 className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border border-opacity-20 rounded-full py-[2.5px] mx-4"
+            2xl:mx-[25rem] text-sm border-black border border-opacity-20 rounded-xl py-[2.5px] mx-4
+            shadow-md
+            "
             >
                 <FaSearch className="p-1 text-primary" size={"20px"} />
                 <input
                     type="text"
-                    placeholder="Search Products..."
+                    placeholder="search products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full p-1 bg-white text-black focus:outline-none placeholder:black placeholder-opacity-80"
+                    className="w-full p-1 bg-white text-black focus:outline-none 
+                    placeholder-opacity-100"
                 />
             </div>
         )

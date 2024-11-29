@@ -5,6 +5,7 @@ import (
 	auth "api/internal/service/auth/service"
 	category "api/internal/service/category/service"
 	health "api/internal/service/health/service"
+	pdf "api/internal/service/pdf/service"
 	product "api/internal/service/product/service"
 
 	// repos:
@@ -52,6 +53,7 @@ var (
 	authService     *auth.AuthService
 	productService  *product.ProductService
 	categoryService *category.CategoryService
+	pdfService      *pdf.PDFService
 )
 
 // repos:
@@ -63,6 +65,7 @@ var (
 )
 
 var imagePath = new(string)
+var pdfPath = new(string)
 
 // main: --------------------------------------------------------------------
 
@@ -82,6 +85,7 @@ func init() {
 	}
 
 	*imagePath = "images/products/"
+	*pdfPath = "pdfs/"
 
 	initClients()
 	initRepos()
@@ -136,6 +140,7 @@ func initServices() {
 	authService = auth.NewAuthService(userRepo)
 	productService = product.NewProductService(productRepo, s3Client, imagePath)
 	categoryService = category.NewCategoryService(categoryRepo)
+	pdfService = pdf.NewPDFService(pdfPath, s3Client)
 }
 
 // setups: --------------------------------------------------------------------
@@ -168,6 +173,12 @@ func setupRoutes(app *fiber.App) {
 	// Category routes
 	categoryGroup := app.Group("/category")
 	categoryGroup.Get("/", categoryService.GetCategories)
+
+	// Static routes
+	staticGroup := app.Group("/static")
+	// pdf:
+	staticGroup.Get("/pdf/:id", pdfService.GetPdfFile)
+	staticGroup.Get("pdf/is-exist/:id", pdfService.IsFileExist)
 }
 
 func setupMiddlewares(app *fiber.App) {

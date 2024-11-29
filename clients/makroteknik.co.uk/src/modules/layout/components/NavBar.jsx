@@ -40,13 +40,13 @@ const NavBar = () => {
                     />
                 </a>
             </div>
-            <Link to="">
+            {/* <Link to="">
                 <img
                     src={process.env.PUBLIC_URL + "/logo.png"}
                     className="mt-3 h-[47px] mx-auto"
                     alt="logo"
                 />
-            </Link>
+            </Link> */}
             <div className="w-full md:w-fit flex text-secondary">
                 <ul className="flex w-full justify-evenly md:justify-end md:space-x-6">
                     <li>

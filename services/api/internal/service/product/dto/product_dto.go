@@ -8,6 +8,7 @@ type Product struct {
 	Description string              `json:"description"`
 	SizeToPrice []map[string]string `json:"sizeToPrice"`
 	Image       string              `json:"image"`
+	IsPDFExist  bool                `json:"isPDFExist"`
 }
 
 type GetProductsResponse struct {

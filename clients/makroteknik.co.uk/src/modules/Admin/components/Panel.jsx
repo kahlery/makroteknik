@@ -40,7 +40,16 @@ export const Panel = () => {
 
     // Handle image upload and convert to base64
     const handleImageChange = (e) => {
+        if (e.target.files === undefined) {
+            setCurrentProduct((prevProduct) => ({
+                ...prevProduct,
+                image: null,
+            }))
+            return
+        }
+
         const file = e.target.files[0]
+
         const reader = new FileReader()
         reader.onloadend = () => {
             setCurrentProduct((prevProduct) => ({
@@ -287,10 +296,17 @@ export const Panel = () => {
                                     className="w-full"
                                     src={currentProduct.image}
                                 />
-                                <button className="py-2 bg-primary rounded-full text-white px-4">
-                                    change
-                                </button>
-                                <button className="py-2 bg-rose-600 rounded-full text-white px-4">
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleImageChange}
+                                    className="py-2 bg-primary rounded-full text-white px-4"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={handleImageChange}
+                                    className="py-2 bg-rose-600 rounded-full text-white px-4"
+                                >
                                     delete
                                 </button>
                             </div>
@@ -329,6 +345,7 @@ export const Panel = () => {
                                                     Object.values(sizePrice)[0]
                                                 }`}
                                                 <button
+                                                    type="button"
                                                     className="text-rose-600 ml-auto font-bold"
                                                     onClick={() =>
                                                         handleRemoveSizePrice(

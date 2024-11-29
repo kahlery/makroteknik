@@ -100,3 +100,23 @@ func (s *S3Service) DeleteFile(path string, fileName string) error {
 
 	return nil
 }
+
+func (s *S3Service) IsFileExist(path string, fileName string) (bool, error) {
+	// Define the full key for S3
+	key := path + fileName
+
+	// Set up the HeadObject input
+	input := &s3.HeadObjectInput{
+		Bucket: &s.bucket,
+		Key:    &key,
+	}
+
+	// Call S3 HeadObject
+	_, err := s.s3Client.HeadObject(context.TODO(), input)
+	if err != nil {
+		// Check if the error is because the object was not found
+		return false, fmt.Errorf("error checking if file exists in S3: %w", err)
+	}
+
+	return true, nil
+}

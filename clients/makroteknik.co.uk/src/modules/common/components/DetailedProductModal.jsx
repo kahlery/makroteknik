@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import { ShoppingCart } from "@mui/icons-material"
 import { IoIosArrowBack } from "react-icons/io"
 import { TbRulerMeasure } from "react-icons/tb"
+import { MdOutlineSimCardDownload } from "react-icons/md"
 
 // stores
 import { useCartStore } from "../../cart/stores/CartStore"
@@ -190,8 +191,13 @@ const DetailedProductModal = ({
                                 <p className="text-black font-bold text-[0.8rem] text-opacity-70">
                                     Description:
                                 </p>
-                                <button className="text-black w-fit">
-                                    Click to download PDF
+                                <button
+                                    className="flex w-fit items-center text-xs font-bold text-nowrap text-black border-black
+                                     border gap-2 bg-white bg-opacity-100 py-2 px-4 rounded-full"
+                                    onClick={{}}
+                                >
+                                    <MdOutlineSimCardDownload className="text-xl font-bold" />
+                                    <p>download PDF</p>
                                 </button>
                                 <p className="text-xs text-black text-opacity-100 py-2 mb-16">
                                     {selectedProduct.description}

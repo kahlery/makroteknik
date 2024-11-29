@@ -102,4 +102,28 @@ export const useProductStore = create((set, get) => ({
             console.error(err)
         }
     },
+
+    // isPDFExist: async (id) => {
+    //     try {
+    //         const {apiUrl} = get()
+    //         const res = await axios.get(`${apiUrl}/pdf/is-exist/${id}`)
+    //         res = res.data.isPDFExist
+
+    //         const {productsList} =get()
+    //         const product = productsList.filter(
+    //             (product) => product._id === id
+    //         )
+
+    //         set(()=> {
+    //             productsList: productsList.
+    //         })
+    //     }
+    // },
+
+    // getPDF: async (id) => {
+    //     try {
+    //         const {apiUrl}= get()
+    //         await axios.get()
+    //     }
+    // },
 }))
