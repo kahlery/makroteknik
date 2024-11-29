@@ -8,6 +8,7 @@ import { MdOutlineSimCardDownload } from "react-icons/md"
 
 // stores
 import { useCartStore } from "../../cart/stores/CartStore"
+import { useProductStore } from "../../product/stores/ProductStore"
 
 const DetailedProductModal = ({
     isModalOpen = false,
@@ -18,10 +19,14 @@ const DetailedProductModal = ({
     const [selectedSizeIndex, setSelectedSizeIndex] = useState(0)
 
     // stores
-    const cartProducts = useCartStore((state) => state.cartProducts) // to get the cart products
     const addProduct = useCartStore((state) => state.addProduct) // to add the product's size
     const removeProduct = useCartStore((state) => state.removeProduct) // to remove product's size
     const isInCart = useCartStore((state) => state.isInCart) // to change button from add to remove if size exists in cart
+    const getPDF = useProductStore((state) => state.getPDF)
+
+    const handleDownloadClick = () => {
+        getPDF(selectedProduct._id)
+    }
 
     // close modal on "esc" key press
     useEffect(() => {
@@ -194,7 +199,7 @@ const DetailedProductModal = ({
                                 <button
                                     className="flex w-fit items-center text-xs font-bold text-nowrap text-black border-black
                                      border gap-2 bg-white bg-opacity-100 py-2 px-4 rounded-full"
-                                    onClick={{}}
+                                    onClick={handleDownloadClick}
                                 >
                                     <MdOutlineSimCardDownload className="text-xl font-bold" />
                                     <p>download PDF</p>

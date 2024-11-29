@@ -183,7 +183,7 @@ func setupRoutes(app *fiber.App) {
 
 func setupMiddlewares(app *fiber.App) {
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:3000, https://makroteknik-4yemjdfdu-vafaill.vercel.app, https://makroteknik.vercel.app, https://test.makroteknik.co.uk",
+		AllowOrigins: "http://localhost:3000, https://makroteknik-4yemjdfdu-vafaill.vercel.app, https://makroteknik.vercel.app, https://test.makroteknik.co.uk, https://makroteknik.co.uk",
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 	}))
 

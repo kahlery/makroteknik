@@ -1,7 +1,7 @@
 package service
 
 import (
-	"log"
+	"api/pkg/log"
 
 	"api/pkg/aws/service"
 
@@ -26,10 +26,12 @@ func (p *PDFService) GetPdfFile(c *fiber.Ctx) error {
 	// S3 file path and name
 	fileName := id + ".pdf"
 
+	log.LogWarn("get requesting on S3 with filename: " + fileName + " and key: " + p.dirPath)
+
 	// fetch the PDF from S3
 	fileData, err := p.s3Service.GetFile(&p.dirPath, &fileName)
 	if err != nil {
-		log.Printf("failed to fetch file %v", err)
+		log.LogError("failed to fetch file: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching PDF")
 	}
 
@@ -47,7 +49,7 @@ func (p *PDFService) IsFileExist(c *fiber.Ctx) error {
 	res, err := p.s3Service.IsFileExist(p.dirPath, fileName)
 
 	if err != nil {
-		log.Printf("failed to check existence of the pdf %v", err)
+		log.LogError("failed to check existence of the pdf: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error checking existence of the PDF")
 	}
 
