@@ -10,13 +10,13 @@ import (
 
 type PDFService struct {
 	dirPath   *string
-	s3Service service.S3Service
+	s3Service *service.S3Service
 }
 
-func NewPDFService(p *string, s3 *service.S3Service) *PDFService {
+func NewPDFService(pdfPath *string, s3 *service.S3Service) *PDFService {
 	return &PDFService{
-		dirPath:   p,
-		s3Service: *s3,
+		dirPath:   pdfPath,
+		s3Service: s3,
 	}
 }
 
