@@ -17,6 +17,7 @@ export const Panel = () => {
     const postProduct = useProductStore((s) => s.postProduct)
     const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
+    const postPDF = useProductStore((s) => s.postPDF)
 
     // state to hold the current product being edited or created
     const [currentProduct, setCurrentProduct] = useState({
@@ -27,7 +28,6 @@ export const Panel = () => {
         productCode: "",
         sizeToPrice: [],
         description: "",
-        pdf: null,
     })
 
     // state to control whether the form is visible for editing/adding
@@ -39,7 +39,10 @@ export const Panel = () => {
     // state to hold new size and price inputs
     const [sizeInput, setSizeInput] = useState("")
     const [priceInput, setPriceInput] = useState("")
+
     const [isAddNewNorEdit, setIsAddNewNorEdit] = useState(false)
+
+    const [PDF, setPDF] = useState(null)
 
     // handle form input changes
     const handleInputChange = (e) => {
@@ -101,8 +104,17 @@ export const Panel = () => {
         } else {
             postProduct(currentProduct)
         }
-        // reset form and state after saving
+
+        // send the pdf with product
+        postPDF(currentProduct._id, PDF)
+
+        // reset the pdf state
+        setPDF(null)
+
+        // reset state after saving
         setIsEditing(false)
+
+        // reset the current product
         setCurrentProduct({
             _id: null,
             title: "",
@@ -111,7 +123,6 @@ export const Panel = () => {
             productCode: "",
             sizeToPrice: [],
             description: "",
-            pdf: null,
         })
     }
 
@@ -125,7 +136,6 @@ export const Panel = () => {
             productCode: product.productCode ?? "",
             sizeToPrice: product.sizeToPrice ?? [],
             description: product.description ?? "",
-            pdf: product.pdf ?? "",
         })
         setIsEditing(true)
         setSizeInput("") // Reset size input on edit
@@ -139,11 +149,7 @@ export const Panel = () => {
 
     // handle PDF upload
     const handlePDFChange = (e) => {
-        const file = e.target.files[0]
-        setCurrentProduct((prevProduct) => ({
-            ...prevProduct,
-            pdf: file,
-        }))
+        setPDF(e.target.files[0])
     }
 
     // filter products based on search query
@@ -214,6 +220,7 @@ export const Panel = () => {
                 setCurrentProduct,
                 setSizeInput,
                 setPriceInput,
+                setPDF,
                 setIsAddNewNorEdit
             )}
         </div>
@@ -485,6 +492,7 @@ function renderFloatingAddButton(
     setCurrentProduct,
     setSizeInput,
     setPriceInput,
+    setPDF,
     setIsAddNewNorEdit
 ) {
     return (
@@ -500,10 +508,10 @@ function renderFloatingAddButton(
                     productCode: "",
                     sizeToPrice: [],
                     description: "",
-                    pdf: null,
                 })
                 setSizeInput("") // reset size input
                 setPriceInput("") // reset price input
+                setPDF(null)
                 setIsAddNewNorEdit(true)
             }}
         >
