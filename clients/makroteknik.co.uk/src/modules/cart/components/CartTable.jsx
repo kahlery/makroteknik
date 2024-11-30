@@ -1,7 +1,11 @@
 import React, { useState } from "react"
+
+// stores
 import { useProductStore } from "../../product/stores/ProductStore"
-import { MdDeleteOutline } from "react-icons/md"
 import { useCartStore } from "../stores/CartStore"
+
+// icons
+import { MdDeleteOutline } from "react-icons/md"
 
 export const CartTable = () => {
     const cartProducts = useCartStore((state) => state.cartProducts)
@@ -11,7 +15,7 @@ export const CartTable = () => {
 
     const [editQuantity, setEditQuantity] = useState({})
 
-    // Helper function to get product details by ID
+    // helper function to get product details by ID
     const getProductDetails = (productId) => {
         return productsList.find((product) => product._id === productId)
     }
@@ -78,7 +82,7 @@ export const CartTable = () => {
                                                     key={`${productId}-${size}-${index}`}
                                                 >
                                                     <td className="px-1 py-4 whitespace-nowrap text-sm md:w-32 text-gray-800">
-                                                        <div className="flex items-center w-24">
+                                                        <div className="flex items-center w-44">
                                                             <button
                                                                 type="button"
                                                                 onClick={() =>
@@ -154,7 +158,7 @@ export const CartTable = () => {
                                                                 )
                                                             }
                                                         >
-                                                            <MdDeleteOutline className="text-[1.5rem] text-opacity-60 text-black" />
+                                                            <MdDeleteOutline className="text-[2.5rem] text-opacity-60 text-rose-600 bg-rose-200 rounded-full p-2" />
                                                         </button>
                                                     </td>
                                                     <td className="flex flex-row items-center gap-3 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+
+// components
 import { LoginForm } from "./components/LoginForm"
 import { Panel } from "./components/Panel"
 
@@ -10,7 +12,9 @@ export const AdminContainer = ({ className }) => {
     })
 
     return (
-        <div className={` flex min-h-screen justify-center ${className}`}>
+        <div
+            className={` flex min-h-screen justify-center bg-gray-200 ${className}`}
+        >
             {!isLoggedIn ? (
                 <LoginForm setIsLoggedIn={setIsLoggedIn} />
             ) : (

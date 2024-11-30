@@ -22,7 +22,6 @@ func NewPDFService(pdfPath *string, s3 *service.S3Service) *PDFService {
 
 func (p *PDFService) GetPdfFile(c *fiber.Ctx) error {
 	id := c.Params("id")
-
 	// S3 file path and name
 	fileName := id + ".pdf"
 

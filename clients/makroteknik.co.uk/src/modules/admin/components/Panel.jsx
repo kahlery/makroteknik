@@ -1,5 +1,14 @@
 import { useState } from "react"
+
+// stores
 import { useProductStore } from "../../product/stores/ProductStore"
+
+// icons
+import { MdDeleteOutline } from "react-icons/md"
+import { MdAdd } from "react-icons/md"
+import { MdEdit } from "react-icons/md"
+import { IoMdSave } from "react-icons/io"
+import { MdCancel } from "react-icons/md"
 
 export const Panel = () => {
     // Stores
@@ -146,60 +155,64 @@ export const Panel = () => {
                 .includes(searchQuery.toLowerCase())
     )
 
-    return (
-        <div className="relative w-screen flex flex-wrap bg-gray-200 py-16 h-full min-h-screen">
-            {/* Navbar */}
+    const renderNavbar = () => {
+        return (
             <div
                 className="px-[5%] fixed flex justify-between gap-12 top-0 left-0 w-full items-center
-             bg-primary p-4 border z-10 border-black border-opacity-20"
+     bg-primary p-4 border z-10 border-black border-opacity-20 shadow-2xl"
             >
                 <h1 className="text-lg font-bold text-white">
                     makroteknik.co.uk/admin
                 </h1>
-                <div className="flex gap-8">
+                <div className="flex gap-12">
                     <input
                         type="text"
                         placeholder="search..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-72 px-4 py-1 border rounded-full border-opacity-100 border-primary placeholder:text-primary placeholder:text-opacity-60"
+                        className="w-72 px-6 py-1 border-gray-600 border  rounded-full bg-primary text-white  placeholder:text-white placeholder:text-opacity-60 placeholder:font-bold"
                     />
                     <button className="text-white font-bold">products</button>
                     <button className="text-white font-bold">categories</button>
                     <button className="text-white font-bold">posts</button>
                 </div>
             </div>
+        )
+    }
 
-            {/* List of products */}
+    return (
+        <div className="relative w-screen flex flex-wrap bg-gray-200 py-16 h-full min-h-screen">
+            {renderNavbar()}
+
+            {/* product cards */}
             <div className="flex flex-row w-screen flex-wrap mt-16 gap-12 px-[5%]">
                 {filteredProducts.map((v) => (
                     <div
                         key={v._id}
-                        className="w-[300px] h-[500px] text-black text-opacity-60  border-black border-opacity-20 border p-4 rounded-xl bg-white "
+                        className="w-[350px] h-[650px] text-black text-opacity-60 text-sm  border-black border-opacity-20 border p-4 rounded-xl bg-white overflow-y-scroll"
                     >
-                        <div className="flex-col flex gap-4">
+                        <div className="gap-4">
                             <div className="relative">
                                 <div className="absolute flex flex-col gap-2 right-0">
-                                    {/* Edit and Delete buttons */}
                                     <button
-                                        className="bg-primary text-white px-4 py-2 rounded-full font-bold   "
+                                        className="bg-white bg-opacity-50 backdrop-blur-sm text-primary px-2 py-2 rounded-full font-bold   "
                                         onClick={() => handleEditProduct(v)}
                                     >
-                                        edit
+                                        <MdEdit className="text-[1.5rem]" />
                                     </button>
                                     <button
-                                        className="bg-rose-600 text-white px-4 py-2 rounded-full font-bold"
+                                        className="bg-white backdrop-blur-sm bg-opacity-30 text-rose-700 px-2 py-2 rounded-full font-bold"
                                         onClick={() =>
                                             handleDeleteProduct(v._id)
                                         }
                                     >
-                                        delete
+                                        <MdDeleteOutline className="text-[1.5rem]" />
                                     </button>
                                 </div>
                                 <img
                                     src={v.image}
                                     alt={v.title}
-                                    className="w-36 object-scale-down h-fit rounded-lg mb-8"
+                                    className="w-full object-scale-down h-fit rounded-lg mb-8"
                                 />
                                 <h3 className="text-primary font-bold">
                                     title:
@@ -215,6 +228,18 @@ export const Panel = () => {
                                     description:
                                 </h3>
                                 <p className="line-clamp-3">{v.description}</p>
+                                <hr className="border-black border-opacity-20 my-2" />
+                                <h3 className="text-primary font-bold">
+                                    category:
+                                </h3>
+                                <p>
+                                    {
+                                        categoriesList.find(
+                                            (category) =>
+                                                category._id === v.categoryID
+                                        ).categoryName
+                                    }
+                                </p>
                                 <hr className="border-black border-opacity-20 my-2" />
                                 <h3 className="text-primary font-bold">
                                     size-price:
@@ -234,181 +259,197 @@ export const Panel = () => {
                 ))}
             </div>
 
-            {/* Form for adding/updating a product */}
+            {/* form for adding/updating a product */}
             {isEditing && (
-                <div className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll">
-                    <h3 className="mb-4 font-bold text-orange-600">
-                        {currentProduct._id ? "EDITTING" : "CREATING"}
-                    </h3>
-                    <form className="flex flex-col gap-4">
-                        <label className="text-primary font-bold">title:</label>
-                        <input
-                            type="text"
-                            name="title"
-                            value={currentProduct.title}
-                            onChange={handleInputChange}
-                            placeholder="title"
-                            className="border p-2 rounded"
-                        />
-                        <label className="text-primary font-bold">
-                            product code:
-                        </label>
-                        <input
-                            type="text"
-                            name="productCode"
-                            value={currentProduct.productCode}
-                            onChange={handleInputChange}
-                            placeholder="product code"
-                            className="border p-2 rounded"
-                        />
-                        <label className="text-primary font-bold">
-                            category:
-                        </label>
-                        {/* dropdown to select category */}
-                        <select
-                            name="categoryID"
-                            value={currentProduct.categoryID}
-                            onChange={handleInputChange}
-                            className="border p-2 rounded"
-                        >
-                            <option value={0}>select category</option>
-                            {/* Map over categories to create options */}
-                            {categoriesList.map((category) => (
-                                <option key={category._id} value={category._id}>
-                                    {category.categoryName}
-                                </option>
-                            ))}
-                        </select>
-                        <label className="text-primary font-bold">pdf:</label>
-                        <input
-                            type="file"
-                            accept="application/pdf"
-                            onChange={handlePDFChange}
-                            className="border p-2 rounded"
-                            placeholder=""
-                        />
-                        <label className="text-primary font-bold">
-                            product image:
-                        </label>
-                        {currentProduct.image ? (
-                            <div className="flex flex-col gap-4 items-start">
-                                <img
-                                    className="w-full"
-                                    src={currentProduct.image}
+                <div className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm">
+                    <div className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll">
+                        <h3 className="mb-8 font-bold text-rose-700">
+                            {currentProduct._id ? "EDITTING" : "CREATING"}
+                        </h3>
+                        <form className="flex flex-col gap-4">
+                            <label className="text-primary font-bold">
+                                title:
+                            </label>
+                            <input
+                                type="text"
+                                name="title"
+                                value={currentProduct.title}
+                                onChange={handleInputChange}
+                                placeholder="title"
+                                className="border-b  border-gray-400 p-2"
+                            />
+                            <label className="text-primary font-bold">
+                                product code:
+                            </label>
+                            <input
+                                type="text"
+                                name="productCode"
+                                value={currentProduct.productCode}
+                                onChange={handleInputChange}
+                                placeholder="product code"
+                                className="border-b border-gray-400 p-2"
+                            />
+                            <label className="text-primary font-bold">
+                                category:
+                            </label>
+                            {/* dropdown to select category */}
+                            <select
+                                name="categoryID"
+                                value={currentProduct.categoryID}
+                                onChange={handleInputChange}
+                                className="border-b border-gray-400 p-2"
+                            >
+                                <option value={0}>select category</option>
+                                {/* Map over categories to create options */}
+                                {categoriesList.map((category) => (
+                                    <option
+                                        key={category._id}
+                                        value={category._id}
+                                    >
+                                        {category.categoryName}
+                                    </option>
+                                ))}
+                            </select>
+                            <label className="text-primary font-bold">
+                                pdf:
+                            </label>
+                            <input
+                                type="file"
+                                accept="application/pdf"
+                                onChange={handlePDFChange}
+                                className=""
+                                placeholder=""
+                            />
+                            <label className="text-primary font-bold">
+                                product image:
+                            </label>
+                            {currentProduct.image ? (
+                                <div className="flex flex-col gap-4 items-start relative">
+                                    <img
+                                        className="w-3/4"
+                                        src={currentProduct.image}
+                                    />
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                        className=""
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={handleImageChange}
+                                        className="absolute top-4 left-4 py-2 bg-white bg-opacity-30 rounded-full backdrop-blur-sm text-rose-700 px-2 font-bold flex gap-2 items-center"
+                                    >
+                                        <MdDeleteOutline className="text-[1.5rem]" />
+                                    </button>
+                                </div>
+                            ) : (
+                                <input
+                                    type="file" // File input for image upload
+                                    accept="image/*"
+                                    onChange={handleImageChange} // Change handler for file
+                                    className="border border-gray-400 p-2 rounded"
+                                />
+                            )}
+                            <label className="text-primary font-bold">
+                                description:
+                            </label>
+                            <textarea
+                                name="description"
+                                value={currentProduct.description}
+                                onChange={handleInputChange}
+                                placeholder="product description"
+                                className="border border-gray-400 h-64 p-2 rounded"
+                            />
+                            <label className="text-primary font-bold">
+                                size-price:
+                            </label>
+                            {/* list available sizes */}
+                            {!isAddNewNorEdit &&
+                                Object.keys(currentProduct.sizeToPrice[0])
+                                    .length > 0 && <p></p> && (
+                                    <ul className="text-black text-opacity-60">
+                                        {currentProduct.sizeToPrice.map(
+                                            (sizePrice, idx) => (
+                                                <li key={idx} className="flex ">
+                                                    {`${
+                                                        Object.keys(
+                                                            sizePrice
+                                                        )[0]
+                                                    } - ${
+                                                        Object.values(
+                                                            sizePrice
+                                                        )[0]
+                                                    }`}
+                                                    <button
+                                                        type="button"
+                                                        className="text-rose-600 ml-auto font-bold"
+                                                        onClick={() =>
+                                                            handleRemoveSizePrice(
+                                                                idx
+                                                            )
+                                                        }
+                                                    >
+                                                        remove
+                                                    </button>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                )}
+                            {/* Inputs for size and price */}
+                            <div className="flex gap-4">
+                                <input
+                                    type="text"
+                                    value={sizeInput}
+                                    onChange={(e) =>
+                                        setSizeInput(e.target.value)
+                                    }
+                                    placeholder="size (e.g., 450mm)"
+                                    className="border border-gray-400 p-2 rounded"
                                 />
                                 <input
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleImageChange}
-                                    className="py-2 bg-primary rounded-full text-white px-4"
+                                    type="text"
+                                    value={priceInput}
+                                    onChange={(e) =>
+                                        setPriceInput(e.target.value)
+                                    }
+                                    placeholder="price (e.g., £810.00 ex vat)"
+                                    className="border border-gray-400 p-2 rounded"
                                 />
+                            </div>
+                            <button
+                                type="button"
+                                className="bg-primary text-white px-4 py-2 rounded-full font-bold"
+                                onClick={handleAddSizePrice}
+                            >
+                                add entered size-price pair
+                            </button>
+
+                            {/* Buttons to save or cancel */}
+                            <div className="fixed right-4 top-4 flex  gap-2">
                                 <button
                                     type="button"
-                                    onClick={handleImageChange}
-                                    className="py-2 bg-rose-600 rounded-full text-white px-4"
+                                    className="bg-primary text-white px-2 py-2 rounded-full font-bold"
+                                    onClick={handleSaveProduct}
                                 >
-                                    delete
+                                    <IoMdSave className="text-[1.5rem]" />
+                                </button>
+                                <button
+                                    type="button"
+                                    className="bg-rose-600 text-white px-2 py-2 rounded-full font-bold"
+                                    onClick={() => setIsEditing(false)}
+                                >
+                                    <MdCancel className="text-[1.5rem]" />
                                 </button>
                             </div>
-                        ) : (
-                            <input
-                                type="file" // File input for image upload
-                                accept="image/*"
-                                onChange={handleImageChange} // Change handler for file
-                                className="border p-2 rounded"
-                            />
-                        )}
-                        <label className="text-primary font-bold">
-                            description:
-                        </label>
-                        <textarea
-                            name="description"
-                            value={currentProduct.description}
-                            onChange={handleInputChange}
-                            placeholder="product description"
-                            className="border h-64 p-2 rounded"
-                        />
-                        <label className="text-primary font-bold">
-                            size-price:
-                        </label>
-                        {/* list available sizes */}
-                        {!isAddNewNorEdit &&
-                            Object.keys(currentProduct.sizeToPrice[0]).length >
-                                0 && <p></p> && (
-                                <ul className="text-black text-opacity-60">
-                                    {currentProduct.sizeToPrice.map(
-                                        (sizePrice, idx) => (
-                                            <li key={idx} className="flex ">
-                                                {`${
-                                                    Object.keys(sizePrice)[0]
-                                                } - ${
-                                                    Object.values(sizePrice)[0]
-                                                }`}
-                                                <button
-                                                    type="button"
-                                                    className="text-rose-600 ml-auto font-bold"
-                                                    onClick={() =>
-                                                        handleRemoveSizePrice(
-                                                            idx
-                                                        )
-                                                    }
-                                                >
-                                                    remove
-                                                </button>
-                                            </li>
-                                        )
-                                    )}
-                                </ul>
-                            )}
-                        {/* Inputs for size and price */}
-                        <div className="flex gap-4">
-                            <input
-                                type="text"
-                                value={sizeInput}
-                                onChange={(e) => setSizeInput(e.target.value)}
-                                placeholder="size (e.g., 450mm)"
-                                className="border p-2 rounded"
-                            />
-                            <input
-                                type="text"
-                                value={priceInput}
-                                onChange={(e) => setPriceInput(e.target.value)}
-                                placeholder="price (e.g., £810.00 ex vat)"
-                                className="border p-2 rounded"
-                            />
-                        </div>
-                        <button
-                            type="button"
-                            className="bg-primary text-white px-4 py-2 rounded"
-                            onClick={handleAddSizePrice}
-                        >
-                            add entered size-price pair
-                        </button>
-
-                        {/* Buttons to save or cancel */}
-                        <div className="fixed right-4 top-4 flex  gap-2">
-                            <button
-                                type="button"
-                                className="bg-primary text-white px-4 py-2 rounded-full"
-                                onClick={handleSaveProduct}
-                            >
-                                save
-                            </button>
-                            <button
-                                type="button"
-                                className="bg-rose-600 text-white px-4 py-2 rounded-full"
-                                onClick={() => setIsEditing(false)}
-                            >
-                                cancel
-                            </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             )}
 
-            {/* Add new product button */}
             <button
-                className="bg-primary text-white px-4 py-2 rounded-full fixed right-2 bottom-4"
+                className="bg-primary text-white px-4 py-4 rounded-full fixed right-8 bottom-8"
                 onClick={() => {
                     setIsEditing(true)
                     setCurrentProduct({
@@ -426,7 +467,7 @@ export const Panel = () => {
                     setIsAddNewNorEdit(true)
                 }}
             >
-                add new
+                <MdAdd className="text-[1.5rem] " />
             </button>
         </div>
     )
