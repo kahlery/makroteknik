@@ -54,7 +54,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 	productResponses := []dto.Product{}
 	for _, product := range products {
 		imageName := product.ID.Hex() + ".webp"
-		imageData, err := p.s3Service.GetFile(p.imagePath, &imageName)
+		imageData, err := p.s3Service.GetObject(p.imagePath, &imageName)
 		if err != nil {
 			// log.LogError("failed to read from directory to buffer: " + err.Error())
 			failedImageIds = append(failedImageIds, product.ID.Hex())
@@ -119,7 +119,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 	}
 
 	imageName := mappedProduct.ID.Hex() + ".webp"
-	if err := p.s3Service.PostFile(p.imagePath, &imageName, imageData); err != nil {
+	if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 	}
 
@@ -182,7 +182,7 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 		}
 
 		imageName := mappedProduct.ID.Hex() + ".webp"
-		if err := p.s3Service.PostFile(p.imagePath, &imageName, imageData); err != nil {
+		if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData); err != nil {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 		}
 	}
@@ -202,7 +202,7 @@ func (p *ProductService) DeleteProduct(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
 
 	// 2. Delete the image from ../../assets/images/products
-	if err := p.s3Service.DeleteFile(*p.imagePath, id+".webp"); err != nil {
+	if err := p.s3Service.DeleteObject(*p.imagePath, id+".webp"); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete image from directory: " + err.Error())
 	}
 

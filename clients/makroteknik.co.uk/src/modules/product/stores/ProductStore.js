@@ -131,27 +131,41 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
-    // isPDFExist: async (id) => {
-    //     try {
-    //         const {apiUrl} = get()
-    //         const res = await axios.get(`${apiUrl}/pdf/is-exist/${id}`)
-    //         res = res.data.isPDFExist
+    postPDF: async (id, file) => {
+        try {
+            const { apiUrl } = get()
 
-    //         const {productsList} =get()
-    //         const product = productsList.filter(
-    //             (product) => product._id === id
-    //         )
+            // prepare FormData for the file upload
+            const formData = new FormData()
+            formData.append("file", file)
 
-    //         set(()=> {
-    //             productsList: productsList.
-    //         })
-    //     }
-    // },
+            // make API call to upload the PDF
+            const response = await axios.post(
+                `${apiUrl}/static/pdf/upload/${id}`,
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data", // required for file upload
+                    },
+                }
+            )
 
-    // getPDF: async (id) => {
-    //     try {
-    //         const {apiUrl}= get()
-    //         await axios.get()
-    //     }
-    // },
+            console.log("file uploaded successfully:", response.data)
+        } catch (err) {
+            console.error("error uploading the PDF file:", err)
+        }
+    },
+
+    getPDFMeta: async (id) => {
+        try {
+            const { apiURL } = get()
+
+            // make the API call
+            const response = await axios.get(`${apiURL}/static/pdf/meta/${id}`)
+
+            console.log(response.data)
+        } catch (err) {
+            console.error("error getting metadata of the PDF")
+        }
+    },
 }))

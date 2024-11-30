@@ -177,8 +177,10 @@ func setupRoutes(app *fiber.App) {
 	// Static routes
 	staticGroup := app.Group("/static")
 	// pdf:
-	staticGroup.Get("/pdf/:id", pdfService.GetPdfFile)
-	staticGroup.Get("pdf/is-exist/:id", pdfService.IsFileExist)
+	staticGroup.Get("pdf/is-exist/:id", pdfService.GetFileMeta)
+	staticGroup.Get("/pdf/:id", pdfService.GetPDFFile)
+	staticGroup.Post("/pdf/upload/:id", pdfService.PostPDFFile)
+	staticGroup.Get("/pdf/meta/:id", pdfService.GetFileMeta)
 }
 
 func setupMiddlewares(app *fiber.App) {
