@@ -137,6 +137,7 @@ export const Panel = () => {
             sizeToPrice: product.sizeToPrice ?? [],
             description: product.description ?? "",
         })
+        setPDF(null)
         setIsEditing(true)
         setSizeInput("") // Reset size input on edit
         setPriceInput("") // Reset price input on edit
