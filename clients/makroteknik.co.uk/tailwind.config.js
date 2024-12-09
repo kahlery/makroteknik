@@ -9,7 +9,7 @@ module.exports = {
                 // secondary: "#333",
                 secondary: "#0891b2",
                 // secondary: "#FF5A5F",
-                fon: "#e8e8e8",
+                fon: "#fff",
             },
             boxShadow: {
                 top: "0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 -2px 4px -2px rgb(0 0 0 / 0.1);",

@@ -44,11 +44,14 @@ const ProductContainer = () => {
         <div className="h-full w-full bg-fon">
             <div className="md:h-24 pt-20 md:mt-6 bg-fon" />
             {renderSearchBar()}
+            <br />
             <CategoryCards />
             <div
                 className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] 
                 pt-4 pb-10 min-h-96 bg-fon"
             >
+                <br />
+
                 <div className="mx-4 md:mx-0">
                     <ListingGrid passedProductsList={filteredProductsList} />
                 </div>
@@ -70,9 +73,7 @@ const ProductContainer = () => {
         return (
             <div
                 className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border border-opacity-20 py-[5px] mx-4
-            shadow-md
-            "
+            2xl:mx-[25rem] text-sm border-black border border-opacity-40 py-[5px] mx-4"
             >
                 <FaSearch className="p-1 text-primary" size={"20px"} />
                 <input

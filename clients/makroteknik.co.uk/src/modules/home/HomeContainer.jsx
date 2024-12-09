@@ -51,7 +51,7 @@ const HomeContainer = () => {
                 <iframe
                     className=""
                     width=""
-                    height="300"
+                    height="500"
                     src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

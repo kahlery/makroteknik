@@ -17,7 +17,7 @@ const Hero = ({ imageIndex, height }) => {
             <img
                 src={bgUrl}
                 alt="hero"
-                className="absolute inset-y-0 object-center object-cover h-full w-full grayscale-[.75] shadow-lg"
+                className="absolute inset-y-0 object-center object-cover h-full w-full shadow-lg"
             />
             <div
                 className="flex my-auto py-6 md:border-r border-opacity-20 border-black 
