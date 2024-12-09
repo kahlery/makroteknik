@@ -17,11 +17,11 @@ const Hero = ({ imageIndex, height }) => {
             <img
                 src={bgUrl}
                 alt="hero"
-                className="absolute inset-y-0 object-center object-cover h-full w-full shadow-lg"
+                className="absolute inset-y-0 object-center object-cover h-full w-full"
             />
             <div
                 className="flex my-auto py-6 md:border-r border-opacity-20 border-black 
-                lg:max-w-[30rem] z-20 bg-black bg-opacity-50 backdrop-blur-lg"
+                lg:max-w-[30rem] z-20 bg-black bg-opacity-60 md:bg-opacity-50 md:backdrop-blur-lg h-full md:h-fit"
             >
                 <div className="flex flex-col items-center text-center justify-center text-white  px-0 py-1">
                     <img

@@ -107,27 +107,24 @@ export const useProductStore = create((set, get) => ({
         try {
             const { apiUrl } = get()
 
-            // make an API call to get the PDF from the backend
+            // Fetch the PDF as a blob
             const res = await axios.get(`${apiUrl}/static/pdf/${id}`, {
                 responseType: "blob",
             })
 
-            // create a URL for the PDF blob
-            const PDFURL = window.URL.createObjectURL(new Blob([res.data]))
+            // Create a Blob URL for the PDF
+            const PDFBlob = new Blob([res.data], { type: "application/pdf" }) // Explicitly set the type
+            const PDFURL = window.URL.createObjectURL(PDFBlob)
 
-            // create a link element, set the URL as the href, and simulate a click to download
-            const link = document.createElement("a")
-            link.href = PDFURL
-            link.setAttribute("download", `${id}.pdf`) // set a filename
-            document.body.appendChild(link)
+            // Open the PDF URL in a new tab
+            window.open(PDFURL, "_blank")
 
-            link.click() // trigger the download
-
-            // clean up after the download
-            document.body.removeChild(link)
-            window.URL.revokeObjectURL(PDFURL)
+            // Optionally, clean up the Blob URL after some delay
+            setTimeout(() => {
+                window.URL.revokeObjectURL(PDFURL)
+            }, 5000)
         } catch (err) {
-            console.error("error downloading the pdf:", err)
+            console.error("Error opening the PDF:", err)
         }
     },
 

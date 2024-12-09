@@ -424,8 +424,9 @@ function renderProductForm(
                     </label>
                     {/* list available sizes */}
                     {!isAddNewNorEdit &&
-                        Object.keys(currentProduct.sizeToPrice[0]).length >
-                            0 && <p></p> && (
+                        currentProduct.sizeToPrice[0] !== undefined > 0 && (
+                            <p></p>
+                        ) && (
                             <ul className="text-black text-opacity-60">
                                 {currentProduct.sizeToPrice.map(
                                     (sizePrice, idx) => (

@@ -35,9 +35,13 @@ const TopBar = () => {
                         </div>
                     </div>
                 </div>
-                <button className="flex ml-auto border-white border px-3 py-1 text-[.65rem] font-bold shadow-md">
-                    Get An Offer
-                </button>
+                {/* Button replaced with a styled link */}
+                <a
+                    href="tel:+442163130808"
+                    className="flex ml-auto border-white border px-3 py-[5px] text-[.65rem] font-bold shadow-md"
+                >
+                    Dial the Number & Get An Offer
+                </a>
             </div>
         </div>
     )
