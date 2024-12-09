@@ -138,7 +138,7 @@ const CartContainer = () => {
     return (
         <div className="relative">
             <div
-                className="w-screen mt-[100px] md:mt-[190px] 
+                className="w-screen mt-[80px] md:mt-[120px] 
             px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96"
             >
                 <div className="mx-4">

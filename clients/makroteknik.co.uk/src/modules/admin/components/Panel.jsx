@@ -239,7 +239,7 @@ function renderCardGrid(
             {filteredProducts.map((v) => (
                 <div
                     key={v._id}
-                    className="w-[350px] h-[650px] text-black text-opacity-60 text-sm  border-black border-opacity-20 border p-4 rounded-xl bg-white overflow-y-scroll"
+                    className="w-[350px] h-[490px] text-black text-opacity-60 text-sm  border-black border-opacity-20 border p-4  bg-white overflow-clip"
                 >
                     <div className="gap-4">
                         <div className="relative">
@@ -257,11 +257,18 @@ function renderCardGrid(
                                     <MdDeleteOutline className="text-[1.5rem]" />
                                 </button>
                             </div>
-                            <img
-                                src={v.image}
-                                alt={v.title}
-                                className="w-full object-scale-down h-fit rounded-lg mb-8"
-                            />
+                            <div className="flex flex-row gap-8">
+                                <img
+                                    src={v.image}
+                                    alt={v.title}
+                                    className="w-1/3 object-scale-down h-fit rounded-lg mb-8"
+                                />{" "}
+                                {/* <img
+                                    src={v.image}
+                                    alt={v.title}
+                                    className="w-1/3 object-scale-down h-fit rounded-lg mb-8"
+                                /> */}
+                            </div>
                             <h3 className="text-primary font-bold">title:</h3>
                             <h3 className="line-clamp-1">{v.title}</h3>
                             <hr className="border-black border-opacity-20 my-2" />

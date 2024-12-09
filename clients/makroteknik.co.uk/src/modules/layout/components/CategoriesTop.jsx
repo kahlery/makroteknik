@@ -63,7 +63,8 @@ const CategoriesTop = () => {
 
     if (
         !location.pathname.endsWith("/products") &&
-        !location.pathname.endsWith("/about")
+        !location.pathname.endsWith("/about") &&
+        !location.pathname.endsWith("/cart")
     ) {
         return (
             <>

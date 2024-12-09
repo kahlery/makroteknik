@@ -6,7 +6,7 @@ const Hero = ({ imageIndex, height }) => {
     // const index = imageIndex || 55
     // const bgUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
     // const chars = process.env.PUBLIC_URL + "images/heros/9.png"
-    const bgUrl = process.env.PUBLIC_URL + "images/heros/0.jpg"
+    const bgUrl = process.env.PUBLIC_URL + "images/heros/12.jpeg"
 
     return (
         <div
@@ -17,24 +17,24 @@ const Hero = ({ imageIndex, height }) => {
             <img
                 src={bgUrl}
                 alt="hero"
-                className="absolute inset-0 object-top object-cover
-                w-full h-full z-10 grayscale-[1] opacity-40 md:opacity-100"
+                className="absolute inset-y-0 object-top object-cover 
+                w-full h-full -z-0 opacity-100 grayscale drop-shadow-2xl"
             />
             <div
                 className="text-center md:text-end flex my-auto py-6 md:border-r border-opacity-20 border-black 
                 lg:max-w-[30rem] z-20"
             >
-                <div className="flex flex-col justify-center text-black">
+                <div className="flex flex-col justify-center text-white backdrop-blur-md p-5 rounded-xl">
                     <img
                         src={process.env.PUBLIC_URL + "/logo.png"}
                         className="md:hidden h-[70px] w-[200px] -mt-2 mx-auto"
                         alt="logo"
                     />
                     <hr className="md:hidden border-black border-opacity-20 my-3" />
-                    <h2 className="px-4 sm:px-10 mb-3 font-bold text-primary">
+                    <h2 className="px-4 sm:px-10 mb-3 font-bold text-white">
                         It's All About Trust & Years of Experience
                     </h2>
-                    <p className="text-[.75rem] mb-4 sm:px-10 text-black text-opacity-60">
+                    <p className="text-[.75rem] mb-4 sm:px-10 text-white text-opacity-60">
                         We are more than just a supplier of HVAC products. We
                         are your partner in creating comfortable, efficient, and
                         sustainable indoor environments.
@@ -55,7 +55,7 @@ const Hero = ({ imageIndex, height }) => {
                                 <FaSearch /> Inspectate Products!
                             </button>
                         </Link>
-                        <button className="font-bold rounded-full border border-black py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
+                        <button className="font-bold rounded-full border bg-black bg-opacity-50 border-black py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
                             Get An Offer
                         </button>
                     </div>
