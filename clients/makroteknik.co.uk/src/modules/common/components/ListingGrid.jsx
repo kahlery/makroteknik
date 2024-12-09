@@ -64,8 +64,8 @@ const ListingGrid = ({
             <div
                 className={`${
                     isHorizontalNorVertical
-                        ? "flex flex-wrap justify-center overflow-y-scroll gap-5"
-                        : "grid grid-cols-2 xl:grid-cols-4 gap-5"
+                        ? "flex flex-wrap justify-center overflow-y-scroll gap-8"
+                        : "grid grid-cols-2 xl:grid-cols-4 gap-8"
                 }`}
             >
                 {categoryID == undefined && (
@@ -93,7 +93,7 @@ const ListingGrid = ({
                     isHorizontalNorVertical
                         ? "flex flex-nowrap"
                         : "grid grid-cols-2 xl:grid-cols-4"
-                } gap-5`}
+                } gap-8`}
             >
                 {!productsList.length && (
                     <p className="text-start text-sm text-black col-span-full underline-offset-4">
@@ -131,7 +131,7 @@ const ListingGrid = ({
 
     function renderCartProducts() {
         return (
-            <div className="grid grid-cols-2 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 xl:grid-cols-4 gap-8">
                 {productsList
                     .filter((product) => cartProductIds.includes(product._id))
                     .map((product) => (

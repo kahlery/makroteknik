@@ -44,12 +44,12 @@ const HomeContainer = () => {
                 )}
             </div>
 
-            <div className="px-4 md:px-[16rem] 2xl:px-[25rem] gap-4 flex flex-col w-screen">
+            <div className="px-4 md:px-[16rem] 2xl:px-[25rem] gap-8 flex flex-col w-screen">
                 <h1 className="text-start text-sm text-black col-span-full font-bold">
                     Industrial Footage:
                 </h1>
                 <iframe
-                    className="rounded-lg"
+                    className=""
                     width=""
                     height="300"
                     src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"

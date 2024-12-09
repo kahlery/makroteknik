@@ -70,7 +70,7 @@ const ProductContainer = () => {
         return (
             <div
                 className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border border-opacity-20 rounded-xl py-[2.5px] mx-4
+            2xl:mx-[25rem] text-sm border-black border border-opacity-20 py-[5px] mx-4
             shadow-md
             "
             >

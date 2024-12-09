@@ -6,25 +6,24 @@ const Hero = ({ imageIndex, height }) => {
     // const index = imageIndex || 55
     // const bgUrl = process.env.PUBLIC_URL + `images/patterns/${index}.png`;
     // const chars = process.env.PUBLIC_URL + "images/heros/9.png"
-    const bgUrl = process.env.PUBLIC_URL + "images/heros/12.jpeg"
+    const bgUrl = process.env.PUBLIC_URL + "images/heros/444.png"
 
     return (
         <div
             className={`flex relative bg-fon justify-center gap-12 pt-24 md:pt-44
-                 2xl:pt-44 h-[370px] md:h-[400px] 2xl:[500px]  px-4
-                  border-y border-black border-opacity-20 `}
+                 2xl:pt-44 h-[370px] md:h-[450px] 2xl:[500px] px-4
+                  border-y border-black border-opacity-20`}
         >
             <img
                 src={bgUrl}
                 alt="hero"
-                className="absolute inset-y-0 object-top object-cover 
-                w-full h-full -z-0 opacity-100 grayscale drop-shadow-2xl"
+                className="absolute inset-y-0 object-center object-cover h-full w-full grayscale-[.75] shadow-lg"
             />
             <div
-                className="text-center md:text-end flex my-auto py-6 md:border-r border-opacity-20 border-black 
-                lg:max-w-[30rem] z-20"
+                className="flex my-auto py-6 md:border-r border-opacity-20 border-black 
+                lg:max-w-[30rem] z-20 bg-black bg-opacity-50 backdrop-blur-lg"
             >
-                <div className="flex flex-col justify-center text-white backdrop-blur-md p-5 rounded-xl">
+                <div className="flex flex-col items-center text-center justify-center text-white  px-0 py-1">
                     <img
                         src={process.env.PUBLIC_URL + "/logo.png"}
                         className="md:hidden h-[70px] w-[200px] -mt-2 mx-auto"
@@ -39,7 +38,7 @@ const Hero = ({ imageIndex, height }) => {
                         are your partner in creating comfortable, efficient, and
                         sustainable indoor environments.
                     </p>
-                    <div className="flex justify-center md:justify-end gap-4 px-6 sm:px-10 text-[.65rem]">
+                    <div className="flex gap-4 px-6 sm:px-10 text-[.75rem]">
                         <Link
                             to="/products"
                             onClick={() => {
@@ -50,12 +49,12 @@ const Hero = ({ imageIndex, height }) => {
                             <button
                                 className="font-bold text-white text-opacity-100
                              bg-secondary py-2 px-4 flex gap-2 items-center
-                              rounded-full"
+                             "
                             >
                                 <FaSearch /> Inspectate Products!
                             </button>
                         </Link>
-                        <button className="font-bold rounded-full border bg-black bg-opacity-50 border-black py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
+                        <button className="font-bold  border bg-black bg-opacity-50 border-white py-2 px-4 hover:bg-white hover:text-black transition-colors duration-500">
                             Get An Offer
                         </button>
                     </div>
