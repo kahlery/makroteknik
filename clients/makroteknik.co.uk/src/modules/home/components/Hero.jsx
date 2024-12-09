@@ -11,7 +11,7 @@ const Hero = ({ imageIndex, height }) => {
     return (
         <div
             className={`flex relative bg-fon justify-center gap-12 pt-24 md:pt-44
-                 2xl:pt-44 h-[370px] md:h-[450px] 2xl:[500px] px-4
+                 2xl:pt-44 h-[370px] md:h-[450px] 2xl:[500px]
                   border-y border-black border-opacity-20`}
         >
             <img
@@ -21,7 +21,7 @@ const Hero = ({ imageIndex, height }) => {
             />
             <div
                 className="flex my-auto py-6 md:border-r border-opacity-20 border-black 
-                lg:max-w-[30rem] z-20 bg-black bg-opacity-60 md:bg-opacity-50 md:backdrop-blur-lg h-full md:h-fit"
+                lg:max-w-[30rem] z-20 bg-black bg-opacity-70 md:bg-opacity-50 md:backdrop-blur-lg h-full md:h-fit w-screen"
             >
                 <div className="flex flex-col items-center text-center justify-center text-white  px-0 py-1">
                     <img

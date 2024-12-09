@@ -46,7 +46,7 @@ const QuickAccessCategoriesSection = () => {
                     <button
                         key={category._id}
                         className={`p-2 w-[30%] h-11 xl:h-10 sm:w-[22.5%] xl:w-[23.5%] text-[9px]
-                            md:text-[.75rem] hover:opacity-75 bg-white font-bold text-black border-b-4 border border-secondary`}
+                            md:text-[.75rem] hover:opacity-75 bg-white font-bold text-black border-b-[6px] border border-secondary`}
                         onClick={() =>
                             handleScrollToHeader(category.categoryName)
                         }

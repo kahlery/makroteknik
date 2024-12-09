@@ -73,7 +73,7 @@ const ProductContainer = () => {
         return (
             <div
                 className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border-b-4 border-opacity-40 py-[5px] mx-4"
+            2xl:mx-[25rem] text-sm border-black border-b border-opacity-40 py-[5px] mx-4"
             >
                 <FaSearch className="p-1 text-primary" size={"20px"} />
                 <input

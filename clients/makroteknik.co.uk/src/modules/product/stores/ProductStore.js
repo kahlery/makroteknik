@@ -155,14 +155,20 @@ export const useProductStore = create((set, get) => ({
 
     getPDFMeta: async (id) => {
         try {
-            const { apiURL } = get()
+            const { apiUrl } = get()
 
             // make the API call
-            const response = await axios.get(`${apiURL}/static/pdf/meta/${id}`)
+            const response = await axios.get(`${apiUrl}/static/pdf/meta/${id}`)
 
-            console.log(response.data)
+            if (response.data.Size !== undefined) {
+                console.log(response.data)
+                return true
+            } else {
+                return false
+            }
         } catch (err) {
-            console.error("error getting metadata of the PDF")
+            console.error("error getting metadata of the PDF", err)
+            return false
         }
     },
 }))

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // stores
 import { useProductStore } from "../../product/stores/ProductStore"
@@ -21,6 +21,7 @@ export const Panel = () => {
     const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
     const postPDF = useProductStore((s) => s.postPDF)
+    const getPDFMeta = useProductStore((s) => s.getPDFMeta)
 
     // state to hold the current product being edited or created
     const [currentProduct, setCurrentProduct] = useState({
@@ -46,6 +47,8 @@ export const Panel = () => {
     const [isAddNewNorEdit, setIsAddNewNorEdit] = useState(false)
 
     const [PDF, setPDF] = useState(null)
+
+    const [isPDFExists, setIsPDFExists] = useState(null)
 
     // handle form input changes
     const handleInputChange = (e) => {
@@ -114,6 +117,8 @@ export const Panel = () => {
         // reset the pdf state
         setPDF(null)
 
+        setIsPDFExists(null)
+
         // reset state after saving
         setIsEditing(false)
 
@@ -148,7 +153,7 @@ export const Panel = () => {
     }
 
     // handle editing a product
-    const handleEditProduct = (product) => {
+    const handleEditProduct = async (product) => {
         setCurrentProduct({
             _id: product._id,
             title: product.title ?? "not title",
@@ -158,11 +163,26 @@ export const Panel = () => {
             sizeToPrice: product.sizeToPrice ?? [],
             description: product.description ?? "",
         })
+
+        setIsPDFExists(await getPDFMeta(currentProduct._id))
+
         setPDF(null)
-        setIsEditing(true)
+
         setSizeInput("") // Reset size input on edit
         setPriceInput("") // Reset price input on edit
     }
+
+    useEffect(() => {
+        if (isPDFExists !== null) {
+            // Do something when isPDFExists has been updated
+            console.log("PDF exists state has been updated", isPDFExists)
+
+            // Continue with the next steps after the PDF check is complete
+            // For example, after this, you can trigger other actions that depend on this state.
+            setIsEditing(true)
+            setIsPDFExists(null)
+        }
+    }, [isPDFExists])
 
     // handle deleting a product
     const handleDeleteProduct = (id) => {
@@ -236,7 +256,8 @@ export const Panel = () => {
                     handleSaveProduct,
                     setIsEditing,
                     setCurrentProduct,
-                    handleDragEnd
+                    handleDragEnd,
+                    isPDFExists
                 )}
             {/* -------------------------------------------------------------------- */}
             {renderFloatingAddButton(
@@ -353,7 +374,8 @@ function renderProductForm(
     handleSaveProduct,
     setIsEditing,
     setCurrentProduct,
-    handleDragEnd
+    handleDragEnd,
+    isPDFExists
 ) {
     return (
         <div className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm">
@@ -399,6 +421,13 @@ function renderProductForm(
                         ))}
                     </select>
                     <label className="text-primary font-bold">pdf:</label>
+                    {isPDFExists ? (
+                        <p className="font-bold text-green-600">pdf exists</p>
+                    ) : (
+                        <p className="text-rose-600 font-bold">
+                            {"no pdf uploaded yet"}
+                        </p>
+                    )}
                     <input
                         type="file"
                         accept="application/pdf"
@@ -630,6 +659,7 @@ function renderFloatingAddButton(
                     sizeToPrice: [],
                     description: "",
                 })
+                setIsPDFExists(null)
                 setSizeInput("") // reset size input
                 setPriceInput("") // reset price input
                 setPDF(null)
