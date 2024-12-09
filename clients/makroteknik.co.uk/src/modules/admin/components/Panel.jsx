@@ -10,6 +10,9 @@ import { MdEdit } from "react-icons/md"
 import { IoMdSave } from "react-icons/io"
 import { MdCancel } from "react-icons/md"
 
+// third
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
+
 export const Panel = () => {
     // stores
     const productsList = useProductStore((s) => s.productsList)
@@ -126,6 +129,24 @@ export const Panel = () => {
         })
     }
 
+    const handleDragEnd = (result) => {
+        const { destination, source } = result
+
+        if (!destination) return // No destination means we ignore the drag
+
+        // If the item was dropped in the same place
+        if (destination.index === source.index) return
+
+        const updatedSizeToPrice = Array.from(currentProduct.sizeToPrice)
+        const [movedItem] = updatedSizeToPrice.splice(source.index, 1) // Remove the item from the source index
+        updatedSizeToPrice.splice(destination.index, 0, movedItem) // Insert it into the destination index
+
+        setCurrentProduct({
+            ...currentProduct,
+            sizeToPrice: updatedSizeToPrice,
+        })
+    }
+
     // handle editing a product
     const handleEditProduct = (product) => {
         setCurrentProduct({
@@ -213,7 +234,9 @@ export const Panel = () => {
                     setPriceInput,
                     handleAddSizePrice,
                     handleSaveProduct,
-                    setIsEditing
+                    setIsEditing,
+                    setCurrentProduct,
+                    handleDragEnd
                 )}
             {/* -------------------------------------------------------------------- */}
             {renderFloatingAddButton(
@@ -328,7 +351,9 @@ function renderProductForm(
     setPriceInput,
     handleAddSizePrice,
     handleSaveProduct,
-    setIsEditing
+    setIsEditing,
+    setCurrentProduct,
+    handleDragEnd
 ) {
     return (
         <div className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm">
@@ -423,31 +448,118 @@ function renderProductForm(
                         size-price:
                     </label>
                     {/* list available sizes */}
-                    {!isAddNewNorEdit &&
-                        currentProduct.sizeToPrice[0] !== undefined > 0 && (
-                            <p></p>
-                        ) && (
-                            <ul className="text-black text-opacity-60">
-                                {currentProduct.sizeToPrice.map(
-                                    (sizePrice, idx) => (
-                                        <li key={idx} className="flex ">
-                                            {`${Object.keys(sizePrice)[0]} - ${
-                                                Object.values(sizePrice)[0]
-                                            }`}
-                                            <button
-                                                type="button"
-                                                className="text-rose-600 ml-auto font-bold"
-                                                onClick={() =>
-                                                    handleRemoveSizePrice(idx)
-                                                }
+                    <DragDropContext onDragEnd={handleDragEnd}>
+                        <Droppable droppableId="sizeToPriceList">
+                            {(provided) => (
+                                <ul
+                                    ref={provided.innerRef}
+                                    {...provided.droppableProps}
+                                    className="text-black text-opacity-60"
+                                >
+                                    {currentProduct.sizeToPrice.map(
+                                        (sizePrice, idx) => (
+                                            <Draggable
+                                                key={idx}
+                                                draggableId={String(idx)}
+                                                index={idx}
                                             >
-                                                remove
-                                            </button>
-                                        </li>
-                                    )
-                                )}
-                            </ul>
-                        )}
+                                                {(provided) => (
+                                                    <li
+                                                        ref={provided.innerRef}
+                                                        {...provided.draggableProps}
+                                                        {...provided.dragHandleProps}
+                                                        className="flex gap-4 items-center mb-2"
+                                                    >
+                                                        <input
+                                                            type="text"
+                                                            value={
+                                                                Object.keys(
+                                                                    sizePrice
+                                                                )[0]
+                                                            }
+                                                            onChange={(e) => {
+                                                                const newSizeToPrice =
+                                                                    [
+                                                                        ...currentProduct.sizeToPrice,
+                                                                    ]
+                                                                const updatedSize =
+                                                                    e.target
+                                                                        .value
+                                                                const price =
+                                                                    Object.values(
+                                                                        sizePrice
+                                                                    )[0]
+                                                                newSizeToPrice[
+                                                                    idx
+                                                                ] = {
+                                                                    [updatedSize]:
+                                                                        price,
+                                                                }
+                                                                setCurrentProduct(
+                                                                    {
+                                                                        ...currentProduct,
+                                                                        sizeToPrice:
+                                                                            newSizeToPrice,
+                                                                    }
+                                                                )
+                                                            }}
+                                                            className="border border-gray-400 p-2 rounded w-1/2"
+                                                        />
+                                                        <input
+                                                            type="text"
+                                                            value={
+                                                                Object.values(
+                                                                    sizePrice
+                                                                )[0]
+                                                            }
+                                                            onChange={(e) => {
+                                                                const newSizeToPrice =
+                                                                    [
+                                                                        ...currentProduct.sizeToPrice,
+                                                                    ]
+                                                                const size =
+                                                                    Object.keys(
+                                                                        sizePrice
+                                                                    )[0]
+                                                                const updatedPrice =
+                                                                    e.target
+                                                                        .value
+                                                                newSizeToPrice[
+                                                                    idx
+                                                                ] = {
+                                                                    [size]: updatedPrice,
+                                                                }
+                                                                setCurrentProduct(
+                                                                    {
+                                                                        ...currentProduct,
+                                                                        sizeToPrice:
+                                                                            newSizeToPrice,
+                                                                    }
+                                                                )
+                                                            }}
+                                                            className="border border-gray-400 p-2 rounded w-1/2"
+                                                        />
+                                                        <button
+                                                            type="button"
+                                                            onClick={() =>
+                                                                handleRemoveSizePrice(
+                                                                    idx
+                                                                )
+                                                            }
+                                                            className="text-rose-600 font-bold ml-2"
+                                                        >
+                                                            Remove
+                                                        </button>
+                                                    </li>
+                                                )}
+                                            </Draggable>
+                                        )
+                                    )}
+                                    {provided.placeholder}
+                                </ul>
+                            )}
+                        </Droppable>
+                    </DragDropContext>
                     {/* Inputs for size and price */}
                     <div className="flex gap-4">
                         <input
