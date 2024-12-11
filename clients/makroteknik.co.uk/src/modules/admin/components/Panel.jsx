@@ -330,12 +330,9 @@ function renderCardGrid(
                                 category:
                             </h3>
                             <p>
-                                {
-                                    categoriesList.find(
-                                        (category) =>
-                                            category._id === v.categoryID
-                                    ).categoryName
-                                }
+                                {categoriesList.find(
+                                    (category) => category._id === v.categoryID
+                                )?.categoryName || null}
                             </p>
                             <hr className="border-black border-opacity-20 my-2" />
                             <h3 className="text-primary font-bold">
