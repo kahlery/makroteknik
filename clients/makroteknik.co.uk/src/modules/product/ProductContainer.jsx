@@ -15,12 +15,23 @@ const ProductContainer = () => {
     // states
     const [showScrollToTop, setShowScrollToTop] = useState(false)
     const [searchQuery, setSearchQuery] = useState("")
+    const [scrollingUp, setScrollingUp] = useState(true)
+    const [lastScrollY, setLastScrollY] = useState(0)
 
     // stores
     const productsList = useProductStore((state) => state.productsList)
 
     useEffect(() => {
         const handleScroll = () => {
+            // Detect scroll direction
+            if (window.scrollY > lastScrollY) {
+                setScrollingUp(false) // Scrolling down
+            } else {
+                setScrollingUp(true) // Scrolling up
+            }
+            setLastScrollY(window.scrollY)
+
+            // Show the scroll-to-top button
             setShowScrollToTop(window.scrollY > 200)
         }
 
@@ -29,7 +40,7 @@ const ProductContainer = () => {
         return () => {
             window.removeEventListener("scroll", handleScroll)
         }
-    }, [])
+    }, [lastScrollY])
 
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" })
@@ -44,6 +55,7 @@ const ProductContainer = () => {
         <div className="h-full w-full bg-fon">
             <div className="md:h-24 pt-20 md:mt-6 bg-fon" />
             {renderSearchBar()}
+            <br />
             <br />
             <CategoryCards />
             <div
@@ -72,16 +84,21 @@ const ProductContainer = () => {
     function renderSearchBar() {
         return (
             <div
-                className="flex flex-row items-center gap-0 bg-white p-0 z-10 px-4 md:mx-[16rem] 
-            2xl:mx-[25rem] text-sm border-black border-b border-opacity-40 py-[5px] mx-4"
+                className={`w-full h-12 fixed flex flex-row justify-center bg-white  items-center gap-0 p-0 px-4 md:px-[16rem] 2xl:px-[25rem] 
+                text-md border-black border-y border-opacity-40 py-[5px] transition-all duration-500 top-[50px] md:top-[90px]
+                ${
+                    scrollingUp
+                        ? "transform translate-y-0 z-50"
+                        : "transform -translate-y-20 z-0"
+                }`}
             >
-                <FaSearch className="p-1 text-primary" size={"20px"} />
+                <FaSearch className="p-1 text-black" size={"25px"} />
                 <input
                     type="text"
                     placeholder="search products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full p-1 bg-white text-black focus:outline-none 
+                    className="p-1 bg-white  text-black focus:outline-none 
                     placeholder-opacity-100"
                 />
             </div>
