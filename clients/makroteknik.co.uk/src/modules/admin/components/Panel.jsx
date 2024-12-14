@@ -164,25 +164,26 @@ export const Panel = () => {
             description: product.description ?? "",
         })
 
-        setIsPDFExists(await getPDFMeta(currentProduct._id))
+        // setIsPDFExists(await getPDFMeta(currentProduct._id))
 
         setPDF(null)
 
         setSizeInput("") // Reset size input on edit
         setPriceInput("") // Reset price input on edit
+        setIsEditing(true)
     }
 
-    useEffect(() => {
-        if (isPDFExists !== null) {
-            // Do something when isPDFExists has been updated
-            console.log("PDF exists state has been updated", isPDFExists)
+    // useEffect(() => {
+    //     if (isPDFExists !== null) {
+    //         // Do something when isPDFExists has been updated
+    //         console.log("PDF exists state has been updated", isPDFExists)
 
-            // Continue with the next steps after the PDF check is complete
-            // For example, after this, you can trigger other actions that depend on this state.
-            setIsEditing(true)
-            setIsPDFExists(null)
-        }
-    }, [isPDFExists])
+    //         // Continue with the next steps after the PDF check is complete
+    //         // For example, after this, you can trigger other actions that depend on this state.
+
+    //         setIsPDFExists(null)
+    //     }
+    // }, [isPDFExists])
 
     // handle deleting a product
     const handleDeleteProduct = (id) => {
