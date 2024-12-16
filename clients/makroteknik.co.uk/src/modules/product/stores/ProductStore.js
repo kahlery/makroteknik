@@ -161,7 +161,16 @@ export const useProductStore = create((set, get) => ({
             const response = await axios.get(`${apiUrl}/static/pdf/meta/${id}`)
 
             if (response.data.Size !== undefined) {
-                console.log(response.data)
+                console.log("getPDFMeta successful:", response.data)
+
+                set({
+                    productsList: get().productsList.map((product) =>
+                        product._id === id
+                            ? { ...product, pdf: response.data }
+                            : product
+                    ),
+                })
+
                 return true
             } else {
                 return false

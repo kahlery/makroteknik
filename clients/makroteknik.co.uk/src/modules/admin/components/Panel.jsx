@@ -48,8 +48,6 @@ export const Panel = () => {
 
     const [PDF, setPDF] = useState(null)
 
-    const [isPDFExists, setIsPDFExists] = useState(null)
-
     // handle form input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target
@@ -117,8 +115,6 @@ export const Panel = () => {
         // reset the pdf state
         setPDF(null)
 
-        setIsPDFExists(null)
-
         // reset state after saving
         setIsEditing(false)
 
@@ -153,7 +149,9 @@ export const Panel = () => {
     }
 
     // handle editing a product
-    const handleEditProduct = async (product) => {
+    const handleEditProduct = (product) => {
+        getPDFMeta(product._id)
+
         setCurrentProduct({
             _id: product._id,
             title: product.title ?? "not title",
@@ -164,26 +162,14 @@ export const Panel = () => {
             description: product.description ?? "",
         })
 
-        // setIsPDFExists(await getPDFMeta(currentProduct._id))
-
         setPDF(null)
 
         setSizeInput("") // Reset size input on edit
         setPriceInput("") // Reset price input on edit
         setIsEditing(true)
+
+        console.warn(product.pdf)
     }
-
-    // useEffect(() => {
-    //     if (isPDFExists !== null) {
-    //         // Do something when isPDFExists has been updated
-    //         console.log("PDF exists state has been updated", isPDFExists)
-
-    //         // Continue with the next steps after the PDF check is complete
-    //         // For example, after this, you can trigger other actions that depend on this state.
-
-    //         setIsPDFExists(null)
-    //     }
-    // }, [isPDFExists])
 
     // handle deleting a product
     const handleDeleteProduct = (id) => {
@@ -257,8 +243,7 @@ export const Panel = () => {
                     handleSaveProduct,
                     setIsEditing,
                     setCurrentProduct,
-                    handleDragEnd,
-                    isPDFExists
+                    handleDragEnd
                 )}
             {/* -------------------------------------------------------------------- */}
             {renderFloatingAddButton(
@@ -372,8 +357,7 @@ function renderProductForm(
     handleSaveProduct,
     setIsEditing,
     setCurrentProduct,
-    handleDragEnd,
-    isPDFExists
+    handleDragEnd
 ) {
     return (
         <div className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm">
@@ -419,39 +403,48 @@ function renderProductForm(
                         ))}
                     </select>
                     <label className="text-primary font-bold">pdf:</label>
-                    {isPDFExists ? (
-                        <p className="font-bold text-green-600">pdf exists</p>
-                    ) : (
-                        <p className="text-rose-600 font-bold">
-                            {"no pdf uploaded yet"}
+                    {console.warn(currentProduct.pdf)}
+                    {currentProduct.pdf !== undefined ? (
+                        <p className="text-green-700 font-bold">
+                            pdf already exists
                         </p>
+                    ) : (
+                        <input
+                            type="file"
+                            accept="application/pdf"
+                            onChange={handlePDFChange}
+                            className=""
+                            placeholder=""
+                        />
                     )}
-                    <input
-                        type="file"
-                        accept="application/pdf"
-                        onChange={handlePDFChange}
-                        className=""
-                        placeholder=""
-                    />
                     <label className="text-primary font-bold">
                         product image:
                     </label>
                     {currentProduct.image ? (
                         <div className="flex flex-col gap-4 items-start relative">
-                            <img className="w-3/4" src={currentProduct.image} />
+                            {currentProduct.image.length > 40 ? (
+                                <>
+                                    <img
+                                        className="w-3/4"
+                                        src={currentProduct.image}
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={handleImageChange}
+                                        className="absolute top-4 left-4 py-2 bg-white bg-opacity-30 rounded-full backdrop-blur-sm text-rose-700 px-2 font-bold flex gap-2 items-center"
+                                    >
+                                        <MdDeleteOutline className="text-[1.5rem]" />
+                                    </button>
+                                </>
+                            ) : (
+                                ""
+                            )}
                             <input
                                 type="file"
                                 accept="image/*"
                                 onChange={handleImageChange}
                                 className=""
                             />
-                            <button
-                                type="button"
-                                onClick={handleImageChange}
-                                className="absolute top-4 left-4 py-2 bg-white bg-opacity-30 rounded-full backdrop-blur-sm text-rose-700 px-2 font-bold flex gap-2 items-center"
-                            >
-                                <MdDeleteOutline className="text-[1.5rem]" />
-                            </button>
                         </div>
                     ) : (
                         <input
@@ -657,7 +650,6 @@ function renderFloatingAddButton(
                     sizeToPrice: [],
                     description: "",
                 })
-                setIsPDFExists(null)
                 setSizeInput("") // reset size input
                 setPriceInput("") // reset price input
                 setPDF(null)
