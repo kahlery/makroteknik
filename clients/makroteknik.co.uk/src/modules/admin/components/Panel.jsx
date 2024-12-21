@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 // stores
 import { useProductStore } from "../../product/stores/ProductStore"
@@ -17,9 +17,12 @@ export const Panel = () => {
     // stores
     const productsList = useProductStore((s) => s.productsList)
     const categoriesList = useProductStore((s) => s.categoriesList)
+    const getProducts = useProductStore((s) => s.getProducts)
+
     const postProduct = useProductStore((s) => s.postProduct)
     const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
+
     const postPDF = useProductStore((s) => s.postPDF)
     const getPDFMeta = useProductStore((s) => s.getPDFMeta)
 
@@ -101,24 +104,22 @@ export const Panel = () => {
         }))
     }
 
-    // handle saving the product (either update or add)
-    const handleSaveProduct = () => {
+    const handleSaveProduct = async () => {
         if (currentProduct._id) {
             patchProduct(currentProduct._id, currentProduct)
         } else {
-            postProduct(currentProduct)
+            await postProduct(currentProduct) // Assuming postProduct returns the created product
+
+            // refetch the posted product
+            getProducts()
         }
 
-        // send the pdf with product
-        postPDF(currentProduct._id, PDF)
+        if (PDF) {
+            postPDF(currentProduct._id, PDF)
+        }
 
-        // reset the pdf state
         setPDF(null)
-
-        // reset state after saving
         setIsEditing(false)
-
-        // reset the current product
         setCurrentProduct({
             _id: null,
             title: "",
@@ -160,6 +161,7 @@ export const Panel = () => {
             productCode: product.productCode ?? "",
             sizeToPrice: product.sizeToPrice ?? [],
             description: product.description ?? "",
+            pdfMeta: product.pdfMeta,
         })
 
         setPDF(null)
@@ -167,12 +169,11 @@ export const Panel = () => {
         setSizeInput("") // Reset size input on edit
         setPriceInput("") // Reset price input on edit
         setIsEditing(true)
-
-        console.warn(product.pdf)
     }
 
     // handle deleting a product
     const handleDeleteProduct = (id) => {
+        console.warn("deleting product:", currentProduct._id)
         deleteProduct(id)
     }
 
@@ -403,8 +404,11 @@ function renderProductForm(
                         ))}
                     </select>
                     <label className="text-primary font-bold">pdf:</label>
-                    {console.warn(currentProduct.pdf)}
-                    {currentProduct.pdf !== undefined ? (
+                    {console.log(
+                        "currentProduct.pdfMeta:",
+                        currentProduct.pdfMeta
+                    )}
+                    {currentProduct.pdfMeta !== undefined ? (
                         <p className="text-green-700 font-bold">
                             pdf already exists
                         </p>

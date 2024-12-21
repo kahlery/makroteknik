@@ -166,7 +166,7 @@ export const useProductStore = create((set, get) => ({
                 set({
                     productsList: get().productsList.map((product) =>
                         product._id === id
-                            ? { ...product, pdf: response.data }
+                            ? { ...product, pdfMeta: response.data }
                             : product
                     ),
                 })
