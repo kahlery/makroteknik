@@ -13,7 +13,7 @@ export const AdminContainer = ({ className }) => {
 
     return (
         <div
-            className={` flex min-h-screen justify-center bg-gray-200 ${className}`}
+            className={` flex min-h-screen justify-center bg-gray-100 ${className}`}
         >
             {!isLoggedIn ? (
                 <LoginForm setIsLoggedIn={setIsLoggedIn} />

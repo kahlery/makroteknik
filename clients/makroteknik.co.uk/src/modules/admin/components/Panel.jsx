@@ -9,12 +9,16 @@ import { MdAdd } from "react-icons/md"
 import { MdEdit } from "react-icons/md"
 import { IoMdSave } from "react-icons/io"
 import { MdCancel } from "react-icons/md"
+import { MdRefresh } from "react-icons/md"
 
 // third
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
+// Components
+import CFileInput from "../../common/components/CFileInput"
+
 export const Panel = () => {
-    // stores
+    // Stores
     const productsList = useProductStore((s) => s.productsList)
     const categoriesList = useProductStore((s) => s.categoriesList)
     const getProducts = useProductStore((s) => s.getProducts)
@@ -23,6 +27,7 @@ export const Panel = () => {
     const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
 
+    const getPDF = useProductStore((s) => s.getPDF)
     const postPDF = useProductStore((s) => s.postPDF)
     const getPDFMeta = useProductStore((s) => s.getPDFMeta)
 
@@ -173,8 +178,10 @@ export const Panel = () => {
 
     // handle deleting a product
     const handleDeleteProduct = (id) => {
-        console.warn("deleting product:", currentProduct._id)
-        deleteProduct(id)
+        // delete the product after confirmation
+        if (window.confirm("Are you sure you want to delete this product?")) {
+            deleteProduct(id)
+        }
     }
 
     // handle PDF upload
@@ -195,9 +202,9 @@ export const Panel = () => {
         return (
             <div
                 className="px-[5%] fixed flex justify-between gap-12 top-0 left-0 w-full items-center
-     bg-primary p-4 border z-10 border-black border-opacity-20 shadow-xl"
+     bg-black p-2 border z-10 border-black border-opacity-20 shadow-xl"
             >
-                <h1 className="text-lg font-bold text-white">
+                <h1 className="font-bold text-white">
                     makroteknik.co.uk/admin
                 </h1>
                 <div className="flex gap-12">
@@ -206,7 +213,7 @@ export const Panel = () => {
                         placeholder="search..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-72 px-6 py-1 border-gray-600 border  rounded-full bg-primary text-white  placeholder:text-white placeholder:text-opacity-60 placeholder:font-bold"
+                        className="w-72 px-4 py-1 border-gray-600 border bg-white text-black placeholder:text-black placeholder:text-opacity-80 placeholder:font-bold"
                     />
                     <button className="text-white font-bold">products</button>
                     <button className="text-white font-bold">categories</button>
@@ -217,7 +224,7 @@ export const Panel = () => {
     }
 
     return (
-        <div className="relative w-screen flex flex-wrap bg-gray-300 py-16 h-full min-h-screen">
+        <div className="relative w-screen flex flex-wrap py-16 h-full min-h-screen">
             {renderNavbar()}
             {/* -------------------------------------------------------------------- */}
             {renderCardGrid(
@@ -244,7 +251,8 @@ export const Panel = () => {
                     handleSaveProduct,
                     setIsEditing,
                     setCurrentProduct,
-                    handleDragEnd
+                    handleDragEnd,
+                    getPDF
                 )}
             {/* -------------------------------------------------------------------- */}
             {renderFloatingAddButton(
@@ -255,6 +263,8 @@ export const Panel = () => {
                 setPDF,
                 setIsAddNewNorEdit
             )}
+            {/* -------------------------------------------------------------------- */}
+            {renderFloatingRenewButton(getProducts)}
         </div>
     )
 }
@@ -266,23 +276,21 @@ function renderCardGrid(
     categoriesList
 ) {
     return (
-        <div className="flex flex-row w-screen flex-wrap mt-16 gap-16 px-[5%]">
-            {filteredProducts.map((v) => (
+        <div className="flex flex-row w-screen flex-wrap mt-10 gap-16 px-[5%]">
+            {filteredProducts.reverse().map((v) => (
                 <div
                     key={v._id}
-                    className="w-[350px] h-[490px] text-black text-opacity-60 text-sm  border-black border-opacity-20 border p-4  bg-white overflow-clip"
+                    className="w-[350px] h-[490px] text-black text-opacity-60 text-sm 
+                     border-black border-opacity-20 shadow-lg border p-4  bg-white overflow-clip
+                     cursor-pointer hover:shadow-2xl hover:scale-105 transition-transform duration-1000 ease-in-out
+                     "
+                    onClick={() => handleEditProduct(v)}
                 >
                     <div className="gap-4">
                         <div className="relative">
                             <div className="absolute flex flex-col gap-2 right-0">
                                 <button
-                                    className="bg-white bg-opacity-50 backdrop-blur-sm text-primary px-2 py-2 rounded-full font-bold   "
-                                    onClick={() => handleEditProduct(v)}
-                                >
-                                    <MdEdit className="text-[1.5rem]" />
-                                </button>
-                                <button
-                                    className="bg-white backdrop-blur-sm bg-opacity-30 text-rose-700 px-2 py-2 rounded-full font-bold"
+                                    className="bg-white backdrop-blur-sm bg-opacity-10 backdrop-contrast-200 text-rose-500 px-2 py-2  font-bold"
                                     onClick={() => handleDeleteProduct(v._id)}
                                 >
                                     <MdDeleteOutline className="text-[1.5rem]" />
@@ -292,12 +300,12 @@ function renderCardGrid(
                                 <img
                                     src={v.image}
                                     alt={v.title}
-                                    className="w-1/3 object-scale-down h-fit rounded-lg mb-8"
+                                    className="w-1/2 object-scale-down mx-auto h-fit  mb-8"
                                 />{" "}
                                 {/* <img
                                     src={v.image}
                                     alt={v.title}
-                                    className="w-1/3 object-scale-down h-fit rounded-lg mb-8"
+                                    className="w-1/3 object-scale-down h-fit  mb-8"
                                 /> */}
                             </div>
                             <h3 className="text-primary font-bold">title:</h3>
@@ -358,12 +366,13 @@ function renderProductForm(
     handleSaveProduct,
     setIsEditing,
     setCurrentProduct,
-    handleDragEnd
+    handleDragEnd,
+    getPDF
 ) {
     return (
         <div className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm">
             <div className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll">
-                <h3 className="mb-8 font-bold text-rose-700">
+                <h3 className="mb-8 font-bold text-rose-500">
                     {currentProduct._id ? "EDITTING" : "CREATING"}
                 </h3>
                 <form className="flex flex-col gap-4">
@@ -374,7 +383,7 @@ function renderProductForm(
                         value={currentProduct.title}
                         onChange={handleInputChange}
                         placeholder="title"
-                        className="border-b  border-gray-400 p-2"
+                        className="border  border-gray-400 p-2"
                     />
                     <label className="text-primary font-bold">
                         product code:
@@ -385,7 +394,7 @@ function renderProductForm(
                         value={currentProduct.productCode}
                         onChange={handleInputChange}
                         placeholder="product code"
-                        className="border-b border-gray-400 p-2"
+                        className="border border-gray-400 p-2"
                     />
                     <label className="text-primary font-bold">category:</label>
                     {/* dropdown to select category */}
@@ -393,7 +402,7 @@ function renderProductForm(
                         name="categoryID"
                         value={currentProduct.categoryID}
                         onChange={handleInputChange}
-                        className="border-b border-gray-400 p-2"
+                        className="border border-gray-400 p-2"
                     >
                         <option value={0}>select category</option>
                         {/* Map over categories to create options */}
@@ -408,19 +417,28 @@ function renderProductForm(
                         "currentProduct.pdfMeta:",
                         currentProduct.pdfMeta
                     )}
-                    {currentProduct.pdfMeta !== undefined ? (
-                        <p className="text-green-700 font-bold">
-                            pdf already exists
-                        </p>
-                    ) : (
-                        <input
-                            type="file"
-                            accept="application/pdf"
-                            onChange={handlePDFChange}
-                            className=""
-                            placeholder=""
-                        />
+                    {currentProduct.pdfMeta && (
+                        <>
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+                                alt={currentProduct.title}
+                                className="w-1/4 cursor-pointer"
+                                onClick={() => {
+                                    getPDF(currentProduct._id)
+                                }}
+                            />
+                            <p className="text-primary my-2">
+                                {currentProduct._id}.pdf
+                            </p>
+                        </>
                     )}
+                    <CFileInput
+                        id="pdf-upload"
+                        type="file"
+                        accept="application/pdf"
+                        onChange={handlePDFChange}
+                        isAvailable={currentProduct.pdfMeta !== undefined}
+                    />
                     <label className="text-primary font-bold">
                         product image:
                     </label>
@@ -435,7 +453,7 @@ function renderProductForm(
                                     <button
                                         type="button"
                                         onClick={handleImageChange}
-                                        className="absolute top-4 left-4 py-2 bg-white bg-opacity-30 rounded-full backdrop-blur-sm text-rose-700 px-2 font-bold flex gap-2 items-center"
+                                        className="absolute top-4 left-4 py-2 bg-white bg-opacity-30  backdrop-blur-sm text-rose-500 px-2 font-bold flex gap-2 items-center"
                                     >
                                         <MdDeleteOutline className="text-[1.5rem]" />
                                     </button>
@@ -443,19 +461,19 @@ function renderProductForm(
                             ) : (
                                 ""
                             )}
-                            <input
-                                type="file"
-                                accept="image/*"
+                            <CFileInput
+                                id="image-upload"
+                                accept="image/png, image/jpeg, image/jpg, image/webp"
                                 onChange={handleImageChange}
-                                className=""
+                                isAvailable={currentProduct.image.length > 40}
                             />
                         </div>
                     ) : (
-                        <input
-                            type="file" // File input for image upload
-                            accept="image/*"
+                        <CFileInput
+                            id="image-upload-new"
+                            accept="image/png, image/jpeg, image/jpg, image/webp"
                             onChange={handleImageChange} // Change handler for file
-                            className="border border-gray-400 p-2 rounded"
+                            isAvailable={false} // If image is available
                         />
                     )}
                     <label className="text-primary font-bold">
@@ -466,7 +484,7 @@ function renderProductForm(
                         value={currentProduct.description}
                         onChange={handleInputChange}
                         placeholder="product description"
-                        className="border border-gray-400 h-64 p-2 rounded"
+                        className="border border-gray-400 h-64 p-2 "
                     />
                     <label className="text-primary font-bold">
                         size-price:
@@ -527,7 +545,7 @@ function renderProductForm(
                                                                     }
                                                                 )
                                                             }}
-                                                            className="border border-gray-400 p-2 rounded w-1/2"
+                                                            className="border border-gray-400 p-2  w-1/2"
                                                         />
                                                         <input
                                                             type="text"
@@ -561,7 +579,7 @@ function renderProductForm(
                                                                     }
                                                                 )
                                                             }}
-                                                            className="border border-gray-400 p-2 rounded w-1/2"
+                                                            className="border border-gray-400 p-2  w-1/2"
                                                         />
                                                         <button
                                                             type="button"
@@ -570,7 +588,7 @@ function renderProductForm(
                                                                     idx
                                                                 )
                                                             }
-                                                            className="text-rose-600 font-bold ml-2"
+                                                            className="text-rose-500 font-bold ml-2"
                                                         >
                                                             Remove
                                                         </button>
@@ -591,19 +609,19 @@ function renderProductForm(
                             value={sizeInput}
                             onChange={(e) => setSizeInput(e.target.value)}
                             placeholder="size (e.g., 450mm)"
-                            className="border border-gray-400 p-2 rounded"
+                            className="border border-gray-400 p-2 "
                         />
                         <input
                             type="text"
                             value={priceInput}
                             onChange={(e) => setPriceInput(e.target.value)}
                             placeholder="price (e.g., £810.00 ex vat)"
-                            className="border border-gray-400 p-2 rounded"
+                            className="border border-gray-400 p-2 "
                         />
                     </div>
                     <button
                         type="button"
-                        className="bg-primary text-white px-4 py-2 rounded-full font-bold"
+                        className="bg-primary text-white px-4 py-2  font-bold"
                         onClick={handleAddSizePrice}
                     >
                         add entered size-price pair
@@ -613,14 +631,14 @@ function renderProductForm(
                     <div className="fixed right-4 top-4 flex  gap-2">
                         <button
                             type="button"
-                            className="bg-primary text-white px-2 py-2 rounded-full font-bold"
+                            className="bg-primary text-white px-2 py-2  font-bold"
                             onClick={handleSaveProduct}
                         >
                             <IoMdSave className="text-[1.5rem]" />
                         </button>
                         <button
                             type="button"
-                            className="bg-rose-600 text-white px-2 py-2 rounded-full font-bold"
+                            className="bg-rose-600 text-white px-2 py-2  font-bold"
                             onClick={() => setIsEditing(false)}
                         >
                             <MdCancel className="text-[1.5rem]" />
@@ -642,7 +660,7 @@ function renderFloatingAddButton(
 ) {
     return (
         <button
-            className="bg-primary text-white px-4 py-4 rounded-full fixed right-8 bottom-8"
+            className="bg-primary text-white px-4 py-4  fixed right-8 bottom-8"
             onClick={() => {
                 setIsEditing(true)
                 setCurrentProduct({
@@ -661,6 +679,17 @@ function renderFloatingAddButton(
             }}
         >
             <MdAdd className="text-[1.5rem] " />
+        </button>
+    )
+}
+
+function renderFloatingRenewButton(getProducts) {
+    return (
+        <button
+            className="bg-primary text-white px-4 py-4  fixed right-8 bottom-24"
+            onClick={getProducts}
+        >
+            <MdRefresh className="text-[1.5rem]" />
         </button>
     )
 }
