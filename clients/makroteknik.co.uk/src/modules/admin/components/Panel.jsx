@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // stores
 import { useProductStore } from "../../product/stores/ProductStore"
@@ -30,6 +30,20 @@ export const Panel = () => {
     const getPDF = useProductStore((s) => s.getPDF)
     const postPDF = useProductStore((s) => s.postPDF)
     const getPDFMeta = useProductStore((s) => s.getPDFMeta)
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") {
+                setIsEditing(false)
+            }
+        }
+
+        window.addEventListener("keydown", handleKeyDown)
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown)
+        }
+    }, [])
 
     // state to hold the current product being edited or created
     const [currentProduct, setCurrentProduct] = useState({
@@ -370,8 +384,14 @@ function renderProductForm(
     getPDF
 ) {
     return (
-        <div className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm">
-            <div className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll">
+        <div
+            className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm"
+            onClick={() => setIsEditing(false)}
+        >
+            <div
+                className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <h3 className="mb-8 font-bold text-rose-500">
                     {currentProduct._id ? "EDITTING" : "CREATING"}
                 </h3>
