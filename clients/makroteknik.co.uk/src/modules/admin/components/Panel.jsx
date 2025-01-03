@@ -413,7 +413,7 @@ function renderProductForm(
                         ))}
                     </select>
 
-                    <hr className="border-black border-opacity-20 my-2" />
+                    <hr className="border-black border-opacity-100 border-2 my-8" />
 
                     <label className="text-primary font-bold">pdf:</label>
                     {console.log(
@@ -442,7 +442,7 @@ function renderProductForm(
                         isAvailable={currentProduct.pdfMeta !== undefined}
                     />
 
-                    <hr className="border-black border-opacity-20 my-2" />
+                    <hr className="border-black border-opacity-100 border-2 my-8" />
 
                     <label className="text-primary font-bold">
                         product image:
@@ -491,7 +491,7 @@ function renderProductForm(
                         />
                     )}
 
-                    <hr className="border-black border-opacity-20 my-2" />
+                    <hr className="border-black border-opacity-100 border-2 my-8" />
 
                     <label className="text-primary font-bold">
                         description:
