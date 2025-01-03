@@ -412,6 +412,9 @@ function renderProductForm(
                             </option>
                         ))}
                     </select>
+
+                    <hr className="border-black border-opacity-20 my-2" />
+
                     <label className="text-primary font-bold">pdf:</label>
                     {console.log(
                         "currentProduct.pdfMeta:",
@@ -427,7 +430,7 @@ function renderProductForm(
                                     getPDF(currentProduct._id)
                                 }}
                             />
-                            <p className="text-primary my-2">
+                            <p className="text-blue-800">
                                 {currentProduct._id}.pdf
                             </p>
                         </>
@@ -438,6 +441,9 @@ function renderProductForm(
                         onChange={handlePDFChange}
                         isAvailable={currentProduct.pdfMeta !== undefined}
                     />
+
+                    <hr className="border-black border-opacity-20 my-2" />
+
                     <label className="text-primary font-bold">
                         product image:
                     </label>
@@ -456,6 +462,15 @@ function renderProductForm(
                                     >
                                         <MdDeleteOutline className="text-[1.5rem]" />
                                     </button>
+                                    <label className="text-blue-800">
+                                        {currentProduct._id}.
+                                        {
+                                            currentProduct.image
+                                                .split("/")[1]
+                                                .split(";")[0]
+                                                .split("base64,")[0]
+                                        }
+                                    </label>
                                 </>
                             ) : (
                                 ""
@@ -475,6 +490,9 @@ function renderProductForm(
                             isAvailable={false} // If image is available
                         />
                     )}
+
+                    <hr className="border-black border-opacity-20 my-2" />
+
                     <label className="text-primary font-bold">
                         description:
                     </label>
