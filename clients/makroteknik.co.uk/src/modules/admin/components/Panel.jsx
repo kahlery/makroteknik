@@ -434,7 +434,6 @@ function renderProductForm(
                     )}
                     <CFileInput
                         id="pdf-upload"
-                        type="file"
                         accept="application/pdf"
                         onChange={handlePDFChange}
                         isAvailable={currentProduct.pdfMeta !== undefined}

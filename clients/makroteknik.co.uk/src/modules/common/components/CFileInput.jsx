@@ -11,7 +11,7 @@ const CFileInput = ({ id, isAvailable, accept }) => {
     return (
         <div>
             <label
-                htmlFor="file-upload"
+                htmlFor={id}
                 className="custom-file-label cursor-pointer px-4 py-2 bg-black font-bold text-white"
             >
                 {isAvailable ? "file exists/change file" : "new file"}
