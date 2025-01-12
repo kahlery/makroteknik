@@ -147,7 +147,7 @@ export const useProductStore = create((set, get) => ({
                 }
             )
 
-            console.log("file uploaded successfully:", response.data)
+            console.log("PDF file uploaded successfully:", response.data)
         } catch (err) {
             console.error("error uploading the PDF file:", err)
         }

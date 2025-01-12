@@ -52,11 +52,9 @@ const ProductContainer = () => {
     )
 
     return (
-        <div className="h-full w-full bg-fon">
-            <div className="md:h-24 pt-20 md:mt-6 bg-fon" />
+        <div className=" bg-fon">
             {renderSearchBar()}
-            <br />
-            <br />
+            <div className="my-28 md:my-36"></div>
             <CategoryCards />
             <div
                 className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] 
@@ -84,23 +82,39 @@ const ProductContainer = () => {
     function renderSearchBar() {
         return (
             <div
-                className={`w-full h-12 fixed flex flex-row justify-center bg-white  items-center gap-0 p-0 px-4 md:px-[16rem] 2xl:px-[25rem] 
-                text-md border-black border-y border-opacity-40 py-[5px] transition-all duration-500 top-[50px] md:top-[90px]
+                className={`
+                    bg-white
+                    w-[calc(100vw-30*2px)]
+                    2xl:w-[calc(100vw-650*2px)]
+                    mx-auto
+                    shadow-md
+                    sticky
+                    z-0
+                    top-[70px] md:top-[92.5px]
+                    flex flex-row justify-center items-center
+                    h-12 gap-0
+                    text-md border-black border border-opacity-20 border-t-0
+                    transition-all duration-500 
                 ${
                     scrollingUp
                         ? "transform translate-y-0 z-50"
-                        : "transform -translate-y-20 z-0"
+                        : "transform -translate-y-36 z-0"
                 }`}
             >
-                <FaSearch className="p-1 text-black" size={"25px"} />
                 <input
                     type="text"
-                    placeholder="search products..."
+                    placeholder="Search products ..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="p-1 bg-white  text-black focus:outline-none 
-                    placeholder-opacity-100"
+                    className="
+                    mx-8 bg-white text-black focus:outline-none 
+                    placeholder-opacity-100 placeholder:text-sm
+                    w-full
+                    "
                 />
+                <div className="bg-5 h-12 w-24 flex items-center justify-center">
+                    <FaSearch className="p-1 text-white" size={"25px"} />
+                </div>
             </div>
         )
     }

@@ -9,8 +9,6 @@ export const LoginForm = ({ setIsLoggedIn }) => {
     const login = useUserStore((state) => state.login)
 
     const handleLogin = async (e) => {
-        setIsLoggedIn(true)
-
         e.preventDefault()
         const formData = new FormData(e.target)
         const userName = formData.get("userName")

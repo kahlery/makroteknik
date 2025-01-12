@@ -46,7 +46,7 @@ const CategoriesTop = () => {
     const handleMouseEnter = (categoryID) => {
         const timeout = setTimeout(() => {
             setHoveredcategoryID(categoryID)
-        }, 200)
+        }, 500)
         setHoverTimeout(timeout)
     }
 

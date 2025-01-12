@@ -170,24 +170,24 @@ export const Panel = () => {
 
     // handle editing a product
     const handleEditProduct = (product) => {
-        getPDFMeta(product._id)
+        getPDFMeta(product._id).then((pdfMeta) => {
+            setCurrentProduct({
+                _id: product._id,
+                title: product.title ?? "not title",
+                categoryID: product.categoryID ?? "0",
+                image: product.image ?? "",
+                productCode: product.productCode ?? "",
+                sizeToPrice: product.sizeToPrice ?? [],
+                description: product.description ?? "",
+                pdfMeta: pdfMeta,
+            })
 
-        setCurrentProduct({
-            _id: product._id,
-            title: product.title ?? "not title",
-            categoryID: product.categoryID ?? "0",
-            image: product.image ?? "",
-            productCode: product.productCode ?? "",
-            sizeToPrice: product.sizeToPrice ?? [],
-            description: product.description ?? "",
-            pdfMeta: product.pdfMeta,
+            setPDF(null)
+
+            setSizeInput("") // Reset size input on edit
+            setPriceInput("") // Reset price input on edit
+            setIsEditing(true)
         })
-
-        setPDF(null)
-
-        setSizeInput("") // Reset size input on edit
-        setPriceInput("") // Reset price input on edit
-        setIsEditing(true)
     }
 
     // handle deleting a product
@@ -305,7 +305,10 @@ function renderCardGrid(
                             <div className="absolute flex flex-col gap-2 right-0">
                                 <button
                                     className="bg-white backdrop-blur-sm bg-opacity-10 backdrop-contrast-200 text-rose-500 px-2 py-2  font-bold"
-                                    onClick={() => handleDeleteProduct(v._id)}
+                                    onClick={(e) => {
+                                        handleDeleteProduct(v._id)
+                                        e.stopPropagation()
+                                    }}
                                 >
                                     <MdDeleteOutline className="text-[1.5rem]" />
                                 </button>
@@ -433,7 +436,7 @@ function renderProductForm(
                         ))}
                     </select>
 
-                    <hr className="border-black border-opacity-100 border-2 my-8" />
+                    <hr className="border-black border-opacity-20 border my-8" />
 
                     <label className="text-primary font-bold">pdf:</label>
                     {console.log(
@@ -462,7 +465,7 @@ function renderProductForm(
                         isAvailable={currentProduct.pdfMeta !== undefined}
                     />
 
-                    <hr className="border-black border-opacity-100 border-2 my-8" />
+                    <hr className="border-black border-opacity-20 border my-8" />
 
                     <label className="text-primary font-bold">
                         product image:
@@ -511,7 +514,7 @@ function renderProductForm(
                         />
                     )}
 
-                    <hr className="border-black border-opacity-100 border-2 my-8" />
+                    <hr className="border-black border-opacity-20 border my-8" />
 
                     <label className="text-primary font-bold">
                         description:

@@ -21,7 +21,7 @@ const ProductCard = ({
         <div
             key={product._id}
             className={`bg-white md:min-w-[200px]  relative flex flex-col text-sm 
-                duration-1000 h-90  border  pb-4 shadow-lg
+                duration-1000 h-90 pb-4
             hover:scale-100 hover:cursor-pointer hover:border-black
             ${isHorizontalNorVertical ? "w-48" : ""} ${
                 isCartProduct
@@ -40,7 +40,7 @@ const ProductCard = ({
                 alt={product.title}
                 className="h-36 object-scale-down p-4 min-h-32"
             />
-            <hr className="border-gray-200 shadow-md my-3 mx-4" />
+            <hr className="my-3 opacity-0" />
             <div className="px-3 md:px-4 flex flex-col h-full gap-[.30rem]">
                 <h2 className="text-xs h-4 text-black font-bold line-clamp-4">
                     {product.title}

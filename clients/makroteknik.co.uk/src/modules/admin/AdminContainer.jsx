@@ -15,11 +15,14 @@ export const AdminContainer = ({ className }) => {
         <div
             className={` flex min-h-screen justify-center bg-gray-100 ${className}`}
         >
-            {!isLoggedIn ? (
-                <LoginForm setIsLoggedIn={setIsLoggedIn} />
+            <Panel />
+            {/* {!isLoggedIn ? (
+                <LoginForm
+                    setIsLoggedIn={setIsLoggedIn}
+                />
             ) : (
                 <Panel />
-            )}
+            )} */}
         </div>
     )
 }

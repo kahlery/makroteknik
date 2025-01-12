@@ -63,6 +63,7 @@ const AboutContainer = () => {
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                className="shadow-lg"
             ></iframe>
             <address className="leading-relaxed border-l-4 border-secondary pl-4 text-[0.8rem]">
                 <strong>Makro Tech</strong>

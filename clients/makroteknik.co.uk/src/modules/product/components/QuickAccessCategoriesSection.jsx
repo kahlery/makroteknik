@@ -41,12 +41,14 @@ const QuickAccessCategoriesSection = () => {
 
     return (
         <div className="md:px-[16rem] 2xl:px-[25rem] mt-6 px-4 bg-fon">
-            <div className="flex flex-wrap gap-4 justify-start no-scrollbar">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-start no-scrollbar">
                 {categoriesList.map((category, index) => (
                     <button
                         key={category._id}
-                        className={`p-2 w-[30%] h-11 xl:h-10 sm:w-[22.5%] xl:w-[23.5%] text-[9px]
-                            md:text-[.75rem] hover:opacity-75 bg-secondary font-bold text-white bg-opacity-60  border-b-[6px]  border-secondary`}
+                        className={`p-3 h-12 xl:h-12 
+                            w-full
+                            text-xs
+                         hover:opacity-90 bg-gradient-to-r from-secondary to-cyan-600 font-semibold text-white shadow-lg transform transition-transform duration-300 hover:scale-105`}
                         onClick={() =>
                             handleScrollToHeader(category.categoryName)
                         }

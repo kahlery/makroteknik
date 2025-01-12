@@ -49,7 +49,7 @@ const HomeContainer = () => {
                     Industrial Footage:
                 </h1>
                 <iframe
-                    className=""
+                    className="shadow-2xl"
                     width=""
                     height="500"
                     src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
