@@ -78,21 +78,14 @@ export const Panel = () => {
 
     // handle image upload and convert to base64
     const handleImageChange = (e) => {
-        if (e.target.files === undefined) {
-            setCurrentProduct((prevProduct) => ({
-                ...prevProduct,
-                image: null,
-            }))
-            return
-        }
-
         const file = e.target.files[0]
-
         const reader = new FileReader()
         reader.onloadend = () => {
             setCurrentProduct((prevProduct) => ({
                 ...prevProduct,
                 image: reader.result, // Base64 string
+                imageName: file.name,
+                imageFile: file,
             }))
         }
         if (file) {
@@ -134,7 +127,15 @@ export const Panel = () => {
         }
 
         if (PDF) {
-            postPDF(currentProduct._id, PDF)
+            postPDF(currentProduct._id, PDF, currentProduct.pdfName)
+        }
+
+        if (currentProduct.imageFile) {
+            postImage(
+                currentProduct._id,
+                currentProduct.imageFile,
+                currentProduct.imageName
+            )
         }
 
         setPDF(null)
@@ -144,9 +145,12 @@ export const Panel = () => {
             title: "",
             categoryID: 0,
             image: "",
+            imageName: "",
+            imageFile: null,
             productCode: "",
             sizeToPrice: [],
             description: "",
+            pdfName: "",
         })
     }
 
@@ -200,7 +204,12 @@ export const Panel = () => {
 
     // handle PDF upload
     const handlePDFChange = (e) => {
-        setPDF(e.target.files[0])
+        const file = e.target.files[0]
+        setPDF(file)
+        setCurrentProduct((prevProduct) => ({
+            ...prevProduct,
+            pdfName: file.name,
+        }))
     }
 
     // filter products based on search query

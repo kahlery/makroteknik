@@ -2,6 +2,7 @@ package service
 
 import (
 	"api/pkg/log"
+	"fmt"
 	"io"
 
 	"api/pkg/aws/service"
@@ -62,8 +63,12 @@ func (p *PDFService) GetPDFFile(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching PDF")
 	}
 
-	// set content-type for PDF
+	// retrieve the original file name from the database
+	originalFileName := "original-file-name.pdf" // replace with actual retrieval logic
+
+	// set content-type for PDF and content-disposition for original file name
 	c.Set("Content-Type", "application/pdf")
+	c.Set("Content-Disposition", fmt.Sprintf("attachment; filename=%s", originalFileName))
 	return c.Send(fileData)
 }
 
@@ -106,6 +111,9 @@ func (p *PDFService) PostPDFFile(c *fiber.Ctx) error {
 		log.LogError("failed to upload file to S3: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error uploading file to S3")
 	}
+
+	// store the original file name
+	// ... code to store the original file name in the database ...
 
 	// return success response
 	return c.Status(fiber.StatusOK).SendString("File uploaded successfully")
