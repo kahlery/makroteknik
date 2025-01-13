@@ -6,7 +6,6 @@ import { useProductStore } from "../../product/stores/ProductStore"
 // icons
 import { MdDeleteOutline } from "react-icons/md"
 import { MdAdd } from "react-icons/md"
-import { MdEdit } from "react-icons/md"
 import { IoMdSave } from "react-icons/io"
 import { MdCancel } from "react-icons/md"
 import { MdRefresh } from "react-icons/md"
@@ -17,8 +16,22 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 // Components
 import CFileInput from "../../common/components/CFileInput"
 
+let DEFAULT_CURRENT_PRODUCT = {
+    _id: null,
+    title: "",
+    categoryID: 0,
+    image: "",
+    imageTitle: "",
+    imageFile: null,
+    productCode: "",
+    sizeToPrice: [],
+    description: "",
+    pdfName: "",
+}
+
 export const Panel = () => {
-    // Stores
+    // Stores -------------------------------------------------------------------
+    const loading = useProductStore((s) => s.loading)
     const productsList = useProductStore((s) => s.productsList)
     const categoriesList = useProductStore((s) => s.categoriesList)
     const getProducts = useProductStore((s) => s.getProducts)
@@ -27,35 +40,13 @@ export const Panel = () => {
     const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
 
+    const pdfMetaLoading = useProductStore((s) => s.pdfMetaLoading)
+    const startPDFMetaLoading = useProductStore((s) => s.startPDFMetaLoading)
     const getPDF = useProductStore((s) => s.getPDF)
     const postPDF = useProductStore((s) => s.postPDF)
     const getPDFMeta = useProductStore((s) => s.getPDFMeta)
 
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.key === "Escape") {
-                setIsEditing(false)
-            }
-        }
-
-        window.addEventListener("keydown", handleKeyDown)
-
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown)
-        }
-    }, [])
-
-    // state to hold the current product being edited or created
-    const [currentProduct, setCurrentProduct] = useState({
-        _id: null,
-        title: "",
-        categoryID: 0,
-        image: "",
-        productCode: "",
-        sizeToPrice: [],
-        description: "",
-    })
-
+    // States --------------------------------------------------------------------
     // state to control whether the form is visible for editing/adding
     const [isEditing, setIsEditing] = useState(false)
 
@@ -76,6 +67,27 @@ export const Panel = () => {
         setCurrentProduct({ ...currentProduct, [name]: value })
     }
 
+    // state to hold the current product being edited or created
+    const [currentProduct, setCurrentProduct] = useState(
+        DEFAULT_CURRENT_PRODUCT
+    )
+
+    // Effects --------------------------------------------------------------------
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") {
+                setIsEditing(false)
+            }
+        }
+
+        window.addEventListener("keydown", handleKeyDown)
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown)
+        }
+    }, [])
+
+    // Handlers --------------------------------------------------------------------
     // handle image upload and convert to base64
     const handleImageChange = (e) => {
         const file = e.target.files[0]
@@ -84,7 +96,7 @@ export const Panel = () => {
             setCurrentProduct((prevProduct) => ({
                 ...prevProduct,
                 image: reader.result, // Base64 string
-                imageName: file.name,
+                imageTitle: file.name,
                 imageFile: file,
             }))
         }
@@ -117,41 +129,28 @@ export const Panel = () => {
     }
 
     const handleSaveProduct = async () => {
+        let productID
+
         if (currentProduct._id) {
-            patchProduct(currentProduct._id, currentProduct)
+            console.log("There already this product exists, patching it.")
+            await patchProduct(currentProduct._id, currentProduct)
         } else {
-            await postProduct(currentProduct) // Assuming postProduct returns the created product
-
-            // refetch the posted product
-            getProducts()
+            console.log("Creating the product.")
+            productID = await postProduct(currentProduct) // Ensure this returns the created product with `_id`.
         }
 
+        return productID
+    }
+
+    const postFiles = (productID) => {
         if (PDF) {
-            postPDF(currentProduct._id, PDF, currentProduct.pdfName)
+            postPDF(productID, PDF, currentProduct.pdfName)
         }
 
-        if (currentProduct.imageFile) {
-            postImage(
-                currentProduct._id,
-                currentProduct.imageFile,
-                currentProduct.imageName
-            )
-        }
-
+        // Reset the form after successful save
         setPDF(null)
         setIsEditing(false)
-        setCurrentProduct({
-            _id: null,
-            title: "",
-            categoryID: 0,
-            image: "",
-            imageName: "",
-            imageFile: null,
-            productCode: "",
-            sizeToPrice: [],
-            description: "",
-            pdfName: "",
-        })
+        setCurrentProduct(DEFAULT_CURRENT_PRODUCT)
     }
 
     const handleDragEnd = (result) => {
@@ -174,7 +173,9 @@ export const Panel = () => {
 
     // handle editing a product
     const handleEditProduct = (product) => {
-        getPDFMeta(product._id).then((pdfMeta) => {
+        startPDFMetaLoading()
+
+        getPDFMeta(product._id).then(() => {
             setCurrentProduct({
                 _id: product._id,
                 title: product.title ?? "not title",
@@ -183,7 +184,7 @@ export const Panel = () => {
                 productCode: product.productCode ?? "",
                 sizeToPrice: product.sizeToPrice ?? [],
                 description: product.description ?? "",
-                pdfMeta: pdfMeta,
+                pdfMeta: product.pdfMeta ?? "",
             })
 
             setPDF(null)
@@ -246,6 +247,14 @@ export const Panel = () => {
         )
     }
 
+    if (loading > 0) {
+        return (
+            <div className="text-center text-lg text-gray-500 mt-32">
+                Loading...
+            </div>
+        )
+    }
+
     return (
         <div className="relative w-screen flex flex-wrap py-16 h-full min-h-screen">
             {renderNavbar()}
@@ -258,6 +267,7 @@ export const Panel = () => {
             )}
             {/* -------------------------------------------------------------------- */}
             {isEditing &&
+                !pdfMetaLoading &&
                 renderProductForm(
                     currentProduct,
                     handleInputChange,
@@ -272,6 +282,7 @@ export const Panel = () => {
                     setPriceInput,
                     handleAddSizePrice,
                     handleSaveProduct,
+                    postFiles,
                     setIsEditing,
                     setCurrentProduct,
                     handleDragEnd,
@@ -390,6 +401,7 @@ function renderProductForm(
     setPriceInput,
     handleAddSizePrice,
     handleSaveProduct,
+    postFiles,
     setIsEditing,
     setCurrentProduct,
     handleDragEnd,
@@ -462,8 +474,12 @@ function renderProductForm(
                                     getPDF(currentProduct._id)
                                 }}
                             />
-                            <p className="text-blue-800">
-                                {currentProduct._id}.pdf
+                            <p className="text-1">
+                                {console.log(
+                                    "currentProduct.pdfMeta:",
+                                    currentProduct.pdfMeta
+                                )}
+                                {currentProduct.pdfMeta.Title}
                             </p>
                         </>
                     )}
@@ -471,7 +487,7 @@ function renderProductForm(
                         id="pdf-upload"
                         accept="application/pdf"
                         onChange={handlePDFChange}
-                        isAvailable={currentProduct.pdfMeta !== undefined}
+                        isAvailable={currentProduct.pdfMeta}
                     />
 
                     <hr className="border-black border-opacity-20 border my-8" />
@@ -494,8 +510,8 @@ function renderProductForm(
                                     >
                                         <MdDeleteOutline className="text-[1.5rem]" />
                                     </button>
-                                    <label className="text-blue-800">
-                                        {currentProduct._id}.
+                                    <label className="text-1">
+                                        {currentProduct.imageTitle}.
                                         {
                                             currentProduct.image
                                                 .split("/")[1]
@@ -681,7 +697,17 @@ function renderProductForm(
                         <button
                             type="button"
                             className="bg-primary text-white px-2 py-2  font-bold"
-                            onClick={handleSaveProduct}
+                            onClick={async () => {
+                                try {
+                                    const id = await handleSaveProduct()
+                                    postFiles(id)
+                                } catch (error) {
+                                    console.error(
+                                        "Error saving product:",
+                                        error
+                                    )
+                                }
+                            }}
                         >
                             <IoMdSave className="text-[1.5rem]" />
                         </button>
@@ -712,15 +738,7 @@ function renderFloatingAddButton(
             className="bg-primary text-white px-4 py-4  fixed right-8 bottom-8"
             onClick={() => {
                 setIsEditing(true)
-                setCurrentProduct({
-                    _id: null,
-                    title: "",
-                    categoryID: 0,
-                    image: "",
-                    productCode: "",
-                    sizeToPrice: [],
-                    description: "",
-                })
+                setCurrentProduct(DEFAULT_CURRENT_PRODUCT)
                 setSizeInput("") // reset size input
                 setPriceInput("") // reset price input
                 setPDF(null)

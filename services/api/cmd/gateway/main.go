@@ -179,7 +179,7 @@ func setupRoutes(app *fiber.App) {
 	// pdf:
 	staticGroup.Get("pdf/is-exist/:id", pdfService.GetFileMeta)
 	staticGroup.Get("/pdf/:id", pdfService.GetPDFFile)
-	staticGroup.Post("/pdf/upload/:id", pdfService.PostPDFFile)
+	staticGroup.Post("/pdf/upload/:id/:title", pdfService.PostPDFFile)
 	staticGroup.Get("/pdf/meta/:id", pdfService.GetFileMeta)
 }
 

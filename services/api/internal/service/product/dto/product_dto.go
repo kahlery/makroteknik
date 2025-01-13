@@ -9,6 +9,7 @@ type Product struct {
 	SizeToPrice []map[string]string `json:"sizeToPrice"`
 	Image       string              `json:"image"`
 	IsPDFExist  bool                `json:"isPDFExist"`
+	ImageName   string              `json:"imageName"`
 }
 
 type GetProductsResponse struct {
@@ -17,4 +18,8 @@ type GetProductsResponse struct {
 
 type DeleteProductRequest struct {
 	ID string `json:"id"`
+}
+
+type PostProductResponse struct {
+	ProductID string `json:"productID"`
 }

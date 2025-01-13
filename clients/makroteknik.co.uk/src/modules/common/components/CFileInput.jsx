@@ -17,9 +17,9 @@ const CFileInput = ({ id, isAvailable, accept, onChange }) => {
         <div>
             <label
                 htmlFor={id}
-                className="custom-file-label cursor-pointer px-4 py-2 bg-orange-600 font-bold text-white"
+                className="custom-file-label cursor-pointer px-4 py-2 bg-1 font-bold text-white"
             >
-                {isAvailable ? "file exists: change file" : "new file"}
+                {isAvailable ? "file exists! change file?" : "new file"}
             </label>
             <input
                 id={id}
@@ -28,7 +28,7 @@ const CFileInput = ({ id, isAvailable, accept, onChange }) => {
                 onChange={handleFileChange}
                 className="hidden"
             />
-            <span className="ml-4 text-gray-700">{fileName}</span>
+            <span className="ml-4">{fileName}</span>
         </div>
     )
 }

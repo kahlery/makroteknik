@@ -38,43 +38,52 @@ func InitS3Client() *s3.Client {
 
 // functions --------------------------------------------------------------------
 
-func (s *S3Service) GetObject(path *string, fileName *string) ([]byte, error) {
-	// define full key
+func (s *S3Service) GetObject(path *string, fileName *string) ([]byte, map[string]string, error) {
+	// Define the full key
 	key := *path + *fileName
 
 	logger.LogWarn("get requesting on S3 with:" + "| filename: " + *fileName + "| path: " + *path + "| key: " + key)
 
-	// set up the GetObject input
+	// Set up the GetObject input
 	input := &s3.GetObjectInput{
 		Bucket: &s.bucket,
 		Key:    &key,
 	}
 
-	// call s3 GetObject
+	// Call S3 GetObject
 	res, err := s.s3Client.GetObject(context.TODO(), input)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get file from S3: %w", err)
+		return nil, nil, fmt.Errorf("failed to get file from S3: %w", err)
 	}
 	defer res.Body.Close()
 
-	// read content from the result body
+	// Read content from the result body
 	data, err := io.ReadAll(res.Body)
 	if err != nil {
-		return nil, fmt.Errorf("failed to read data from S3 object: %w", err)
+		return nil, nil, fmt.Errorf("failed to read data from S3 object: %w", err)
 	}
 
-	return data, nil
+	// Return the file data and metadata
+	return data, res.Metadata, nil
 }
 
-func (s *S3Service) PostObject(path *string, fileName *string, data []byte) error {
-	// define full key
+// --------------------------------------------------------------------
+
+func (s *S3Service) PostObject(path *string, fileName *string, data []byte, objectTitle string) error {
+	// Define the full key
 	key := *path + *fileName
 
-	// set up PutObject input
+	// Create a metadata to store real name of the file
+	metadata := map[string]string{
+		"title": objectTitle,
+	}
+
+	// Set up PutObject input with metadata
 	input := &s3.PutObjectInput{
-		Bucket: &s.bucket,
-		Key:    &key,
-		Body:   bytes.NewReader(data),
+		Bucket:   &s.bucket,
+		Key:      &key,
+		Body:     bytes.NewReader(data),
+		Metadata: metadata,
 	}
 
 	// Call S3 PutObject
@@ -85,6 +94,8 @@ func (s *S3Service) PostObject(path *string, fileName *string, data []byte) erro
 
 	return nil
 }
+
+// ----------------------------------------------------------------------------------------------------------------------------------------
 
 func (s *S3Service) DeleteObject(path string, fileName string) error {
 	// Define the full key for S3
@@ -105,7 +116,9 @@ func (s *S3Service) DeleteObject(path string, fileName string) error {
 	return nil
 }
 
-func (s *S3Service) GetObjectMeta(path string, fileName string) (*s3.HeadObjectOutput, error) {
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+func (s *S3Service) GetObjectHead(path string, fileName string) (*s3.HeadObjectOutput, error) {
 	// Define the full key (path + fileName)
 	key := path + fileName
 
@@ -122,6 +135,8 @@ func (s *S3Service) GetObjectMeta(path string, fileName string) (*s3.HeadObjectO
 	if err != nil {
 		return nil, fmt.Errorf("failed to get metadata for file from S3: %w", err)
 	}
+
+	logger.LogSuccess(fmt.Sprintf("metadata succesfully fetched: %v", res.Metadata))
 
 	// Return the metadata result
 	return res, nil

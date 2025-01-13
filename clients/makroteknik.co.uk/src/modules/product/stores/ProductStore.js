@@ -2,10 +2,11 @@ import { create } from "zustand"
 import axios from "axios"
 
 export const useProductStore = create((set, get) => ({
-    apiUrl: process.env.REACT_APP_API_URL,
+    apiUrl: process.env.REACT_APP_API_URL ?? "http://localhost:8855",
     productsList: [],
     categoriesList: [],
     loading: 2,
+    pdfMetaLoading: false,
 
     getProducts: async () => {
         try {
@@ -34,32 +35,37 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
-    postProduct: async (formData) => {
+    postProduct: async (product) => {
         try {
             const { apiUrl } = get()
 
-            if (
-                formData.categoryID === undefined ||
-                formData.categoryID === 0
-            ) {
-                formData.categoryID = "0"
+            // Ensure categoryID is properly set
+            if (!product.categoryID || product.categoryID === 0) {
+                product.categoryID = "0"
             }
 
+            // Send the data to the API
             const response = await axios.post(
                 `${apiUrl}/product/post`,
-                formData,
+                product,
                 {
                     headers: {
-                        "Content-Type": "application/json", // Adjust as needed
+                        "Content-Type": "application/json", // Adjust if you're sending JSON
                     },
                 }
             )
+
+            product._id = response.data.productID
+
+            // Add the new product to state
             set((state) => ({
-                productsList: [...state.productsList, formData],
-                loading: false,
-            })) // Add new product
+                productsList: [...state.productsList, product],
+                loading: 0,
+            }))
+
+            return product._id
         } catch (err) {
-            console.error(err)
+            console.error("Error posting product:", err)
         }
     },
 
@@ -81,7 +87,7 @@ export const useProductStore = create((set, get) => ({
                 productsList: state.productsList.map((product) =>
                     product._id === id ? formData : product
                 ),
-                loading: false,
+                loading: 0,
             })) // Update product
         } catch (err) {
             console.error(err)
@@ -128,7 +134,7 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
-    postPDF: async (id, file) => {
+    postPDF: async (id, file, fileName) => {
         try {
             const { apiUrl } = get()
 
@@ -138,7 +144,7 @@ export const useProductStore = create((set, get) => ({
 
             // make API call to upload the PDF
             const response = await axios.post(
-                `${apiUrl}/static/pdf/upload/${id}`,
+                `${apiUrl}/static/pdf/upload/${id}/${fileName}`,
                 formData,
                 {
                     headers: {
@@ -151,6 +157,12 @@ export const useProductStore = create((set, get) => ({
         } catch (err) {
             console.error("error uploading the PDF file:", err)
         }
+    },
+
+    startPDFMetaLoading: () => {
+        set({
+            pdfMetaLoading: true,
+        })
     },
 
     getPDFMeta: async (id) => {
@@ -171,11 +183,23 @@ export const useProductStore = create((set, get) => ({
                     ),
                 })
 
+                set({
+                    pdfMetaLoading: false,
+                })
+
                 return true
             } else {
+                set({
+                    pdfMetaLoading: false,
+                })
+
                 return false
             }
         } catch (err) {
+            set({
+                pdfMetaLoading: false,
+            })
+
             console.error("error getting metadata of the PDF", err)
             return false
         }

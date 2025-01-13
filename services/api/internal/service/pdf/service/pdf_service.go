@@ -2,7 +2,6 @@ package service
 
 import (
 	"api/pkg/log"
-	"fmt"
 	"io"
 
 	"api/pkg/aws/service"
@@ -34,7 +33,7 @@ func (p *PDFService) GetFileMeta(c *fiber.Ctx) error {
 	fileName := id + ".pdf"
 
 	// Fetch metadata for the PDF file from S3
-	meta, err := p.s3Service.GetObjectMeta(*p.dirPath, fileName)
+	headData, err := p.s3Service.GetObjectHead(*p.dirPath, fileName)
 	if err != nil {
 		log.LogError("failed to fetch file metadata: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching file metadata")
@@ -42,9 +41,10 @@ func (p *PDFService) GetFileMeta(c *fiber.Ctx) error {
 
 	// Create a map to store the metadata
 	metaInfo := map[string]interface{}{
-		"Size":         *meta.ContentLength, // file size in bytes
-		"ContentType":  *meta.ContentType,   // content type (application/pdf)
-		"LastModified": *meta.LastModified,  // last modified date
+		"Size":         *headData.ContentLength, // file size in bytes
+		"ContentType":  *headData.ContentType,   // content type (application/pdf)
+		"LastModified": *headData.LastModified,  // last modified date
+		"Title":        headData.Metadata["title"],
 	}
 
 	// Return metadata as JSON response
@@ -56,38 +56,36 @@ func (p *PDFService) GetPDFFile(c *fiber.Ctx) error {
 	// S3 file path and name
 	fileName := id + ".pdf"
 
-	// fetch the PDF from S3
-	fileData, err := p.s3Service.GetObject(p.dirPath, &fileName)
+	// Fetch the PDF from S3
+	// Pass the metaData with _
+	fileData, _, err := p.s3Service.GetObject(p.dirPath, &fileName)
 	if err != nil {
 		log.LogError("failed to fetch file: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching PDF")
 	}
 
-	// retrieve the original file name from the database
-	originalFileName := "original-file-name.pdf" // replace with actual retrieval logic
-
 	// set content-type for PDF and content-disposition for original file name
 	c.Set("Content-Type", "application/pdf")
-	c.Set("Content-Disposition", fmt.Sprintf("attachment; filename=%s", originalFileName))
+
 	return c.Send(fileData)
 }
 
 func (p *PDFService) PostPDFFile(c *fiber.Ctx) error {
-	// parse the ID parameter from the URL
+	// Parse the ID parameter from the URL
 	id := c.Params("id")
 	if id == "" {
 		log.LogError("missing id parameter on UploadPDFFile")
 		return c.Status(fiber.StatusBadRequest).SendString("Missing id parameter")
 	}
 
-	// get the file from the request body
+	// Get the file from the request body
 	file, err := c.FormFile("file")
 	if err != nil {
 		log.LogError("failed to parse uploaded file: " + err.Error())
-		return c.Status(fiber.StatusBadRequest).SendString("Error on parsing uploaded file")
+		return c.Status(fiber.StatusBadRequest).SendString("Error parsing uploaded file")
 	}
 
-	// open the file
+	// Open the file
 	fileData, err := file.Open()
 	if err != nil {
 		log.LogError("failed to open uploaded file: " + err.Error())
@@ -95,26 +93,25 @@ func (p *PDFService) PostPDFFile(c *fiber.Ctx) error {
 	}
 	defer fileData.Close()
 
-	// read file content
+	// Read file content
 	fileBytes, err := io.ReadAll(fileData)
 	if err != nil {
 		log.LogError("failed to read uploaded file: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error reading uploaded file")
 	}
 
-	// S3 file path and name
+	// Real file named will be stored in metadata,
+	// Cause the file will be saved as id.extension
 	fileName := id + ".pdf"
+	fileTitle := c.Params("title")
 
-	// upload the file to S3
-	err = p.s3Service.PostObject(p.dirPath, &fileName, fileBytes)
+	// Upload the file to S3 with metadata
+	err = p.s3Service.PostObject(p.dirPath, &fileName, fileBytes, fileTitle)
 	if err != nil {
 		log.LogError("failed to upload file to S3: " + err.Error())
 		return c.Status(fiber.StatusInternalServerError).SendString("Error uploading file to S3")
 	}
 
-	// store the original file name
-	// ... code to store the original file name in the database ...
-
-	// return success response
+	// Return success response
 	return c.Status(fiber.StatusOK).SendString("File uploaded successfully")
 }

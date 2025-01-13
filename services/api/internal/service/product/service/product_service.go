@@ -54,7 +54,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 	productResponses := []dto.Product{}
 	for _, product := range products {
 		imageName := product.ID.Hex() + ".webp"
-		imageData, err := p.s3Service.GetObject(p.imagePath, &imageName)
+		imageData, _, err := p.s3Service.GetObject(p.imagePath, &imageName)
 		if err != nil {
 			// log.LogError("failed to read from directory to buffer: " + err.Error())
 			failedImageIds = append(failedImageIds, product.ID.Hex())
@@ -97,9 +97,11 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 
 	pkgLog.LogSuccess("Product received: " + product.Title)
 
+	generatedID := primitive.NewObjectID()
+
 	// 2. Map the product to the model
 	mappedProduct := model.Product{
-		ID:          primitive.NewObjectID(),
+		ID:          generatedID,
 		CategoryID:  product.CategoryID,
 		Title:       product.Title,
 		ProductCode: product.ProductCode,
@@ -111,7 +113,6 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 
 	if product.Image != "" {
 		var err error
-		// 3. Save the image to ../../assets/images/products with the _id.webp name
 		imageData, err = base64.StdEncoding.DecodeString(strings.Split(product.Image, "base64,")[1])
 		if err != nil {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to decode base64 image: " + err.Error())
@@ -119,7 +120,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 	}
 
 	imageName := mappedProduct.ID.Hex() + ".webp"
-	if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData); err != nil {
+	if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData, product.ImageName); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 	}
 
@@ -128,7 +129,9 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to add product to MongoDB: " + err.Error())
 	}
 
-	return ctx.Status(fiber.StatusOK).SendString("product added successfully")
+	return ctx.Status(fiber.StatusOK).JSON(dto.PostProductResponse{
+		ProductID: generatedID.Hex(),
+	})
 }
 
 // --------------------------------------------------------------------
@@ -182,7 +185,7 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 		}
 
 		imageName := mappedProduct.ID.Hex() + ".webp"
-		if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData); err != nil {
+		if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData, "testing"); err != nil {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 		}
 	}
