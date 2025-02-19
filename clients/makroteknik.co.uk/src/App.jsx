@@ -11,6 +11,8 @@ import LayoutContainer from "./modules/layout/LayoutContainer"
 import { AdminContainer } from "./modules/admin/AdminContainer"
 import CartContainer from "./modules/cart/CartContainer"
 import { AboutContainer } from "./modules/about"
+import CategoryView from "./modules/admin/CategoryView"
+import { Panel } from "./modules/admin/components/Panel"
 
 class App extends Component {
     render() {
@@ -22,7 +24,10 @@ class App extends Component {
                         <Route path="about" element={<AboutContainer />} />
                         <Route path="products" element={<ProductContainer />} />
                         <Route path="cart" element={<CartContainer />} />
-                        <Route path="admin" element={<AdminContainer />} />
+                        <Route path="admin" element={<AdminContainer />}>
+                            <Route path="" element={<Panel />} />
+                            <Route path="category" element={<CategoryView />} />
+                        </Route>
                         <Route path="*" element={<NotFoundContainer />} />
                     </Route>
                 </Routes>

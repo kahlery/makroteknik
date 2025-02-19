@@ -85,15 +85,15 @@ const ProductContainer = () => {
                 className={`
                     bg-white
                     w-[calc(100vw-30*2px)]
-                    2xl:w-[calc(100vw-650*2px)]
+                    2xl:w-[calc(100vw-600*2px)]
                     mx-auto
-                    shadow-md
+                    shadow-lg
                     sticky
                     z-0
                     top-[70px] md:top-[92.5px]
                     flex flex-row justify-center items-center
                     h-12 gap-0
-                    text-md border-black border border-opacity-20 border-t-0
+                    text-md border-black
                     transition-all duration-500 
                 ${
                     scrollingUp
@@ -103,7 +103,7 @@ const ProductContainer = () => {
             >
                 <input
                     type="text"
-                    placeholder="Search products ..."
+                    placeholder="Search Products ..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="

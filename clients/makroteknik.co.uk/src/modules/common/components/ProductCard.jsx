@@ -26,7 +26,7 @@ const ProductCard = ({
             ${isHorizontalNorVertical ? "w-48" : ""} ${
                 isCartProduct
                     ? " shadow-[_5px_5px_rgba(0,_98,_90,_0.2),_10px_10px_rgba(0,_98,_90,_0.1),_15px_15px_rgba(0,_98,_90,_0.05)]"
-                    : " "
+                    : "shadow-lg"
             }`}
             onClick={() => {
                 // show product detail in a modal

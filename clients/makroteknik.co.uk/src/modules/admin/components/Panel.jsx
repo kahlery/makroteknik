@@ -9,12 +9,14 @@ import { MdAdd } from "react-icons/md"
 import { IoMdSave } from "react-icons/io"
 import { MdCancel } from "react-icons/md"
 import { MdRefresh } from "react-icons/md"
+import { MdContentCopy } from "react-icons/md"
 
 // third
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
-// Components
 import CFileInput from "../../common/components/CFileInput"
+
+import { Link } from "react-router-dom"
 
 let DEFAULT_CURRENT_PRODUCT = {
     _id: null,
@@ -40,15 +42,15 @@ export const Panel = () => {
     const patchProduct = useProductStore((s) => s.patchProduct)
     const deleteProduct = useProductStore((s) => s.deleteProduct)
 
-    const pdfMetaLoading = useProductStore((s) => s.pdfMetaLoading)
-    const startPDFMetaLoading = useProductStore((s) => s.startPDFMetaLoading)
     const getPDF = useProductStore((s) => s.getPDF)
     const postPDF = useProductStore((s) => s.postPDF)
     const getPDFMeta = useProductStore((s) => s.getPDFMeta)
 
+    const { pdfMetaLoading } = useProductStore()
+
     // States --------------------------------------------------------------------
     // state to control whether the form is visible for editing/adding
-    const [isEditing, setIsEditing] = useState(false)
+    const [isRenderForm, setIsRenderForm] = useState(false)
 
     // state to hold the search query
     const [searchQuery, setSearchQuery] = useState("")
@@ -61,13 +63,6 @@ export const Panel = () => {
 
     const [PDF, setPDF] = useState(null)
 
-    // handle form input changes
-    const handleInputChange = (e) => {
-        const { name, value } = e.target
-        setCurrentProduct({ ...currentProduct, [name]: value })
-    }
-
-    // state to hold the current product being edited or created
     const [currentProduct, setCurrentProduct] = useState(
         DEFAULT_CURRENT_PRODUCT
     )
@@ -76,7 +71,7 @@ export const Panel = () => {
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === "Escape") {
-                setIsEditing(false)
+                setIsRenderForm(false)
             }
         }
 
@@ -88,6 +83,12 @@ export const Panel = () => {
     }, [])
 
     // Handlers --------------------------------------------------------------------
+    // handle form input changes
+    const handleInputChange = (e) => {
+        const { name, value } = e.target
+        setCurrentProduct({ ...currentProduct, [name]: value })
+    }
+
     // handle image upload and convert to base64
     const handleImageChange = (e) => {
         const file = e.target.files[0]
@@ -96,7 +97,7 @@ export const Panel = () => {
             setCurrentProduct((prevProduct) => ({
                 ...prevProduct,
                 image: reader.result, // Base64 string
-                imageTitle: file.name,
+                imageName: file.name,
                 imageFile: file,
             }))
         }
@@ -107,8 +108,24 @@ export const Panel = () => {
 
     // handle adding a new size-price pair
     const handleAddSizePrice = () => {
-        if (sizeInput && priceInput) {
-            const newSizePrice = { [sizeInput]: priceInput }
+        let size = sizeInput.trim()
+        let price = priceInput.trim()
+
+        // Add default "mm" to size if not already present
+        if (size && !size.toLowerCase().endsWith("mm")) {
+            size += "mm"
+        }
+
+        // Add default "£" and "ex VAT" to price if not already present
+        if (price && !price.toLowerCase().startsWith("£")) {
+            price = `£${price}`
+        }
+        if (price && !price.toLowerCase().endsWith("ex vat")) {
+            price += " ex VAT"
+        }
+
+        if (size && price) {
+            const newSizePrice = { [size]: price }
             setCurrentProduct((prevProduct) => ({
                 ...prevProduct,
                 sizeToPrice: [...prevProduct.sizeToPrice, newSizePrice],
@@ -142,6 +159,17 @@ export const Panel = () => {
         return productID
     }
 
+    const handleCopyProduct = (product) => {
+        const copiedProduct = {
+            ...product,
+            _id: null, // Reset the ID to ensure a new product is created
+            pdfName: "", // Reset the PDF name
+            pdfMeta: null, // Reset the PDF metadata
+        }
+        setCurrentProduct(copiedProduct)
+        setIsRenderForm(true)
+    }
+
     const postFiles = (productID) => {
         if (PDF) {
             postPDF(productID, PDF, currentProduct.pdfName)
@@ -149,7 +177,7 @@ export const Panel = () => {
 
         // Reset the form after successful save
         setPDF(null)
-        setIsEditing(false)
+        setIsRenderForm(false)
         setCurrentProduct(DEFAULT_CURRENT_PRODUCT)
     }
 
@@ -172,27 +200,12 @@ export const Panel = () => {
     }
 
     // handle editing a product
-    const handleEditProduct = (product) => {
-        startPDFMetaLoading()
+    const handleEditProduct = async (product) => {
+        await getPDFMeta(product._id)
 
-        getPDFMeta(product._id).then(() => {
-            setCurrentProduct({
-                _id: product._id,
-                title: product.title ?? "not title",
-                categoryID: product.categoryID ?? "0",
-                image: product.image ?? "",
-                productCode: product.productCode ?? "",
-                sizeToPrice: product.sizeToPrice ?? [],
-                description: product.description ?? "",
-                pdfMeta: product.pdfMeta ?? "",
-            })
-
-            setPDF(null)
-
-            setSizeInput("") // Reset size input on edit
-            setPriceInput("") // Reset price input on edit
-            setIsEditing(true)
-        })
+        // Set the form
+        setCurrentProduct(productsList.find((x) => x._id === product._id))
+        setIsRenderForm(true)
     }
 
     // handle deleting a product
@@ -239,10 +252,78 @@ export const Panel = () => {
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-72 px-4 py-1 border-gray-600 border bg-white text-black placeholder:text-black placeholder:text-opacity-80 placeholder:font-bold"
                     />
-                    <button className="text-white font-bold">products</button>
-                    <button className="text-white font-bold">categories</button>
-                    <button className="text-white font-bold">posts</button>
+                    <Link className="text-white font-bold" to="category">
+                        categories
+                    </Link>
+                    <Link className="text-white font-bold" to="post">
+                        post
+                    </Link>
                 </div>
+            </div>
+        )
+    }
+
+    const groupProductsByCategory = (products, categories) => {
+        const grouped = {}
+
+        // First, find products that do not belong to any category
+        const uncategorizedProducts = products.filter(
+            (product) =>
+                !categories.some(
+                    (category) => category._id === product.categoryID
+                )
+        )
+
+        // Add uncategorized products at the top
+        if (uncategorizedProducts.length > 0) {
+            grouped["uncategorized"] = {
+                categoryName: "Uncategorized",
+                products: uncategorizedProducts,
+            }
+        }
+
+        // Then, group the remaining products by their categories
+        categories.forEach((category) => {
+            grouped[category._id] = {
+                categoryName: category.categoryName,
+                products: products.filter(
+                    (product) => product.categoryID === category._id
+                ),
+            }
+        })
+
+        return grouped
+    }
+
+    function renderFloatingContentBar(categoriesList) {
+        const [isOpen, setIsOpen] = useState(true) // Track whether the bar is open or collapsed
+
+        const toggleBar = () => {
+            setIsOpen((prevState) => !prevState) // Toggle the state of the bar
+        }
+
+        return (
+            <div className="fixed right-8 top-16 transform bg-white border border-4 border-black bg-opacity-100 px-4 py-2 shadow-lg z-50">
+                <button
+                    onClick={toggleBar}
+                    className="text-blue-600 bg-white font-bold hover:text-rose-500"
+                >
+                    {isOpen ? "-> Hide Categories" : "<- Show Categories"}
+                </button>
+                {isOpen && (
+                    <ul className="flex flex-col gap-2 my-4">
+                        {categoriesList.map((category) => (
+                            <li key={category._id}>
+                                <a
+                                    href={`#category-${category._id}`}
+                                    className="text-primary font-bold hover:text-rose-500"
+                                >
+                                    • {category.categoryName}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         )
     }
@@ -258,46 +339,45 @@ export const Panel = () => {
     return (
         <div className="relative w-screen flex flex-wrap py-16 h-full min-h-screen">
             {renderNavbar()}
-            {/* -------------------------------------------------------------------- */}
+            {renderFloatingContentBar(categoriesList)}
             {renderCardGrid(
                 filteredProducts,
                 handleEditProduct,
                 handleDeleteProduct,
-                categoriesList
+                categoriesList,
+                groupProductsByCategory,
+                handleCopyProduct // Pass the new handler
             )}
-            {/* -------------------------------------------------------------------- */}
-            {isEditing &&
-                !pdfMetaLoading &&
-                renderProductForm(
-                    currentProduct,
-                    handleInputChange,
-                    categoriesList,
-                    handlePDFChange,
-                    handleImageChange,
-                    isAddNewNorEdit,
-                    handleRemoveSizePrice,
-                    sizeInput,
-                    setSizeInput,
-                    priceInput,
-                    setPriceInput,
-                    handleAddSizePrice,
-                    handleSaveProduct,
-                    postFiles,
-                    setIsEditing,
-                    setCurrentProduct,
-                    handleDragEnd,
-                    getPDF
-                )}
-            {/* -------------------------------------------------------------------- */}
+            {renderProductForm(
+                isRenderForm,
+                currentProduct,
+                handleInputChange,
+                categoriesList,
+                handlePDFChange,
+                handleImageChange,
+                handleRemoveSizePrice,
+                sizeInput,
+                setSizeInput,
+                priceInput,
+                setPriceInput,
+                handleAddSizePrice,
+                handleSaveProduct,
+                postFiles,
+                setIsRenderForm,
+                setCurrentProduct,
+                handleDragEnd,
+                getPDF,
+                pdfMetaLoading,
+                productsList
+            )}
             {renderFloatingAddButton(
-                setIsEditing,
+                setIsRenderForm,
                 setCurrentProduct,
                 setSizeInput,
                 setPriceInput,
                 setPDF,
                 setIsAddNewNorEdit
             )}
-            {/* -------------------------------------------------------------------- */}
             {renderFloatingRenewButton(getProducts)}
         </div>
     )
@@ -307,79 +387,121 @@ function renderCardGrid(
     filteredProducts,
     handleEditProduct,
     handleDeleteProduct,
-    categoriesList
+    categoriesList,
+    groupProductsByCategory,
+    handleCopyProduct // Add this new handler
 ) {
+    const groupedProducts = groupProductsByCategory(
+        filteredProducts,
+        categoriesList
+    )
+
     return (
-        <div className="flex flex-row w-screen flex-wrap mt-10 gap-16 px-[5%]">
-            {filteredProducts.reverse().map((v) => (
+        <div className="flex flex-col w-screen flex-wrap mt-10 gap-16 px-[5%]">
+            {Object.keys(groupedProducts).map((categoryId) => (
                 <div
-                    key={v._id}
-                    className="w-[350px] h-[490px] text-black text-opacity-60 text-sm 
-                     border-black border-opacity-20 shadow-lg border p-4  bg-white overflow-clip
-                     cursor-pointer hover:shadow-2xl hover:scale-105 transition-transform duration-1000 ease-in-out
-                     "
-                    onClick={() => handleEditProduct(v)}
+                    key={categoryId}
+                    id={`category-${categoryId}`}
+                    className="mb-8"
                 >
-                    <div className="gap-4">
-                        <div className="relative">
-                            <div className="absolute flex flex-col gap-2 right-0">
-                                <button
-                                    className="bg-white backdrop-blur-sm bg-opacity-10 backdrop-contrast-200 text-rose-500 px-2 py-2  font-bold"
-                                    onClick={(e) => {
-                                        handleDeleteProduct(v._id)
-                                        e.stopPropagation()
-                                    }}
-                                >
-                                    <MdDeleteOutline className="text-[1.5rem]" />
-                                </button>
+                    <h2 className="text-2xl font-bold mb-4">
+                        {groupedProducts[categoryId].categoryName}
+                    </h2>
+                    <div className="flex flex-row flex-wrap gap-16">
+                        {groupedProducts[categoryId].products.map((product) => (
+                            <div
+                                key={product._id}
+                                className="w-[350px] h-[490px] text-black text-opacity-60 text-sm 
+                                 border-black border-opacity-20 shadow-lg border p-4  bg-white overflow-clip
+                                 cursor-pointer hover:shadow-2xl hover:scale-105 transition-transform duration-1000 ease-in-out"
+                                onClick={() => handleEditProduct(product)}
+                            >
+                                {/* Product card content */}
+                                <div className="gap-4">
+                                    <div className="relative">
+                                        <div className="absolute flex flex-col gap-2 right-0">
+                                            <button
+                                                className="bg-white backdrop-blur-sm bg-opacity-10 backdrop-contrast-200 text-rose-500 px-2 py-2  font-bold"
+                                                onClick={(e) => {
+                                                    handleDeleteProduct(
+                                                        product._id
+                                                    )
+                                                    e.stopPropagation()
+                                                }}
+                                            >
+                                                <MdDeleteOutline className="text-[1.5rem]" />
+                                            </button>
+                                            <button
+                                                className="bg-white backdrop-blur-sm bg-opacity-10 backdrop-contrast-200 text-blue-500 px-2 py-2  font-bold"
+                                                onClick={(e) => {
+                                                    handleCopyProduct(product)
+                                                    e.stopPropagation()
+                                                }}
+                                            >
+                                                <MdContentCopy className="text-[1.5rem]" />
+                                            </button>
+                                        </div>
+                                        <div className="flex flex-row gap-8">
+                                            <img
+                                                src={product.image}
+                                                alt={product.title}
+                                                className="w-1/2 object-scale-down mx-auto h-fit  mb-8"
+                                            />
+                                        </div>
+                                        <h3 className="text-primary font-bold">
+                                            title:
+                                        </h3>
+                                        <h3 className="line-clamp-1">
+                                            {product.title}
+                                        </h3>
+                                        <hr className="border-black border-opacity-20 my-2" />
+                                        <h3 className="text-primary font-bold">
+                                            product code:
+                                        </h3>
+                                        <p>{product.productCode}</p>
+                                        <hr className="border-black border-opacity-20 my-2" />
+                                        <h3 className="text-primary font-bold">
+                                            description:
+                                        </h3>
+                                        <p className="line-clamp-3">
+                                            {product.description}
+                                        </p>
+                                        <hr className="border-black border-opacity-20 my-2" />
+                                        <h3 className="text-primary font-bold">
+                                            category:
+                                        </h3>
+                                        <p>
+                                            {categoriesList.find(
+                                                (category) =>
+                                                    category._id ===
+                                                    product.categoryID
+                                            )?.categoryName || null}
+                                        </p>
+                                        <hr className="border-black border-opacity-20 my-2" />
+                                        <h3 className="text-primary font-bold">
+                                            size-price:
+                                        </h3>
+                                        <ul>
+                                            {product.sizeToPrice.map(
+                                                (sizePrice, idx) => (
+                                                    <li key={idx}>
+                                                        {`${
+                                                            Object.keys(
+                                                                sizePrice
+                                                            )[0]
+                                                        } - ${
+                                                            Object.values(
+                                                                sizePrice
+                                                            )[0]
+                                                        }`}
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="flex flex-row gap-8">
-                                <img
-                                    src={v.image}
-                                    alt={v.title}
-                                    className="w-1/2 object-scale-down mx-auto h-fit  mb-8"
-                                />{" "}
-                                {/* <img
-                                    src={v.image}
-                                    alt={v.title}
-                                    className="w-1/3 object-scale-down h-fit  mb-8"
-                                /> */}
-                            </div>
-                            <h3 className="text-primary font-bold">title:</h3>
-                            <h3 className="line-clamp-1">{v.title}</h3>
-                            <hr className="border-black border-opacity-20 my-2" />
-                            <h3 className="text-primary font-bold">
-                                product code:
-                            </h3>
-                            <p>{v.productCode}</p>
-                            <hr className="border-black border-opacity-20 my-2" />
-                            <h3 className="text-primary font-bold">
-                                description:
-                            </h3>
-                            <p className="line-clamp-3">{v.description}</p>
-                            <hr className="border-black border-opacity-20 my-2" />
-                            <h3 className="text-primary font-bold">
-                                category:
-                            </h3>
-                            <p>
-                                {categoriesList.find(
-                                    (category) => category._id === v.categoryID
-                                )?.categoryName || null}
-                            </p>
-                            <hr className="border-black border-opacity-20 my-2" />
-                            <h3 className="text-primary font-bold">
-                                size-price:
-                            </h3>
-                            <ul>
-                                {v.sizeToPrice.map((sizePrice, idx) => (
-                                    <li key={idx}>
-                                        {`${Object.keys(sizePrice)[0]} - ${
-                                            Object.values(sizePrice)[0]
-                                        }`}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        ))}
                     </div>
                 </div>
             ))}
@@ -388,12 +510,12 @@ function renderCardGrid(
 }
 
 function renderProductForm(
+    isRenderForm,
     currentProduct,
     handleInputChange,
     categoriesList,
     handlePDFChange,
     handleImageChange,
-    isAddNewNorEdit,
     handleRemoveSizePrice,
     sizeInput,
     setSizeInput,
@@ -402,331 +524,354 @@ function renderProductForm(
     handleAddSizePrice,
     handleSaveProduct,
     postFiles,
-    setIsEditing,
+    setIsRenderForm,
     setCurrentProduct,
     handleDragEnd,
-    getPDF
+    getPDF,
+    pdfMetaLoading,
+    productsList
 ) {
-    return (
-        <div
-            className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm"
-            onClick={() => setIsEditing(false)}
-        >
+    console.log(pdfMetaLoading)
+    if (!isRenderForm) {
+        // Checks if the form is activated
+        return <div className="h-64 w-64 bg-5"></div>
+    } else if (pdfMetaLoading) {
+        // If pdf meta is still loading show nothing
+        return <div className="h-64 w-64 bg-5"></div>
+    } else {
+        // If form is activated and pdf meta is loaded
+        currentProduct =
+            productsList.find((x) => x._id === currentProduct._id) ??
+            currentProduct
+        return (
             <div
-                className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll"
-                onClick={(e) => e.stopPropagation()}
+                className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm"
+                onClick={() => setIsRenderForm(false)}
             >
-                <h3 className="mb-8 font-bold text-rose-500">
-                    {currentProduct._id ? "EDITTING" : "CREATING"}
-                </h3>
-                <form className="flex flex-col gap-4">
-                    <label className="text-primary font-bold">title:</label>
-                    <input
-                        type="text"
-                        name="title"
-                        value={currentProduct.title}
-                        onChange={handleInputChange}
-                        placeholder="title"
-                        className="border  border-gray-400 p-2"
-                    />
-                    <label className="text-primary font-bold">
-                        product code:
-                    </label>
-                    <input
-                        type="text"
-                        name="productCode"
-                        value={currentProduct.productCode}
-                        onChange={handleInputChange}
-                        placeholder="product code"
-                        className="border border-gray-400 p-2"
-                    />
-                    <label className="text-primary font-bold">category:</label>
-                    {/* dropdown to select category */}
-                    <select
-                        name="categoryID"
-                        value={currentProduct.categoryID}
-                        onChange={handleInputChange}
-                        className="border border-gray-400 p-2"
-                    >
-                        <option value={0}>select category</option>
-                        {/* Map over categories to create options */}
-                        {categoriesList.map((category) => (
-                            <option key={category._id} value={category._id}>
-                                {category.categoryName}
-                            </option>
-                        ))}
-                    </select>
-
-                    <hr className="border-black border-opacity-20 border my-8" />
-
-                    <label className="text-primary font-bold">pdf:</label>
-                    {console.log(
-                        "currentProduct.pdfMeta:",
-                        currentProduct.pdfMeta
-                    )}
-                    {currentProduct.pdfMeta && (
-                        <>
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
-                                alt={currentProduct.title}
-                                className="w-1/4 cursor-pointer"
-                                onClick={() => {
-                                    getPDF(currentProduct._id)
-                                }}
-                            />
-                            <p className="text-1">
-                                {console.log(
-                                    "currentProduct.pdfMeta:",
-                                    currentProduct.pdfMeta
-                                )}
-                                {currentProduct.pdfMeta.Title}
-                            </p>
-                        </>
-                    )}
-                    <CFileInput
-                        id="pdf-upload"
-                        accept="application/pdf"
-                        onChange={handlePDFChange}
-                        isAvailable={currentProduct.pdfMeta}
-                    />
-
-                    <hr className="border-black border-opacity-20 border my-8" />
-
-                    <label className="text-primary font-bold">
-                        product image:
-                    </label>
-                    {currentProduct.image ? (
-                        <div className="flex flex-col gap-4 items-start relative">
-                            {currentProduct.image.length > 40 ? (
-                                <>
-                                    <img
-                                        className="w-3/4"
-                                        src={currentProduct.image}
-                                    />
-                                    <button
-                                        type="button"
-                                        onClick={handleImageChange}
-                                        className="absolute top-4 left-4 py-2 bg-white bg-opacity-30  backdrop-blur-sm text-rose-500 px-2 font-bold flex gap-2 items-center"
-                                    >
-                                        <MdDeleteOutline className="text-[1.5rem]" />
-                                    </button>
-                                    <label className="text-1">
-                                        {currentProduct.imageTitle}.
-                                        {
-                                            currentProduct.image
-                                                .split("/")[1]
-                                                .split(";")[0]
-                                                .split("base64,")[0]
-                                        }
-                                    </label>
-                                </>
-                            ) : (
-                                ""
-                            )}
-                            <CFileInput
-                                id="image-upload"
-                                accept="image/png, image/jpeg, image/jpg, image/webp"
-                                onChange={handleImageChange}
-                                isAvailable={currentProduct.image.length > 40}
-                            />
-                        </div>
-                    ) : (
-                        <CFileInput
-                            id="image-upload-new"
-                            accept="image/png, image/jpeg, image/jpg, image/webp"
-                            onChange={handleImageChange} // Change handler for file
-                            isAvailable={false} // If image is available
+                <div
+                    className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <h3 className="mb-8 font-bold text-rose-500">
+                        {currentProduct._id ? "EDITTING" : "CREATING"}
+                    </h3>
+                    <form className="flex flex-col gap-4">
+                        <label className="text-primary font-bold">title:</label>
+                        <input
+                            type="text"
+                            name="title"
+                            value={currentProduct.title}
+                            onChange={handleInputChange}
+                            placeholder="title"
+                            className="border  border-gray-400 p-2"
                         />
-                    )}
+                        <label className="text-primary font-bold">
+                            product code:
+                        </label>
+                        <input
+                            type="text"
+                            name="productCode"
+                            value={currentProduct.productCode}
+                            onChange={handleInputChange}
+                            placeholder="product code"
+                            className="border border-gray-400 p-2"
+                        />
+                        <label className="text-primary font-bold">
+                            category:
+                        </label>
+                        {/* dropdown to select category */}
+                        <select
+                            name="categoryID"
+                            value={currentProduct.categoryID}
+                            onChange={handleInputChange}
+                            className="border border-gray-400 p-2"
+                        >
+                            <option value={0}>select category</option>
+                            {/* Map over categories to create options */}
+                            {categoriesList.map((category) => (
+                                <option key={category._id} value={category._id}>
+                                    {category.categoryName}
+                                </option>
+                            ))}
+                        </select>
 
-                    <hr className="border-black border-opacity-20 border my-8" />
+                        <hr className="border-black border-opacity-20 border my-8" />
 
-                    <label className="text-primary font-bold">
-                        description:
-                    </label>
-                    <textarea
-                        name="description"
-                        value={currentProduct.description}
-                        onChange={handleInputChange}
-                        placeholder="product description"
-                        className="border border-gray-400 h-64 p-2 "
-                    />
-                    <label className="text-primary font-bold">
-                        size-price:
-                    </label>
-                    {/* list available sizes */}
-                    <DragDropContext onDragEnd={handleDragEnd}>
-                        <Droppable droppableId="sizeToPriceList">
-                            {(provided) => (
-                                <ul
-                                    ref={provided.innerRef}
-                                    {...provided.droppableProps}
-                                    className="text-black text-opacity-60"
-                                >
-                                    {currentProduct.sizeToPrice.map(
-                                        (sizePrice, idx) => (
-                                            <Draggable
-                                                key={idx}
-                                                draggableId={String(idx)}
-                                                index={idx}
-                                            >
-                                                {(provided) => (
-                                                    <li
-                                                        ref={provided.innerRef}
-                                                        {...provided.draggableProps}
-                                                        {...provided.dragHandleProps}
-                                                        className="flex gap-4 items-center mb-2"
-                                                    >
-                                                        <input
-                                                            type="text"
-                                                            value={
-                                                                Object.keys(
-                                                                    sizePrice
-                                                                )[0]
+                        <label className="text-primary font-bold">pdf:</label>
+                        {console.log(
+                            "currentProduct.pdfMeta:",
+                            currentProduct.pdfMeta
+                        )}
+
+                        {!currentProduct.pdfMeta ? (
+                            <div>no PDF set yet</div>
+                        ) : currentProduct.pdfMeta ? (
+                            <>
+                                <img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+                                    alt={currentProduct.title}
+                                    className="w-1/4 cursor-pointer"
+                                    onClick={() => getPDF(currentProduct._id)}
+                                />
+                                <p>{currentProduct.pdfMeta.Title}</p>
+                            </>
+                        ) : (
+                            <p>No PDF metadata available.</p>
+                        )}
+
+                        <CFileInput
+                            id="pdf-upload"
+                            accept="application/pdf"
+                            onChange={handlePDFChange}
+                            isAvailable={currentProduct.pdfMeta}
+                        />
+
+                        <hr className="border-black border-opacity-20 border my-8" />
+
+                        <label className="text-primary font-bold">
+                            product image:
+                        </label>
+                        {currentProduct.image ? (
+                            <div className="flex flex-col gap-4 items-start relative">
+                                {currentProduct.image.length > 40 ? (
+                                    <>
+                                        <img
+                                            className="w-3/4"
+                                            src={currentProduct.image}
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={handleImageChange}
+                                            className="absolute top-4 left-4 py-2 bg-white bg-opacity-30  backdrop-blur-sm text-rose-500 px-2 font-bold flex gap-2 items-center"
+                                        >
+                                            <MdDeleteOutline className="text-[1.5rem]" />
+                                        </button>
+                                        <label className="text-1">
+                                            {currentProduct.imageName}
+                                            {/* {
+                                                currentProduct.image
+                                                    .split("/")[1]
+                                                    .split(";")[0]
+                                                    .split("base64,")[0]
+                                            } */}
+                                        </label>
+                                    </>
+                                ) : (
+                                    ""
+                                )}
+                                <CFileInput
+                                    id="image-upload"
+                                    accept="image/png, image/jpeg, image/jpg, image/webp"
+                                    onChange={handleImageChange}
+                                    isAvailable={
+                                        currentProduct.image.length > 40
+                                    }
+                                />
+                            </div>
+                        ) : (
+                            <CFileInput
+                                id="image-upload-new"
+                                accept="image/png, image/jpeg, image/jpg, image/webp"
+                                onChange={handleImageChange} // Change handler for file
+                                isAvailable={false} // If image is available
+                            />
+                        )}
+
+                        <hr className="border-black border-opacity-20 border my-8" />
+
+                        <label className="text-primary font-bold">
+                            description:
+                        </label>
+                        <textarea
+                            name="description"
+                            value={currentProduct.description}
+                            onChange={handleInputChange}
+                            placeholder="product description"
+                            className="border border-gray-400 h-64 p-2 "
+                        />
+                        <label className="text-primary font-bold">
+                            size-price:
+                        </label>
+                        {/* list available sizes */}
+                        <DragDropContext onDragEnd={handleDragEnd}>
+                            <Droppable droppableId="sizeToPriceList">
+                                {(provided) => (
+                                    <ul
+                                        ref={provided.innerRef}
+                                        {...provided.droppableProps}
+                                        className="text-black text-opacity-60"
+                                    >
+                                        {currentProduct.sizeToPrice.map(
+                                            (sizePrice, idx) => (
+                                                <Draggable
+                                                    key={idx}
+                                                    draggableId={String(idx)}
+                                                    index={idx}
+                                                >
+                                                    {(provided) => (
+                                                        <li
+                                                            ref={
+                                                                provided.innerRef
                                                             }
-                                                            onChange={(e) => {
-                                                                const newSizeToPrice =
-                                                                    [
-                                                                        ...currentProduct.sizeToPrice,
-                                                                    ]
-                                                                const updatedSize =
-                                                                    e.target
-                                                                        .value
-                                                                const price =
-                                                                    Object.values(
-                                                                        sizePrice
-                                                                    )[0]
-                                                                newSizeToPrice[
-                                                                    idx
-                                                                ] = {
-                                                                    [updatedSize]:
-                                                                        price,
-                                                                }
-                                                                setCurrentProduct(
-                                                                    {
-                                                                        ...currentProduct,
-                                                                        sizeToPrice:
-                                                                            newSizeToPrice,
-                                                                    }
-                                                                )
-                                                            }}
-                                                            className="border border-gray-400 p-2  w-1/2"
-                                                        />
-                                                        <input
-                                                            type="text"
-                                                            value={
-                                                                Object.values(
-                                                                    sizePrice
-                                                                )[0]
-                                                            }
-                                                            onChange={(e) => {
-                                                                const newSizeToPrice =
-                                                                    [
-                                                                        ...currentProduct.sizeToPrice,
-                                                                    ]
-                                                                const size =
+                                                            {...provided.draggableProps}
+                                                            {...provided.dragHandleProps}
+                                                            className="flex gap-4 items-center mb-2"
+                                                        >
+                                                            <input
+                                                                type="text"
+                                                                value={
                                                                     Object.keys(
                                                                         sizePrice
                                                                     )[0]
-                                                                const updatedPrice =
-                                                                    e.target
-                                                                        .value
-                                                                newSizeToPrice[
-                                                                    idx
-                                                                ] = {
-                                                                    [size]: updatedPrice,
                                                                 }
-                                                                setCurrentProduct(
-                                                                    {
-                                                                        ...currentProduct,
-                                                                        sizeToPrice:
-                                                                            newSizeToPrice,
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    const newSizeToPrice =
+                                                                        [
+                                                                            ...currentProduct.sizeToPrice,
+                                                                        ]
+                                                                    const updatedSize =
+                                                                        e.target
+                                                                            .value
+                                                                    const price =
+                                                                        Object.values(
+                                                                            sizePrice
+                                                                        )[0]
+                                                                    newSizeToPrice[
+                                                                        idx
+                                                                    ] = {
+                                                                        [updatedSize]:
+                                                                            price,
                                                                     }
-                                                                )
-                                                            }}
-                                                            className="border border-gray-400 p-2  w-1/2"
-                                                        />
-                                                        <button
-                                                            type="button"
-                                                            onClick={() =>
-                                                                handleRemoveSizePrice(
-                                                                    idx
-                                                                )
-                                                            }
-                                                            className="text-rose-500 font-bold ml-2"
-                                                        >
-                                                            Remove
-                                                        </button>
-                                                    </li>
-                                                )}
-                                            </Draggable>
-                                        )
-                                    )}
-                                    {provided.placeholder}
-                                </ul>
-                            )}
-                        </Droppable>
-                    </DragDropContext>
-                    {/* Inputs for size and price */}
-                    <div className="flex gap-4">
-                        <input
-                            type="text"
-                            value={sizeInput}
-                            onChange={(e) => setSizeInput(e.target.value)}
-                            placeholder="size (e.g., 450mm)"
-                            className="border border-gray-400 p-2 "
-                        />
-                        <input
-                            type="text"
-                            value={priceInput}
-                            onChange={(e) => setPriceInput(e.target.value)}
-                            placeholder="price (e.g., £810.00 ex vat)"
-                            className="border border-gray-400 p-2 "
-                        />
-                    </div>
-                    <button
-                        type="button"
-                        className="bg-primary text-white px-4 py-2  font-bold"
-                        onClick={handleAddSizePrice}
-                    >
-                        add entered size-price pair
-                    </button>
+                                                                    setCurrentProduct(
+                                                                        {
+                                                                            ...currentProduct,
+                                                                            sizeToPrice:
+                                                                                newSizeToPrice,
+                                                                        }
+                                                                    )
+                                                                }}
+                                                                className="border border-gray-400 p-2  w-1/2"
+                                                            />
+                                                            <input
+                                                                type="text"
+                                                                value={
+                                                                    Object.values(
+                                                                        sizePrice
+                                                                    )[0]
+                                                                }
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    const newSizeToPrice =
+                                                                        [
+                                                                            ...currentProduct.sizeToPrice,
+                                                                        ]
+                                                                    const size =
+                                                                        Object.keys(
+                                                                            sizePrice
+                                                                        )[0]
+                                                                    const updatedPrice =
+                                                                        e.target
+                                                                            .value
+                                                                    newSizeToPrice[
+                                                                        idx
+                                                                    ] = {
+                                                                        [size]: updatedPrice,
+                                                                    }
+                                                                    setCurrentProduct(
+                                                                        {
+                                                                            ...currentProduct,
+                                                                            sizeToPrice:
+                                                                                newSizeToPrice,
+                                                                        }
+                                                                    )
+                                                                }}
+                                                                className="border border-gray-400 p-2  w-1/2"
+                                                            />
+                                                            <button
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    handleRemoveSizePrice(
+                                                                        idx
+                                                                    )
+                                                                }
+                                                                className="text-rose-500 font-bold ml-2"
+                                                            >
+                                                                Remove
+                                                            </button>
+                                                        </li>
+                                                    )}
+                                                </Draggable>
+                                            )
+                                        )}
+                                        {provided.placeholder}
+                                    </ul>
+                                )}
+                            </Droppable>
+                        </DragDropContext>
+                        {/* Inputs for size and price */}
+                        <div className="flex gap-4">
+                            <input
+                                type="text"
+                                value={sizeInput}
+                                onChange={(e) => setSizeInput(e.target.value)}
+                                placeholder="size (e.g., 450mm)"
+                                className="border border-gray-400 p-2 "
+                            />
+                            <input
+                                type="text"
+                                value={priceInput}
+                                onChange={(e) => setPriceInput(e.target.value)}
+                                placeholder="price (e.g., £810.00 ex vat)"
+                                className="border border-gray-400 p-2 "
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            className="bg-primary text-white px-4 py-2  font-bold"
+                            onClick={handleAddSizePrice}
+                        >
+                            add entered size-price pair
+                        </button>
 
-                    {/* Buttons to save or cancel */}
-                    <div className="fixed right-4 top-4 flex  gap-2">
-                        <button
-                            type="button"
-                            className="bg-primary text-white px-2 py-2  font-bold"
-                            onClick={async () => {
-                                try {
-                                    const id = await handleSaveProduct()
-                                    postFiles(id)
-                                } catch (error) {
-                                    console.error(
-                                        "Error saving product:",
-                                        error
-                                    )
-                                }
-                            }}
-                        >
-                            <IoMdSave className="text-[1.5rem]" />
-                        </button>
-                        <button
-                            type="button"
-                            className="bg-rose-600 text-white px-2 py-2  font-bold"
-                            onClick={() => setIsEditing(false)}
-                        >
-                            <MdCancel className="text-[1.5rem]" />
-                        </button>
-                    </div>
-                </form>
+                        {/* Buttons to save or cancel */}
+                        <div className="fixed right-4 top-4 flex  gap-2">
+                            <button
+                                type="button"
+                                className="bg-primary text-white px-2 py-2  font-bold"
+                                onClick={async () => {
+                                    try {
+                                        const id = await handleSaveProduct()
+                                        postFiles(id)
+                                    } catch (error) {
+                                        console.error(
+                                            "Error saving product:",
+                                            error
+                                        )
+                                    }
+                                }}
+                            >
+                                <IoMdSave className="text-[1.5rem]" />
+                            </button>
+                            <button
+                                type="button"
+                                className="bg-rose-600 text-white px-2 py-2  font-bold"
+                                onClick={() => setIsRenderForm(false)}
+                            >
+                                <MdCancel className="text-[1.5rem]" />
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 function renderFloatingAddButton(
-    setIsEditing,
+    setIsRenderForm,
     setCurrentProduct,
     setSizeInput,
     setPriceInput,
@@ -737,7 +882,7 @@ function renderFloatingAddButton(
         <button
             className="bg-primary text-white px-4 py-4  fixed right-8 bottom-8"
             onClick={() => {
-                setIsEditing(true)
+                setIsRenderForm(true)
                 setCurrentProduct(DEFAULT_CURRENT_PRODUCT)
                 setSizeInput("") // reset size input
                 setPriceInput("") // reset price input

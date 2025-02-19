@@ -49,11 +49,11 @@ const LayoutContainer = () => {
 
     return (
         <main className="relative">
-            {!document.URL.endsWith("admin") && <TopBar />}
-            {!document.URL.endsWith("admin") && <CategoriesTop />}
-            {!document.URL.endsWith("admin") && <NavBar />}
+            {!document.URL.includes("admin") && <TopBar />}
+            {!document.URL.includes("admin") && <CategoriesTop />}
+            {!document.URL.includes("admin") && <NavBar />}
             <Outlet />
-            {!document.URL.endsWith("admin") && <Footer />}
+            {!document.URL.includes("admin") && <Footer />}
         </main>
     )
 }

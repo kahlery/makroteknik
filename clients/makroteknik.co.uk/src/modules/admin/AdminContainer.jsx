@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 // components
 import { LoginForm } from "./components/LoginForm"
 import { Panel } from "./components/Panel"
+import { Outlet } from "react-router-dom"
 
 export const AdminContainer = ({ className }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -15,7 +16,7 @@ export const AdminContainer = ({ className }) => {
         <div
             className={` flex min-h-screen justify-center bg-gray-100 ${className}`}
         >
-            <Panel />
+            <Outlet />
             {/* {!isLoggedIn ? (
                 <LoginForm
                     setIsLoggedIn={setIsLoggedIn}

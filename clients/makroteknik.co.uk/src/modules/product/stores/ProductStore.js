@@ -6,7 +6,7 @@ export const useProductStore = create((set, get) => ({
     productsList: [],
     categoriesList: [],
     loading: 2,
-    pdfMetaLoading: false,
+    pdfMetaLoading: 0,
 
     getProducts: async () => {
         try {
@@ -18,20 +18,6 @@ export const useProductStore = create((set, get) => ({
             }) // Set products and stop loading
         } catch (err) {
             console.error(err)
-        }
-    },
-
-    getCategories: async () => {
-        try {
-            const { apiUrl } = get()
-            const response = await axios.get(`${apiUrl}/category`)
-            set({
-                categoriesList: response.data.categories,
-                loading: get().loading - 1,
-            }) // Assuming categories are directly in the response
-        } catch (err) {
-            console.error(err)
-            set({ categoriesList: [] }) // Set empty categories on error
         }
     },
 
@@ -109,6 +95,69 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
+    getCategories: async () => {
+        try {
+            const { apiUrl } = get()
+            const response = await axios.get(`${apiUrl}/category`)
+            set({
+                categoriesList: response.data.categories,
+                loading: get().loading - 1,
+            }) // Assuming categories are directly in the response
+        } catch (err) {
+            console.error(err)
+            set({ categoriesList: [] }) // Set empty categories on error
+        }
+    },
+
+    // Add a new category
+    postCategory: async (category) => {
+        try {
+            const { apiUrl } = get()
+            const response = await axios.post(
+                `${apiUrl}/category/post`,
+                category
+            )
+            set((state) => ({
+                categoriesList: [
+                    ...state.categoriesList,
+                    response.data.category,
+                ],
+            }))
+        } catch (err) {
+            console.error("Error posting category:", err)
+        }
+    },
+
+    // Update an existing category
+    patchCategory: async (id, category) => {
+        try {
+            const { apiUrl } = get()
+            await axios.patch(`${apiUrl}/category/patch/${id}`, category)
+            set((state) => ({
+                categoriesList: state.categoriesList.map((cat) =>
+                    cat._id === id ? { ...cat, ...category } : cat
+                ),
+            }))
+        } catch (err) {
+            console.error("Error patching category:", err)
+        }
+    },
+
+    // Delete a category
+    deleteCategory: async (id) => {
+        try {
+            const { apiUrl } = get()
+            await axios.delete(`${apiUrl}/category/delete/${id}`)
+            set((state) => ({
+                categoriesList: state.categoriesList.filter(
+                    (cat) => cat._id !== id
+                ),
+            }))
+        } catch (err) {
+            console.error("Error deleting category:", err)
+        }
+    },
+
     getPDF: async (id) => {
         try {
             const { apiUrl } = get()
@@ -159,17 +208,13 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
-    startPDFMetaLoading: () => {
-        set({
-            pdfMetaLoading: true,
-        })
-    },
-
     getPDFMeta: async (id) => {
+        set({ pdfMetaLoading: 1 })
+
         try {
             const { apiUrl } = get()
 
-            // make the API call
+            // Make the API call
             const response = await axios.get(`${apiUrl}/static/pdf/meta/${id}`)
 
             if (response.data.Size !== undefined) {
@@ -178,29 +223,28 @@ export const useProductStore = create((set, get) => ({
                 set({
                     productsList: get().productsList.map((product) =>
                         product._id === id
-                            ? { ...product, pdfMeta: response.data }
+                            ? {
+                                  ...product,
+                                  pdfMeta: response.data ?? {
+                                      Title: "Unknown",
+                                  },
+                              }
                             : product
                     ),
-                })
-
-                set({
-                    pdfMetaLoading: false,
+                    pdfMetaLoading: 0,
                 })
 
                 return true
             } else {
-                set({
-                    pdfMetaLoading: false,
-                })
-
                 return false
             }
         } catch (err) {
+            console.error("Error getting metadata of the PDF", err)
+
             set({
-                pdfMetaLoading: false,
+                pdfMetaLoading: 0,
             })
 
-            console.error("error getting metadata of the PDF", err)
             return false
         }
     },

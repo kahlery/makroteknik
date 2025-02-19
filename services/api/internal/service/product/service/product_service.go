@@ -48,23 +48,23 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from MongoDB: " + err.Error())
 	}
 
-	// 2. Fetch images from ../../assets/images/products
-	// read all images stored in the same directory, named as their _id.webp
+	// 2. Fetch images from S3
 	failedImageIds := []string{}
 	productResponses := []dto.Product{}
 	for _, product := range products {
 		imageName := product.ID.Hex() + ".webp"
-		imageData, _, err := p.s3Service.GetObject(p.imagePath, &imageName)
+		// Retrieve image and metadata from S3
+		imageData, metadata, err := p.s3Service.GetObject(p.imagePath, &imageName)
 		if err != nil {
-			// log.LogError("failed to read from directory to buffer: " + err.Error())
 			failedImageIds = append(failedImageIds, product.ID.Hex())
 			continue
 		}
 
+		// Convert the image data to base64 string
 		imageDataBase64 := base64.StdEncoding.EncodeToString(imageData)
 		imageDataBase64 = "data:image/webp;base64," + imageDataBase64
 
-		// 3. Prepare the product response with base64 image data
+		// Prepare the response including image in base64 format and metadata (imageName)
 		productResponse := dto.Product{
 			ID:          product.ID.Hex(),
 			CategoryID:  product.CategoryID,
@@ -73,14 +73,13 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 			Description: product.Description,
 			SizeToPrice: product.SizeToPrice,
 			Image:       imageDataBase64,
+			ImageName:   metadata["title"], // Fetching the image name from metadata
 		}
 
 		productResponses = append(productResponses, productResponse)
 	}
 
-	// log.LogError("failed to read from directory to buffer on these files: " + strings.Join(failedImageIds, "-"))
-
-	// 4. Return the response
+	// Return the response
 	return c.Status(fiber.StatusOK).JSON(dto.GetProductsResponse{
 		Products: productResponses,
 	})
@@ -97,6 +96,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 
 	pkgLog.LogSuccess("Product received: " + product.Title)
 
+	// Generate a new ID for the product
 	generatedID := primitive.NewObjectID()
 
 	// 2. Map the product to the model
@@ -111,15 +111,20 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 
 	var imageData []byte
 
+	// Handle image processing if it exists
 	if product.Image != "" {
 		var err error
+		// Decode the base64 image data
 		imageData, err = base64.StdEncoding.DecodeString(strings.Split(product.Image, "base64,")[1])
 		if err != nil {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to decode base64 image: " + err.Error())
 		}
 	}
 
+	// Image name generated based on product ID
 	imageName := mappedProduct.ID.Hex() + ".webp"
+
+	// 3. Upload image to S3 with metadata containing the image name
 	if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData, product.ImageName); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 	}
@@ -129,6 +134,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to add product to MongoDB: " + err.Error())
 	}
 
+	// Return success with the generated product ID
 	return ctx.Status(fiber.StatusOK).JSON(dto.PostProductResponse{
 		ProductID: generatedID.Hex(),
 	})

@@ -5,11 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "Launch Chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "type": "chrome",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/clients/makroteknik.co.uk",
+            "runtimeExecutable": "/Applications/Opera.app/Contents/MacOS/Opera"
+        },
+        {
+            "name": "run-services",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/services/api/cmd/gateway"
         }
     ]
 }

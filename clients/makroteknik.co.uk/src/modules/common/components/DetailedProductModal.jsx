@@ -17,6 +17,7 @@ const DetailedProductModal = ({
 }) => {
     // states
     const [selectedSizeIndex, setSelectedSizeIndex] = useState(0)
+    const [showNotification, setShowNotification] = useState(false) // New state for notification
 
     // stores
     const addProduct = useCartStore((state) => state.addProduct) // to add the product's size
@@ -26,6 +27,12 @@ const DetailedProductModal = ({
 
     const handleDownloadClick = () => {
         getPDF(selectedProduct._id)
+    }
+
+    const handleAddToCart = () => {
+        addProduct(selectedProduct._id, selectedSizeIndex)
+        setShowNotification(true) // Show notification
+        setTimeout(() => setShowNotification(false), 3000) // Hide notification after 3 seconds
     }
 
     // close modal on "esc" key press
@@ -155,12 +162,7 @@ const DetailedProductModal = ({
                                     ) ? (
                                         <button
                                             className="flex items-center text-nowrap text-white gap-2 bg-secondary bg-opacity-100 py-2 px-4 rounded-full"
-                                            onClick={() => {
-                                                addProduct(
-                                                    selectedProduct._id,
-                                                    selectedSizeIndex
-                                                )
-                                            }}
+                                            onClick={handleAddToCart} // Updated to use handleAddToCart
                                         >
                                             <ShoppingCart
                                                 sx={{
@@ -210,6 +212,11 @@ const DetailedProductModal = ({
                             </div>
                         </div>
                     </div>
+                    {showNotification && (
+                        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
+                            Item added to cart!
+                        </div>
+                    )}
                 </>
             )}
         </div>
