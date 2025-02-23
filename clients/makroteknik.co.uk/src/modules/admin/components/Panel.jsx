@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 // stores
 import { useProductStore } from "../../product/stores/ProductStore"
@@ -29,6 +29,7 @@ let DEFAULT_CURRENT_PRODUCT = {
     sizeToPrice: [],
     description: "",
     pdfName: "",
+    isPDFMetaLoaded: 1,
 }
 
 export const Panel = () => {
@@ -45,9 +46,6 @@ export const Panel = () => {
     const getPDF = useProductStore((s) => s.getPDF)
     const postPDF = useProductStore((s) => s.postPDF)
     const getPDFMeta = useProductStore((s) => s.getPDFMeta)
-
-    const { pdfMetaLoading } = useProductStore()
-
     // States --------------------------------------------------------------------
     // state to control whether the form is visible for editing/adding
     const [isRenderForm, setIsRenderForm] = useState(false)
@@ -86,7 +84,11 @@ export const Panel = () => {
     // handle form input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target
-        setCurrentProduct({ ...currentProduct, [name]: value })
+
+        setCurrentProduct((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }))
     }
 
     // handle image upload and convert to base64
@@ -149,7 +151,7 @@ export const Panel = () => {
         let productID
 
         if (currentProduct._id) {
-            console.log("There already this product exists, patching it.")
+            console.log("Patching the product.")
             await patchProduct(currentProduct._id, currentProduct)
         } else {
             console.log("Creating the product.")
@@ -367,7 +369,6 @@ export const Panel = () => {
                 setCurrentProduct,
                 handleDragEnd,
                 getPDF,
-                pdfMetaLoading,
                 productsList
             )}
             {renderFloatingAddButton(
@@ -528,21 +529,17 @@ function renderProductForm(
     setCurrentProduct,
     handleDragEnd,
     getPDF,
-    pdfMetaLoading,
     productsList
 ) {
-    console.log(pdfMetaLoading)
     if (!isRenderForm) {
         // Checks if the form is activated
         return <div className="h-64 w-64 bg-5"></div>
-    } else if (pdfMetaLoading) {
-        // If pdf meta is still loading show nothing
-        return <div className="h-64 w-64 bg-5"></div>
+    } else if (!currentProduct.isPDFMetaLoaded) {
+        setCurrentProduct(
+            productsList.find((x) => x._id === currentProduct._id)
+        )
     } else {
         // If form is activated and pdf meta is loaded
-        currentProduct =
-            productsList.find((x) => x._id === currentProduct._id) ??
-            currentProduct
         return (
             <div
                 className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm"
@@ -552,7 +549,7 @@ function renderProductForm(
                     className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <h3 className="mb-8 font-bold text-rose-500">
+                    <h3 className="mb-8 font-bold text-blue-500">
                         {currentProduct._id ? "EDITTING" : "CREATING"}
                     </h3>
                     <form className="flex flex-col gap-4">
@@ -598,10 +595,6 @@ function renderProductForm(
                         <hr className="border-black border-opacity-20 border my-8" />
 
                         <label className="text-primary font-bold">pdf:</label>
-                        {console.log(
-                            "currentProduct.pdfMeta:",
-                            currentProduct.pdfMeta
-                        )}
 
                         {!currentProduct.pdfMeta ? (
                             <div>no PDF set yet</div>

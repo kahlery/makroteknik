@@ -6,7 +6,6 @@ export const useProductStore = create((set, get) => ({
     productsList: [],
     categoriesList: [],
     loading: 2,
-    pdfMetaLoading: 0,
 
     getProducts: async () => {
         try {
@@ -209,8 +208,6 @@ export const useProductStore = create((set, get) => ({
     },
 
     getPDFMeta: async (id) => {
-        set({ pdfMetaLoading: 1 })
-
         try {
             const { apiUrl } = get()
 
@@ -228,23 +225,38 @@ export const useProductStore = create((set, get) => ({
                                   pdfMeta: response.data ?? {
                                       Title: "Unknown",
                                   },
+                                  isPDFMetaLoaded: 1,
                               }
                             : product
                     ),
-                    pdfMetaLoading: 0,
                 })
 
                 return true
             } else {
+                set({
+                    productsList: get().productsList.map((product) =>
+                        product._id === id
+                            ? {
+                                  ...product,
+                                  isPDFMetaLoaded: 1,
+                              }
+                            : product
+                    ),
+                })
                 return false
             }
         } catch (err) {
-            console.error("Error getting metadata of the PDF", err)
-
             set({
-                pdfMetaLoading: 0,
+                productsList: get().productsList.map((product) =>
+                    product._id === id
+                        ? {
+                              ...product,
+                              isPDFMetaLoaded: 1,
+                          }
+                        : product
+                ),
             })
-
+            console.error("Error getting metadata of the PDF", err)
             return false
         }
     },

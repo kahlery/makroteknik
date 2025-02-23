@@ -1,6 +1,8 @@
 package dto
 
-import "api/internal/service/category/model"
+import (
+	"api/internal/service/category/model"
+)
 
 type CategoryRequest struct {
 	ID           string `json:"_id,omitempty"`
