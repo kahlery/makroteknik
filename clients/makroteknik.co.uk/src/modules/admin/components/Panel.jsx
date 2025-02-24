@@ -91,20 +91,33 @@ export const Panel = () => {
         }))
     }
 
+    // Add a new function to handle image deletion
+    const handleDeleteImage = () => {
+        setCurrentProduct((prevProduct) => ({
+            ...prevProduct,
+            image: "", // Reset the image
+            imageName: "", // Reset the image name
+            imageFile: null, // Reset the image file
+        }))
+    }
+
     // handle image upload and convert to base64
+    // Modify the handleImageChange function
     const handleImageChange = (e) => {
         const file = e.target.files[0]
-        const reader = new FileReader()
-        reader.onloadend = () => {
-            setCurrentProduct((prevProduct) => ({
-                ...prevProduct,
-                image: reader.result, // Base64 string
-                imageName: file.name,
-                imageFile: file,
-            }))
-        }
         if (file) {
+            const reader = new FileReader()
+            reader.onloadend = () => {
+                setCurrentProduct((prevProduct) => ({
+                    ...prevProduct,
+                    image: reader.result, // Base64 string
+                    imageName: file.name,
+                    imageFile: file,
+                }))
+            }
             reader.readAsDataURL(file) // Convert to base64
+        } else {
+            handleDeleteImage() // If no file is selected, delete the image
         }
     }
 
@@ -369,7 +382,8 @@ export const Panel = () => {
                 setCurrentProduct,
                 handleDragEnd,
                 getPDF,
-                productsList
+                productsList,
+                handleDeleteImage
             )}
             {renderFloatingAddButton(
                 setIsRenderForm,
@@ -529,7 +543,8 @@ function renderProductForm(
     setCurrentProduct,
     handleDragEnd,
     getPDF,
-    productsList
+    productsList,
+    handleDeleteImage
 ) {
     if (!isRenderForm) {
         // Checks if the form is activated
@@ -634,7 +649,7 @@ function renderProductForm(
                                         />
                                         <button
                                             type="button"
-                                            onClick={handleImageChange}
+                                            onClick={handleDeleteImage}
                                             className="absolute top-4 left-4 py-2 bg-white bg-opacity-30  backdrop-blur-sm text-rose-500 px-2 font-bold flex gap-2 items-center"
                                         >
                                             <MdDeleteOutline className="text-[1.5rem]" />

@@ -115,3 +115,25 @@ func (p *PDFService) PostPDFFile(c *fiber.Ctx) error {
 	// Return success response
 	return c.Status(fiber.StatusOK).SendString("File uploaded successfully")
 }
+
+func (p *PDFService) DeletePDFFile(c *fiber.Ctx) error {
+	// Parse the ID parameter from the URL
+	id := c.Params("id")
+	if id == "" {
+		log.LogError("missing id parameter in DeletePDFFile")
+		return c.Status(fiber.StatusBadRequest).SendString("Missing id parameter")
+	}
+
+	// S3 file path and name
+	fileName := id + ".pdf"
+
+	// Delete the PDF file from S3
+	err := p.s3Service.DeleteObject(*p.dirPath, fileName)
+	if err != nil {
+		log.LogError("failed to delete file from S3: " + err.Error())
+		return c.Status(fiber.StatusInternalServerError).SendString("Error deleting file from S3")
+	}
+
+	// Return success response
+	return c.Status(fiber.StatusOK).SendString("File deleted successfully")
+}

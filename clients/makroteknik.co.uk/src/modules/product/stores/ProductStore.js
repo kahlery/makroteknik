@@ -260,4 +260,30 @@ export const useProductStore = create((set, get) => ({
             return false
         }
     },
+
+    deletePDF: async (id) => {
+        try {
+            const { apiUrl } = get()
+
+            // Make API call to delete the PDF
+            await axios.delete(`${apiUrl}/static/pdf/delete/${id}`)
+
+            // Update the state to reflect the deletion
+            set((state) => ({
+                productsList: state.productsList.map((product) =>
+                    product._id === id
+                        ? {
+                              ...product,
+                              pdfMeta: null, // Clear the PDF metadata
+                              isPDFMetaLoaded: 0, // Reset the loaded flag
+                          }
+                        : product
+                ),
+            }))
+
+            console.log("PDF file deleted successfully")
+        } catch (err) {
+            console.error("Error deleting the PDF file:", err)
+        }
+    },
 }))
