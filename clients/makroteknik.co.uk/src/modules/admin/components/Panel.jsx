@@ -851,7 +851,9 @@ function renderProductForm(
                                 className="bg-primary text-white px-2 py-2  font-bold"
                                 onClick={async () => {
                                     try {
-                                        const id = await handleSaveProduct()
+                                        const id =
+                                            currentProduct._id ??
+                                            (await handleSaveProduct())
                                         postFiles(id)
                                     } catch (error) {
                                         console.error(
