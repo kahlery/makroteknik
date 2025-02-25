@@ -235,9 +235,10 @@ export const Panel = () => {
     const handlePDFChange = (e) => {
         const file = e.target.files[0]
         setPDF(file)
+        const decodedFileName = decodeURIComponent(file.name) // Decode the file name
         setCurrentProduct((prevProduct) => ({
             ...prevProduct,
-            pdfName: file.name,
+            pdfName: decodedFileName, // Use the decoded file name
         }))
     }
 
