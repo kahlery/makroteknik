@@ -62,7 +62,7 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 			return nil, err
 		}
 
-		log.LogSuccess("got products from mongo, showing latest:")
+		log.LogSuccess("got products from mongo, showing latest:", "ProductRepo.GetProducts()")
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}
@@ -74,11 +74,11 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product, id string) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		log.LogError("mongo: error converting id to objectId, " + err.Error())
+		log.LogError("mongo: error converting id to objectId, "+err.Error(), "ProductRepo.UpdateProduct()")
 		return err
 	}
 
-	log.LogWarn("mongo: Updating product with ID: " + id)
+	log.LogTask("mongo: Updating product with ID: "+id, "ProductRepo.UpdateProduct()")
 
 	filter := bson.M{"_id": objectID}
 	update := bson.M{

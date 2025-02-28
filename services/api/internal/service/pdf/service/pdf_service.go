@@ -25,7 +25,7 @@ func (p *PDFService) GetFileMeta(c *fiber.Ctx) error {
 	// Parse the ID parameter from the URL
 	id := c.Params("id")
 	if id == "" {
-		log.LogError("missing id parameter in GetFileMeta")
+		log.LogError("missing id parameter in GetFileMeta", "PDFService.GetFileMeta()")
 		return c.Status(fiber.StatusBadRequest).SendString("Missing id parameter")
 	}
 
@@ -35,7 +35,7 @@ func (p *PDFService) GetFileMeta(c *fiber.Ctx) error {
 	// Fetch metadata for the PDF file from S3
 	headData, err := p.s3Service.GetObjectHead(*p.dirPath, fileName)
 	if err != nil {
-		log.LogError("failed to fetch file metadata: " + err.Error())
+		log.LogError("failed to fetch file metadata: "+err.Error(), "PDFService.GetFileMeta()")
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching file metadata")
 	}
 
@@ -60,7 +60,7 @@ func (p *PDFService) GetPDFFile(c *fiber.Ctx) error {
 	// Pass the metaData with _
 	fileData, _, err := p.s3Service.GetObject(p.dirPath, &fileName)
 	if err != nil {
-		log.LogError("failed to fetch file: " + err.Error())
+		log.LogError("failed to fetch file: "+err.Error(), "PDFService.GetPDFFile()")
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching PDF")
 	}
 
@@ -74,21 +74,21 @@ func (p *PDFService) PostPDFFile(c *fiber.Ctx) error {
 	// Parse the ID parameter from the URL
 	id := c.Params("id")
 	if id == "" {
-		log.LogError("missing id parameter on UploadPDFFile")
+		log.LogError("missing id parameter on UploadPDFFile", "PDFService.PostPDFFile")
 		return c.Status(fiber.StatusBadRequest).SendString("Missing id parameter")
 	}
 
 	// Get the file from the request body
 	file, err := c.FormFile("file")
 	if err != nil {
-		log.LogError("failed to parse uploaded file: " + err.Error())
+		log.LogError("failed to parse uploaded file: "+err.Error(), "PDFService.PostPDFFile")
 		return c.Status(fiber.StatusBadRequest).SendString("Error parsing uploaded file")
 	}
 
 	// Open the file
 	fileData, err := file.Open()
 	if err != nil {
-		log.LogError("failed to open uploaded file: " + err.Error())
+		log.LogError("failed to open uploaded file: "+err.Error(), "PDFService.PostPDFFile")
 		return c.Status(fiber.StatusInternalServerError).SendString("Error opening uploaded file")
 	}
 	defer fileData.Close()
@@ -96,7 +96,7 @@ func (p *PDFService) PostPDFFile(c *fiber.Ctx) error {
 	// Read file content
 	fileBytes, err := io.ReadAll(fileData)
 	if err != nil {
-		log.LogError("failed to read uploaded file: " + err.Error())
+		log.LogError("failed to read uploaded file: "+err.Error(), "PDFService.PostPDFFile()")
 		return c.Status(fiber.StatusInternalServerError).SendString("Error reading uploaded file")
 	}
 
@@ -108,7 +108,7 @@ func (p *PDFService) PostPDFFile(c *fiber.Ctx) error {
 	// Upload the file to S3 with metadata
 	err = p.s3Service.PostObject(p.dirPath, &fileName, fileBytes, fileTitle)
 	if err != nil {
-		log.LogError("failed to upload file to S3: " + err.Error())
+		log.LogError("failed to upload file to S3: "+err.Error(), "PDFService.PostPDFFile()")
 		return c.Status(fiber.StatusInternalServerError).SendString("Error uploading file to S3")
 	}
 
@@ -120,7 +120,7 @@ func (p *PDFService) DeletePDFFile(c *fiber.Ctx) error {
 	// Parse the ID parameter from the URL
 	id := c.Params("id")
 	if id == "" {
-		log.LogError("missing id parameter in DeletePDFFile")
+		log.LogError("missing id parameter in DeletePDFFile", "PDFService.DeletePDFFile()")
 		return c.Status(fiber.StatusBadRequest).SendString("Missing id parameter")
 	}
 
@@ -130,7 +130,7 @@ func (p *PDFService) DeletePDFFile(c *fiber.Ctx) error {
 	// Delete the PDF file from S3
 	err := p.s3Service.DeleteObject(*p.dirPath, fileName)
 	if err != nil {
-		log.LogError("failed to delete file from S3: " + err.Error())
+		log.LogError("failed to delete file from S3: "+err.Error(), "PDFService.DeletePDFFile()")
 		return c.Status(fiber.StatusInternalServerError).SendString("Error deleting file from S3")
 	}
 

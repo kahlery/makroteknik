@@ -46,6 +46,7 @@ export const Panel = () => {
     const getPDF = useProductStore((s) => s.getPDF)
     const postPDF = useProductStore((s) => s.postPDF)
     const getPDFMeta = useProductStore((s) => s.getPDFMeta)
+    const deletePDF = useProductStore((s) => s.deletePDF)
     // States --------------------------------------------------------------------
     // state to control whether the form is visible for editing/adding
     const [isRenderForm, setIsRenderForm] = useState(false)
@@ -99,6 +100,14 @@ export const Panel = () => {
             imageName: "", // Reset the image name
             imageFile: null, // Reset the image file
         }))
+    }
+
+    // Add a new function to handle image deletion
+    const handleDeletePDF = () => {
+        setCurrentProduct(DEFAULT_CURRENT_PRODUCT)
+        setIsRenderForm(false)
+
+        deletePDF(currentProduct._id)
     }
 
     // handle image upload and convert to base64
@@ -185,15 +194,16 @@ export const Panel = () => {
         setIsRenderForm(true)
     }
 
-    const postFiles = (productID) => {
+    const postFiles = async (productID) => {
         if (PDF) {
-            postPDF(productID, PDF, currentProduct.pdfName)
+            await postPDF(productID, PDF, currentProduct.pdfName)
         }
 
         // Reset the form after successful save
         setPDF(null)
         setIsRenderForm(false)
         setCurrentProduct(DEFAULT_CURRENT_PRODUCT)
+        getPDFMeta(currentProduct._id)
     }
 
     const handleDragEnd = (result) => {
@@ -384,7 +394,8 @@ export const Panel = () => {
                 handleDragEnd,
                 getPDF,
                 productsList,
-                handleDeleteImage
+                handleDeleteImage,
+                handleDeletePDF
             )}
             {renderFloatingAddButton(
                 setIsRenderForm,
@@ -545,7 +556,8 @@ function renderProductForm(
     handleDragEnd,
     getPDF,
     productsList,
-    handleDeleteImage
+    handleDeleteImage,
+    handleDeletePDF
 ) {
     if (!isRenderForm) {
         // Checks if the form is activated
@@ -622,7 +634,18 @@ function renderProductForm(
                                     className="w-1/4 cursor-pointer"
                                     onClick={() => getPDF(currentProduct._id)}
                                 />
-                                <p>{currentProduct.pdfMeta.Title}</p>
+                                <p>
+                                    {decodeURIComponent(
+                                        currentProduct.pdfMeta.Title
+                                    )}
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={handleDeletePDF}
+                                    className="h-2 mb-6 w-fit bg-4 text-white p-4 text-center items-center flex"
+                                >
+                                    Delete the PDF
+                                </button>
                             </>
                         ) : (
                             <p>No PDF metadata available.</p>
@@ -852,10 +875,13 @@ function renderProductForm(
                                 className="bg-primary text-white px-2 py-2  font-bold"
                                 onClick={async () => {
                                     try {
-                                        const id =
-                                            currentProduct._id ??
-                                            (await handleSaveProduct())
-                                        postFiles(id)
+                                        if (currentProduct._id) {
+                                            handleSaveProduct()
+                                            postFiles(currentProduct._id)
+                                        } else {
+                                            const id = await handleSaveProduct()
+                                            postFiles(id)
+                                        }
                                     } catch (error) {
                                         console.error(
                                             "Error saving product:",

@@ -8,8 +8,8 @@ import (
 )
 
 func logNotSupportedImageExtension() {
-	log.LogError("image extension is not supported" +
-		"\nsupported image extensions: .jpg, .jpeg, .png, .webp")
+	log.LogError("image extension is not supported"+
+		"\nsupported image extensions: .jpg, .jpeg, .png, .webp", "logNotSupportedImageExtension()")
 }
 
 func isImageExtensionSupported(imageName string) bool {

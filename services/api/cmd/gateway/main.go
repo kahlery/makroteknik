@@ -77,10 +77,11 @@ func init() {
 		}
 	} else {
 		logPkg.LogSuccess(
-			"environment variables:" + "\n" +
-				os.Getenv("DB") + "\n" +
-				os.Getenv("PORT") + "\n" +
+			"environment variables:"+"\n"+
+				os.Getenv("DB")+"\n"+
+				os.Getenv("PORT")+"\n"+
 				os.Getenv("S3_BUCKET_NAME"),
+			"main.init()",
 		)
 	}
 
@@ -94,15 +95,15 @@ func init() {
 	// check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
-		logPkg.LogError("failed to get working directory: " + err.Error())
+		logPkg.LogError("failed to get working directory: "+err.Error(), "main.init()")
 	} else {
-		logPkg.LogSuccess("working directory can be reached:")
+		logPkg.LogSuccess("working directory can be reached:", "main.init()")
 		fmt.Println(dir)
 	}
 
 	// check if all clients initialized successfully
 	if s3Client == nil || mongoClient == nil {
-		logPkg.LogError("failed to initialize clients")
+		logPkg.LogError("failed to initialize clients", "main.init()")
 	}
 }
 
@@ -157,7 +158,13 @@ func setupRoutes(app *fiber.App) {
 	// Ping check
 	app.Get("/ping", healthService.GetHealth)
 
-	app.Use(logger.New())
+	// Adding fiber standart logger middleware
+	app.Use(logger.New(logger.Config{
+		Format:        "\n${time} | ${ip} | ${method} | ${status} | ${latency} | ${path}\n",
+		TimeFormat:    "02-01-2006 03:04:05 PM",
+		TimeZone:      "UTC",
+		DisableColors: false,
+	}))
 
 	// Auth routes
 	authGroup := app.Group("/auth")
@@ -184,6 +191,7 @@ func setupRoutes(app *fiber.App) {
 	staticGroup.Get("/pdf/:id", pdfService.GetPDFFile)
 	staticGroup.Post("/pdf/upload/:id/:title", pdfService.PostPDFFile)
 	staticGroup.Get("/pdf/meta/:id", pdfService.GetFileMeta)
+	staticGroup.Delete("/pdf/delete/:id", pdfService.DeletePDFFile)
 }
 
 func setupMiddlewares(app *fiber.App) {

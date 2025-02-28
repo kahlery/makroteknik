@@ -14,15 +14,23 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
 
+type S3ServiceConfig struct {
+	isLoggingEnabled bool
+}
+
 type S3Service struct {
 	s3Client *s3.Client
 	bucket   string
+	config   S3ServiceConfig
 }
 
 func NewS3Service() *S3Service {
 	return &S3Service{
 		s3Client: InitS3Client(),
 		bucket:   os.Getenv("S3_BUCKET_NAME"),
+		config: S3ServiceConfig{
+			isLoggingEnabled: true,
+		},
 	}
 }
 
@@ -42,7 +50,7 @@ func (s *S3Service) GetObject(path *string, fileName *string) ([]byte, map[strin
 	// Define the full key
 	key := *path + *fileName
 
-	logger.LogWarn("get requesting on S3 with:" + "| filename: " + *fileName + "| path: " + *path + "| key: " + key)
+	logger.LogTask("get requesting on S3 with:"+"| filename: "+*fileName+"| path: "+*path+"| key: "+key, "S3Service.GetObject()")
 
 	// Set up the GetObject input
 	input := &s3.GetObjectInput{
@@ -86,10 +94,18 @@ func (s *S3Service) PostObject(path *string, fileName *string, data []byte, obje
 		Metadata: metadata,
 	}
 
+	if s.config.isLoggingEnabled {
+		logger.LogTask("Posting an object:"+fmt.Sprintf("%+v", input.Metadata), "S3Service.PostObject()")
+	}
+
 	// Call S3 PutObject
 	_, err := s.s3Client.PutObject(context.TODO(), input)
 	if err != nil {
 		return fmt.Errorf("failed to upload file to S3: %w", err)
+	}
+
+	if s.config.isLoggingEnabled {
+		logger.LogSuccess("Object posted:"+fmt.Sprint(input.Metadata), "S3Service.PostObject()")
 	}
 
 	return nil
@@ -107,10 +123,17 @@ func (s *S3Service) DeleteObject(path string, fileName string) error {
 		Key:    &key,
 	}
 
+	logger.LogTask(fmt.Sprint("deleting the object with the key:", key), "S3Service.DeleteObject()")
+
 	// Call S3 DeleteObject
-	_, err := s.s3Client.DeleteObject(context.TODO(), input)
+	res, err := s.s3Client.DeleteObject(context.TODO(), input)
 	if err != nil {
 		return fmt.Errorf("failed to delete file from S3: %w", err)
+	}
+
+	// Logging to the console
+	if s.config.isLoggingEnabled {
+		logger.LogSuccess(fmt.Sprintf("%v", res.ResultMetadata), "S3Service.DeleteObject()")
 	}
 
 	return nil
@@ -122,7 +145,7 @@ func (s *S3Service) GetObjectHead(path string, fileName string) (*s3.HeadObjectO
 	// Define the full key (path + fileName)
 	key := path + fileName
 
-	logger.LogWarn("getting metadata for file from S3 with: " + "| filename: " + fileName + "| path: " + path + "| key: " + key)
+	logger.LogTask("getting metadata for file from S3 with: "+"| filename: "+fileName+"| path: "+path+"| key: "+key, "S3Service.GetObjectHead()")
 
 	// Set up the HeadObject input
 	input := &s3.HeadObjectInput{
@@ -136,7 +159,7 @@ func (s *S3Service) GetObjectHead(path string, fileName string) (*s3.HeadObjectO
 		return nil, fmt.Errorf("failed to get metadata for file from S3: %w", err)
 	}
 
-	logger.LogSuccess(fmt.Sprintf("metadata succesfully fetched: %v", res.Metadata))
+	logger.LogSuccess(fmt.Sprintf("metadata succesfully fetched: %v", res.Metadata), "S3Service.GetObjectHead()")
 
 	// Return the metadata result
 	return res, nil
