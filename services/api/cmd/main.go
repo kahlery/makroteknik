@@ -33,6 +33,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
+	"gorm.io/gorm/logger"
 
 	// mongodb:
 	"go.mongodb.org/mongo-driver/mongo"
@@ -159,15 +160,15 @@ func setupRoutes(app *fiber.App) {
 	app.Get("/ping", healthService.GetHealth)
 
 	// Adding fiber standart logger middleware
-	// app.Use(logger.New(logger.Config{
-	// 	Format:        "\n${time} | ${ip} | ${method} | ${status} | ${latency} | ${path}\n",
-	// 	TimeFormat:    "02-01-2006 03:04:05 PM",
-	// 	TimeZone:      "UTC",
-	// 	DisableColors: false,
-	// }))
+	app.Use(logger.New(logger.Config{
+		Format:        "\n\033[37m[RESPONSE]\033[0m ${time} | ${ip} | ${method} | ${status} | ${latency} | ${path}\n",
+		TimeFormat:    "02-01-2006 03:04:05 PM",
+		TimeZone:      "UTC",
+		DisableColors: false,
+	}))
 
-	// Adding custom logger middleware
-	app.Use(logMid.LogInMiddle())
+	// Adding custom logger middleware to log requests as well
+	app.Use(logMid.LogRequests())
 
 	// Auth routes
 	authGroup := app.Group("/auth")
