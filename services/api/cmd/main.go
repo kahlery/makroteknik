@@ -83,7 +83,7 @@ func init() {
 				os.Getenv("DB")+"\n"+
 				os.Getenv("PORT")+"\n"+
 				os.Getenv("S3_BUCKET_NAME"),
-			"main.init()",
+			"main.init()", "",
 		)
 	}
 
@@ -97,15 +97,15 @@ func init() {
 	// check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
-		logPkg.LogError("failed to get working directory: "+err.Error(), "main.init()")
+		logPkg.LogError("failed to get working directory: "+err.Error(), "main.init()", "")
 	} else {
-		logPkg.LogSuccess("working directory can be reached:", "main.init()")
+		logPkg.LogSuccess("working directory can be reached:", "main.init()", "")
 		fmt.Println(dir)
 	}
 
 	// check if all clients initialized successfully
 	if s3Client == nil || mongoClient == nil {
-		logPkg.LogError("failed to initialize clients", "main.init()")
+		logPkg.LogError("failed to initialize clients", "main.init()", "")
 	}
 }
 

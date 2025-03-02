@@ -157,6 +157,12 @@ export const Panel = () => {
             setSizeInput("") // Reset size input
             setPriceInput("") // Reset price input
         }
+
+        // Scroll to the bottom of the container (replace 'containerRef' with your reference)
+        const container = document.getElementById("product-form") // Adjust this to your container's ID or use a ref if needed
+        if (container) {
+            container.scrollTop = container.scrollHeight
+        }
     }
 
     // handle removing a size-price pair
@@ -574,7 +580,8 @@ function renderProductForm(
                 // onClick={() => setIsRenderForm(false)}
             >
                 <div
-                    className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll"
+                    className="bg-white flex flex-col border-black border p-4 pb-96 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll"
+                    id="product-form"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <h3 className="mb-8 font-bold text-blue-500">
@@ -722,8 +729,34 @@ function renderProductForm(
                             className="border border-gray-400 h-64 p-2 "
                         />
                         <label className="text-primary font-bold">
-                            size-price:
+                            size-price pairs:
                         </label>
+
+                        {/* Inputs for size and price */}
+                        <div className="flex gap-4">
+                            <input
+                                type="text"
+                                value={sizeInput}
+                                onChange={(e) => setSizeInput(e.target.value)}
+                                placeholder="size (e.g., 450mm)"
+                                className="border border-gray-400 p-2 "
+                            />
+                            <input
+                                type="text"
+                                value={priceInput}
+                                onChange={(e) => setPriceInput(e.target.value)}
+                                placeholder="price (e.g., £810.00 ex vat)"
+                                className="border border-gray-400 p-2 "
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            className="bg-primary text-white px-4 py-2  font-bold"
+                            onClick={handleAddSizePrice}
+                        >
+                            add entered size-price pair
+                        </button>
+
                         {/* list available sizes */}
                         <DragDropContext onDragEnd={handleDragEnd}>
                             <Droppable droppableId="sizeToPriceList">
@@ -843,30 +876,6 @@ function renderProductForm(
                                 )}
                             </Droppable>
                         </DragDropContext>
-                        {/* Inputs for size and price */}
-                        <div className="flex gap-4">
-                            <input
-                                type="text"
-                                value={sizeInput}
-                                onChange={(e) => setSizeInput(e.target.value)}
-                                placeholder="size (e.g., 450mm)"
-                                className="border border-gray-400 p-2 "
-                            />
-                            <input
-                                type="text"
-                                value={priceInput}
-                                onChange={(e) => setPriceInput(e.target.value)}
-                                placeholder="price (e.g., £810.00 ex vat)"
-                                className="border border-gray-400 p-2 "
-                            />
-                        </div>
-                        <button
-                            type="button"
-                            className="bg-primary text-white px-4 py-2  font-bold"
-                            onClick={handleAddSizePrice}
-                        >
-                            add entered size-price pair
-                        </button>
 
                         {/* Buttons to save or cancel */}
                         <div className="fixed right-4 top-4 flex  gap-2">

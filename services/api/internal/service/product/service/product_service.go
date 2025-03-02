@@ -44,7 +44,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 	// 1. Fetch products from MongoDB
 	products, err := p.productRepo.GetProducts(c.Context())
 	if err != nil {
-		pkgLog.LogError("failed to fetch products from MongoDB: "+err.Error(), "ProductService.GetProducts()")
+		pkgLog.LogError("failed to fetch products from MongoDB: "+err.Error(), "ProductService.GetProducts()", c.Locals("processID").(string))
 		return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from MongoDB: " + err.Error())
 	}
 
@@ -94,7 +94,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusBadRequest).SendString("failed to parse request body: " + err.Error())
 	}
 
-	pkgLog.LogSuccess("Product received: "+product.Title, "ProductService.PostProduct()")
+	pkgLog.LogSuccess("Product received: "+product.Title, "ProductService.PostProduct()", ctx.Locals("processID").(string))
 
 	// Generate a new ID for the product
 	generatedID := primitive.NewObjectID()
@@ -144,7 +144,7 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 
 func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
-	pkgLog.LogTask("Product will be updated: "+id, "ProductService.PatchProduct()")
+	pkgLog.LogTask("Product will be updated: "+id, "ProductService.PatchProduct()", ctx.Locals("processID").(string))
 
 	// 1. Marshall the product from the response body
 	var product dto.Product
@@ -185,7 +185,7 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 
 	// 3. Save the image to ../../assets/images/products with the _id.webp name if the image is updated
 	if product.Image != "" {
-		pkgLog.LogTask("Deleting the image from the S3 as well...", "ProductService.PatchProduct()")
+		pkgLog.LogTask("Deleting the image from the S3 as well...", "ProductService.PatchProduct()", ctx.Locals("processID").(string))
 		imageData, err := base64.StdEncoding.DecodeString(strings.Split(product.Image, "base64,")[1])
 		if err != nil {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to decode base64 image: " + err.Error())
@@ -197,9 +197,9 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 		}
 	} else { // If the image field (mostly intended) is empty this means service should delete the image
 		if err := p.s3Service.DeleteObject(*p.imagePath, product.ID+".webp"); err != nil {
-			pkgLog.LogError(err.Error(), "ProductService.PatchProduct()")
+			pkgLog.LogError(err.Error(), "ProductService.PatchProduct()", ctx.Locals("processID").(string))
 		}
-		pkgLog.LogSuccess("ProductService.PathchProduct() Image object deleted from the S3:"+*p.imagePath, "ProductService.PatchProduct()")
+		pkgLog.LogSuccess("ProductService.PathchProduct() Image object deleted from the S3:"+*p.imagePath, "ProductService.PatchProduct()", ctx.Locals("processID").(string))
 	}
 
 	// 4. Update the product in MongoDB
@@ -221,7 +221,7 @@ func (p *ProductService) DeleteProduct(ctx *fiber.Ctx) error {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete image from directory: " + err.Error())
 	}
 
-	pkgLog.LogSuccess("S3: image deleted from directory: "+id+".webp", "ProductService.DeleteProduct()")
+	pkgLog.LogSuccess("S3: image deleted from directory: "+id+".webp", "ProductService.DeleteProduct()", ctx.Locals("processID").(string))
 
 	// 3. Delete the product from MongoDB
 	if err := p.productRepo.DeleteProduct(ctx.Context(), id); err != nil {

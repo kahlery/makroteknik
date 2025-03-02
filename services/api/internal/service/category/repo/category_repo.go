@@ -45,7 +45,7 @@ func (c *CategoryRepo) GetCategories(ctx context.Context) ([]model.Category, err
 			return nil, err
 		}
 
-		log.LogSuccess("got categories from mongo, showing latest:", "CategoryRepo.GetCategories()")
+		log.LogSuccess("got categories from mongo, showing latest:", "CategoryRepo.GetCategories()", "")
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}

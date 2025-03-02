@@ -16,7 +16,7 @@ const (
 )
 
 // LogError logs an error message in red, with a timestamp, file, and line number
-func LogError(str string, location string) {
+func LogError(str string, location string, processID string) {
 	// Get the current timestamp
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
@@ -29,7 +29,7 @@ func LogError(str string, location string) {
 
 	// Print the log with red color for error and line spacing
 	if location != "" {
-		fmt.Printf("\n%s----------%s----------%s", red, location, reset)
+		fmt.Printf("\n%s%s | %s%s", red, processID, location, reset)
 		fmt.Printf("\n%sERROR: %s ==> %s:%d %s%s\n", red, timestamp, file, line, str, reset)
 	} else {
 		fmt.Printf("\n%sERROR: %s ==> %s:%d %s%s\n", red, timestamp, file, line, str, reset)
@@ -38,13 +38,13 @@ func LogError(str string, location string) {
 }
 
 // LogSuccess logs an informational message in green, with a timestamp
-func LogSuccess(str string, location string) {
+func LogSuccess(str string, location string, processID string) {
 	// Get the current timestamp
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
 	// Print the log with green color for success and line spacing
 	if location != "" {
-		fmt.Printf("\n%s----------%s----------%s", green, location, reset)
+		fmt.Printf("\n%s%s | %s%s", green, processID, location, reset)
 		fmt.Printf("\n%sSUCCESS: %s ==> %s%s\n", green, timestamp, str, reset)
 	} else {
 		fmt.Printf("\n%sSUCCESS: %s ==> %s%s\n", green, timestamp, str, reset)
@@ -52,13 +52,13 @@ func LogSuccess(str string, location string) {
 }
 
 // LogWarn logs a warning message in orange, with a timestamp
-func LogWarn(body string, location string) {
+func LogWarn(body string, location string, processID string) {
 	// Get the current timestamp
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
 	// Print the log with orange color for warning and line spacing
 	if location != "" {
-		fmt.Printf("\n%s----------%s----------%s", orange, location, reset)
+		fmt.Printf("\n%s%s | %s%s", orange, processID, location, reset)
 		fmt.Printf("\n%sWARNING: %s ==> %s%s\n", orange, timestamp, body, reset)
 		return
 	} else {
@@ -67,26 +67,26 @@ func LogWarn(body string, location string) {
 }
 
 // LogTask logs a debug message in yellow, with a timestamp
-func LogTask(str string, location string) {
+func LogTask(str string, location string, processID string) {
 	// Get the current timestamp
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
 	// Print the log with yellow color for debug and line spacing
 	if location != "" {
-		fmt.Printf("\n%s----------%s----------%s", yellow, location, reset)
+		fmt.Printf("\n%s%s | %s%s", yellow, processID, location, reset)
 		fmt.Printf("\n%sTASK: %s ==> %s%s\n", yellow, timestamp, str, reset)
 	} else {
 		fmt.Printf("\n%sTAKS: %s ==> %s%s\n", yellow, timestamp, str, reset)
 	}
 }
 
-func LogInfo(str string, location string) {
+func LogInfo(str string, location string, processID string) {
 	// Get the current timestamp
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 
 	// Print the log with yellow color for debug and line spacing
 	if location != "" {
-		fmt.Printf("\n----------%s----------", location)
+		fmt.Printf("\n%s | %s", processID, location)
 		fmt.Printf("\nTASK: %s ==> %s\n", timestamp, str)
 	} else {
 		fmt.Printf("\nTAKS: %s ==> %s\n", timestamp, str)
