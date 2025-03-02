@@ -5,7 +5,7 @@ import (
 	"api/internal/service/auth/repo"
 	"api/pkg/auth/token"
 
-	pkgLog "api/pkg/log"
+	pkgLog "api/pkg/log/util"
 
 	"github.com/gofiber/fiber/v2"
 )

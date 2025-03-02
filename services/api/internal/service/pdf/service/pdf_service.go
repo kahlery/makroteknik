@@ -1,7 +1,7 @@
 package service
 
 import (
-	"api/pkg/log"
+	log "api/pkg/log/util"
 	"io"
 
 	"api/pkg/aws/service"

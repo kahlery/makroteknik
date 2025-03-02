@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 
-	logger "api/pkg/log"
+	logger "api/pkg/log/util"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/s3"

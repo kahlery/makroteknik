@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	"api/pkg/log"
+	log "api/pkg/log/util"
 )
 
 func logNotSupportedImageExtension() {

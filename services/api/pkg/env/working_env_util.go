@@ -1,7 +1,7 @@
 package env
 
 import (
-	"api/pkg/log"
+	log "api/pkg/log/util"
 	"os"
 )
 
@@ -12,7 +12,7 @@ func LogWorkingEnv() {
 		log.LogError("failed to get working directory", "LogWorkingEnv()")
 		return
 	}
-	log.LogDebug("working directory: "+workingDirectory, "LogWorkingEnv()")
+	log.LogInfo("working directory: "+workingDirectory, "LogWorkingEnv()")
 
 	nowDir, err := os.ReadDir(".")
 	if err != nil {
@@ -20,5 +20,5 @@ func LogWorkingEnv() {
 		return
 	}
 	name := nowDir[0].Name()
-	log.LogDebug("current directory: "+name, "LogWorkingEnv()")
+	log.LogInfo("current directory: "+name, "LogWorkingEnv()")
 }

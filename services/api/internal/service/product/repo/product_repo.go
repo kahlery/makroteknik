@@ -2,7 +2,7 @@ package repo
 
 import (
 	"api/internal/service/product/model"
-	"api/pkg/log"
+	log "api/pkg/log/util"
 	"context"
 	"encoding/json"
 	"fmt"

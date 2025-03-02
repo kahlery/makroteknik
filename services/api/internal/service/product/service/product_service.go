@@ -7,7 +7,7 @@ import (
 
 	// utils:
 	aws "api/pkg/aws/service"
-	pkgLog "api/pkg/log"
+	pkgLog "api/pkg/log/util"
 
 	// encoding:
 	"encoding/base64"
