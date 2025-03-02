@@ -571,7 +571,7 @@ function renderProductForm(
         return (
             <div
                 className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm"
-                onClick={() => setIsRenderForm(false)}
+                // onClick={() => setIsRenderForm(false)}
             >
                 <div
                     className="bg-white flex flex-col border-black border p-4 h-full fixed top-0 right-0 w-1/3 z-50 overflow-y-scroll"
