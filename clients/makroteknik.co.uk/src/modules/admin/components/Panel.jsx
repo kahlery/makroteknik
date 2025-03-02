@@ -561,7 +561,7 @@ function renderProductForm(
 ) {
     if (!isRenderForm) {
         // Checks if the form is activated
-        return <div className="h-64 w-64 bg-5"></div>
+        // return <div className="h-64 w-64 bg-5"></div>
     } else if (!currentProduct.isPDFMetaLoaded) {
         setCurrentProduct(
             productsList.find((x) => x._id === currentProduct._id)
