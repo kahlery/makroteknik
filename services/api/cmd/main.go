@@ -32,8 +32,9 @@ import (
 	// fiber:
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+
 	"github.com/joho/godotenv"
-	"gorm.io/gorm/logger"
 
 	// mongodb:
 	"go.mongodb.org/mongo-driver/mongo"
