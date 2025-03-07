@@ -3,9 +3,10 @@ package repo
 import (
 	"api/internal/service/product/model"
 	log "api/pkg/log/util"
-	"context"
 	"encoding/json"
 	"fmt"
+
+	"github.com/gofiber/fiber/v2"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -24,7 +25,7 @@ func NewProductRepo(client *mongo.Client) *ProductRepo {
 
 // functions: --------------------------------------------------------------------
 
-func (r *ProductRepo) GetProduct(ctx context.Context, id string) (model.Product, error) {
+func (r *ProductRepo) GetProduct(ctx *fiber.Ctx, id string) (model.Product, error) {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return model.Product{}, err
@@ -32,22 +33,22 @@ func (r *ProductRepo) GetProduct(ctx context.Context, id string) (model.Product,
 
 	filter := bson.M{"_id": objectID}
 	var product model.Product
-	err = r.collection.FindOne(ctx, filter).Decode(&product)
+	err = r.collection.FindOne(ctx.Context(), filter).Decode(&product)
 	return product, err
 }
 
-func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) {
+func (r *ProductRepo) GetProducts(ctx *fiber.Ctx) ([]model.Product, error) {
 	// 1. Perform a MongoDb query to fetch all documents in the products collection
-	cursor, err := r.collection.Find(ctx, bson.D{})
+	cursor, err := r.collection.Find(ctx.Context(), bson.D{})
 	if err != nil {
 		return nil, err
 	}
-	defer cursor.Close(ctx)
+	defer cursor.Close(ctx.Context())
 
 	// 2. Read all products from the cursor into the list
 	var productList []model.Product
 
-	if err := cursor.All(ctx, &productList); err != nil {
+	if err := cursor.All(ctx.Context(), &productList); err != nil {
 		return nil, err
 	}
 
@@ -62,7 +63,7 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 			return nil, err
 		}
 
-		log.LogSuccess("got products from mongo, showing latest:", "ProductRepo.GetProducts()", "")
+		log.LogSuccess("got products from mongo, showing latest:", "ProductRepo.GetProducts()", ctx.Locals("processID").(string))
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}
@@ -71,14 +72,14 @@ func (r *ProductRepo) GetProducts(ctx context.Context) ([]model.Product, error) 
 	return productList, nil
 }
 
-func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product, id string) error {
+func (r *ProductRepo) UpdateProduct(ctx *fiber.Ctx, product model.Product, id string) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		log.LogError("mongo: error converting id to objectId, "+err.Error(), "ProductRepo.UpdateProduct()", "")
+		log.LogError("mongo: error converting id to objectId, "+err.Error(), "ProductRepo.UpdateProduct()", ctx.Locals("processID").(string))
 		return err
 	}
 
-	log.LogTask("mongo: Updating product with ID: "+id, "ProductRepo.UpdateProduct()", "")
+	log.LogTask("mongo: Updating product with ID: "+id, "ProductRepo.UpdateProduct()", ctx.Locals("processID").(string))
 
 	filter := bson.M{"_id": objectID}
 	update := bson.M{
@@ -91,16 +92,16 @@ func (r *ProductRepo) UpdateProduct(ctx context.Context, product model.Product, 
 		},
 	}
 
-	_, err = r.collection.UpdateOne(ctx, filter, update)
+	_, err = r.collection.UpdateOne(ctx.Context(), filter, update)
 	return err
 }
 
-func (r *ProductRepo) AddProduct(ctx context.Context, product model.Product) error {
-	_, err := r.collection.InsertOne(ctx, product)
+func (r *ProductRepo) AddProduct(ctx *fiber.Ctx, product model.Product) error {
+	_, err := r.collection.InsertOne(ctx.Context(), product)
 	return err
 }
 
-func (r *ProductRepo) DeleteProduct(ctx context.Context, id string) error {
+func (r *ProductRepo) DeleteProduct(ctx *fiber.Ctx, id string) error {
 	// Convert the string ID to an ObjectId
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
@@ -111,6 +112,6 @@ func (r *ProductRepo) DeleteProduct(ctx context.Context, id string) error {
 	filter := bson.M{"_id": objectID}
 
 	// Call the DeleteOne method
-	_, err = r.collection.DeleteOne(ctx, filter)
+	_, err = r.collection.DeleteOne(ctx.Context(), filter)
 	return err // Return any errors that occur during deletion
 }

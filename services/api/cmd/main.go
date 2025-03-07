@@ -32,7 +32,6 @@ import (
 	// fiber:
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/logger"
 
 	"github.com/joho/godotenv"
 
@@ -160,17 +159,6 @@ func setupRoutes(app *fiber.App) {
 	// Ping check
 	app.Get("/ping", healthService.GetHealth)
 
-	// Adding fiber standart logger middleware
-	app.Use(logger.New(logger.Config{
-		Format:        "\n\033[37m[RESPONSE]\033[0m ${time} | ${ip} | ${method} | ${status} | ${latency} | ${path}\n",
-		TimeFormat:    "02-01-2006 03:04:05 PM",
-		TimeZone:      "UTC",
-		DisableColors: false,
-	}))
-
-	// Adding custom logger middleware to log requests as well
-	app.Use(logMid.LogRequests())
-
 	// Auth routes
 	authGroup := app.Group("/auth")
 	authGroup.Post("/login", authService.Login)
@@ -204,4 +192,19 @@ func setupMiddlewares(app *fiber.App) {
 		AllowOrigins: "http://localhost:3000, https://makroteknik-4yemjdfdu-vafaill.vercel.app, https://makroteknik.vercel.app, https://test.makroteknik.co.uk, https://makroteknik.co.uk",
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 	}))
+
+	// Adding custom marker for every process in request-response cycle
+	app.Use(logMid.MarkProcess())
+
+	// Adding custom logger middleware to log requests as well
+	app.Use(logMid.LogRequests())
+	app.Use(logMid.LogResponses())
+
+	// Adding fiber standart logger middleware to log responses
+	// app.Use(logger.New(logger.Config{
+	// 	Format:     "\n\033[35m[RESPONSE]\033[0m | ${locals:processID} | ${time} | ${ip} | ${method} | ${status} | ${latency} | ${path}\n",
+	// 	TimeFormat: "02-01-2006 03:04:05 PM",
+	// 	TimeZone:   "UTC",
+	// }))
+
 }

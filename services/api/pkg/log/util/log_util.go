@@ -29,7 +29,7 @@ func LogError(str string, location string, processID string) {
 
 	// Print the log with red color for error and line spacing
 	if location != "" {
-		fmt.Printf("\n%s%s | %s%s", red, processID, location, reset)
+		fmt.Printf("\n%s%s | %s%s", red, location, processID, reset)
 		fmt.Printf("\n%sERROR: %s ==> %s:%d %s%s\n", red, timestamp, file, line, str, reset)
 	} else {
 		fmt.Printf("\n%sERROR: %s ==> %s:%d %s%s\n", red, timestamp, file, line, str, reset)
@@ -44,7 +44,7 @@ func LogSuccess(str string, location string, processID string) {
 
 	// Print the log with green color for success and line spacing
 	if location != "" {
-		fmt.Printf("\n%s%s | %s%s", green, processID, location, reset)
+		fmt.Printf("\n%s%s | %s%s", green, location, processID, reset)
 		fmt.Printf("\n%sSUCCESS: %s ==> %s%s\n", green, timestamp, str, reset)
 	} else {
 		fmt.Printf("\n%sSUCCESS: %s ==> %s%s\n", green, timestamp, str, reset)
@@ -58,7 +58,7 @@ func LogWarn(body string, location string, processID string) {
 
 	// Print the log with orange color for warning and line spacing
 	if location != "" {
-		fmt.Printf("\n%s%s | %s%s", orange, processID, location, reset)
+		fmt.Printf("\n%s%s | %s%s", orange, location, processID, reset)
 		fmt.Printf("\n%sWARNING: %s ==> %s%s\n", orange, timestamp, body, reset)
 		return
 	} else {
@@ -73,7 +73,7 @@ func LogTask(str string, location string, processID string) {
 
 	// Print the log with yellow color for debug and line spacing
 	if location != "" {
-		fmt.Printf("\n%s%s | %s%s", yellow, processID, location, reset)
+		fmt.Printf("\n%s%s | %s%s", yellow, location, processID, reset)
 		fmt.Printf("\n%sTASK: %s ==> %s%s\n", yellow, timestamp, str, reset)
 	} else {
 		fmt.Printf("\n%sTAKS: %s ==> %s%s\n", yellow, timestamp, str, reset)
@@ -86,7 +86,7 @@ func LogInfo(str string, location string, processID string) {
 
 	// Print the log with yellow color for debug and line spacing
 	if location != "" {
-		fmt.Printf("\n%s | %s", processID, location)
+		fmt.Printf("\n%s | %s", location, processID)
 		fmt.Printf("\nTASK: %s ==> %s\n", timestamp, str)
 	} else {
 		fmt.Printf("\nTAKS: %s ==> %s\n", timestamp, str)

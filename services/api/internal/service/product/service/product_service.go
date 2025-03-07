@@ -40,12 +40,12 @@ func NewProductService(productRepo *repo.ProductRepo, s3Service *aws.S3Service, 
 // functions: --------------------------------------------------------------------
 
 // GetProduct fetches products from MongoDB, then fetches their images from S3
-func (p *ProductService) GetProducts(c *fiber.Ctx) error {
+func (p *ProductService) GetProducts(ctx *fiber.Ctx) error {
 	// 1. Fetch products from MongoDB
-	products, err := p.productRepo.GetProducts(c.Context())
+	products, err := p.productRepo.GetProducts(ctx)
 	if err != nil {
-		pkgLog.LogError("failed to fetch products from MongoDB: "+err.Error(), "ProductService.GetProducts()", c.Locals("processID").(string))
-		return c.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from MongoDB: " + err.Error())
+		pkgLog.LogError("failed to fetch products from MongoDB: "+err.Error(), "ProductService.GetProducts()", ctx.Locals("processID").(string))
+		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to fetch products from MongoDB: " + err.Error())
 	}
 
 	// 2. Fetch images from S3
@@ -54,7 +54,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 	for _, product := range products {
 		imageName := product.ID.Hex() + ".webp"
 		// Retrieve image and metadata from S3
-		imageData, metadata, err := p.s3Service.GetObject(p.imagePath, &imageName)
+		imageData, metadata, err := p.s3Service.GetObject(p.imagePath, &imageName, ctx.Locals("processID").(string))
 		if err != nil {
 			failedImageIds = append(failedImageIds, product.ID.Hex())
 			continue
@@ -80,7 +80,7 @@ func (p *ProductService) GetProducts(c *fiber.Ctx) error {
 	}
 
 	// Return the response
-	return c.Status(fiber.StatusOK).JSON(dto.GetProductsResponse{
+	return ctx.Status(fiber.StatusOK).JSON(dto.GetProductsResponse{
 		Products: productResponses,
 	})
 }
@@ -125,12 +125,12 @@ func (p *ProductService) PostProduct(ctx *fiber.Ctx) error {
 	imageName := mappedProduct.ID.Hex() + ".webp"
 
 	// 3. Upload image to S3 with metadata containing the image name
-	if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData, product.ImageName); err != nil {
+	if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData, product.ImageName, ctx.Locals("processID").(string)); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 	}
 
 	// 4. Add the product to MongoDB
-	if err := p.productRepo.AddProduct(ctx.Context(), mappedProduct); err != nil {
+	if err := p.productRepo.AddProduct(ctx, mappedProduct); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to add product to MongoDB: " + err.Error())
 	}
 
@@ -153,7 +153,7 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 	}
 
 	// 2. Find which fields are updated, otherwise keep the old values and map the product to the model
-	foundedProduct, err := p.productRepo.GetProduct(ctx.Context(), id)
+	foundedProduct, err := p.productRepo.GetProduct(ctx, id)
 	if err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to fetch product from MongoDB: " + err.Error())
 	}
@@ -192,18 +192,18 @@ func (p *ProductService) PatchProduct(ctx *fiber.Ctx) error {
 		}
 
 		imageName := mappedProduct.ID.Hex() + ".webp"
-		if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData, "testing"); err != nil {
+		if err := p.s3Service.PostObject(p.imagePath, &imageName, imageData, "testing", ctx.Locals("processID").(string)); err != nil {
 			return ctx.Status(fiber.StatusInternalServerError).SendString("failed to save image to directory: " + err.Error())
 		}
 	} else { // If the image field (mostly intended) is empty this means service should delete the image
-		if err := p.s3Service.DeleteObject(*p.imagePath, product.ID+".webp"); err != nil {
+		if err := p.s3Service.DeleteObject(*p.imagePath, product.ID+".webp", ctx.Locals("processID").(string)); err != nil {
 			pkgLog.LogError(err.Error(), "ProductService.PatchProduct()", ctx.Locals("processID").(string))
 		}
 		pkgLog.LogSuccess("ProductService.PathchProduct() Image object deleted from the S3:"+*p.imagePath, "ProductService.PatchProduct()", ctx.Locals("processID").(string))
 	}
 
 	// 4. Update the product in MongoDB
-	if err := p.productRepo.UpdateProduct(ctx.Context(), mappedProduct, id); err != nil {
+	if err := p.productRepo.UpdateProduct(ctx, mappedProduct, id); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to update product in MongoDB: " + err.Error())
 	}
 
@@ -217,14 +217,14 @@ func (p *ProductService) DeleteProduct(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")
 
 	// 2. Delete the image from ../../assets/images/products
-	if err := p.s3Service.DeleteObject(*p.imagePath, id+".webp"); err != nil {
+	if err := p.s3Service.DeleteObject(*p.imagePath, id+".webp", ctx.Locals("processID").(string)); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete image from directory: " + err.Error())
 	}
 
 	pkgLog.LogSuccess("S3: image deleted from directory: "+id+".webp", "ProductService.DeleteProduct()", ctx.Locals("processID").(string))
 
 	// 3. Delete the product from MongoDB
-	if err := p.productRepo.DeleteProduct(ctx.Context(), id); err != nil {
+	if err := p.productRepo.DeleteProduct(ctx, id); err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).SendString("failed to delete product from MongoDB: " + err.Error())
 	}
 
