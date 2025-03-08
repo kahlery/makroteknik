@@ -174,8 +174,8 @@ func setupRoutes(app *fiber.App) {
 	categoryGroup := app.Group("/category")
 	categoryGroup.Get("/", categoryService.GetCategories, authPkgMiddleware.AuthMiddleware)
 	categoryGroup.Post("/post", categoryService.PostCategory, authPkgMiddleware.AuthMiddleware)
-	categoryGroup.Patch("/patch/:id", productService.PatchProduct, authPkgMiddleware.AuthMiddleware)
-	categoryGroup.Delete("/delete/:id", productService.DeleteProduct, authPkgMiddleware.AuthMiddleware)
+	categoryGroup.Patch("/patch/:id", categoryService.PatchCategory, authPkgMiddleware.AuthMiddleware)
+	categoryGroup.Delete("/delete/:id", categoryService.DeleteCategory, authPkgMiddleware.AuthMiddleware)
 
 	// Static routes
 	staticGroup := app.Group("/static")
