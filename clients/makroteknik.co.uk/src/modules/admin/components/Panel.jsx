@@ -777,6 +777,14 @@ function renderProductForm(
                     size-price pairs:
                 </label>
 
+                <button
+                    type="button"
+                    className="bg-primary text-white px-4 py-2  font-bold"
+                    onClick={handleAddSizePrice}
+                >
+                    add entered size-price pair
+                </button>
+
                 {/* Inputs for size and price */}
                 <div className="flex gap-4">
                     <input
@@ -794,13 +802,6 @@ function renderProductForm(
                         className="border border-gray-400 p-2 "
                     />
                 </div>
-                <button
-                    type="button"
-                    className="bg-primary text-white px-4 py-2  font-bold"
-                    onClick={handleAddSizePrice}
-                >
-                    add entered size-price pair
-                </button>
 
                 {/* list available sizes */}
                 <DragDropContext onDragEnd={handleDragEnd}>

@@ -6,14 +6,18 @@ import (
 )
 
 func MarkProcess() fiber.Handler {
-	return func(c *fiber.Ctx) error {
+	return func(ctx *fiber.Ctx) error {
+		if ctx.Path() == "/ping" {
+			return nil
+		}
+
 		// Generate a new UUID for the process
 		processID := uuid.New().String()
 
 		// Add the request ID to the context so that it can be used later
-		c.Locals("processID", processID)
+		ctx.Locals("processID", processID)
 
 		// Continue processing the request
-		return c.Next()
+		return ctx.Next()
 	}
 }
