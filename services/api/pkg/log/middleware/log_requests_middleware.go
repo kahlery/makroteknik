@@ -9,6 +9,10 @@ import (
 
 func LogRequests() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
+		if ctx.Path() == "/ping" {
+			ctx.Next()
+		}
+
 		// Log request with white foreground color
 		fmt.Printf("\n\033[44m[REQUEST]\033[0m | %s | %s | %s | %s\n", ctx.Locals("processID"), ctx.Method(), ctx.Path(), time.Now().Format(time.RFC3339))
 

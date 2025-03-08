@@ -10,7 +10,7 @@ import (
 func LogResponses() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		if ctx.Path() == "/ping" {
-			return nil
+			return ctx.Next()
 		}
 
 		// Capture the start time to calculate latency

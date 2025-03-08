@@ -8,7 +8,7 @@ import (
 func MarkProcess() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		if ctx.Path() == "/ping" {
-			return nil
+			return ctx.Next()
 		}
 
 		// Generate a new UUID for the process
