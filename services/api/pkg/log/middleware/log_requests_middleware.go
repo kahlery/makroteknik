@@ -10,7 +10,7 @@ import (
 func LogRequests() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		if ctx.Path() == "/ping" {
-			ctx.Next()
+			return ctx.Next()
 		}
 
 		// Log request with white foreground color
