@@ -67,6 +67,7 @@ export const Panel = () => {
     )
 
     // Effects --------------------------------------------------------------------
+
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === "Escape") {
@@ -80,6 +81,22 @@ export const Panel = () => {
             window.removeEventListener("keydown", handleKeyDown)
         }
     }, [])
+
+    const handleKeyDown = async (e) => {
+        if (e.key === "Enter") {
+            if (currentProduct._id) {
+                handleSaveProduct()
+                postFiles(currentProduct._id)
+            } else {
+                const id = await handleSaveProduct()
+                postFiles(id)
+            }
+        }
+    }
+    // useEffect(() => {
+    //     document.addEventListener("keydown", handleKeyDown)
+    //     return () => document.removeEventListener("keydown", handleKeyDown)
+    // }, [])
 
     // Handlers --------------------------------------------------------------------
     // handle form input changes
@@ -401,7 +418,8 @@ export const Panel = () => {
                 getPDF,
                 productsList,
                 handleDeleteImage,
-                handleDeletePDF
+                handleDeletePDF,
+                handleKeyDown
             )}
             {renderFloatingAddButton(
                 setIsRenderForm,
@@ -563,10 +581,12 @@ function renderProductForm(
     getPDF,
     productsList,
     handleDeleteImage,
-    handleDeletePDF
+    handleDeletePDF,
+    handleKeyDown
 ) {
     if (!isRenderForm) {
         // Checks if the form is activated
+        document.removeEventListener("keydown", handleKeyDown)
         // return <div className="h-64 w-64 bg-5"></div>
     } else if (!currentProduct.isPDFMetaLoaded) {
         setCurrentProduct(
@@ -574,6 +594,7 @@ function renderProductForm(
         )
     } else {
         // If form is activated and pdf meta is loaded
+        document.addEventListener("keydown", handleKeyDown)
         return (
             <div
                 className="bg-black bg-opacity-80 w-full h-full fixed top-0 right-0 z-50 text-primary text-opacity-60 text-sm"

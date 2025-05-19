@@ -1,1 +1,0 @@
-this package allows developer to intercept between requests and the inner services as a middleware and mark them to track further instructions on this lifecycle with marked process ID each are unique and special for that request.

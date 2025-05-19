@@ -1,74 +1,68 @@
 package main
 
 import (
-	// services:
-	auth "api/internal/service/auth/service"
-	category "api/internal/service/category/service"
-	health "api/internal/service/health/service"
-	pdf "api/internal/service/pdf/service"
-	product "api/internal/service/product/service"
-
-	// repos:
-	authPackage "api/internal/service/auth/repo"
-	categoryPackage "api/internal/service/category/repo"
-	productPackage "api/internal/service/product/repo"
-
-	// aws pkg:
-	aws "api/pkg/aws/service"
-
-	// auth pkg:
-	authPkgMiddleware "api/pkg/auth/middleware"
-
-	// log pkg:
-	logMid "api/pkg/log/middleware"
-	logPkg "api/pkg/log/util"
-
-	// built-in utils:
+	// Standart
 	"context"
 	"fmt"
 	"log"
 	"os"
 
-	// fiber:
+	// Services
+	auth_service "api/internal/service/auth/service"
+	category_service "api/internal/service/category/service"
+	health_service "api/internal/service/health/service"
+	pdf_service "api/internal/service/pdf/service"
+	product_service "api/internal/service/product/service"
+
+	// Repos
+	auth_repo "api/internal/service/auth/repo"
+	category_repo "api/internal/service/category/repo"
+	product_repo "api/internal/service/product/repo"
+
+	// kahlery deps
+	auth_middleware "github.com/kahlery/pkg/go/auth/middleware/fiber"
+	aws_service "github.com/kahlery/pkg/go/aws/service"
+
+	log_middleware "github.com/kahlery/pkg/go/log/middleware/fiber"
+	log_util "github.com/kahlery/pkg/go/log/util"
+
+	// Framework deps
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 
-	"github.com/joho/godotenv"
-
-	// mongodb:
+	// DB deps
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+
+	// Other deps
+	"github.com/joho/godotenv"
 )
 
-// vars: --------------------------------------------------------------------
-
-// clients:
+// --------------------------------------------------------------------
 var (
-	s3Client    *aws.S3Service
+	s3Client    *aws_service.S3Service
 	mongoClient *mongo.Client
 )
 
-// services:
 var (
-	healthService   *health.HealthService
-	authService     *auth.AuthService
-	productService  *product.ProductService
-	categoryService *category.CategoryService
-	pdfService      *pdf.PDFService
+	healthService   *health_service.HealthService
+	authService     *auth_service.AuthService
+	productService  *product_service.ProductService
+	categoryService *category_service.CategoryService
+	pdfService      *pdf_service.PDFService
 )
 
-// repos:
 var (
-	userRepo     *authPackage.UserRepo
-	productRepo  *productPackage.ProductRepo
-	categoryRepo *categoryPackage.CategoryRepo
+	userRepo     *auth_repo.UserRepo
+	productRepo  *product_repo.ProductRepo
+	categoryRepo *category_repo.CategoryRepo
 	// postRepo *postPackage.PostRepo
 )
 
 var imagePath = new(string)
 var pdfPath = new(string)
 
-// main: --------------------------------------------------------------------
+// --------------------------------------------------------------------
 
 func init() {
 	envType := os.Getenv("ENV")
@@ -77,7 +71,7 @@ func init() {
 			log.Fatalf("error loading .env, %v", err)
 		}
 	} else {
-		logPkg.LogSuccess(
+		log_util.LogSuccess(
 			"environment variables:"+"\n"+
 				os.Getenv("DB")+"\n"+
 				os.Getenv("PORT")+"\n"+
@@ -96,15 +90,15 @@ func init() {
 	// check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
-		logPkg.LogError("failed to get working directory: "+err.Error(), "main.init()", "")
+		log_util.LogError("failed to get working directory: "+err.Error(), "main.init()", "")
 	} else {
-		logPkg.LogSuccess("working directory can be reached:", "main.init()", "")
+		log_util.LogSuccess("working directory can be reached:", "main.init()", "")
 		fmt.Println(dir)
 	}
 
 	// check if all clients initialized successfully
 	if s3Client == nil || mongoClient == nil {
-		logPkg.LogError("failed to initialize clients", "main.init()", "")
+		log_util.LogError("failed to initialize clients", "main.init()", "")
 	}
 }
 
@@ -126,26 +120,26 @@ func main() {
 // inits: --------------------------------------------------------------------
 
 func initClients() {
-	s3Client = aws.NewS3Service()
+	s3Client = aws_service.NewS3Service()
 	mongoClient = setupDbConnection()
 }
 
 func initRepos() {
-	userRepo = authPackage.NewUserRepo(mongoClient)
-	productRepo = productPackage.NewProductRepo(mongoClient)
-	categoryRepo = categoryPackage.NewCategoryRepo(mongoClient)
+	userRepo = auth_repo.NewUserRepo(mongoClient)
+	productRepo = product_repo.NewProductRepo(mongoClient)
+	categoryRepo = category_repo.NewCategoryRepo(mongoClient)
 	// postRepo = postPackage.NewPostRepo(mongoClient)
 }
 
 func initServices() {
-	healthService = health.NewHealthService(mongoClient)
-	authService = auth.NewAuthService(userRepo)
-	productService = product.NewProductService(productRepo, s3Client, imagePath)
-	categoryService = category.NewCategoryService(categoryRepo)
-	pdfService = pdf.NewPDFService(pdfPath, s3Client)
+	healthService = health_service.NewHealthService(mongoClient)
+	authService = auth_service.NewAuthService(userRepo)
+	productService = product_service.NewProductService(productRepo, s3Client, imagePath)
+	categoryService = category_service.NewCategoryService(categoryRepo)
+	pdfService = pdf_service.NewPDFService(pdfPath, s3Client)
 }
 
-// setups: --------------------------------------------------------------------
+// Setups --------------------------------------------------------------------
 
 func setupDbConnection() *mongo.Client {
 	mongoClient, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(os.Getenv("DB")))
@@ -166,16 +160,16 @@ func setupRoutes(app *fiber.App) {
 	// Product routes
 	productGroup := app.Group("/product")
 	productGroup.Get("/", productService.GetProducts)
-	productGroup.Post("/post", productService.PostProduct, authPkgMiddleware.AuthMiddleware)
-	productGroup.Patch("/patch/:id", productService.PatchProduct, authPkgMiddleware.AuthMiddleware)
-	productGroup.Delete("/delete/:id", productService.DeleteProduct, authPkgMiddleware.AuthMiddleware)
+	productGroup.Post("/post", productService.PostProduct, auth_middleware.AuthMiddleware)
+	productGroup.Patch("/patch/:id", productService.PatchProduct, auth_middleware.AuthMiddleware)
+	productGroup.Delete("/delete/:id", productService.DeleteProduct, auth_middleware.AuthMiddleware)
 
 	// Category routes
 	categoryGroup := app.Group("/category")
-	categoryGroup.Get("/", categoryService.GetCategories, authPkgMiddleware.AuthMiddleware)
-	categoryGroup.Post("/post", categoryService.PostCategory, authPkgMiddleware.AuthMiddleware)
-	categoryGroup.Patch("/patch/:id", categoryService.PatchCategory, authPkgMiddleware.AuthMiddleware)
-	categoryGroup.Delete("/delete/:id", categoryService.DeleteCategory, authPkgMiddleware.AuthMiddleware)
+	categoryGroup.Get("/", categoryService.GetCategories, auth_middleware.AuthMiddleware)
+	categoryGroup.Post("/post", categoryService.PostCategory, auth_middleware.AuthMiddleware)
+	categoryGroup.Patch("/patch/:id", categoryService.PatchCategory, auth_middleware.AuthMiddleware)
+	categoryGroup.Delete("/delete/:id", categoryService.DeleteCategory, auth_middleware.AuthMiddleware)
 
 	// Static routes
 	staticGroup := app.Group("/static")
@@ -194,11 +188,11 @@ func setupMiddlewares(app *fiber.App) {
 	}))
 
 	// Adding custom marker for every process in request-response cycle
-	app.Use(logMid.MarkProcess())
+	app.Use(log_middleware.MarkProcess())
 
 	// Adding custom logger middleware to log requests as well
-	app.Use(logMid.LogRequests())
-	app.Use(logMid.LogResponses())
+	app.Use(log_middleware.LogRequests())
+	app.Use(log_middleware.LogResponses())
 
 	// Adding fiber standart logger middleware to log responses
 	// app.Use(logger.New(logger.Config{

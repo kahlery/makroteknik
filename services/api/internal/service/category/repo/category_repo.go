@@ -1,12 +1,18 @@
 package repo
 
 import (
-	"api/internal/service/category/model"
-	log "api/pkg/log/util"
+	// Standart
 	"context"
 	"encoding/json"
 	"fmt"
 
+	// Internal
+	"api/internal/service/category/model"
+
+	// kahlery
+	log_util "github.com/kahlery/pkg/go/log/util"
+
+	// DB Dependencies
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -45,7 +51,7 @@ func (c *CategoryRepo) GetCategories(ctx context.Context) ([]model.Category, err
 			return nil, err
 		}
 
-		log.LogSuccess("got categories from mongo, showing latest:", "CategoryRepo.GetCategories()", "")
+		log_util.LogSuccess("got categories from mongo, showing latest:", "CategoryRepo.GetCategories()", "")
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}

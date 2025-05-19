@@ -1,13 +1,20 @@
 package repo
 
 import (
-	"api/internal/service/product/model"
-	log "api/pkg/log/util"
+	// Standart
 	"encoding/json"
 	"fmt"
 
+	// Internal
+	"api/internal/service/product/model"
+
+	// kahlery
+	log_util "github.com/kahlery/pkg/go/log/util"
+
+	// Framework dependencies
 	"github.com/gofiber/fiber/v2"
 
+	// DB deps
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -63,7 +70,7 @@ func (r *ProductRepo) GetProducts(ctx *fiber.Ctx) ([]model.Product, error) {
 			return nil, err
 		}
 
-		log.LogSuccess("got products from mongo, showing latest:", "ProductRepo.GetProducts()", ctx.Locals("processID").(string))
+		log_util.LogSuccess("got products from mongo, showing latest:", "ProductRepo.GetProducts()", ctx.Locals("processID").(string))
 		fmt.Println(string(beautified))
 		fmt.Println()
 	}
@@ -75,11 +82,11 @@ func (r *ProductRepo) GetProducts(ctx *fiber.Ctx) ([]model.Product, error) {
 func (r *ProductRepo) UpdateProduct(ctx *fiber.Ctx, product model.Product, id string) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		log.LogError("mongo: error converting id to objectId, "+err.Error(), "ProductRepo.UpdateProduct()", ctx.Locals("processID").(string))
+		log_util.LogError("mongo: error converting id to objectId, "+err.Error(), "ProductRepo.UpdateProduct()", ctx.Locals("processID").(string))
 		return err
 	}
 
-	log.LogTask("mongo: Updating product with ID: "+id, "ProductRepo.UpdateProduct()", ctx.Locals("processID").(string))
+	log_util.LogTask("mongo: Updating product with ID: "+id, "ProductRepo.UpdateProduct()", ctx.Locals("processID").(string))
 
 	filter := bson.M{"_id": objectID}
 	update := bson.M{

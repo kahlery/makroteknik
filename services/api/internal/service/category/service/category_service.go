@@ -41,6 +41,7 @@ func (cs *CategoryService) PostCategory(ctx *fiber.Ctx) error {
 	category := model.Category{
 		ID:           primitive.NewObjectID(),
 		CategoryName: categoryRaw.CategoryName,
+		OrderIndex:   categoryRaw.OrderIndex,
 	}
 
 	newCategory, err := cs.categoryRepo.CreateCategory(ctx.Context(), category)

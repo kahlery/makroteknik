@@ -7,6 +7,7 @@ import (
 type CategoryRequest struct {
 	ID           string `json:"_id,omitempty"`
 	CategoryName string `json:"categoryName"`
+	OrderIndex   int8   `json:"orderIndex"`
 }
 
 type CategoryResponse struct {
