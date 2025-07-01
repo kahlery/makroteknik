@@ -1,15 +1,17 @@
 package dto
 
 type Product struct {
-	ID          string              `json:"_id"`
-	CategoryID  string              `json:"categoryID"`
-	Title       string              `json:"title"`
-	ProductCode string              `json:"productCode"`
-	Description string              `json:"description"`
-	SizeToPrice []map[string]string `json:"sizeToPrice"`
-	Image       string              `json:"image"`
-	IsPDFExist  bool                `json:"isPDFExist"`
-	ImageName   string              `json:"imageName"`
+	ID          string            `json:"_id"`
+	Category    string            `json:"category"`
+	Title       string            `json:"title"`
+	ProductCode string            `json:"product_code"`
+	Description string            `json:"description"`
+	SizeToPrice map[string]string `json:"size_2_price"`
+
+	IsPDFExist bool `json:"is_pdf_exist"`
+
+	ImageName string `json:"image_name"`
+	ImageUrl  string `json:"image_url"`
 }
 
 type GetProductsResponse struct {

@@ -9,7 +9,7 @@ import { useProductStore } from "../../product/stores/ProductStore"
 
 const ListingGrid = ({
     isFeatured,
-    categoryID,
+    category,
     cartProductIds,
     isHorizontalNorVertical,
     passedProductsList, // Renamed to avoid conflict
@@ -42,7 +42,7 @@ const ListingGrid = ({
         ? renderFeaturedProducts(
               isHorizontalNorVertical
                   ? productsList.filter(
-                        (product) => product.categoryID === categoryID
+                        (product) => product.category === category
                     )
                   : productsList.slice(0, 8)
           )
@@ -68,7 +68,7 @@ const ListingGrid = ({
                         : "grid grid-cols-2 xl:grid-cols-4 gap-8"
                 }`}
             >
-                {categoryID == undefined && (
+                {category == undefined && (
                     <h2 className="text-start text-sm text-black font-bold col-span-full">
                         Featured Products:
                     </h2>
@@ -102,7 +102,7 @@ const ListingGrid = ({
                 )}
                 {categoriesList.map((category) => {
                     const categoryProducts = productsList.filter(
-                        (product) => product.categoryID === category._id
+                        (product) => product.category === category._id
                     )
                     return (
                         <React.Fragment key={"category_" + category._id}>

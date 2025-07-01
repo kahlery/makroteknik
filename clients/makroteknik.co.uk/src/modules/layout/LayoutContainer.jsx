@@ -15,17 +15,12 @@ import { useProductStore } from "../product/stores/ProductStore"
 const LayoutContainer = () => {
     // Stores
     const getProducts = useProductStore((state) => state.getProducts)
-    const getCategories = useProductStore((state) => state.getCategories)
     const productsList = useProductStore((state) => state.productsList)
-    const categoriesList = useProductStore((state) => state.categoriesList)
     const loading = useProductStore((state) => state.loading)
 
     useEffect(() => {
         getProducts().then(() => {
             console.log("products fetched first time.")
-        })
-        getCategories().then(() => {
-            console.log("categories fetched first time")
         })
     }, [])
 
@@ -45,7 +40,7 @@ const LayoutContainer = () => {
         )
     }
 
-    console.log("productsList:", productsList, "categoriesList", categoriesList)
+    console.log("productsList:", productsList)
 
     return (
         <main className="relative">

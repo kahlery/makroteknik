@@ -15,7 +15,7 @@ import ListingGrid from "../../common/components/ListingGrid"
 
 const CategoriesTop = () => {
     // states
-    const [hoveredcategoryID, setHoveredcategoryID] = useState(null)
+    const [hoveredcategory, setHoveredcategory] = useState(null)
     const [hoverTimeout, setHoverTimeout] = useState(null)
 
     // stores
@@ -41,11 +41,11 @@ const CategoriesTop = () => {
                 button.style.opacity = 1
             })
         }
-    }, [hoveredcategoryID])
+    }, [hoveredcategory])
 
-    const handleMouseEnter = (categoryID) => {
+    const handleMouseEnter = (category) => {
         const timeout = setTimeout(() => {
-            setHoveredcategoryID(categoryID)
+            setHoveredcategory(category)
         }, 500)
         setHoverTimeout(timeout)
     }
@@ -54,11 +54,11 @@ const CategoriesTop = () => {
         if (hoverTimeout) {
             clearTimeout(hoverTimeout)
         }
-        setHoveredcategoryID(null)
+        setHoveredcategory(null)
     }
 
-    const isCategoryHovered = (categoryID) => {
-        return categoryID === hoveredcategoryID
+    const isCategoryHovered = (category) => {
+        return category === hoveredcategory
     }
 
     if (
@@ -103,7 +103,7 @@ const CategoriesTop = () => {
                                                     {/* <button
                                                         className="flex mx-auto w-fit rounded-full bg-red-500 bg-opacity-100"
                                                         onClick={() =>
-                                                            setHoveredcategoryID(
+                                                            setHoveredcategory(
                                                                 null
                                                             )
                                                         }
@@ -114,7 +114,7 @@ const CategoriesTop = () => {
                                                     </button> */}
                                                     <div>
                                                         <ListingGrid
-                                                            categoryID={
+                                                            category={
                                                                 category._id
                                                             }
                                                             isFeatured={true}

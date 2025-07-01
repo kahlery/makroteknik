@@ -36,7 +36,7 @@ const ProductCard = ({
             }}
         >
             <img
-                src={product.image}
+                src={product.image_url}
                 alt={product.title}
                 className="h-36 object-scale-down p-4 min-h-32"
             />
@@ -46,30 +46,21 @@ const ProductCard = ({
                     {product.title}
                 </h2>
                 <p className="text-xs text-black text-opacity-60 mt-auto">
-                    {product.productCode}
+                    {product.product_code}
                 </p>
                 <div className="text-xs text-black text-opacity-60 flex">
-                    {product.sizeToPrice && product.sizeToPrice.length > 0 ? (
-                        (() => {
-                            const [_, price] = Object.entries(
-                                product.sizeToPrice[0]
-                            )[0] // Extract size and price from the first entry
-                            return (
-                                <p className="text-secondary py-[1.6px]">
-                                    {price}
-                                </p>
-                            )
-                        })()
-                    ) : (
-                        <p className="text-red-700 py-[1.6px]">
-                            No Prices Available
+                    {product.size_2_price ? (
+                        <p className="text-secondary py-[1.6px]">
+                            {product.size_2_price[0]}
                         </p>
+                    ) : (
+                        <p className="text-red-700 py-[1.6px]">.</p>
                     )}
                 </div>
                 <div className="w-fit text-xs flex">
                     <p className="text-black text-opacity-80 pt-[1.6px] flex gap-1 items-center">
                         <TbRulerMeasure size={15} />
-                        {product.sizeToPrice ? product.sizeToPrice.length : 1}
+                        {product.size_2_price ? product.size_2_price.length : 1}
                         &nbsp;Size Available
                     </p>
                 </div>

@@ -1,16 +1,12 @@
 package repo
 
 import (
-	// Standart
 	"context"
-	"encoding/json"
+	// "encoding/json"
 	"fmt"
 
 	// Internal
 	"api/internal/service/category/model"
-
-	// kahlery
-	log_util "github.com/kahlery/pkg/go/log/util"
 
 	// DB Dependencies
 	"go.mongodb.org/mongo-driver/bson"
@@ -45,15 +41,12 @@ func (c *CategoryRepo) GetCategories(ctx context.Context) ([]model.Category, err
 
 	// Log the latest category for debugging
 	if len(categoryList) > 0 {
-		last := categoryList[len(categoryList)-1]
-		beautified, err := json.MarshalIndent(last, " ", " ")
-		if err != nil {
-			return nil, err
-		}
+		// last := categoryList[len(categoryList)-1]
+		// beautified, err := json.MarshalIndent(last, " ", " ")
+		// if err != nil {
+		// 	return nil, err
+		// }
 
-		log_util.LogSuccess("got categories from mongo, showing latest:", "CategoryRepo.GetCategories()", "")
-		fmt.Println(string(beautified))
-		fmt.Println()
 	}
 
 	return categoryList, nil

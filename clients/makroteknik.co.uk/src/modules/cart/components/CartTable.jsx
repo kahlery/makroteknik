@@ -164,7 +164,7 @@ export const CartTable = () => {
                                                     <td className="flex flex-row items-center gap-3 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                         <img
                                                             src={
-                                                                productDetails?.image ||
+                                                                productDetails?.image_url ||
                                                                 "/images/default-product.png"
                                                             }
                                                             alt={
@@ -186,14 +186,14 @@ export const CartTable = () => {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                                         {Object.keys(
                                                             productDetails[
-                                                                "sizeToPrice"
+                                                                "size_2_price"
                                                             ][size] ?? {}
                                                         )}
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                                         {Object.values(
                                                             productDetails[
-                                                                "sizeToPrice"
+                                                                "size_2_price"
                                                             ][size] ?? {}
                                                         )}
                                                     </td>

@@ -74,7 +74,7 @@ const DetailedProductModal = ({
                             <img
                                 src={
                                     process.env.PUBLIC_URL +
-                                    selectedProduct.image
+                                    selectedProduct.image_url
                                 }
                                 alt={selectedProduct.title}
                                 className="md:flex max-h-[50vh] md:w-[40vw] md:max-h-[66svh] object-scale-down mr-0 mb-4 md:my-0 "
@@ -116,8 +116,8 @@ const DetailedProductModal = ({
                                     </p>
                                 </div>
                                 <div className="relative gap-4 md:gap-2 pb-2 flex overflow-x-scroll md:overflow-clip md:flex-wrap max-w-[85vw] md:max-w-[100%] justify-start mb-4">
-                                    {selectedProduct.sizeToPrice.length > 1 ? (
-                                        selectedProduct.sizeToPrice.map(
+                                    {selectedProduct.size_2_price.length > 1 ? (
+                                        selectedProduct.size_2_price.map(
                                             (val, index) => {
                                                 const [size, price] =
                                                     Object.entries(val)[0]

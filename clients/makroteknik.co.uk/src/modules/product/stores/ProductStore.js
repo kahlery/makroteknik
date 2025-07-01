@@ -2,10 +2,10 @@ import { create } from "zustand"
 import axios from "axios"
 
 export const useProductStore = create((set, get) => ({
-    apiUrl: process.env.REACT_APP_API_URL ?? "http://localhost:8855",
+    apiUrl: process.env.REACT_APP_API_URL ?? "http://localhost:8090",
     productsList: [],
     categoriesList: [],
-    loading: 2,
+    loading: 1,
 
     getProducts: async () => {
         try {
@@ -24,9 +24,9 @@ export const useProductStore = create((set, get) => ({
         try {
             const { apiUrl } = get()
 
-            // Ensure categoryID is properly set
-            if (!product.categoryID || product.categoryID === 0) {
-                product.categoryID = "0"
+            // Ensure category is properly set
+            if (!product.category) {
+                product.category = ""
             }
 
             // Send the data to the API
@@ -40,7 +40,7 @@ export const useProductStore = create((set, get) => ({
                 }
             )
 
-            product._id = response.data.productID
+            product._id = response.data._id
 
             // Add the new product to state
             set((state) => ({
@@ -91,20 +91,6 @@ export const useProductStore = create((set, get) => ({
             })) // Remove product
         } catch (err) {
             console.error(err)
-        }
-    },
-
-    getCategories: async () => {
-        try {
-            const { apiUrl } = get()
-            const response = await axios.get(`${apiUrl}/category`)
-            set({
-                categoriesList: response.data.categories,
-                loading: get().loading - 1,
-            }) // Assuming categories are directly in the response
-        } catch (err) {
-            console.error(err)
-            set({ categoriesList: [] }) // Set empty categories on error
         }
     },
 

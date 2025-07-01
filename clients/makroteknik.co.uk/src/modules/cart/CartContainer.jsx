@@ -44,11 +44,11 @@ const CartContainer = () => {
 
                 return sizes.map((sizeObj, _) => {
                     const size = Object.keys(
-                        productDetails.sizeToPrice[Object.keys(sizeObj)[0]]
+                        productDetails.size_2_price[Object.keys(sizeObj)[0]]
                     )
                     const quantity = Object.values(sizeObj)[0]
                     const price = Object.values(
-                        productDetails.sizeToPrice[Object.keys(sizeObj)[0]]
+                        productDetails.size_2_price[Object.keys(sizeObj)[0]]
                     )[0]
                     return `${productDetails.title}\n${productDetails.productCode}
                     Size: ${size}
@@ -91,8 +91,9 @@ const CartContainer = () => {
                     const sizeIndex = Object.keys(sizeIndexToQuantityPair)[0]
                     const quantity = Object.values(sizeIndexToQuantityPair)[0]
                     const price =
-                        Object.values(product.sizeToPrice[sizeIndex] ?? 0)[0] ??
-                        0
+                        Object.values(
+                            product.size_2_price[sizeIndex] ?? 0
+                        )[0] ?? 0
 
                     console.log("price:", price)
 

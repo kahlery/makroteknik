@@ -4,13 +4,8 @@ import { useProductStore } from "../product/stores/ProductStore"
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
 export default function CategoryView() {
-    const {
-        categoriesList,
-        getCategories,
-        postCategory,
-        patchCategory,
-        deleteCategory,
-    } = useProductStore()
+    const { categoriesList, postCategory, patchCategory, deleteCategory } =
+        useProductStore()
 
     const [categories, setCategories] = useState([])
 
@@ -21,10 +16,6 @@ export default function CategoryView() {
     const navigate = useNavigate()
 
     const [sortedCategories, setSortedCategories] = useState([])
-
-    useEffect(() => {
-        getCategories() // Fetch categories when component mounts
-    }, [getCategories])
 
     useEffect(() => {
         // Sort categories by orderIndex whenever categoriesList changes
@@ -40,7 +31,6 @@ export default function CategoryView() {
                 orderIndex: categories.length,
             })
             setNewCategoryName("")
-            getCategories()
         }
     }
 
@@ -49,13 +39,11 @@ export default function CategoryView() {
             await patchCategory(id, { categoryName: editCategoryName })
             setEditingCategory(null)
             setEditCategoryName("")
-            getCategories()
         }
     }
 
     const handleDeleteCategory = async (id) => {
         await deleteCategory(id)
-        getCategories()
     }
 
     const onDragEnd = async (result) => {

@@ -24,7 +24,7 @@ WORKDIR /root/
 COPY --from=builder /bin .
 
 # Expose the necessary port
-EXPOSE 8000
+EXPOSE 8090
 
 # Command to run Go binary
 CMD ["./main"]

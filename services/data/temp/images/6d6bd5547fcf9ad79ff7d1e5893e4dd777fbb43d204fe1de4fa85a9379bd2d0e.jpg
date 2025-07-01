@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>    <html xml:lang="en" lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html xml:lang="en" lang="en" class="no-js ie9"> <![endif]-->
+<html xml:lang="en" lang="en">
+<head>
+        <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <![endif]-->
+
+                                <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-W796J7');</script>
+            <!-- End Google Tag Manager -->
+            
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <title>Ventilation Systems – S&amp;P</title>
+    <meta name="description" content="S&amp;P world leader in ventilation systems for domestic, commercial and industrial environments."/>
+    <meta name="keywords" content="Magento, Varien, E-commerce"/>
+    <meta name="robots" content="INDEX,FOLLOW"/>
+    <link rel="icon" href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/favicon.ico" type="image/x-icon"/>
+
+    <link rel="apple-touch-icon" sizes="57x57"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="https://statics.solerpalau.com/skin/frontend/solerpalau/default/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage"
+          content="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var LOADER_IMG = 'https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/loader.gif';
+        //]]>
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="https://statics.solerpalau.com/media/css_secure/2a5c5bf54d2e713163b8909d88336f19_1751339392.css" media="all" />
+<script type="text/javascript" src="https://statics.solerpalau.com/media/js/e66654d28b6d9a246577f02bb56a6ad2_1746683516.js"></script>
+    
+<script type="text/javascript">
+//<![CDATA[
+Mage.Cookies.path     = '/';
+Mage.Cookies.domain   = '.www.solerpalau.com';
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = ["AF","AX","AL","DZ","AS","AD","AO","AI","AQ","AG","AR","AM","AW","AU","AT","AZ","BS","BH","BD","BB","BY","BE","BZ","BJ","BM","BT","BO","BA","BW","BV","BR","IO","VG","BN","BG","BF","BI","KH","CM","CA","CV","KY","CF","TD","CL","CN","CX","CC","CO","KM","CG","CD","CK","CR","CI","HR","CU","CY","CZ","DK","DJ","DM","DO","EC","EG","SV","GQ","ER","EE","ET","FK","FO","FJ","FI","FR","GF","PF","TF","GA","GM","GE","DE","GH","GI","GR","GL","GD","GP","GU","GT","GG","GN","GW","GY","HT","HM","HN","HK","HU","IS","IN","ID","IR","IQ","IE","IM","IL","IT","JM","JP","JE","JO","KZ","KE","KI","XK","KW","KG","LA","LV","LB","LS","LR","LY","LI","LT","LU","MO","MK","MG","MW","MY","MV","ML","MT","MH","MQ","MR","MU","YT","MX","FM","MD","MC","MN","ME","MS","MA","MZ","MM","NA","NR","NP","NL","AN","NC","NZ","NI","NE","NG","NU","NF","MP","KP","NO","OM","PK","PW","PS","PA","PG","PY","PE","PH","PN","PL","PT","PR","QA","RE","RO","RU","RW","BL","SH","KN","LC","MF","PM","WS","SM","ST","SA","SN","RS","SC","SL","SG","SK","SI","SB","SO","ZA","GS","KR","ES","LK","VC","SD","SR","SJ","SZ","SE","CH","SY","TW","TJ","TZ","TH","TL","TG","TK","TO","TT","TN","TR","TM","TC","TV","UG","UA","AE","GB","US","UY","UM","VI","UZ","VU","VA","VE","VN","WF","EH","YE","ZM","ZW"];
+//]]>
+</script>
+<!-- El aviso de consentimiento de cookies de OneTrust comienza para www.solerpalau.com. -->
+
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/cf535780-01e4-4e87-b331-09c6942a4083/OtAutoBlock.js" ></script>
+
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="cf535780-01e4-4e87-b331-09c6942a4083" ></script>
+
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+
+<!-- El aviso de consentimiento de cookies de OneTrust finaliza para www.solerpalau.com. --><link rel="canonical" href="https://www.solerpalau.com/en-en/" />    <script type="text/javascript">//<![CDATA[
+        var Translator = new Translate([]);
+        //]]></script>    <link rel=“preload” href=“/skin/frontend/solerpalau/default/fonts/icomoon.ttf?y8wbvh” as=“font”>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-33123528-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-33123528-1');
+</script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "owxwo8q6wi");
+</script></head>
+<body class=" cms-index-index cms-home customer-logged-out">
+
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W796J7"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+<div class="mobile-menu"><div class="mobile-menu-header">
+    <div class="mobile-menu-go-back icon-arrow-left2"></div>
+    <div class="menu-mobile-close icon-close"></div>
+</div><div class="nav-container">
+    <ul id="nav">
+        <li  class="level0 nav-1 first parent"><a href="https://www.solerpalau.com/en-en/product/" class="level0 has-children"  data-type="">PRODUCT</a><ul class="level0"><li  class="level1 nav-1-1 first parent"><a href="#/" class="level1 has-children"  data-type="">Residential</a><ul class="level1"><li  class="level2 nav-1-1-1 first"><a href="https://www.solerpalau.com/en-en/bathroom-extract-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/SILENT_DUAL_100_product01_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/SILENT_DUAL_100_product01_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/SILENT_DUAL_100_product01_12.jpg 2x" alt="Bathroom Extract Fans" />Bathroom Extract Fans</a></li><li  class="level2 nav-1-1-2"><a href="https://www.solerpalau.com/en-en/in-line-duct-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TD_SILENT_product1_160_1000_12.jpg 2x" alt="In-line Duct Fans" />In-line Duct Fans</a></li><li  class="level2 nav-1-1-3"><a href="https://www.solerpalau.com/en-en/wall-or-window-extract-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HCM_N_produc_3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HCM_N_produc_3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HCM_N_produc_3.jpg 2x" alt="Wall or Window Extract Fans" />Wall or Window Extract Fans</a></li><li  class="level2 nav-1-1-4"><a href="https://www.solerpalau.com/en-en/heat-recovery-units/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CADB-T-HE-PRO-REG_product01_5.jpg 2x" alt="Heat Recovery Units" />Heat Recovery Units</a></li><li  class="level2 nav-1-1-5"><a href="https://www.solerpalau.com/en-en/whole-house-extract-units/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/OZEO-FLAT-H_product01_4.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/OZEO-FLAT-H_product01_4.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/OZEO-FLAT-H_product01_4.jpg 2x" alt="Whole House Extract Units" />Whole House Extract Units</a></li><li  class="level2 nav-1-1-6"><a href="https://www.solerpalau.com/en-en/acoustic-cabinet-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAB-ECOWATT-PLUS_product01.jpg 2x" alt="Acoustic Cabinet Fans" />Acoustic Cabinet Fans</a></li><li  class="level2 nav-1-1-7"><a href="https://www.solerpalau.com/en-en/roof-mounted-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CTB_ECOWATTBASIC_product01_2.jpg 2x" alt="Roof Mounted Fans" />Roof Mounted Fans</a></li><li  class="level2 nav-1-1-8"><a href="https://www.solerpalau.com/en-en/kitchen-extract-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CK_Plastic_60F_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CK_Plastic_60F_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CK_Plastic_60F_product1_2.jpg 2x" alt="Kitchen Extract Fans " />Kitchen Extract Fans </a></li><li  class="level2 nav-1-1-9"><a href="https://www.solerpalau.com/en-en/kitchen-extract-hoods/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAMPANAS_TRAD_GET_E_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAMPANAS_TRAD_GET_E_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAMPANAS_TRAD_GET_E_product1_2.jpg 2x" alt="Kitchen Extract Hoods " />Kitchen Extract Hoods </a></li><li  class="level2 nav-1-1-10"><a href="https://www.solerpalau.com/en-en/domestic-ventilation-range/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/VENTILACION_ARTIC_N_product1_9.jpg 2x" alt="Comfort Cooling Range " />Comfort Cooling Range </a></li><li  class="level2 nav-1-1-11"><a href="https://www.solerpalau.com/en-en/heating/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/emi-tech_product01_2.jpg 2x" alt="Heating" />Heating</a></li><li  class="level2 nav-1-1-12"><a href="https://www.solerpalau.com/en-en/humidifiers/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HUMI_ED_foto_serie_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HUMI_ED_foto_serie_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HUMI_ED_foto_serie_2.jpg 2x" alt="Humidifiers " />Humidifiers </a></li><li  class="level2 nav-1-1-13 last"><a href="https://www.solerpalau.com/en-en/air-treatment/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/AIRPUR360_product01.jpg 2x" alt="Air Treatment " />Air Treatment </a></li></ul></li><li  class="level1 nav-1-2 parent"><a href="#/" class="level1 has-children"  data-type="">Commercial</a><ul class="level1"><li  class="level2 nav-1-2-1 first"><a href="https://www.solerpalau.com/en-en/in-line-duct-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TD_SILENT_product1_160_1000_12.jpg 2x" alt="In-line Duct Fans" />In-line Duct Fans</a></li><li  class="level2 nav-1-2-2"><a href="https://www.solerpalau.com/en-en/heat-recovery-units/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CADB-T-HE-PRO-REG_product01_5.jpg 2x" alt="Heat Recovery Units" />Heat Recovery Units</a></li><li  class="level2 nav-1-2-3"><a href="https://www.solerpalau.com/en-en/acoustic-cabinet-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAB-ECOWATT-PLUS_product01.jpg 2x" alt="Acoustic Cabinet Fans" />Acoustic Cabinet Fans</a></li><li  class="level2 nav-1-2-4"><a href="https://www.solerpalau.com/en-en/roof-mounted-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CTB_ECOWATTBASIC_product01_2.jpg 2x" alt="Roof Mounted Fans" />Roof Mounted Fans</a></li><li  class="level2 nav-1-2-5"><a href="https://www.solerpalau.com/en-en/domestic-ventilation-range/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/VENTILACION_ARTIC_N_product1_9.jpg 2x" alt="Comfort Cooling Range " />Comfort Cooling Range </a></li><li  class="level2 nav-1-2-6"><a href="https://www.solerpalau.com/en-en/heating/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/emi-tech_product01_2.jpg 2x" alt="Heating" />Heating</a></li><li  class="level2 nav-1-2-7"><a href="https://www.solerpalau.com/en-en/hand-and-hair-dryers/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ECOHAND-N_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ECOHAND-N_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/ECOHAND-N_product01_2.jpg 2x" alt="Hand and Hair Dryers " />Hand and Hair Dryers </a></li><li  class="level2 nav-1-2-8"><a href="https://www.solerpalau.com/en-en/air-treatment/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/AIRPUR360_product01.jpg 2x" alt="Air Treatment " />Air Treatment </a></li><li  class="level2 nav-1-2-9"><a href="https://www.solerpalau.com/en-en/plate-mounted-axial-flow/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/COMPACTmural_HCFB_HCFT_product1_7.jpg 2x" alt="Plate Mounted Axial Flow " />Plate Mounted Axial Flow </a></li><li  class="level2 nav-1-2-10"><a href="https://www.solerpalau.com/en-en/cylindrical-cased-axial-flow-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TGT_atex_product3.jpg 2x" alt="Cylindrical Cased Axial Flow Fans " />Cylindrical Cased Axial Flow Fans </a></li><li  class="level2 nav-1-2-11"><a href="https://www.solerpalau.com/en-en/centrifugal-direct-drive-fan/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CBM_product1_2.jpg 2x" alt="Centrifugal Direct Drive Fan " />Centrifugal Direct Drive Fan </a></li><li  class="level2 nav-1-2-12"><a href="https://www.solerpalau.com/en-en/smoke-extract-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CHGT_product1_2.jpg 2x" alt="Smoke Extract Fans " />Smoke Extract Fans </a></li><li  class="level2 nav-1-2-13"><a href="https://www.solerpalau.com/en-en/parking-ventilation/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TJHT_TJFT_product1_13.jpg 2x" alt="Parking Ventilation " />Parking Ventilation </a></li><li  class="level2 nav-1-2-14"><a href="https://www.solerpalau.com/en-en/atex-fans-for-explosive-hazardous/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TH_ATEX_product1__3.jpg 2x" alt="Atex Fans for Explosive Hazardous " />Atex Fans for Explosive Hazardous </a></li><li  class="level2 nav-1-2-15"><a href="https://www.solerpalau.com/en-en/air-curtains/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CORTINAS_SerCOR_IND_W_product1.jpg 2x" alt="Air Curtains " />Air Curtains </a></li><li  class="level2 nav-1-2-16 last"><a href="https://www.solerpalau.com/en-en/commercial-industrial-ventilation/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HTB_GRAN_DIAMERTO_7.jpg 2x" alt="Commercial and Industrial Ventilation" />Commercial and Industrial Ventilation</a></li></ul></li><li  class="level1 nav-1-3 parent"><a href="#/" class="level1 has-children"  data-type="">industrial</a><ul class="level1"><li  class="level2 nav-1-3-1 first"><a href="https://www.solerpalau.com/en-en/in-line-duct-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TD_SILENT_product1_160_1000_12.jpg 2x" alt="In-line Duct Fans" />In-line Duct Fans</a></li><li  class="level2 nav-1-3-2"><a href="https://www.solerpalau.com/en-en/acoustic-cabinet-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAB-ECOWATT-PLUS_product01.jpg 2x" alt="Acoustic Cabinet Fans" />Acoustic Cabinet Fans</a></li><li  class="level2 nav-1-3-3"><a href="https://www.solerpalau.com/en-en/roof-mounted-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CTB_ECOWATTBASIC_product01_2.jpg 2x" alt="Roof Mounted Fans" />Roof Mounted Fans</a></li><li  class="level2 nav-1-3-4"><a href="https://www.solerpalau.com/en-en/plate-mounted-axial-flow/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/COMPACTmural_HCFB_HCFT_product1_7.jpg 2x" alt="Plate Mounted Axial Flow " />Plate Mounted Axial Flow </a></li><li  class="level2 nav-1-3-5"><a href="https://www.solerpalau.com/en-en/cylindrical-cased-axial-flow-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TGT_atex_product3.jpg 2x" alt="Cylindrical Cased Axial Flow Fans " />Cylindrical Cased Axial Flow Fans </a></li><li  class="level2 nav-1-3-6"><a href="https://www.solerpalau.com/en-en/centrifugal-direct-drive-fan/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CBM_product1_2.jpg 2x" alt="Centrifugal Direct Drive Fan " />Centrifugal Direct Drive Fan </a></li><li  class="level2 nav-1-3-7"><a href="https://www.solerpalau.com/en-en/smoke-extract-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CHGT_product1_2.jpg 2x" alt="Smoke Extract Fans " />Smoke Extract Fans </a></li><li  class="level2 nav-1-3-8"><a href="https://www.solerpalau.com/en-en/parking-ventilation/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TJHT_TJFT_product1_13.jpg 2x" alt="Parking Ventilation " />Parking Ventilation </a></li><li  class="level2 nav-1-3-9"><a href="https://www.solerpalau.com/en-en/atex-fans-for-explosive-hazardous/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TH_ATEX_product1__3.jpg 2x" alt="Atex Fans for Explosive Hazardous " />Atex Fans for Explosive Hazardous </a></li><li  class="level2 nav-1-3-10"><a href="https://www.solerpalau.com/en-en/air-curtains/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CORTINAS_SerCOR_IND_W_product1.jpg 2x" alt="Air Curtains " />Air Curtains </a></li><li  class="level2 nav-1-3-11"><a href="https://www.solerpalau.com/en-en/heating-industrial-range/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HEC-3000_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HEC-3000_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HEC-3000_2.jpg 2x" alt="Heating Industrial Range " />Heating Industrial Range </a></li><li  class="level2 nav-1-3-12 last"><a href="https://www.solerpalau.com/en-en/commercial-industrial-ventilation/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HTB_GRAN_DIAMERTO_7.jpg 2x" alt="Commercial and Industrial Ventilation" />Commercial and Industrial Ventilation</a></li></ul></li><li  class="level1 nav-1-4"><a href="https://www.solerpalau.com/en-en/oem-s/" class="level1 "  data-type="">OEMs</a></li><li  class="level1 nav-1-5 parent"><a href="#/" class="level1 has-children"  data-type="">Accessories</a><ul class="level1"><li  class="level2 nav-1-5-1 first"><a href="https://www.solerpalau.com/en-en/mounting-accesories/" class="level2 "  data-type="accessories"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/18._Mounting_Accessories-alta-updated_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/18._Mounting_Accessories-alta-updated_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/18._Mounting_Accessories-alta-updated_1.jpg 2x" alt="Mounting Accesories " />Mounting Accesories </a></li><li  class="level2 nav-1-5-2 last"><a href="https://www.solerpalau.com/en-en/electrical-accessories/" class="level2 "  data-type="accessories"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/19._Electrical_Accessories-alta_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/19._Electrical_Accessories-alta_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/19._Electrical_Accessories-alta_2.jpg 2x" alt="Electrical Accessories" />Electrical Accessories</a></li></ul></li><li  class="level1 nav-1-6 last parent"><a href="#/" class="level1 has-children"  data-type="">Industrial Applications</a><ul class="level1"><li  class="level2 nav-1-6-1 first"><a href="https://www.solerpalau.com/en-en/backward-curved-centrifugal-fans/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fr_product_3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fr_product_3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fr_product_3.jpg 2x" alt="Backward curved centrifugal fans" />Backward curved centrifugal fans</a></li><li  class="level2 nav-1-6-2"><a href="https://www.solerpalau.com/en-en/high-pressure-centrifugal-fans-with-backward-curved-impeller/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fc-n_product_3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fc-n_product_3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fc-n_product_3.jpg 2x" alt="High pressure centrifugal fans with backward curved impeller" />High pressure centrifugal fans with backward curved impeller</a></li><li  class="level2 nav-1-6-3"><a href="https://www.solerpalau.com/en-en/high-pressure-centrifugal-fans-with-forward-curved-impeller/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_4.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_4.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fa-r_product_4.jpg 2x" alt="High pressure centrifugal fans with forward curved impeller" />High pressure centrifugal fans with forward curved impeller</a></li><li  class="level2 nav-1-6-4"><a href="https://www.solerpalau.com/en-en/centrifugal-fans-with-forward-curved-impeller/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fa-r_product_2.jpg 2x" alt="Centrifugal fans with forward curved impeller" />Centrifugal fans with forward curved impeller</a></li><li  class="level2 nav-1-6-5"><a href="https://www.solerpalau.com/en-en/double-inlet-centrifugal-fans/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/dfr_product_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/dfr_product_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/dfr_product_1.jpg 2x" alt="Double inlet centrifugal fans" />Double inlet centrifugal fans</a></li><li  class="level2 nav-1-6-6"><a href="https://www.solerpalau.com/en-en/radial-centrifugal-fans-for-transportation-of-materials/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ka_product_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ka_product_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/ka_product_2.jpg 2x" alt="Radial Centrifugal fans for transportation of materials" />Radial Centrifugal fans for transportation of materials</a></li><li  class="level2 nav-1-6-7"><a href="https://www.solerpalau.com/en-en/centrifugal-fans-for-furnace-applications/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/cfht_product_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/cfht_product_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/cfht_product_1.jpg 2x" alt="Centrifugal fans for furnace applications" />Centrifugal fans for furnace applications</a></li><li  class="level2 nav-1-6-8 last"><a href="https://www.solerpalau.com/en-en/cylindrical-cased-axial-fans/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/eb_product_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/eb_product_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/eb_product_1.jpg 2x" alt="Cylindrical cased axial fans" />Cylindrical cased axial fans</a></li></ul></li></ul></li><li  class="level0 nav-2 parent"><a 
+        class="level0 has-children" ">Where to buy </a><ul class="level0"><li  class="level1 nav-2-1 first last"><a href="https://www.solerpalau.com/en-en/international-distribution/" class="level1 "  data-type="">International distribution</a></li></ul></li><li  class="level0 nav-3 parent"><a 
+        class="level0 has-children" ">Customer service</a><ul class="level0"><li  class="level1 nav-3-1 first last"><a href="https://www.solerpalau.com/en-en/customer-service/" class="level1 "  data-type="">Customer Service</a></li></ul></li><li  class="level0 nav-4 parent"><a href="https://www.solerpalau.com/en-en/tools/" class="level0 has-children"  data-type="">Tools</a><ul class="level0"><li  class="level1 nav-4-1 first"><a href="https://www.solerpalau.com/en-en/easyvent/" class="level1 "  data-type="">EasyVent</a></li><li  class="level1 nav-4-2"><a href="https://www.solerpalau.com/en-en/apps/" class="level1 "  data-type="">Apps</a></li><li  class="level1 nav-4-3"><a href="https://www.solerpalau.com/en-en/certificates/" class="level1 "  data-type="">Certificates</a></li><li  class="level1 nav-4-4"><a href="https://www.solerpalau.com/en-en/videos/" class="level1 "  data-type="">Videos</a></li><li  class="level1 nav-4-5 last"><a href="http://sportal.solerpalau.com/" class="level1 " target="_blank" data-type="">Customer smart portal</a></li></ul></li><li  class="level0 nav-5 last parent"><a 
+        class="level0 has-children" ">Why S&amp;P </a><ul class="level0"><li  class="level1 nav-5-1 first"><a href="https://www.solerpalau.com/en-en/our-brand/" class="level1 "  data-type="">Our brand</a></li><li  class="level1 nav-5-2"><a href="https://www.solerpalau.com/en-en/pillars-for-a-better-future/" class="level1 "  data-type="">Pillars for a better future</a></li><li  class="level1 nav-5-3"><a href="https://www.solerpalau.com/en-en/location/" class="level1 "  data-type="">Location</a></li><li  class="level1 nav-5-4"><a href="https://www.solerpalau.com/en-en/projects/" class="level1 "  data-type="">Prestigious projects </a></li><li  class="level1 nav-5-5"><a href="https://www.solerpalau.com/en-en/quality/" class="level1 "  data-type="">Quality </a></li><li  class="level1 nav-5-6"><a href="https://www.solerpalau.com/en-en/innovation/" class="level1 "  data-type="">Innovation</a></li><li  class="level1 nav-5-7"><a href="https://www.solerpalau.com/en-en/sustainability-and-environment/" class="level1 "  data-type="">Sustainability and enviroment</a></li><li  class="level1 nav-5-8"><a href="https://www.solerpalau.com/en-en/production-logistics-and-distribution/" class="level1 "  data-type="">Production, logistics and distribution</a></li><li  class="level1 nav-5-9 last"><a href="https://www.solerpalau.com/en-en/career/" class="level1 "  data-type="">Career </a></li></ul></li>        <div class="clearfix"></div>
+    </ul>
+</div>
+<form id="search_mini_form_mobile" action="https://www.solerpalau.com/en-en/catalogsearch/result/" method="get">
+    <div class="form-search">
+        <button type="submit" title="Search" class="button icon-search">
+            <span>
+                Search            </span>
+        </button>
+        <input id="mobile-search" type="text" placeholder="Ex. Silent Extractor" name="q" value="" class="input-text" maxlength="128" />
+    </div>
+</form>
+<div class="form-language">
+    <button id="select-language-button-top" class="language-button" title="Your Language"
+       onclick="HIB.languageBox.open(this);">
+        English / Global        <span class="arrow-down"></span>
+    </button>
+</div></div>
+<div class="dark-overlay" id="box-select-language-invisible-overlay" style="display: none"></div>
+<div class="generic-popup-outer" id="box-select-language-outer" style="display: none">
+    <div class="generic-popup-inner box-select-language-popup-inner">
+        <div class="form-language">
+            <button id="select-language-button" class="language-button" title="Your Language">
+            English / Global            <span class="arrow-down"></span>
+            </button>
+        </div>
+
+        <span class="popup-title">Country and Language</span>
+
+        <span class="popup-subtitle">Country</span>
+        <div class="custom-select">
+            <select id="selector-country">
+                                                        <option value="1"  selected="selected">
+                        Global                    </option>
+                                                        <option value="20" >
+                        International                    </option>
+                                                        <option value="2" >
+                        España                    </option>
+                                                        <option value="aus" >
+                        Austria                    </option>
+                                                        <option value="bal" >
+                        Baltic                    </option>
+                                                        <option value="11" >
+                        Belgium                    </option>
+                                                        <option value="bra" >
+                        Brasil                    </option>
+                                                        <option value="can" >
+                        Canada                    </option>
+                                                        <option value="4" >
+                        Chile                    </option>
+                                                        <option value="col" >
+                        Colombia                    </option>
+                                                        <option value="che" >
+                        Czech Republic                    </option>
+                                                        <option value="21" >
+                        Eslovenia                    </option>
+                                                        <option value="19" >
+                        Ferrari                    </option>
+                                                        <option value="3" >
+                        France                    </option>
+                                                        <option value="5" >
+                        Germany                    </option>
+                                                        <option value="14" >
+                        Ireland                    </option>
+                                                        <option value="10" >
+                        Italy                    </option>
+                                                        <option value="mex" >
+                        México                    </option>
+                                                        <option value="6" >
+                        Netherlands                    </option>
+                                                        <option value="13" >
+                        Portugal                    </option>
+                                                        <option value="rou" >
+                        Romania                    </option>
+                                                        <option value="9" >
+                        Russia                    </option>
+                                                        <option value="12" >
+                        Switzerland                    </option>
+                                                        <option value="ukr" >
+                        Ukraine                    </option>
+                                                        <option value="8" >
+                        United Kingdom                    </option>
+                                                        <option value="usa" >
+                        United States                    </option>
+                                                        <option value="ira" >
+                        جمهوری اسلامی ایران                    </option>
+                            </select>
+            <div class="container-arrows">
+                <span class="arrow arrow-up"></span>
+                <span class="arrow arrow-down"></span>
+            </div>
+        </div>
+
+        <span class="popup-subtitle">Language</span>
+        <div class="custom-select">
+            <select id="selector-language">
+                                                        <option class="11"
+                            value="https://www.solerpalau.com/nl-be/" >
+                        Dutch / Belgium                    </option>
+                                                        <option class="11"
+                            value="https://www.solerpalau.com/fr-be/" >
+                        Français / Belgium                    </option>
+                                                        <option class="4"
+                            value="https://www.solerpalau.com/es-cl/" >
+                        Español / Chile                    </option>
+                                                        <option class="21"
+                            value="https://www.solerpalau.com/en-si/" >
+                        English                    </option>
+                                                        <option class="19"
+                            value="https://www.ferrariventilatori.com/en-fe/" >
+                        English                    </option>
+                                                        <option class="19"
+                            value="https://www.ferrariventilatori.com/it-fe/" >
+                        Italian                    </option>
+                                                        <option class="19"
+                            value="https://www.ferrariventilatoren.de" >
+                        German                    </option>
+                                                        <option class="3"
+                            value="https://www.solerpalau.com/fr-fr/" >
+                        Français / France                    </option>
+                                                        <option class="5"
+                            value="https://www.solerpalau.com/de-de/" >
+                        Deutsch / Germany                    </option>
+                                                        <option class="1"
+                            value="https://www.solerpalau.com/en-en/"  selected="selected">
+                        English / Global                    </option>
+                                                        <option class="20"
+                            value="https://www.solerpalau.com/fr-int/" >
+                        International / French                    </option>
+                                                        <option class="14"
+                            value="https://www.solerpalau.com/en-ie/" >
+                        English / Ireland                    </option>
+                                                        <option class="10"
+                            value="https://www.solerpalau.com/it-it/" >
+                        Italiano / Italy                    </option>
+                                                        <option class="6"
+                            value="https://www.solerpalau.com/nl-nl/" >
+                        Dutch / Netherlands                    </option>
+                                                        <option class="13"
+                            value="https://www.solerpalau.com/pt-pt/" >
+                        Português / Portugal                    </option>
+                                                        <option class="9"
+                            value="https://www.solerpalau.com/ru-ru/" >
+                        Russian / Russia                    </option>
+                                                        <option class="12"
+                            value="https://www.solerpalau.com/fr-ch/" >
+                        Français / Switzerland                    </option>
+                                                        <option class="12"
+                            value="https://www.solerpalau.com/de-ch/" >
+                        Deutsch / Switzerland                    </option>
+                                                        <option class="8"
+                            value="https://www.solerpalau.com/en-uk/" >
+                        English / United Kingdom                    </option>
+                                                        <option class="2"
+                            value="https://www.solerpalau.com/es-es/" >
+                        Español / España                    </option>
+                                                    <option class="can"
+                            value="http://www.solerpalaucanada.com" >
+                        English / Canada                    </option>
+                                    <option class="col"
+                            value="https://www.solerpalau.co/" >
+                        Español / Colombia                    </option>
+                                    <option class="che"
+                            value="http://elektrodesign.cz" >
+                        Czech / Czech Republic                    </option>
+                                    <option class="ira"
+                            value="http://www.solerpalau.ir" >
+                        فارسی / جمهوری اسلامی ایران                    </option>
+                                    <option class="mex"
+                            value="http://www.solerpalau.mx" >
+                        Español / México                    </option>
+                                    <option class="ukr"
+                            value="http://www.solerpalau.org.ua" >
+                        Russian / Ukraine                    </option>
+                                    <option class="usa"
+                            value="http://www.spvg-northamerica.com" >
+                        English / United States                    </option>
+                                    <option class="aus"
+                            value="https://www.solerpalau.at/" >
+                        Deutsch / Austria                    </option>
+                                    <option class="bal"
+                            value="https://www.solerpalau.lv/" >
+                        Latvian / Baltic                    </option>
+                                    <option class="bra"
+                            value="https://www.solerpalau.com.br/" >
+                        Português / Brasil                    </option>
+                                    <option class="rou"
+                            value="https://www.solerpalau.com/en-en/" >
+                        English / Romania                    </option>
+                            </select>
+            <div class="container-arrows">
+                <span class="arrow arrow-up"></span>
+                <span class="arrow arrow-down"></span>
+            </div>
+        </div>
+
+        <button class="popup-button" id="box-select-go">Go</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    if (('object' === typeof HIB) && ('object' === typeof HIB.languageBox) && ('function' === typeof HIB.languageBox.init)) {
+        HIB.languageBox.init();
+    }
+    //]]>
+</script>
+<div class="wrapper">
+        <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+    <div class="page">
+        <header>
+    <div class="header-logo">
+        <div class="container">
+                            <a href="https://www.solerpalau.com/en-en/" title="Soler & Palau Sistemas de ventilación" class="logo">
+                    <img
+                            src="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/svg/logo.svg"
+                            srcset="https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/svg/logo.svg 1x, https://statics.solerpalau.com/skin/frontend/solerpalau/default/images/svg/logo.svg 2x"
+                            alt="Soler & Palau Sistemas de ventilación"
+                    />
+                </a>
+                    </div>
+    </div>
+    <div class="header-search-links">
+        <div class="container grid">
+            <div class="hcol-5-12">
+                <form id="search_mini_form" action="https://www.solerpalau.com/en-en/catalogsearch/result/" method="get" autocomplete="off">
+    <div class="form-search">
+        <div class="hcol-11-12">
+            <input id="search" type="text" placeholder="Ex. Silent Extractor"
+                   name="q" class="input-text"
+                   maxlength="128"/>
+            <button id="searcherbutton" type="submit"
+                    title="Search"
+                    class="button icon-search">
+            <span>
+                Search            </span>
+            </button>
+        </div>
+        <div class="hcol-1-12">
+            <a id="search-close" class="form-search-close icon-close" title="Close"></a>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+    if (typeof HIB.searcher == 'object') {
+        HIB.searcher.suggest_url = 'https://www.solerpalau.com/en-en/catalogsearch/ajax/suggest/';
+        HIB.searcher.field_name = 'q';
+        HIB.searcher.min_chars = '2';
+        HIB.searcher.delay = '0.2';
+        HIB.searcher.init();
+    }
+    //]]>
+</script>            </div>
+            <div class="hcol-7-12">
+                <ul class="links">
+                                <li class="first" ><a href="https://www.solerpalau.com/en-en/customer-service/" title="Contact" >Contact</a></li>
+                                <li class="mobile-media-center-link"><a href="https://mediacenter.solerpalau.com/" target="_blank">Media Center</a></li>
+    </ul>
+                <div class="form-language">
+    <button id="select-language-button-top" class="language-button" title="Your Language"
+       onclick="HIB.languageBox.open(this);">
+        English / Global        <span class="arrow-down"></span>
+    </button>
+</div>            </div>
+        </div>
+    </div>
+    <nav class="header-nav">
+        <div class="container grid">
+            <div class="container-titles-menu hcol-10-12">
+                <div class="nav-container">
+    <ul id="nav">
+        <li  class="level0 nav-1 first parent"><a href="https://www.solerpalau.com/en-en/product/" class="level0 has-children"  data-type="">PRODUCT</a><ul class="level0"><li  class="level1 nav-1-1 first parent"><a href="#/" class="level1 has-children"  data-type="">Residential</a><ul class="level1"><li  class="level2 nav-1-1-1 first"><a href="https://www.solerpalau.com/en-en/bathroom-extract-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/SILENT_DUAL_100_product01_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/SILENT_DUAL_100_product01_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/SILENT_DUAL_100_product01_12.jpg 2x" alt="Bathroom Extract Fans" />Bathroom Extract Fans</a></li><li  class="level2 nav-1-1-2"><a href="https://www.solerpalau.com/en-en/in-line-duct-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TD_SILENT_product1_160_1000_12.jpg 2x" alt="In-line Duct Fans" />In-line Duct Fans</a></li><li  class="level2 nav-1-1-3"><a href="https://www.solerpalau.com/en-en/wall-or-window-extract-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HCM_N_produc_3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HCM_N_produc_3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HCM_N_produc_3.jpg 2x" alt="Wall or Window Extract Fans" />Wall or Window Extract Fans</a></li><li  class="level2 nav-1-1-4"><a href="https://www.solerpalau.com/en-en/heat-recovery-units/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CADB-T-HE-PRO-REG_product01_5.jpg 2x" alt="Heat Recovery Units" />Heat Recovery Units</a></li><li  class="level2 nav-1-1-5"><a href="https://www.solerpalau.com/en-en/whole-house-extract-units/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/OZEO-FLAT-H_product01_4.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/OZEO-FLAT-H_product01_4.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/OZEO-FLAT-H_product01_4.jpg 2x" alt="Whole House Extract Units" />Whole House Extract Units</a></li><li  class="level2 nav-1-1-6"><a href="https://www.solerpalau.com/en-en/acoustic-cabinet-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAB-ECOWATT-PLUS_product01.jpg 2x" alt="Acoustic Cabinet Fans" />Acoustic Cabinet Fans</a></li><li  class="level2 nav-1-1-7"><a href="https://www.solerpalau.com/en-en/roof-mounted-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CTB_ECOWATTBASIC_product01_2.jpg 2x" alt="Roof Mounted Fans" />Roof Mounted Fans</a></li><li  class="level2 nav-1-1-8"><a href="https://www.solerpalau.com/en-en/kitchen-extract-fans/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CK_Plastic_60F_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CK_Plastic_60F_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CK_Plastic_60F_product1_2.jpg 2x" alt="Kitchen Extract Fans " />Kitchen Extract Fans </a></li><li  class="level2 nav-1-1-9"><a href="https://www.solerpalau.com/en-en/kitchen-extract-hoods/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAMPANAS_TRAD_GET_E_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAMPANAS_TRAD_GET_E_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAMPANAS_TRAD_GET_E_product1_2.jpg 2x" alt="Kitchen Extract Hoods " />Kitchen Extract Hoods </a></li><li  class="level2 nav-1-1-10"><a href="https://www.solerpalau.com/en-en/domestic-ventilation-range/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/VENTILACION_ARTIC_N_product1_9.jpg 2x" alt="Comfort Cooling Range " />Comfort Cooling Range </a></li><li  class="level2 nav-1-1-11"><a href="https://www.solerpalau.com/en-en/heating/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/emi-tech_product01_2.jpg 2x" alt="Heating" />Heating</a></li><li  class="level2 nav-1-1-12"><a href="https://www.solerpalau.com/en-en/humidifiers/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HUMI_ED_foto_serie_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HUMI_ED_foto_serie_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HUMI_ED_foto_serie_2.jpg 2x" alt="Humidifiers " />Humidifiers </a></li><li  class="level2 nav-1-1-13 last"><a href="https://www.solerpalau.com/en-en/air-treatment/" class="level2 "  data-type="residential"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/AIRPUR360_product01.jpg 2x" alt="Air Treatment " />Air Treatment </a></li></ul></li><li  class="level1 nav-1-2 parent"><a href="#/" class="level1 has-children"  data-type="">Commercial</a><ul class="level1"><li  class="level2 nav-1-2-1 first"><a href="https://www.solerpalau.com/en-en/in-line-duct-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TD_SILENT_product1_160_1000_12.jpg 2x" alt="In-line Duct Fans" />In-line Duct Fans</a></li><li  class="level2 nav-1-2-2"><a href="https://www.solerpalau.com/en-en/heat-recovery-units/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CADB-T-HE-PRO-REG_product01_5.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CADB-T-HE-PRO-REG_product01_5.jpg 2x" alt="Heat Recovery Units" />Heat Recovery Units</a></li><li  class="level2 nav-1-2-3"><a href="https://www.solerpalau.com/en-en/acoustic-cabinet-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAB-ECOWATT-PLUS_product01.jpg 2x" alt="Acoustic Cabinet Fans" />Acoustic Cabinet Fans</a></li><li  class="level2 nav-1-2-4"><a href="https://www.solerpalau.com/en-en/roof-mounted-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CTB_ECOWATTBASIC_product01_2.jpg 2x" alt="Roof Mounted Fans" />Roof Mounted Fans</a></li><li  class="level2 nav-1-2-5"><a href="https://www.solerpalau.com/en-en/domestic-ventilation-range/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/VENTILACION_ARTIC_N_product1_9.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/VENTILACION_ARTIC_N_product1_9.jpg 2x" alt="Comfort Cooling Range " />Comfort Cooling Range </a></li><li  class="level2 nav-1-2-6"><a href="https://www.solerpalau.com/en-en/heating/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/emi-tech_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/emi-tech_product01_2.jpg 2x" alt="Heating" />Heating</a></li><li  class="level2 nav-1-2-7"><a href="https://www.solerpalau.com/en-en/hand-and-hair-dryers/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ECOHAND-N_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ECOHAND-N_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/ECOHAND-N_product01_2.jpg 2x" alt="Hand and Hair Dryers " />Hand and Hair Dryers </a></li><li  class="level2 nav-1-2-8"><a href="https://www.solerpalau.com/en-en/air-treatment/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/AIRPUR360_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/AIRPUR360_product01.jpg 2x" alt="Air Treatment " />Air Treatment </a></li><li  class="level2 nav-1-2-9"><a href="https://www.solerpalau.com/en-en/plate-mounted-axial-flow/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/COMPACTmural_HCFB_HCFT_product1_7.jpg 2x" alt="Plate Mounted Axial Flow " />Plate Mounted Axial Flow </a></li><li  class="level2 nav-1-2-10"><a href="https://www.solerpalau.com/en-en/cylindrical-cased-axial-flow-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TGT_atex_product3.jpg 2x" alt="Cylindrical Cased Axial Flow Fans " />Cylindrical Cased Axial Flow Fans </a></li><li  class="level2 nav-1-2-11"><a href="https://www.solerpalau.com/en-en/centrifugal-direct-drive-fan/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CBM_product1_2.jpg 2x" alt="Centrifugal Direct Drive Fan " />Centrifugal Direct Drive Fan </a></li><li  class="level2 nav-1-2-12"><a href="https://www.solerpalau.com/en-en/smoke-extract-fans/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CHGT_product1_2.jpg 2x" alt="Smoke Extract Fans " />Smoke Extract Fans </a></li><li  class="level2 nav-1-2-13"><a href="https://www.solerpalau.com/en-en/parking-ventilation/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TJHT_TJFT_product1_13.jpg 2x" alt="Parking Ventilation " />Parking Ventilation </a></li><li  class="level2 nav-1-2-14"><a href="https://www.solerpalau.com/en-en/atex-fans-for-explosive-hazardous/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TH_ATEX_product1__3.jpg 2x" alt="Atex Fans for Explosive Hazardous " />Atex Fans for Explosive Hazardous </a></li><li  class="level2 nav-1-2-15"><a href="https://www.solerpalau.com/en-en/air-curtains/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CORTINAS_SerCOR_IND_W_product1.jpg 2x" alt="Air Curtains " />Air Curtains </a></li><li  class="level2 nav-1-2-16 last"><a href="https://www.solerpalau.com/en-en/commercial-industrial-ventilation/" class="level2 "  data-type="commercial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HTB_GRAN_DIAMERTO_7.jpg 2x" alt="Commercial and Industrial Ventilation" />Commercial and Industrial Ventilation</a></li></ul></li><li  class="level1 nav-1-3 parent"><a href="#/" class="level1 has-children"  data-type="">industrial</a><ul class="level1"><li  class="level2 nav-1-3-1 first"><a href="https://www.solerpalau.com/en-en/in-line-duct-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TD_SILENT_product1_160_1000_12.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TD_SILENT_product1_160_1000_12.jpg 2x" alt="In-line Duct Fans" />In-line Duct Fans</a></li><li  class="level2 nav-1-3-2"><a href="https://www.solerpalau.com/en-en/acoustic-cabinet-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CAB-ECOWATT-PLUS_product01.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CAB-ECOWATT-PLUS_product01.jpg 2x" alt="Acoustic Cabinet Fans" />Acoustic Cabinet Fans</a></li><li  class="level2 nav-1-3-3"><a href="https://www.solerpalau.com/en-en/roof-mounted-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CTB_ECOWATTBASIC_product01_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CTB_ECOWATTBASIC_product01_2.jpg 2x" alt="Roof Mounted Fans" />Roof Mounted Fans</a></li><li  class="level2 nav-1-3-4"><a href="https://www.solerpalau.com/en-en/plate-mounted-axial-flow/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/COMPACTmural_HCFB_HCFT_product1_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/COMPACTmural_HCFB_HCFT_product1_7.jpg 2x" alt="Plate Mounted Axial Flow " />Plate Mounted Axial Flow </a></li><li  class="level2 nav-1-3-5"><a href="https://www.solerpalau.com/en-en/cylindrical-cased-axial-flow-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TGT_atex_product3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TGT_atex_product3.jpg 2x" alt="Cylindrical Cased Axial Flow Fans " />Cylindrical Cased Axial Flow Fans </a></li><li  class="level2 nav-1-3-6"><a href="https://www.solerpalau.com/en-en/centrifugal-direct-drive-fan/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CBM_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CBM_product1_2.jpg 2x" alt="Centrifugal Direct Drive Fan " />Centrifugal Direct Drive Fan </a></li><li  class="level2 nav-1-3-7"><a href="https://www.solerpalau.com/en-en/smoke-extract-fans/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CHGT_product1_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CHGT_product1_2.jpg 2x" alt="Smoke Extract Fans " />Smoke Extract Fans </a></li><li  class="level2 nav-1-3-8"><a href="https://www.solerpalau.com/en-en/parking-ventilation/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TJHT_TJFT_product1_13.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TJHT_TJFT_product1_13.jpg 2x" alt="Parking Ventilation " />Parking Ventilation </a></li><li  class="level2 nav-1-3-9"><a href="https://www.solerpalau.com/en-en/atex-fans-for-explosive-hazardous/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/TH_ATEX_product1__3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/TH_ATEX_product1__3.jpg 2x" alt="Atex Fans for Explosive Hazardous " />Atex Fans for Explosive Hazardous </a></li><li  class="level2 nav-1-3-10"><a href="https://www.solerpalau.com/en-en/air-curtains/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/CORTINAS_SerCOR_IND_W_product1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/CORTINAS_SerCOR_IND_W_product1.jpg 2x" alt="Air Curtains " />Air Curtains </a></li><li  class="level2 nav-1-3-11"><a href="https://www.solerpalau.com/en-en/heating-industrial-range/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HEC-3000_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HEC-3000_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HEC-3000_2.jpg 2x" alt="Heating Industrial Range " />Heating Industrial Range </a></li><li  class="level2 nav-1-3-12 last"><a href="https://www.solerpalau.com/en-en/commercial-industrial-ventilation/" class="level2 "  data-type="industrial"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/HTB_GRAN_DIAMERTO_7.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/HTB_GRAN_DIAMERTO_7.jpg 2x" alt="Commercial and Industrial Ventilation" />Commercial and Industrial Ventilation</a></li></ul></li><li  class="level1 nav-1-4"><a href="https://www.solerpalau.com/en-en/oem-s/" class="level1 "  data-type="">OEMs</a></li><li  class="level1 nav-1-5 parent"><a href="#/" class="level1 has-children"  data-type="">Accessories</a><ul class="level1"><li  class="level2 nav-1-5-1 first"><a href="https://www.solerpalau.com/en-en/mounting-accesories/" class="level2 "  data-type="accessories"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/18._Mounting_Accessories-alta-updated_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/18._Mounting_Accessories-alta-updated_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/18._Mounting_Accessories-alta-updated_1.jpg 2x" alt="Mounting Accesories " />Mounting Accesories </a></li><li  class="level2 nav-1-5-2 last"><a href="https://www.solerpalau.com/en-en/electrical-accessories/" class="level2 "  data-type="accessories"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/19._Electrical_Accessories-alta_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/19._Electrical_Accessories-alta_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/19._Electrical_Accessories-alta_2.jpg 2x" alt="Electrical Accessories" />Electrical Accessories</a></li></ul></li><li  class="level1 nav-1-6 last parent"><a href="#/" class="level1 has-children"  data-type="">Industrial Applications</a><ul class="level1"><li  class="level2 nav-1-6-1 first"><a href="https://www.solerpalau.com/en-en/backward-curved-centrifugal-fans/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fr_product_3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fr_product_3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fr_product_3.jpg 2x" alt="Backward curved centrifugal fans" />Backward curved centrifugal fans</a></li><li  class="level2 nav-1-6-2"><a href="https://www.solerpalau.com/en-en/high-pressure-centrifugal-fans-with-backward-curved-impeller/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fc-n_product_3.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fc-n_product_3.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fc-n_product_3.jpg 2x" alt="High pressure centrifugal fans with backward curved impeller" />High pressure centrifugal fans with backward curved impeller</a></li><li  class="level2 nav-1-6-3"><a href="https://www.solerpalau.com/en-en/high-pressure-centrifugal-fans-with-forward-curved-impeller/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_4.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_4.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fa-r_product_4.jpg 2x" alt="High pressure centrifugal fans with forward curved impeller" />High pressure centrifugal fans with forward curved impeller</a></li><li  class="level2 nav-1-6-4"><a href="https://www.solerpalau.com/en-en/centrifugal-fans-with-forward-curved-impeller/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/fa-r_product_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/fa-r_product_2.jpg 2x" alt="Centrifugal fans with forward curved impeller" />Centrifugal fans with forward curved impeller</a></li><li  class="level2 nav-1-6-5"><a href="https://www.solerpalau.com/en-en/double-inlet-centrifugal-fans/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/dfr_product_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/dfr_product_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/dfr_product_1.jpg 2x" alt="Double inlet centrifugal fans" />Double inlet centrifugal fans</a></li><li  class="level2 nav-1-6-6"><a href="https://www.solerpalau.com/en-en/radial-centrifugal-fans-for-transportation-of-materials/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ka_product_2.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/ka_product_2.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/ka_product_2.jpg 2x" alt="Radial Centrifugal fans for transportation of materials" />Radial Centrifugal fans for transportation of materials</a></li><li  class="level2 nav-1-6-7"><a href="https://www.solerpalau.com/en-en/centrifugal-fans-for-furnace-applications/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/cfht_product_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/cfht_product_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/cfht_product_1.jpg 2x" alt="Centrifugal fans for furnace applications" />Centrifugal fans for furnace applications</a></li><li  class="level2 nav-1-6-8 last"><a href="https://www.solerpalau.com/en-en/cylindrical-cased-axial-fans/" class="level2 "  data-type="industrial-applications"><img src="https://statics.solerpalau.com/media//catalog/category/cache/100x100/eb_product_1.jpg" srcset="https://statics.solerpalau.com/media//catalog/category/cache/100x100/eb_product_1.jpg 1x, https://statics.solerpalau.com/media//catalog/category/cache/200x200/eb_product_1.jpg 2x" alt="Cylindrical cased axial fans" />Cylindrical cased axial fans</a></li></ul></li></ul></li><li  class="level0 nav-2 parent"><a 
+        class="level0 has-children" ">Where to buy </a><ul class="level0"><li  class="level1 nav-2-1 first last"><a href="https://www.solerpalau.com/en-en/international-distribution/" class="level1 "  data-type="">International distribution</a></li></ul></li><li  class="level0 nav-3 parent"><a 
+        class="level0 has-children" ">Customer service</a><ul class="level0"><li  class="level1 nav-3-1 first last"><a href="https://www.solerpalau.com/en-en/customer-service/" class="level1 "  data-type="">Customer Service</a></li></ul></li><li  class="level0 nav-4 parent"><a href="https://www.solerpalau.com/en-en/tools/" class="level0 has-children"  data-type="">Tools</a><ul class="level0"><li  class="level1 nav-4-1 first"><a href="https://www.solerpalau.com/en-en/easyvent/" class="level1 "  data-type="">EasyVent</a></li><li  class="level1 nav-4-2"><a href="https://www.solerpalau.com/en-en/apps/" class="level1 "  data-type="">Apps</a></li><li  class="level1 nav-4-3"><a href="https://www.solerpalau.com/en-en/certificates/" class="level1 "  data-type="">Certificates</a></li><li  class="level1 nav-4-4"><a href="https://www.solerpalau.com/en-en/videos/" class="level1 "  data-type="">Videos</a></li><li  class="level1 nav-4-5 last"><a href="http://sportal.solerpalau.com/" class="level1 " target="_blank" data-type="">Customer smart portal</a></li></ul></li><li  class="level0 nav-5 last parent"><a 
+        class="level0 has-children" ">Why S&amp;P </a><ul class="level0"><li  class="level1 nav-5-1 first"><a href="https://www.solerpalau.com/en-en/our-brand/" class="level1 "  data-type="">Our brand</a></li><li  class="level1 nav-5-2"><a href="https://www.solerpalau.com/en-en/pillars-for-a-better-future/" class="level1 "  data-type="">Pillars for a better future</a></li><li  class="level1 nav-5-3"><a href="https://www.solerpalau.com/en-en/location/" class="level1 "  data-type="">Location</a></li><li  class="level1 nav-5-4"><a href="https://www.solerpalau.com/en-en/projects/" class="level1 "  data-type="">Prestigious projects </a></li><li  class="level1 nav-5-5"><a href="https://www.solerpalau.com/en-en/quality/" class="level1 "  data-type="">Quality </a></li><li  class="level1 nav-5-6"><a href="https://www.solerpalau.com/en-en/innovation/" class="level1 "  data-type="">Innovation</a></li><li  class="level1 nav-5-7"><a href="https://www.solerpalau.com/en-en/sustainability-and-environment/" class="level1 "  data-type="">Sustainability and enviroment</a></li><li  class="level1 nav-5-8"><a href="https://www.solerpalau.com/en-en/production-logistics-and-distribution/" class="level1 "  data-type="">Production, logistics and distribution</a></li><li  class="level1 nav-5-9 last"><a href="https://www.solerpalau.com/en-en/career/" class="level1 "  data-type="">Career </a></li></ul></li>        <div class="clearfix"></div>
+    </ul>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    if (typeof HIB.searchereasyvent == 'object') {
+        HIB.searchereasyvent.min_chars = '2';
+        HIB.searchereasyvent.init(
+            "https://www.solerpalau.com/en-en/searchereasyvent/index/searchereasyvent/",
+            '0.2'
+        );
+    }
+    //]]>
+</script>
+            </div>
+            <div class="container-icon-sppro hcol-2-12">
+                
+            <div class="header-sppro media-center">
+            <a href="https://mediacenter.solerpalau.com/" target="_blank" style="float: left;">
+                <div class="header-sppro-text mc-button">
+                    <span>Media Center</span>                </div>
+            </a>
+        </div>
+    
+<script type="text/javascript">
+    //<![CDATA[
+    if (('object' === typeof HIB) && ('object' === typeof HIB.loginPopup) && ('function' === typeof HIB.loginPopup.init)) {
+        HIB.loginPopup.init("https://www.solerpalau.com/en-en/customer/ajax/loginPost/");
+    }
+    //]]>
+</script>
+<style type="text/css" id="custom-css-without-react">
+    .section-brief .section-brief-content .section-brief-wrapper {
+        text-align: center;
+    }
+    .cms-sp-pro .section-brief .section-brief-content .section-brief-wrapper .section-brief-slide-image img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .header-search-links .links .mobile-media-center-link {display: none !important;}
+
+    .media-center .header-sppro-text.mc-button {
+        display: inline-block;
+        background-color: rgb(234, 44, 19);
+        padding: 8px 14px 9px 15px;
+        width: auto;
+        line-height: 24px;
+        color: rgb(255, 255, 255);
+    }
+
+    @media only screen and (max-width:991px) {
+        .header-search-links .links li.mobile-media-center-link {
+            display: inline-block !important;
+            padding: 14px;
+            background-color: #fff;
+            line-height: unset !important;
+            a {
+                color: #ea2c13 !important;
+            }
+        }
+    }
+</style>            </div>
+        </div>
+    </nav>
+    <div class="header-mobile-menu-icon">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+</header>
+<script type="text/javascript">
+    //<![CDATA[
+
+    if (typeof HIB.menu == 'object' && typeof HIB.menu.init == 'function') {
+        HIB.menu.init();
+    }
+
+    //]]>
+</script>
+
+        <div class="main-container col1-layout">
+                        <div class="main">
+                <div class="col-main">
+                                        <main>
+                        <div id="overlaySearch" class="overlay">
+    <div id="gif-loader" class="hide"><img src="/media/loader.gif" /></div>
+    
+    <!-- Overlay content -->
+    <div id="searchResults" class="overlay-content grid"></div>
+</div><div class="std"><!-- Main slider -->
+<p>
+<div class="main-slider">
+    <div id="main_slider">
+                            <!-- SLIDES -->
+                    <ul class="show">
+                                                                                                            <li class="slide">
+                                                                            <a href="https://recognition.ecovadis.com/rbfv4swmjeud4l2qdx6zea">
+                                                                                            <img src="https://statics.solerpalau.com/media/wysiwyg/home/Slider/Global/SP_Banner-web_EcoVadis-Gold_V3.jpg" alt="EcoVadis Gold"/>
+                                                                                        <div class="slide-container">
+                                                <div class="slide-content">
+                                                                                                            <p class="title">EcoVadis Gold</p>
+                                                                                                        <p class="subtitle">Among the top 5% companies around the world<br>in sustainability management. </p>
+                                                                                                            <button class="btn-default"> Discover our score</button>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                    </li>
+                                                                                                                <li class="slide">
+                                                                            <a href="https://info.solerpalau.com/en/ecoairevo?&utm_source=web&utm_medium=organic&utm_campaign=ecoair_evo_product_launch&utm_term=banner">
+                                                                                            <img src="https://statics.solerpalau.com/media/wysiwyg/home/Slider/Global/SP_Banner_ECOAIR EVO_WEB_ES V3.jpg" alt="ECOAIR EVO<br>Decentralized ventilation unit"/>
+                                                                                        <div class="slide-container">
+                                                <div class="slide-content">
+                                                                                                            <p class="title">ECOAIR EVO<br>Decentralized ventilation unit</p>
+                                                                                                        <p class="subtitle">Innovation and efficiency for even the most demanding environments</p>
+                                                                                                            <button class="btn-default">DISCOVER IT</button>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                    </li>
+                                                                                                                <li class="slide">
+                                                                            <a href="https://www.solerpalau.com/en-en/bathroom-extract-fans/?type=residential">
+                                                                                            <img src="https://statics.solerpalau.com/media/wysiwyg/home/Slider/Global/SP_Banner_Garantía7años_WEB_1500x450_EN.png" alt="Quality and durability<br>with a 7-year warranty<br>on our SILENT<br>bathroom extract fans"/>
+                                                                                        <div class="slide-container">
+                                                <div class="slide-content">
+                                                                                                            <p class="title">Quality and durability<br>with a 7-year warranty<br>on our SILENT<br>bathroom extract fans</p>
+                                                                                                        <p class="subtitle">SILENT, SILENT DESIGN, and SILENT TUB bathroom extract fans</p>
+                                                                                                            <button class="btn-default">EASE OF MIND OF 7-YEAR WARRANTY</button>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                    </li>
+                                                                        </ul>
+
+                                    </div>
+            </div>
+            
+<script type="text/javascript">
+    //<![CDATA[
+
+    function calculateSliderWidth() {
+        return $$('.main-slider').first().getWidth();
+    }
+
+    Event.observe(window, "resize", function () {
+        $$('#main_slider img').each(function(elmt) {
+            elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+            main_slider.slideWidth = calculateSliderWidth();
+            elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+        });
+        $$('#main_slider .slide-container').each(function(elmt) {
+            elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+            elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+        });
+    });
+
+    $$('#main_slider img').each(function(elmt) {
+        elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+        elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+    });
+
+    $$('#main_slider .slide-container').each(function(elmt) {
+        elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+        elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+    });
+
+    var main_slider = new protoShow('main_slider', {
+        captions			: true,
+        controls			: true,
+        progressTimer       : false,
+        transitionType		: "slide"
+    });
+
+    main_slider.slideWidth = calculateSliderWidth();
+    //]]>
+</script>
+</p>
+<p><div class="widget widget-static-block"><div class="module-home-h1">
+<div class="container">
+    <h1 class="h2 home-h1">S&P Ventilation Systems for Optimal Indoor Air Quality</h1>
+<p class='center'>
+We want to live in a world where good <b>air quality</b> is accessible to everyone. At Soler & Palau, we innovate in <b>ventilation solutions</b> that are <b>energy efficient, easy to install</b>, reliable and durable to ensure <b>air quality</b> in all the <b>indoor spaces</b> that we inhabit and pass through.
+</p>
+</div>
+</div>
+
+<style>
+.main-slider {margin-bottom: 0px !important;}
+
+.module-home-h1 {
+background-color: #f2f2f2;
+padding-top: 50px;
+padding-bottom: 50px;
+}
+
+.module-home-h1 .bar-title {
+border-top: none !important;
+}
+
+.home-h1 {
+width: 100%;
+text-align: center;
+color: rgb(234, 44, 19) !important;
+font-size: 2.4rem !important;
+font-weight: bold !important;
+margin-bottom: 35px;
+}
+
+.module-home-h1 .center {
+text-align: center !important;
+}
+
+</style>
+
+
+</div>
+</p>
+<!-- Categories grid -->
+<p><div class="section-grid">
+    <div class="bar-title">
+        <h2 class="h2">Explore our ventilation systems</h2>
+        <p class="container">Complete features, technical documentation and all the information you need.</p>
+    </div>
+    <div class="section-grid-content container grid grid-pad">
+                            <div class="section-grid-section hcol-6-12">
+                <div class='wrapper'>
+                    <a href="/en-en/residential/">
+                        <img alt="Residential" src="https://statics.solerpalau.com/media/wysiwyg/home/categories_home/Global/residential.jpg"/>
+                        <div class="container-title-widget">
+                        <h3>Residential</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                    <div class="section-grid-section hcol-6-12">
+                <div class='wrapper'>
+                    <a href="/en-en/commercial/">
+                        <img alt="Commercial" src="https://statics.solerpalau.com/media/wysiwyg/home/categories_home/Global/commercialv3.jpg"/>
+                        <div class="container-title-widget">
+                        <h3>Commercial</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                    <div class="section-grid-section hcol-6-12">
+                <div class='wrapper'>
+                    <a href="/en-en/industrial/">
+                        <img alt="Industrial" src="https://statics.solerpalau.com/media/wysiwyg/home/categories_home/Global/industrial.jpg"/>
+                        <div class="container-title-widget">
+                        <h3>Industrial</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                    <div class="section-grid-section hcol-6-12">
+                <div class='wrapper'>
+                    <a href="/en-en/industrial-applications/">
+                        <img alt="Industrial Process Fans" src="https://statics.solerpalau.com/media/wysiwyg/home/categories_home/Global/aplicaciones-industriales.jpg"/>
+                        <div class="container-title-widget">
+                        <h3>Industrial Process Fans</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                    <div class="section-grid-section hcol-6-12">
+                <div class='wrapper'>
+                    <a href="/en-en/oem-s/">
+                        <img alt="OEM" src="https://statics.solerpalau.com/media/wysiwyg/home/categories_home/Global/OEMS.jpg"/>
+                        <div class="container-title-widget">
+                        <h3>OEM</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                    <div class="section-grid-section hcol-6-12">
+                <div class='wrapper'>
+                    <a href="https://preprod2.solerpalau.com/en-en/accessories/">
+                        <img alt="Accessories" src="https://statics.solerpalau.com/media/wysiwyg/home/categories_home/Global/Accesoriosv2.jpg"/>
+                        <div class="container-title-widget">
+                        <h3>Accessories</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </div>
+</div></p>
+<!-- Resources section -->
+<p><div class="section-brief dark">
+    <div class="bar-title">
+        <h3 class="h2">Tools for profesionals</h3>
+        <p class="container">We want to make your work easier and more efficient.</p>
+    </div>
+    <div class="section-brief-content container">
+        <div class="section-brief-wrapper">
+                                        <div>
+                                            <a href="/en-en/easyvent/">
+                            <div class="section-brief-slide-image">
+                                <img src="https://statics.solerpalau.com/media/wysiwyg/home/Tools/Global/EASYVENT.jpg" alt="EasyVent" class=""/>
+                            </div>
+                        </a>
+                                    </div>
+                <div>
+                                            <a href="/en-en/easyvent/">
+                            <h4 class="section-brief-slide-title">EasyVent</h4>
+                        </a>
+                                    </div>
+                <div>
+                                            <a href="/en-en/easyvent/">
+                            <p class="section-brief-slide-description">In this section you will find information and technical advice by different Product Selectors to help you choose the right product.</p>
+                        </a>
+                                    </div>
+                            <div>
+                                            <a href="/en-en/apps/">
+                            <div class="section-brief-slide-image">
+                                <img src="https://statics.solerpalau.com/media/wysiwyg/home/Tools/Global/apps.jpg" alt="Apps" class=""/>
+                            </div>
+                        </a>
+                                    </div>
+                <div>
+                                            <a href="/en-en/apps/">
+                            <h4 class="section-brief-slide-title">Apps</h4>
+                        </a>
+                                    </div>
+                <div>
+                                            <a href="/en-en/apps/">
+                            <p class="section-brief-slide-description">Discover S&P apps and download them for Android or iOS.</p>
+                        </a>
+                                    </div>
+                            <div>
+                                            <a href="http://www.solerpalau.com/en/erp-directive/">
+                            <div class="section-brief-slide-image">
+                                <img src="https://statics.solerpalau.com/media/wysiwyg/home/Tools/Global/erp.jpg" alt="ErP Directive" class=""/>
+                            </div>
+                        </a>
+                                    </div>
+                <div>
+                                            <a href="http://www.solerpalau.com/en/erp-directive/">
+                            <h4 class="section-brief-slide-title">ErP Directive</h4>
+                        </a>
+                                    </div>
+                <div>
+                                            <a href="http://www.solerpalau.com/en/erp-directive/">
+                            <p class="section-brief-slide-description">Become aware of all the Ecodesign requirements for energy-related products.</p>
+                        </a>
+                                    </div>
+                    </div>
+                    <div class="section-brief-link grid">
+                <a href="https://www.solerpalau.com/en-en//tools">View all tools</a>
+            </div>
+            </div>
+</div>
+<style>
+    .section-brief {
+        padding: 0;
+    }
+</style></p>
+<!-- S&P a tu lado section -->
+<div class="section-brief by-your-side"><div class="bar-title">
+    <h2 class="h2">S&amp;P by your side</h2>
+            <div class="container">
+        <p class="hcol-10-12">For us, customer service is as important as the quality of your products.</p>
+        </div>
+    </div>
+<div class="section-brief une-question">
+<div class="section-brief-content container">
+<div class="grid"><div class="section-brief-slide hcol-6-12">
+    <div class="block-grey">
+                    <h3 class="section-brief-slide-title">We help you in your purchase</h3>
+                            <p class="section-brief-slide-description">Request quotes, know the status of an order and other general information.</p>
+                        <div class="section-brief-link grid">
+                            <a href="https://www.solerpalau.com/en-en/customer-service/">Click here to explore</a>
+                                            </div>
+            </div>
+</div>
+<div class="section-brief-slide hcol-6-12">
+<div class="section-brief-slide-image"><img alt="contact" src="https://statics.solerpalau.com/media/wysiwyg/recursos/Foto-portada-global.jpg" /></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section slider -->
+<p>
+        <div class="section-slider">
+            <div class="bar-title">
+                <div class="title-content">
+                    <div class="bar"></div>
+                    <h2 class="h2">Why S&P</h2>
+                </div>
+                <p class="container"> Our products and systems are recognized worldwide</p>
+            </div>
+            <div class="container grid">
+                <div id="section_slider">
+                                        <!-- SLIDES -->
+                    <ul class="show">
+                                                                                                            <li class="slide">
+                                                                            <div>
+                                            <img src="https://statics.solerpalau.com/media/wysiwyg/home/slide-section.jpg"
+                                                 alt="Ciutat de les Arts i les Ciéncies "/>
+                                            <div class="slide-container">
+                                                <div class="slide-content">
+                                                                                                            <p class="title">Ciutat de les Arts i les Ciéncies </p>
+                                                                                                        <p class="subtitle">Valencia / Spain</p>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+                                                                    </li>
+                                                                                                                <li class="slide">
+                                                                            <div>
+                                            <img src="https://statics.solerpalau.com/media/wysiwyg/home/Madrid-slider-desktop.jpg"
+                                                 alt="Airport Terminal T4"/>
+                                            <div class="slide-container">
+                                                <div class="slide-content">
+                                                                                                            <p class="title">Airport Terminal T4</p>
+                                                                                                        <p class="subtitle">Madrid / Spain</p>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+                                                                    </li>
+                                                                                                                <li class="slide">
+                                                                            <div>
+                                            <img src="https://statics.solerpalau.com/media/wysiwyg/home/Projects/Malaysia-slider-desktop.jpg"
+                                                 alt="Courthouse"/>
+                                            <div class="slide-container">
+                                                <div class="slide-content">
+                                                                                                            <p class="title">Courthouse</p>
+                                                                                                        <p class="subtitle">Kuala Lumpur / Malaysia</p>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+                                                                    </li>
+                                                                        </ul>
+
+                            </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    function calculateSliderWidth() {
+        return $$('.section-slider').first().getWidth();
+    }
+
+    Event.observe(window, "resize", function () {
+        $$('#section_slider img').each(function(elmt) {
+            elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+            section_slider.slideWidth = calculateSliderWidth();
+            elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+        });
+        $$('#section_slider .slide-container').each(function(elmt) {
+            elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+            elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+        });
+    });
+
+    $$('#section_slider img').each(function(elmt) {
+        elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+        elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+    });
+
+    $$('#section_slider .slide-container').each(function(elmt) {
+        elmt.setStyle({ 'max-width' : calculateSliderWidth() + 'px' });
+        elmt.setStyle({ 'width' : calculateSliderWidth() + 'px' });
+    });
+
+    var section_slider = new protoShow('section_slider', {
+        captions			: true,
+        controls			: true,
+        progressTimer       : false,
+        transitionType		: "slide"
+    });
+
+    section_slider.slideWidth = calculateSliderWidth();
+    //]]>
+</script>
+</p>
+<!-- See more projects -->
+<div class="page-link container section-brief"><a href="https://www.solerpalau.com/en-en/projects/">See more projects</a></div>
+</div></div>                    </main>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="cms-footer-links">
+<div class="container grid">
+<ul class="cms-footer-links-list">
+<li class="hcol-6-12">
+<p class="titles-footer">Range of products</p>
+<ul>
+<li><a href="/en-en/residentia/l">Residential</a></li>
+<li><a href="/en-en/commercial/">Commercial</a></li>
+<li><a href="/en-en/industrial/">Industrial</a></li>
+<li><a href="/en-en/industrial-applications/">Industrial applications</a></li>
+<li><a href="/en-en/oem-s/">OEM</a></li>
+<li><a href="/en-en/accessories/">Accessories</a></li>
+</ul>
+</li>
+<li class="hcol-6-12">
+<p class="titles-footer">Where to buy</p>
+<ul>
+<li><a href="/en-en/international-distribution/">International distribution</a></li>
+</ul>
+</li>
+<li class="hcol-6-12">
+<p class="titles-footer">Customer service</p>
+<ul>
+<li><a href="/en-en/customer-service/">Customer service</a></li>
+</ul>
+</li>
+<li class="hcol-6-12">
+<p class="titles-footer">Tools</p>
+<ul>
+<li><a href="/en-en/easyvent/">EasyVent</a></li>
+<li><a href="/en-en/apps/">Apps</a></li>
+<li><a href="/en-en/certificates/">Certificates</a></li>
+<li><a href="/en-en/videos/">Videos</a></li>
+<li><a href="http://sportal.solerpalau.com/">Customer Smart Portal</a></li>
+</ul>
+</li>
+<li class="hcol-6-12">
+<p class="titles-footer">Why S&P</p>
+<ul>
+<li><a href="/en-en/our-brand/">Our brand</a></li>
+<li><a href="/en-en/pillars-for-a-better-future/">Pillars for a better future</a></li>
+<li><a href="/en-en/location/">Location</a></li>
+<li><a href="/en-en/projects/">Prestigious projects</a></li>
+<li><a href="/en-en/quality/">Quality</a></li>
+<li><a href="/en-en/innovation/">Innovation</a></li>
+<li><a href="/en-en/sustainability-and-environment/">Sustainability and enviroment</a></li>
+<li><a href="/en-en/production-logistics-and-distribution/">Production, logistics and distribution</a></li>
+<li><a href="/en-en/career/">Career</a></li>
+</ul>
+</li>
+<li class="hcol-6-12">
+<p class="titles-footer">Integrity Line</p>
+<ul>
+<li><a href="/en-en/integrity-line/">Access the Soler & Palau Ventilation Group Integrity Line</a></li>
+</ul>
+</li>
+<li class="hcol-6-12">
+<p class="titles-footer">Media Center</p>
+<ul>
+<li><a href="https://mediacenter.solerpalau.com/?lang=1/">Access the resource center for subscribers and product information.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div><div class="social-footer-links">
+<div class="container grid">
+<p>Follow us</p>
+<ul>
+<li><a href="https://www.linkedin.com/company/soler-palau-ventilation-group/"  target="_blank" class="icon-linkedin" title="Linkedin"></a></li>
+<li><a href="https://www.youtube.com/@SPventilation" target="_blank" class="icon-youtube-play" title="YouTube"></a></li>
+</ul>
+</div>
+</div><div class="container footer-links-copyright grid"><div class="footer-links-language"><div class="form-language">
+    <button id="select-language-button-top" class="language-button" title="Your Language"
+       onclick="HIB.languageBox.open(this);">
+        English / Global        <span class="arrow-down"></span>
+    </button>
+</div><div class="footer-company-links">
+    <ul>
+        <li><a href="/en-en/our-brand/">About S&P</a></li>
+        <li><a href="/en-en/career/">Career</a></li>
+        <li><a href="/en-en/cookies/">Cookies</a></li>
+        <li><a href="/en-en/customer-service/">Contact</a></li>
+        <li><a href="/en-en/legal-disclaimer/">Legal disclaimer</a></li>
+    </ul>
+</div></div><div class="footer-copyright">
+  <p>© S&P Sistemas de Ventilación SLU</p>
+</div></div></footer>
+                <script type="text/javascript" src="https://statics.solerpalau.com/media/js/a85c7ead5c42f05c52b177182e4f09c8_1746683516.js" async></script>
+    <script type="text/javascript">
+        _linkedin_partner_id = "5110154";
+        window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+        window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script>
+    <script type="text/javascript">
+        (function(l) {
+            if (!l){
+                window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+                window.lintrk.q=[]
+            }
+            var s = document.getElementsByTagName("script")[0];
+            var b = document.createElement("script");
+            b.type = "text/javascript";b.async = true;
+            b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+            s.parentNode.insertBefore(b, s);
+        })(window.lintrk);
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=5110154&fmt=gif" />
+    </noscript>
+    </div>
+</div>
+</body>
+</html>

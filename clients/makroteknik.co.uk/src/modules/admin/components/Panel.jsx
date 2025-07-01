@@ -21,12 +21,12 @@ import { Link } from "react-router-dom"
 let DEFAULT_CURRENT_PRODUCT = {
     _id: null,
     title: "",
-    categoryID: 0,
+    category: 0,
     image: "",
     imageTitle: "",
     imageFile: null,
     productCode: "",
-    sizeToPrice: [],
+    size_2_price: [],
     description: "",
     pdfName: "",
     isPDFMetaLoaded: 1,
@@ -169,7 +169,7 @@ export const Panel = () => {
             const newSizePrice = { [size]: price }
             setCurrentProduct((prevProduct) => ({
                 ...prevProduct,
-                sizeToPrice: [...prevProduct.sizeToPrice, newSizePrice],
+                size_2_price: [...prevProduct.size_2_price, newSizePrice],
             }))
             setSizeInput("") // Reset size input
             setPriceInput("") // Reset price input
@@ -186,7 +186,7 @@ export const Panel = () => {
     const handleRemoveSizePrice = (index) => {
         setCurrentProduct((prevProduct) => ({
             ...prevProduct,
-            sizeToPrice: prevProduct.sizeToPrice.filter(
+            size_2_price: prevProduct.size_2_price.filter(
                 (_, idx) => idx !== index
             ),
         }))
@@ -237,13 +237,13 @@ export const Panel = () => {
         // If the item was dropped in the same place
         if (destination.index === source.index) return
 
-        const updatedSizeToPrice = Array.from(currentProduct.sizeToPrice)
-        const [movedItem] = updatedSizeToPrice.splice(source.index, 1) // Remove the item from the source index
-        updatedSizeToPrice.splice(destination.index, 0, movedItem) // Insert it into the destination index
+        const updatedsize_2_price = Array.from(currentProduct.size_2_price)
+        const [movedItem] = updatedsize_2_price.splice(source.index, 1) // Remove the item from the source index
+        updatedsize_2_price.splice(destination.index, 0, movedItem) // Insert it into the destination index
 
         setCurrentProduct({
             ...currentProduct,
-            sizeToPrice: updatedSizeToPrice,
+            size_2_price: updatedsize_2_price,
         })
     }
 
@@ -319,7 +319,7 @@ export const Panel = () => {
         const uncategorizedProducts = products.filter(
             (product) =>
                 !categories.some(
-                    (category) => category._id === product.categoryID
+                    (category) => category._id === product.category
                 )
         )
 
@@ -336,7 +336,7 @@ export const Panel = () => {
             grouped[category._id] = {
                 categoryName: category.categoryName,
                 products: products.filter(
-                    (product) => product.categoryID === category._id
+                    (product) => product.category === category._id
                 ),
             }
         })
@@ -449,17 +449,17 @@ function renderCardGrid(
 
     return (
         <div className="flex flex-col w-screen flex-wrap mt-10 gap-16 px-[5%]">
-            {Object.keys(groupedProducts).map((categoryId) => (
+            {Object.keys(groupedProducts).map((category) => (
                 <div
-                    key={categoryId}
-                    id={`category-${categoryId}`}
+                    key={category}
+                    id={`category-${category}`}
                     className="mb-8"
                 >
                     <h2 className="text-2xl font-bold mb-4">
-                        {groupedProducts[categoryId].categoryName}
+                        {groupedProducts[category].categoryName}
                     </h2>
                     <div className="flex flex-row flex-wrap gap-16">
-                        {groupedProducts[categoryId].products.map((product) => (
+                        {groupedProducts[category].products.map((product) => (
                             <div
                                 key={product._id}
                                 className="w-[350px] h-[490px] text-black text-opacity-60 text-sm 
@@ -525,7 +525,7 @@ function renderCardGrid(
                                             {categoriesList.find(
                                                 (category) =>
                                                     category._id ===
-                                                    product.categoryID
+                                                    product.category
                                             )?.categoryName || null}
                                         </p>
                                         <hr className="border-black border-opacity-20 my-2" />
@@ -533,7 +533,7 @@ function renderCardGrid(
                                             size-price:
                                         </h3>
                                         <ul>
-                                            {product.sizeToPrice.map(
+                                            {product.size_2_price.map(
                                                 (sizePrice, idx) => (
                                                     <li key={idx}>
                                                         {`${
@@ -635,8 +635,8 @@ function renderProductForm(
                         </label>
                         {/* dropdown to select category */}
                         <select
-                            name="categoryID"
-                            value={currentProduct.categoryID}
+                            name="category"
+                            value={currentProduct.category}
                             onChange={handleInputChange}
                             className="border border-gray-400 p-2"
                         >
@@ -826,14 +826,14 @@ function renderProductForm(
 
                 {/* list available sizes */}
                 <DragDropContext onDragEnd={handleDragEnd}>
-                    <Droppable droppableId="sizeToPriceList">
+                    <Droppable droppableId="size_2_priceList">
                         {(provided) => (
                             <ul
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                                 className="text-black text-opacity-60"
                             >
-                                {currentProduct.sizeToPrice.map(
+                                {currentProduct.size_2_price.map(
                                     (sizePrice, idx) => (
                                         <Draggable
                                             key={idx}
@@ -855,9 +855,9 @@ function renderProductForm(
                                                             )[0]
                                                         }
                                                         onChange={(e) => {
-                                                            const newSizeToPrice =
+                                                            const newsize_2_price =
                                                                 [
-                                                                    ...currentProduct.sizeToPrice,
+                                                                    ...currentProduct.size_2_price,
                                                                 ]
                                                             const updatedSize =
                                                                 e.target.value
@@ -865,7 +865,7 @@ function renderProductForm(
                                                                 Object.values(
                                                                     sizePrice
                                                                 )[0]
-                                                            newSizeToPrice[
+                                                            newsize_2_price[
                                                                 idx
                                                             ] = {
                                                                 [updatedSize]:
@@ -873,8 +873,8 @@ function renderProductForm(
                                                             }
                                                             setCurrentProduct({
                                                                 ...currentProduct,
-                                                                sizeToPrice:
-                                                                    newSizeToPrice,
+                                                                size_2_price:
+                                                                    newsize_2_price,
                                                             })
                                                         }}
                                                         className="border border-gray-400 p-2  w-1/2"
@@ -887,9 +887,9 @@ function renderProductForm(
                                                             )[0]
                                                         }
                                                         onChange={(e) => {
-                                                            const newSizeToPrice =
+                                                            const newsize_2_price =
                                                                 [
-                                                                    ...currentProduct.sizeToPrice,
+                                                                    ...currentProduct.size_2_price,
                                                                 ]
                                                             const size =
                                                                 Object.keys(
@@ -897,15 +897,15 @@ function renderProductForm(
                                                                 )[0]
                                                             const updatedPrice =
                                                                 e.target.value
-                                                            newSizeToPrice[
+                                                            newsize_2_price[
                                                                 idx
                                                             ] = {
                                                                 [size]: updatedPrice,
                                                             }
                                                             setCurrentProduct({
                                                                 ...currentProduct,
-                                                                sizeToPrice:
-                                                                    newSizeToPrice,
+                                                                size_2_price:
+                                                                    newsize_2_price,
                                                             })
                                                         }}
                                                         className="border border-gray-400 p-2  w-1/2"

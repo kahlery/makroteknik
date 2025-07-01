@@ -4,7 +4,6 @@ import (
 	// Standart
 	"context"
 	"fmt"
-	"log"
 	"os"
 
 	// Services
@@ -24,7 +23,8 @@ import (
 	aws_service "github.com/kahlery/pkg/go/aws/service"
 
 	log_middleware "github.com/kahlery/pkg/go/log/middleware/fiber"
-	log_util "github.com/kahlery/pkg/go/log/util"
+
+	log "github.com/kahlery/pkg/go/log/util"
 
 	// Framework deps
 	"github.com/gofiber/fiber/v2"
@@ -39,6 +39,7 @@ import (
 )
 
 // --------------------------------------------------------------------
+
 var (
 	s3Client    *aws_service.S3Service
 	mongoClient *mongo.Client
@@ -65,22 +66,18 @@ var pdfPath = new(string)
 // --------------------------------------------------------------------
 
 func init() {
+	log.Initialize()
+
 	envType := os.Getenv("ENV")
 	if envType != "prod" {
 		if err := godotenv.Load("../.env"); err != nil {
-			log.Fatalf("error loading .env, %v", err)
+			log.LogError(context.TODO(), "unable to load .env file", "init()", "")
 		}
 	} else {
-		log_util.LogSuccess(
-			"environment variables:"+"\n"+
-				os.Getenv("DB")+"\n"+
-				os.Getenv("PORT")+"\n"+
-				os.Getenv("S3_BUCKET_NAME"),
-			"main.init()", "",
-		)
+
 	}
 
-	*imagePath = "images/products/"
+	*imagePath = "images/"
 	*pdfPath = "pdfs/"
 
 	initClients()
@@ -90,15 +87,12 @@ func init() {
 	// check if the program can reach the working directory
 	dir, err := os.Getwd()
 	if err != nil {
-		log_util.LogError("failed to get working directory: "+err.Error(), "main.init()", "")
 	} else {
-		log_util.LogSuccess("working directory can be reached:", "main.init()", "")
 		fmt.Println(dir)
 	}
 
 	// check if all clients initialized successfully
 	if s3Client == nil || mongoClient == nil {
-		log_util.LogError("failed to initialize clients", "main.init()", "")
 	}
 }
 
@@ -111,9 +105,9 @@ func main() {
 	setupRoutes(app)
 
 	port := os.Getenv("PORT")
-	log.Printf("Starting server on %s", port)
+	log.LogInfo(nil, fmt.Sprintf("Starting server on %s", port), "", "")
 	if err := app.Listen(port); err != nil {
-		log.Fatalf("failed to start server: %v", err)
+		// log.Fatalf("failed to start server: %v", err)
 	}
 }
 
@@ -160,8 +154,8 @@ func setupRoutes(app *fiber.App) {
 	// Product routes
 	productGroup := app.Group("/product")
 	productGroup.Get("/", productService.GetProducts)
-	productGroup.Post("/post", productService.PostProduct, auth_middleware.AuthMiddleware)
-	productGroup.Patch("/patch/:id", productService.PatchProduct, auth_middleware.AuthMiddleware)
+	// productGroup.Post("/post", productService.PostProduct, auth_middleware.AuthMiddleware)
+	// productGroup.Patch("/patch/:id", productService.PatchProduct, auth_middleware.AuthMiddleware)
 	productGroup.Delete("/delete/:id", productService.DeleteProduct, auth_middleware.AuthMiddleware)
 
 	// Category routes
@@ -193,12 +187,5 @@ func setupMiddlewares(app *fiber.App) {
 	// Adding custom logger middleware to log requests as well
 	app.Use(log_middleware.LogRequests())
 	app.Use(log_middleware.LogResponses())
-
-	// Adding fiber standart logger middleware to log responses
-	// app.Use(logger.New(logger.Config{
-	// 	Format:     "\n\033[35m[RESPONSE]\033[0m | ${locals:processID} | ${time} | ${ip} | ${method} | ${status} | ${latency} | ${path}\n",
-	// 	TimeFormat: "02-01-2006 03:04:05 PM",
-	// 	TimeZone:   "UTC",
-	// }))
 
 }

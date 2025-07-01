@@ -31,7 +31,7 @@ const TopBar = () => {
                             }}
                         />
                         <div className="text-[0.7rem] text-black text-opacity-80">
-                            +44 216 313 08 08
+                            +44 208 885 34 94
                         </div>
                     </div>
                 </div>
