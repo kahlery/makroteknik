@@ -42,7 +42,7 @@ const NavBar = () => {
                 </a>
             </div>
 
-            <li>
+            <div>
                 <Link
                     to="/products"
                     className="flex flex-col items-center text-secondary hover:text-primary"
@@ -65,7 +65,7 @@ const NavBar = () => {
                         Search
                     </p>
                 </Link>
-            </li>
+            </div>
 
             {/* <Link to="">
                 <img
