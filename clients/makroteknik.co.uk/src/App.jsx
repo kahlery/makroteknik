@@ -24,10 +24,10 @@ class App extends Component {
                         <Route path="about" element={<AboutContainer />} />
                         <Route path="products" element={<ProductContainer />} />
                         <Route path="cart" element={<CartContainer />} />
-                        <Route path="admin" element={<AdminContainer />}>
+                        {/* <Route path="admin" element={<AdminContainer />}>
                             <Route path="" element={<Panel />} />
                             <Route path="category" element={<CategoryView />} />
-                        </Route>
+                        </Route> */}
                         <Route path="*" element={<NotFoundContainer />} />
                     </Route>
                 </Routes>

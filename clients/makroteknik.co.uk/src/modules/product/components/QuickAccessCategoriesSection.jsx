@@ -44,16 +44,14 @@ const QuickAccessCategoriesSection = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-start no-scrollbar">
                 {categoriesList.map((category, index) => (
                     <button
-                        key={category._id}
+                        key={category}
                         className={`p-3 h-12 xl:h-12 
                             w-full
                             text-xs
                          hover:opacity-90 bg-gradient-to-r from-secondary to-cyan-600 font-semibold text-white shadow-lg transform transition-transform duration-300 hover:scale-105`}
-                        onClick={() =>
-                            handleScrollToHeader(category.categoryName)
-                        }
+                        onClick={() => handleScrollToHeader(category)}
                     >
-                        {category.categoryName}
+                        {category}
                         {/* <FaAngleRight className="text-secondary text-[1rem]" /> */}
                     </button>
                 ))}

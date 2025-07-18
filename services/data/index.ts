@@ -4,11 +4,11 @@ import chalk from "chalk"
 import dotenv from "dotenv"
 dotenv.config()
 
-import importGSheet from "./scripts/importGSheet"
-import fetchImages from "./scripts/fetchImages"
-import insertIntoDB from "./scripts/insertIntoDB"
-import clearTemp from "./scripts/clearTemp"
-import uploadImagesS3 from "./scripts/uploadImagesS3"
+import importGSheet from "./src/importGSheet"
+import fetchImages from "./src/fetchImages"
+import insertIntoDB from "./src/insertIntoDB"
+import clearTemp from "./src/clearTemp"
+import uploadImagesS3 from "./src/uploadImagesS3"
 
 // --------------------------------------------------------------------
 

@@ -3,13 +3,13 @@ import { React, useEffect } from "react"
 // router v6
 import { Outlet } from "react-router-dom"
 
-// components
+// Components
 import TopBar from "./components/TopBar"
 import CategoriesTop from "./components/CategoriesTop"
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 
-// stores
+// Stores
 import { useProductStore } from "../product/stores/ProductStore"
 
 const LayoutContainer = () => {
@@ -18,12 +18,14 @@ const LayoutContainer = () => {
     const productsList = useProductStore((state) => state.productsList)
     const loading = useProductStore((state) => state.loading)
 
+    // Effects
     useEffect(() => {
         getProducts().then(() => {
             console.log("products fetched first time.")
         })
     }, [])
 
+    // Templates
     if (loading > 0) {
         return (
             <div

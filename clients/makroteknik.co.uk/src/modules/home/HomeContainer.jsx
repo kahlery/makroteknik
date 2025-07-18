@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 
-// stores
+// Stores
 import { useCartStore } from "../cart/stores/CartStore"
 import { useProductStore } from "../product/stores/ProductStore"
 
-// components
+// Components
 import Hero from "./components/Hero"
 import LatestNewsGrid from "./components/LatestNewsGrid"
 import ListingGrid from "../common/components/ListingGrid"
@@ -12,7 +12,7 @@ import ListingGrid from "../common/components/ListingGrid"
 const videoUrl = process.env.PUBLIC_URL + "/videos/hero.mp4"
 
 const HomeContainer = () => {
-    // stores
+    // Stores
     const [loading, setLoading] = useState(true)
     const loadCartFromLocalStorage = useCartStore(
         (state) => state.loadCartFromLocalStorage
@@ -20,6 +20,7 @@ const HomeContainer = () => {
     const cartProducts = useCartStore((state) => state.cartProducts)
     const productsList = useProductStore((state) => state.productsList)
 
+    // Effects
     useEffect(() => {
         const loadCart = async () => {
             await loadCartFromLocalStorage()
@@ -28,6 +29,7 @@ const HomeContainer = () => {
         loadCart()
     }, [loadCartFromLocalStorage])
 
+    // Templates
     return (
         <div className="text-start flex flex-col gap-8 pb-16 bg-fon">
             <Hero height={128} />

@@ -79,11 +79,11 @@ const CategoriesTop = () => {
                     >
                         {categoriesList.map((category) => (
                             <div
-                                key={category._id}
+                                key={category}
                                 className="static z-40 flex items-center gap-[1px]"
                             >
                                 {/* Hover dropdown */}
-                                {isCategoryHovered(category._id) &&
+                                {isCategoryHovered(category) &&
                                     !location.pathname.endsWith(
                                         "/products"
                                     ) && (
@@ -132,7 +132,7 @@ const CategoriesTop = () => {
                                         "category-button hover:scale-105 select-none duration-500 text-white py-[5px] text-nowrap border-black border-opacity-20 font-semibold"
                                     }
                                     onMouseEnter={() =>
-                                        handleMouseEnter(category._id)
+                                        handleMouseEnter(category)
                                     }
                                     onMouseLeave={() => {
                                         if (hoverTimeout) {
@@ -140,7 +140,7 @@ const CategoriesTop = () => {
                                         }
                                     }}
                                 >
-                                    {category.categoryName}
+                                    {category}
                                 </button>
                             </div>
                         ))}

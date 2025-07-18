@@ -49,18 +49,24 @@ const ProductCard = ({
                     {product.product_code}
                 </p>
                 <div className="text-xs text-black text-opacity-60 flex">
-                    {product.size_2_price ? (
-                        <p className="text-secondary py-[1.6px]">
-                            {product.size_2_price[0]}
-                        </p>
+                    {product.size_2_price &&
+                    Object.values(product.size_2_price)[1] ? (
+                        <div className="flex gap-2">
+                            <p className="text-1 py-[1.6px]">from</p>
+                            <p className="text-secondary py-[1.6px]">
+                                {Object.values(product.size_2_price)[1]}
+                            </p>
+                        </div>
                     ) : (
-                        <p className="text-red-700 py-[1.6px]">.</p>
+                        <></>
                     )}
                 </div>
                 <div className="w-fit text-xs flex">
                     <p className="text-black text-opacity-80 pt-[1.6px] flex gap-1 items-center">
                         <TbRulerMeasure size={15} />
-                        {product.size_2_price ? product.size_2_price.length : 1}
+                        {product.size_2_price
+                            ? Object.keys(product.size_2_price).length
+                            : 1}
                         &nbsp;Size Available
                     </p>
                 </div>

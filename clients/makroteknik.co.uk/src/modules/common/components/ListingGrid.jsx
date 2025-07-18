@@ -9,7 +9,6 @@ import { useProductStore } from "../../product/stores/ProductStore"
 
 const ListingGrid = ({
     isFeatured,
-    category,
     cartProductIds,
     isHorizontalNorVertical,
     passedProductsList, // Renamed to avoid conflict
@@ -23,7 +22,10 @@ const ListingGrid = ({
         passedProductsList ?? useProductStore((state) => state.productsList)
     const categoriesList = useProductStore((state) => state.categoriesList)
 
-    // Render Cart Products
+    // --------------------------------------------------------------------
+
+    // Templates
+    // 1. cart
     if (cartProductIds) {
         return (
             <div>
@@ -38,7 +40,7 @@ const ListingGrid = ({
     }
 
     // Render Featured or Normal Products
-    const featuredProducts = isFeatured
+    const finalProducts = isFeatured
         ? renderFeaturedProducts(
               isHorizontalNorVertical
                   ? productsList.filter(
@@ -48,6 +50,7 @@ const ListingGrid = ({
           )
         : renderNormalProducts()
 
+    // 2. featured | normal
     return (
         <div>
             <DetailedProductModal
@@ -55,9 +58,11 @@ const ListingGrid = ({
                 selectedProduct={selectedProduct}
                 setIsModalOpen={setIsModalOpen}
             />
-            {featuredProducts}
+            {finalProducts}
         </div>
     )
+
+    // --------------------------------------------------------------------
 
     function renderFeaturedProducts(featuredProducts) {
         return (
@@ -68,11 +73,11 @@ const ListingGrid = ({
                         : "grid grid-cols-2 xl:grid-cols-4 gap-8"
                 }`}
             >
-                {category == undefined && (
+                {/* {category == undefined && (
                     <h2 className="text-start text-sm text-black font-bold col-span-full">
                         Featured Products:
                     </h2>
-                )}
+                )} */}
                 {featuredProducts.map((product) => (
                     <ProductCard
                         key={product._id}
@@ -102,13 +107,13 @@ const ListingGrid = ({
                 )}
                 {categoriesList.map((category) => {
                     const categoryProducts = productsList.filter(
-                        (product) => product.category === category._id
+                        (product) => product.category === category
                     )
                     return (
-                        <React.Fragment key={"category_" + category._id}>
+                        <React.Fragment key={category}>
                             {!!categoryProducts.length && (
                                 <h2 className="text-start text-sm text-black col-span-full underline-offset-4 font-bold">
-                                    {category.categoryName}:
+                                    {category}:
                                 </h2>
                             )}
                             {categoryProducts.map((product) => (

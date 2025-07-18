@@ -11,13 +11,22 @@ export const useProductStore = create((set, get) => ({
         try {
             const { apiUrl } = get()
             const response = await axios.get(`${apiUrl}/product`)
+            const products = response.data.products || []
+
+            const categories = [
+                ...new Set(products.map((p) => p.category).filter(Boolean)),
+            ]
+
             set({
-                productsList: response.data.products,
+                productsList: products,
+                categoriesList: categories,
                 loading: get().loading - 1,
-            }) // Set products and stop loading
+            })
         } catch (err) {
             console.error(err)
         }
+
+        console.log("categoriesList:", get().categoriesList)
     },
 
     postProduct: async (product) => {
@@ -94,54 +103,54 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
-    // Add a new category
-    postCategory: async (category) => {
-        try {
-            const { apiUrl } = get()
-            const response = await axios.post(
-                `${apiUrl}/category/post`,
-                category
-            )
-            set((state) => ({
-                categoriesList: [
-                    ...state.categoriesList,
-                    response.data.category,
-                ],
-            }))
-        } catch (err) {
-            console.error("Error posting category:", err)
-        }
-    },
+    // // Add a new category
+    // postCategory: async (category) => {
+    //     try {
+    //         const { apiUrl } = get()
+    //         const response = await axios.post(
+    //             `${apiUrl}/category/post`,
+    //             category
+    //         )
+    //         set((state) => ({
+    //             categoriesList: [
+    //                 ...state.categoriesList,
+    //                 response.data.category,
+    //             ],
+    //         }))
+    //     } catch (err) {
+    //         console.error("Error posting category:", err)
+    //     }
+    // },
 
-    // Update an existing category
-    patchCategory: async (id, category) => {
-        try {
-            const { apiUrl } = get()
-            await axios.patch(`${apiUrl}/category/patch/${id}`, category)
-            set((state) => ({
-                categoriesList: state.categoriesList.map((cat) =>
-                    cat._id === id ? { ...cat, ...category } : cat
-                ),
-            }))
-        } catch (err) {
-            console.error("Error patching category:", err)
-        }
-    },
+    // // Update an existing category
+    // patchCategory: async (id, category) => {
+    //     try {
+    //         const { apiUrl } = get()
+    //         await axios.patch(`${apiUrl}/category/patch/${id}`, category)
+    //         set((state) => ({
+    //             categoriesList: state.categoriesList.map((cat) =>
+    //                 cat._id === id ? { ...cat, ...category } : cat
+    //             ),
+    //         }))
+    //     } catch (err) {
+    //         console.error("Error patching category:", err)
+    //     }
+    // },
 
-    // Delete a category
-    deleteCategory: async (id) => {
-        try {
-            const { apiUrl } = get()
-            await axios.delete(`${apiUrl}/category/delete/${id}`)
-            set((state) => ({
-                categoriesList: state.categoriesList.filter(
-                    (cat) => cat._id !== id
-                ),
-            }))
-        } catch (err) {
-            console.error("Error deleting category:", err)
-        }
-    },
+    // // Delete a category
+    // deleteCategory: async (id) => {
+    //     try {
+    //         const { apiUrl } = get()
+    //         await axios.delete(`${apiUrl}/category/delete/${id}`)
+    //         set((state) => ({
+    //             categoriesList: state.categoriesList.filter(
+    //                 (cat) => cat._id !== id
+    //             ),
+    //         }))
+    //     } catch (err) {
+    //         console.error("Error deleting category:", err)
+    //     }
+    // },
 
     getPDF: async (id) => {
         try {
