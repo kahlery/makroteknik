@@ -4,7 +4,13 @@ import React, { useEffect, useState } from "react"
 import { useProductStore } from "../stores/ProductStore"
 
 // icons
-import { FaAngleRight } from "react-icons/fa"
+import { FaFan } from "react-icons/fa"
+import { AiOutlineControl } from "react-icons/ai"
+
+const category2icon = {
+    // Fans: <FaFan size={15} />,
+    // "Fan Controllers & Accessories": <AiOutlineControl size={20} />,
+}
 
 const QuickAccessCategoriesSection = () => {
     const categoriesList = useProductStore((state) => state.categoriesList)
@@ -46,11 +52,16 @@ const QuickAccessCategoriesSection = () => {
                     <button
                         key={category}
                         className={`p-3 h-12 xl:h-12 
+                            flex
+                            items-center
+                            justify-center
+                            gap-2
                             w-full
                             text-xs
-                         hover:opacity-90 bg-gradient-to-r from-secondary to-cyan-600 font-semibold text-white shadow-lg transform transition-transform duration-300 hover:scale-105`}
+                         hover:opacity-90 bg-secondary font-semibold text-white shadow-lg transform transition-transform duration-300 hover:scale-105`}
                         onClick={() => handleScrollToHeader(category)}
                     >
+                        {category2icon[category]}
                         {category}
                         {/* <FaAngleRight className="text-secondary text-[1rem]" /> */}
                     </button>

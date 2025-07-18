@@ -5,8 +5,10 @@ export const useProductStore = create((set, get) => ({
     apiUrl: process.env.REACT_APP_API_URL ?? "http://localhost:8090",
     productsList: [],
     categoriesList: [],
+    searchText: "",
     loading: 1,
 
+    setSearchText: (text) => set({ searchText: text }),
     getProducts: async () => {
         try {
             const { apiUrl } = get()
