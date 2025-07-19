@@ -128,7 +128,13 @@ const NavBar = () => {
             </div>
 
             {/* Nav Icons */}
-            <div className="w-full md:w-fit flex text-secondary">
+            <div
+                className="w-full md:w-fit flex text-secondary"
+                onClick={() => {
+                    setSearchOpen(false)
+                    setSearchText("")
+                }}
+            >
                 <ul className="flex w-full justify-evenly md:justify-end md:space-x-6">
                     <li>
                         <Link
