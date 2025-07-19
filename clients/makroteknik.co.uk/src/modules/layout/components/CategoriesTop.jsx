@@ -92,12 +92,20 @@ const CategoriesTop = () => {
                                             className="fixed top-[85px] md:top-[90px] h-full 2xl:top-[90px] left-0 flex flex-wrap w-screen z-[999]"
                                         >
                                             <div
-                                                className="text-black overflow-y-scroll text-left
+                                                className="text-black overflow-y-scroll text-left flex flex-col gap-8
                                             items-center w-screen border-t border-black border-opacity-20 bg-[999] bg-fon
-                                             bg-opacity-[95%] shadow-lg px-4 md:px-4 py-4
+                                             bg-opacity-[95%] shadow-lg px-4 md:px-4 py-8
                                             h-[calc(100vh-100px)]
                                             "
                                             >
+                                                <button
+                                                    className=" bg-red-500 text-white rounded-full px-4 py-2"
+                                                    onClick={() =>
+                                                        setHoveredcategory(null)
+                                                    }
+                                                >
+                                                    X Collapse the Category
+                                                </button>
                                                 <div className="flex flex-col gap-4">
                                                     {/* Dropdown menu content */}
                                                     {/* <button
@@ -114,12 +122,12 @@ const CategoriesTop = () => {
                                                     </button> */}
                                                     <div>
                                                         <ListingGrid
-                                                            category={
-                                                                category._id
-                                                            }
                                                             isFeatured={true}
                                                             isHorizontalNorVertical={
                                                                 true
+                                                            }
+                                                            filteredCategory={
+                                                                category
                                                             }
                                                         />
                                                     </div>

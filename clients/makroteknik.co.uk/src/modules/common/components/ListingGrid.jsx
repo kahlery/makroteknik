@@ -12,6 +12,7 @@ const ListingGrid = ({
     cartProductIds,
     isHorizontalNorVertical,
     passedProductsList, // Renamed to avoid conflict
+    filteredCategory,
 }) => {
     // States
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -44,7 +45,7 @@ const ListingGrid = ({
         ? renderFeaturedProducts(
               isHorizontalNorVertical
                   ? productsList.filter(
-                        (product) => product.category === category
+                        (product) => product.category === filteredCategory
                     )
                   : productsList.slice(0, 8)
           )

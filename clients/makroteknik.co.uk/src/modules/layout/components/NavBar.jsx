@@ -12,6 +12,7 @@ import { motion } from "framer-motion"
 
 const NavBar = () => {
     const cartProducts = useCartStore((state) => state.cartProducts)
+    const products = useProductStore((state) => state.productsList)
 
     const [searchOpen, setSearchOpen] = useState(false)
     const [searchText, setSearchText] = useState("")
@@ -29,11 +30,14 @@ const NavBar = () => {
 
     useEffect(() => {
         if (searchText.trim().length > 0) {
-            setFoundCount(Math.floor(Math.random() * 100)) // Mock result count
+            const filtered = products.filter((product) =>
+                product.title.toLowerCase().includes(searchText.toLowerCase())
+            )
+            setFoundCount(filtered.length)
         } else {
             setFoundCount(0)
         }
-    }, [searchText])
+    }, [searchText, products])
 
     return (
         <nav
@@ -87,9 +91,9 @@ const NavBar = () => {
                 ) : (
                     <motion.div
                         initial={{ width: 0, opacity: 0 }}
-                        animate={{ width: 300, opacity: 1 }}
+                        animate={{ width: 350, opacity: 1 }}
                         exit={{ width: 0, opacity: 0 }}
-                        className="relative flex items-center bg-white border-yellow-400 border-4 rounded-full py-[5px] px-2"
+                        className="z-30 absolute -translate-y-1/2  md:-translate-x-1/2 flex items-center bg-white border-yellow-400 border-4 rounded-full py-[7px] px-2"
                     >
                         <input
                             ref={inputRef}
@@ -106,8 +110,8 @@ const NavBar = () => {
                             placeholder="Search..."
                             className="pl-2 pr-14 w-full text-sm focus:outline-none"
                         />
-                        <span className="absolute right-3 text-xs text-gray-500">
-                            {foundCount}
+                        <span className="absolute right-10 text-xs text-gray-500">
+                            Found: {foundCount}
                         </span>
                         <button
                             onClick={() => {
@@ -115,7 +119,7 @@ const NavBar = () => {
                                 setSearchText("")
                                 setSearchTextInStore("")
                             }}
-                            className="absolute right-8 text-black text-lg font-bold"
+                            className="absolute right-3 text-black text-lg font-bold"
                         >
                             ✕
                         </button>
@@ -173,7 +177,7 @@ const NavBar = () => {
                             to="/cart"
                             className="flex-row items-center text-secondary hover:text-primary"
                         >
-                            <div className="relative z-50">
+                            <div className="relative z-20">
                                 {Object.keys(cartProducts).length > 0 && (
                                     <div className="absolute -top-[3px] -right-[3px] rounded-full text-white flex items-center justify-center">
                                         <span className="relative flex h-4 w-4">
