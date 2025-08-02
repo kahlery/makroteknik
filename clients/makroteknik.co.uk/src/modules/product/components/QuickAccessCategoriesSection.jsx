@@ -18,7 +18,7 @@ const QuickAccessCategoriesSection = () => {
     const handleScrollToHeader = (categoryName) => {
         const headers = Array.from(document.querySelectorAll("h2"))
         const header = headers.find((header) =>
-            header.textContent.includes(`${categoryName}:`)
+            header.textContent.includes(`${categoryName}`)
         )
         if (header) {
             // scroll to the header smoothly but add 100px offset

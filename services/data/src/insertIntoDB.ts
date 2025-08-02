@@ -23,6 +23,8 @@ export default async function insertIntoDB() {
         const db = client.db("makroteknik")
         const collection = db.collection("products_2")
 
+        collection.deleteMany({})
+
         const result = await collection.bulkWrite(
             products.map((product: any) => ({
                 updateOne: {

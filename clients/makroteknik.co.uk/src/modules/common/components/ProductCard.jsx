@@ -20,13 +20,14 @@ const ProductCard = ({
     return (
         <div
             key={product._id}
-            className={`bg-white md:min-w-[200px]  relative flex flex-col text-sm 
-                duration-1000 h-90 pb-4
-            hover:scale-100 hover:cursor-pointer hover:border-black
-            ${isHorizontalNorVertical ? "w-48" : ""} ${
+            className={`bg-white md:min-w-[200px]  relative flex flex-col text-sm
+                border border-gray-200
+                duration-[1000ms] h-90 pb-4
+                hover:scale-100 hover:cursor-pointer hover:shadow-2xl
+                ${isHorizontalNorVertical ? "w-48" : ""} ${
                 isCartProduct
                     ? " shadow-[_5px_5px_rgba(0,_98,_90,_0.2),_10px_10px_rgba(0,_98,_90,_0.1),_15px_15px_rgba(0,_98,_90,_0.05)]"
-                    : "shadow-lg"
+                    : "shadow-2xs"
             }`}
             onClick={() => {
                 // show product detail in a modal

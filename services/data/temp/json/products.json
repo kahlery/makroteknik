@@ -8,14 +8,7 @@
     "description": "HCBB/HCBT\nRange of low profile plate mounted axial fans fitted with aluminium impellers and single phase motor (HCBB) or three phase motor (HCBT), IP65 (1), Class F insulation (2), equipped with thermal protection (3).\n(1) Models 800, 900 and 1000 are IP55.\n(2) Working temperatures from -40ºC up to +70ºC. Except models Ø 800, 900 and 1000 suitable for usage in environments from -20ºC to +40ºC.\n(3) Except models Ø 800 to 1000.\n\nMotors\nAvailable, depending upon the model, with single or three phase motors in 4 or 6 poles. All motors are speed controllable by autotransformer except models /4-630, B/710, T/4-710, T/800, T/900 and T/1000.Three phase models are speed controllable by inverter.\nElectrical supplies:\nSingle phase 220-240V-50Hz. (Capacitor located inside the wiring terminal box).\nThree phase 220-240/380-415V-50Hz or 400V-50Hz (See characteristic chart).\n\nAdditional Information\nStandard air direction: form (A) configuration (Motor over Impeller).\n\nOn request\nInlet finger proof guard for models 800 to 1000.",
     "original_url": "https://www.solerpalau.com/en-uk/plate-mounted-axial-flow-hcbb-hcbt-174-serie/",
     "original_image_url": "https://freshairsupplies.co.uk/wp-content/uploads/2022/03/HCBB_image.jpg",
-    "size_2_price": {
-      "250mm": "£212.00 ex VAT",
-      "315mm": "£233.00 ex VAT",
-      "355mm": "£256.00 ex VAT",
-      "400mm": "£291.00 ex VAT",
-      "450mm": "£335.00 ex VAT",
-      "500mm": "£372.00 ex VAT"
-    },
+    "size_2_price": {},
     "is_priced": true
   },
   {
@@ -28,7 +21,7 @@
     "original_url": "https://www.solerpalau.com/en-en/plate-mounted-axial-flow-hxbr-hxtr-77-serie/#product_section_description",
     "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/H/X/HXTR_product1.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "9c3293defad2a3a9ba3576c1e998da6d850f63e7fccc306dbfcf13c177143ccf",
@@ -39,10 +32,8 @@
     "description": "TCBB/TCBT\nRange of cylindrical cased axial flow fans fitted with aluminium impellers and manufactured from high grade rolled galvanised steel and protected against corrosion by cataforesis primer and black polyester paint finish.\nAll models are supplied with pre-wired wiring junction box located on the outside of the fan casing for easy wiring access.\nAvailable, depending upon the model, with single or three phase motors in 2, 4 or 6 poles.\n\nMotors\nSingle phase motor (TCBB) or three phase motor (TCBT).\nModels 250, 315, 355 and 400: External rotor motor, IP44, Class F, thermal protection, working temperature from -40ºC to +40ºC.\nModels 450, 500, 560, 630 and 6/710: IP65, Class F, thermal protection, working temperature from -40ºC to +70ºC.\nModels 4/710 and 800: IP55, Class F, working temperature from -40ºC to +40ºC.\n\nAll motors are speed controllable by autotransformer except models /4-560H, /4-630, 710 and T/800.\nThree phase motors are speed controllable by inverter.\nElectrical supplies:\nSingle phase 230V-50Hz.\n(Capacitor located inside the wiring terminal box).\nThree phase 230/400V-50Hz or 400V-50Hz.\n(See characteristic chart).\n\nAdditional information\nStandard air direction: form (B)\nconfiguration\n(impeller over motor).\n\nOn request\nAir direction: form (A) configuration (motor over impeller).\nFrom Ø450 to Ø800, three phase motors 2 speed, 4/8 poles.",
     "original_url": "https://statics.solerpalau.com/media/catalog/product/cache/8/image/240x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_product1.jpg",
     "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/01/e860df491ed2ea23f59aeb183c61f507.jpg",
-    "size_2_price": {
-      "250mm": "£282.00 ex VAT"
-    },
-    "is_priced": false
+    "size_2_price": {},
+    "is_priced": true
   },
   {
     "_id": "6d6bd5547fcf9ad79ff7d1e5893e4dd777fbb43d204fe1de4fa85a9379bd2d0e",
@@ -54,7 +45,7 @@
     "original_url": "https://statics.solerpalau.com/media/catalog/product/cache/8/image/240x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_x2_product1.jpg",
     "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_x2_product1.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "a76a6c384772197398e0f5d88df82ad0c3a24620f66e112c834b7c67dc7502f4",
@@ -66,7 +57,7 @@
     "original_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
     "original_image_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "50f0d12203cc61fe00976a2715dcef0092e91a1295fc2c498ed4496f27cd1329",
@@ -78,7 +69,7 @@
     "original_url": "https://www.heliosventilatoren.de/en/products/box-fans/gigabox/en-gbw-5004-05517",
     "original_image_url": "https://global.heliosventilatoren.de/mediadata/product/image_72dpi_comp/GB_axial.png",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "0a988134ee65407b4151d87c7b218bf251e806370f09afed5c1f57ea14732cb3",
@@ -89,12 +80,8 @@
     "description": "VENT-NK / VENT-N\nRange of in-line duct centrifugal fans, manufactured from high grade corrosion resistant pressed galvanised steel and supplied as standard with a prewired wiring junction box and a robust mounting foot. All model include an enclosed type, single-phase external rotor motor with factory matched backward curved nonstalling impeller.\n(1) Models 355 and 400 are manufactured in sheet steel protected against corrosion by cataforesis primer and black polyester paint finish.\n\nMotors\n100N - 250N models: Motors are IP44, class B insulation with ball bearings and safety thermal overload protection.\n315N model: motor is IP44, class F insulation with ball bearings ans safety thermal overload protection.\n355N and 400N models: Motors are IP54, class F, with ball bearings and safety thermal overload protection.\nElectrical supply:\nSingle phase 230V-50/60Hz.\nThree phase 230/400V-50Hz\n(models 355N-T and 400N-T).\n(See characteristics chart).\nAll single-phase models are speed controllable by tension.\nThe three-phase models are speed controllable by frequency inverter\n\nAdditional Information\nImpellers from 100 to 250 models are manufactured from injection moulded plastic.",
     "original_url": "https://www.solerpalau.com/en-en/in-line-duct-fans-vent-n-1762-serie/",
     "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/V/E/VENT_product1_59.jpg",
-    "size_2_price": {
-      "100mm": "£ 90.23 ex VAT",
-      "150mm": "£ 111.45",
-      "200mm": "£ 188.90"
-    },
-    "is_priced": false
+    "size_2_price": {},
+    "is_priced": true
   },
   {
     "_id": "5f06d950881f9120ad15f0e68a33a776b05f11fc17ab9233f267e13ad4b48236",
@@ -370,7 +357,7 @@
     "original_url": "https://www.amsductingsupplies.co.uk/3m-spiral-ducting-160-diameter-762701.html?utm_source=google&utm_medium=cpc&utm_campaign=17063649584&utm_term=&gad_source=1&gclid=Cj0KCQjwsc24BhDPARIsAFXqAB1Plvvb0jZuE4KI7Bkv4ridWo_QB9cir0sNNFGUgM6blR2kctxjQP0aArkHEALw_wcB",
     "original_image_url": "https://buyventilation.co.uk/cdn/shop/files/spiral-tube-ducting-buy-ventilation-1-3m-lengths-product-image.jpg?v=1719562997&width=1500",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "e6df4ca317098689dd2dfde1119ac7c21bf9da7afd504661151873ca538f5ddc",
@@ -382,7 +369,7 @@
     "original_url": "https://groworks.co.uk/products/90-degree-ducting-bends",
     "original_image_url": "https://groworks.co.uk/cdn/shop/files/2016-07-06-153616Elbow_a4fd9e7b-1b6e-457f-94f4-88a474b007bc.jpg?v=1733216677",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "2eb7b767aa9e219c3a292fead89019c990b0611b16dad0189e2fbe16241fed8a",
@@ -394,7 +381,7 @@
     "original_url": "https://www.justfans.co.uk/ducting-degree-bend-125mm-p-4540.html",
     "original_image_url": "https://www.justfans.co.uk/images/thumbs/400_400/b45.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "62f4a49a238b0957e33020bf9556c82f91c513e2a167a0d13bb4fbceb2e45f01",
@@ -406,7 +393,7 @@
     "original_url": "https://www.lbfans.co.uk/product/bird-beak-500mm-diameter/",
     "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/download.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "e5a8b8331e12a8b4152f72c9614c2c332b4b33cbf0a7558340b305e32e0a9411",
@@ -418,7 +405,7 @@
     "original_url": "https://www.lbfans.co.uk/product/male-connector-200mm-diameter/?srsltid=AfmBOopeL1eYN0mu6itHws-EbxJzbb1spzzY5C74dL5W5sxcy3btoBWK",
     "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/66182-9085681-510x509.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "0397500db905114c1eb7ed1ecbc33913f26ffce1a40d87a305de2b37de119b6d",
@@ -428,9 +415,9 @@
     "supplier": "",
     "description": "FEMALE COUPLER 100 DIA TO 710 DIA",
     "original_url": "https://www.lbfans.co.uk/product/female-connector-315mm-diameter/",
-    "original_image_url": "",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/21FcNJpP8GL.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "734efd8b997d838b04fc8a7a8342ca7ac47f9ee1724c5ed630927fea3f1243b1",
@@ -440,21 +427,21 @@
     "supplier": "",
     "description": "RC125100 DIA TO RC630500 DIA",
     "original_url": "https://www.justfans.co.uk/ducting-reducers-short-315mm-200mm-p-5769.html",
-    "original_image_url": "",
+    "original_image_url": "https://www.justfans.co.uk/images/thumbs/451_455/DR-Duct-Reducer.png",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
-    "_id": "cb79345c2472ea22",
+    "_id": "c3494ee208feaf22aac5fff0c1de3452dfb9ba70798dbc53bf3a3672b4ac1293",
     "title": "PRESSED SADDLES",
-    "product_code": "",
+    "product_code": "PS10100",
     "category": "Reducers",
     "supplier": "",
     "description": "",
-    "original_url": "https://www.lbfans.co.uk/product/pressed-saddle-315mm-diameter/",
-    "original_image_url": "",
+    "original_url": "https://www.dustspares.co.uk/90-degree-pipe-saddle-galvanised.html?utm_source=google_shopping&gad_source=1&gad_campaignid=12368925026&gbraid=0AAAAADs5iN_aMvBvU2ewXLxPZkWG2cEF2&gclid=CjwKCAjw7rbEBhB5EiwA1V49nYmGTi_vAbNXcHE5-6naRB3qXZCt_Z6qPJSrXz7vWMybW0CEeGuHmBoCjMUQAvD_BwE#prod_id=3267",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/375x375-PS-galvanised-metal-ducting-pressed-saddle.png",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "3f0f5a3f6ea625e5bd5b7c9501fd6eab3eba0f69a5ecbdb3923429db186aa735",
@@ -464,9 +451,9 @@
     "supplier": "",
     "description": "DUCTING FLANGES",
     "original_url": "https://www.amsductingsupplies.co.uk/top-hat-spigot-250mm-diameter-27898.html?utm_source=google&utm_medium=cpc&utm_campaign=17063649584&utm_term=&gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P-_HRCp9uU1Ci_JeAPNYPXiQ93gLJVNVgUBfWRmH32qbrPqZbxSDocaAi4eEALw_wcB",
-    "original_image_url": "",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/GMVC-IL.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "f6c378877578efbfc35f5db50d8a087fc27d51d5fd403d3d5dfaca560c42bbdb",
@@ -475,10 +462,10 @@
     "category": "Reducers",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/flat-shoe-80mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/flat-shoe.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "f51985e87951e6fedfe30979ad1308d9f22d2dda0f07baabaa19f10bddc25e9d",
@@ -487,10 +474,10 @@
     "category": "Reducers",
     "supplier": "",
     "description": "PRESSED EQUAL TEE PIECES",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/pressed-tee-piece-355mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/375x375-TCP-galvanised-metal-ducting-pressed-tee.png",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "91745a680cc4c42d1450daa0c51bc46a0a30f58f43d02ae4d8c621842aee19d5",
@@ -499,10 +486,10 @@
     "category": "Reducers",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/single-blade-balancing-damper-200mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/BD-Series-Single-Blade-Volume-Damper.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "7f666c2f17e48faa6ee1b5977d0120702c97201f0eb7aefb99c2d5a606d0e83a",
@@ -511,10 +498,10 @@
     "category": "Reducers",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/roof-cowl-600mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Spiral-Fitting-Roof-Cowl-0001-a.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "2ad6d2875276f21f404cf134fdab42b4bd067dc0cc7cee5420bd921583abd641",
@@ -523,10 +510,10 @@
     "category": "Reducers",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.dustspares.co.uk/nordfab-qf-end-cap-with-mesh.html?utm_source=google_shopping&gad_source=1&gad_campaignid=12368925026&gbraid=0AAAAADs5iN_aMvBvU2ewXLxPZkWG2cEF2&gclid=CjwKCAjw7rbEBhB5EiwA1V49nanJXhnoGYjUjV1tEuX4ooaXzjq5mSF-541bDPH2YUt8xFNn3u92fxoCdpsQAvD_BwE#prod_id=756",
+    "original_image_url": "https://www.dustspares.co.uk/media/catalog/product/cache/8c6d21098650513eabc3fd6ef3e5efbd/n/o/nordfab-qf-end-cap-screen.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "5af654199555bbd85dbc070b2229a76d002018cda061df1eea4dc547865359e1",
@@ -535,10 +522,10 @@
     "category": "Reducers",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://buyventilation.co.uk/products/reducers?variant=43741456564399&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=21442778127&gbraid=0AAAAA98dh0AImJFVknNDgF3dhHp4ZpF7K&gclid=CjwKCAjw7rbEBhB5EiwA1V49ne2i72dBx_fRf8nD2aQbaE4mWd_pX1xqm5DkgNe7275DiYepZSnYJhoCJV4QAvD_BwE",
+    "original_image_url": "https://buyventilation.co.uk/cdn/shop/files/spiral-tube-duct-and-fittings-pressed-reducer-1.jpg?v=1716195768&width=1500",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "62195d1c5aef01289d4fa46ecd10de155ee6a73cffc1f948206f3fb55cb70958",
@@ -547,8 +534,8 @@
     "category": "Reducers",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://freshairsupplies.co.uk/product/jet-cowl-discharge-hood/?attribute_pa_diameter=150mm&gad_source=1&gad_campaignid=21988969432&gbraid=0AAAAA-bgvhk-fKQ49c-hK0UPKUax4XXyO&gclid=CjwKCAjw7rbEBhB5EiwA1V49nXL7yoD6d-aYl9b4fOxOyxhXT3wCL4zNH6_xILDo6WvVzUG54isgvBoC0pcQAvD_BwE",
+    "original_image_url": "https://freshairsupplies.co.uk/wp-content/uploads/2022/03/HAN-HAF-Wyrzutnie-i-czerpnie-powietrz-do-wentylacji-Alnor.37f537b4d4cafeda3fba9e5128a5761b16874.png",
     "size_2_price": {},
     "is_priced": true
   },
@@ -560,9 +547,9 @@
     "supplier": "",
     "description": "(300 DIAMETER AS WELL £4.00 EX)",
     "original_url": "https://www.lbfans.co.uk/product/suspension-ring-300mm-diameter/?srsltid=AfmBOopt5rIpqjd2dMfsTiWwsOUL7K358mjWZcJQD0z6LRBV1rIlLKan9A0",
-    "original_image_url": "",
+    "original_image_url": "https://ductingdirect.co.uk/cdn/shop/files/DRSN-open-1-HR-3.jpg?v=1744904395&width=2000",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "11e6bb98a7976f92dd4830540518b668756881a1a31b783e0248db88f31a5ebd",
@@ -572,9 +559,9 @@
     "supplier": "",
     "description": "(300 DIAMETER AS WELL £4.00 EX)",
     "original_url": "https://www.lbfans.co.uk/product/split-ring-300mm-diameter/",
-    "original_image_url": "",
+    "original_image_url": "https://ductingdirect.co.uk/cdn/shop/files/UVH25-HR-MConverter.eu.jpg?v=1744904426&width=2000",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "d7115ad3bd91cebf75a30186a3b1409e3a6f4fb75b4500c811d339c999a52d29",
@@ -584,67 +571,55 @@
     "supplier": "",
     "description": "FIXED BASE PLATE M10 /M8",
     "original_url": "https://ductingdirect.co.uk/product/dual-m8-m10-threaded-backplates-per-100/?gad_source=1&gad_campaignid=21280840954&gbraid=0AAAAA9leB8ztGAGGpaF4zj4YUfqWATEGj&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoLCORWkzHSxSqi4WlcribLozBkp2vIK2BdEX7FIxTc6a3QHoXCMdoUaAqD1EALw_wcB",
-    "original_image_url": "",
+    "original_image_url": "https://ductingdirect.co.uk/cdn/shop/files/Untitled.jpg?v=1744904500&width=2000",
     "size_2_price": {},
     "is_priced": true
   },
   {
-    "_id": "692d56c6438117cd",
+    "_id": "783c1a84ffe41aa0",
     "title": "SQUARE HEADS /SELF TAPPING SCREWS",
     "product_code": "",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "4.2 X 13 SELF TAPPING SCREWS C/W BIT (PER 1000)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://boltworld.co.uk/products/4-2-x-19mm-pan-head-inner-square-drive-self-drilling-screws-din-7504-yzp/?gad_source=1&gad_campaignid=19691055784&gbraid=0AAAAACewy5k8ZSTHCKqCpfiiUHH-O4Tce&gclid=CjwKCAjw7rbEBhB5EiwA1V49nWE7cAjUBqddTId6y9X6I_GKnnb65tTJuCCUZmgig-kM-jMkVN4-PBoCktsQAvD_BwE",
+    "original_image_url": "https://boltworld.co.uk/wp-content/uploads/2023/08/inner-sq.jpg",
     "size_2_price": {},
     "is_priced": true
   },
   {
-    "_id": "7a3db06ee2c7829c",
+    "_id": "64a035e563d81fc2",
     "title": "SQUARE HEADS /SELF TAPPING SCREWS",
     "product_code": "",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "4.2 X 19 SELF TAPPING SCREWS C/W BIT (PER 1000)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://boltworld.co.uk/products/4-2-x-19mm-pan-head-inner-square-drive-self-drilling-screws-din-7504-yzp/?gad_source=1&gad_campaignid=19691055784&gbraid=0AAAAACewy5k8ZSTHCKqCpfiiUHH-O4Tce&gclid=CjwKCAjw7rbEBhB5EiwA1V49nWE7cAjUBqddTId6y9X6I_GKnnb65tTJuCCUZmgig-kM-jMkVN4-PBoCktsQAvD_BwE",
+    "original_image_url": "https://boltworld.co.uk/wp-content/uploads/2023/08/inner-sq.jpg",
     "size_2_price": {},
     "is_priced": true
   },
   {
-    "_id": "9c5a18e3d708831e",
-    "title": "RIVETS",
-    "product_code": "",
-    "category": "Fixing + Supports",
-    "supplier": "",
-    "description": "",
-    "original_url": "",
-    "original_image_url": "",
-    "size_2_price": {},
-    "is_priced": true
-  },
-  {
-    "_id": "7666ce81c6d9bcf4",
+    "_id": "7b525fbf80bebbdf",
     "title": "ANCHORS",
     "product_code": "",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "DROP IN ANCHORS   M10 (PER 100)",
     "original_url": "https://www.screwfix.com/p/rawlplug-drop-in-anchors-m10-x-40mm-50-pack/931VA?tc=MC7&gad_source=1&gad_campaignid=19815174909&gbraid=0AAAAAD8IdPzJ99M8hHCfIg7CWWFiP67Zz&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoIP02Esu1pvCAtBcErDhe1oGUXZVobz1awZSgWCTJa_1rCp4nJmaqIaAn_TEALw_wcB&gclsrc=aw.ds",
-    "original_image_url": "",
+    "original_image_url": "https://media.screwfix.com/is/image/ae235/931VA_P?$fxSharpen$=&wid=257&hei=257&dpr=on",
     "size_2_price": {},
     "is_priced": true
   },
   {
-    "_id": "87eea81c78f10f72",
+    "_id": "ab35b7db02cb265c",
     "title": "ANCHORS",
     "product_code": "",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "DROP IN ANCHORS   M10 (PER 50)",
     "original_url": "https://www.screwfix.com/p/rawlplug-drop-in-anchors-m10-x-40mm-50-pack/931VA?tc=MC7&gad_source=1&gad_campaignid=19815174909&gbraid=0AAAAAD8IdPzJ99M8hHCfIg7CWWFiP67Zz&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoIP02Esu1pvCAtBcErDhe1oGUXZVobz1awZSgWCTJa_1rCp4nJmaqIaAn_TEALw_wcB&gclsrc=aw.ds",
-    "original_image_url": "",
+    "original_image_url": "https://media.screwfix.com/is/image/ae235/931VA_P?$fxSharpen$=&wid=257&hei=257&dpr=on",
     "size_2_price": {},
     "is_priced": true
   },
@@ -655,8 +630,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "CHANNEL NUTS M8 (PER 100)",
-    "original_url": "https://strutchannelsdirect.com/channel-nuts-m8-long-spring/?gad_source=1&gad_campaignid=2083860897&gbraid=0AAAAACs1YF7fTsLZOFzHrK7Sm3mAgiJvy&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoK7IYqOxEcfqGg75IqrBR3GHpOuYUAPqdYbvx8vltwC-kAj4KxIBtgaAiaqEALw_wcB",
-    "original_image_url": "",
+    "original_url": "https://directchannel.uk.com/product/m12-plain-channel-nuts-box-of-100/?srsltid=AfmBOooFYgjW_TdeZ2_0vYB_ZDeGaNEYbqAJe2A8qtw-Q_DqXGRjad53U_c",
+    "original_image_url": "https://directchannel.uk.com/wp-content/uploads/2023/11/1-5.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -668,7 +643,7 @@
     "supplier": "",
     "description": "CHANNEL NUTS M10 (PER 100)",
     "original_url": "https://www.d2dfixings.com/product-page/timco-channel-nuts-short-spring-silver-m10-100pk?gad_source=1&gad_campaignid=22319203143&gbraid=0AAAAArBW2R6GoBu9ZPZkU5p48GcKaZW9o&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoLl-Gm0PcjbNyS95dbSpmxTv1jLweD8nRihAK-DbfPhiskCzlJqZo8aAkByEALw_wcB",
-    "original_image_url": "",
+    "original_image_url": "https://directchannel.uk.com/wp-content/uploads/2023/11/1-5.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -679,8 +654,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "WEDGE NUTS M8 (PER 100)",
-    "original_url": "https://www.cef.co.uk/catalogue/products/1231173-m8-wedge-nuts-pack-of-100?gad_source=1&gad_campaignid=17951455357&gbraid=0AAAAADOkMAaYXwV3wOVdNcENZ-zgAgyYr&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJZCiWfzrPm6niHJw97_jXU4fYb4TWl95hPmMCsbA4hfoRrkocnqhYaAnHyEALw_wcB&gclsrc=aw.ds",
-    "original_image_url": "",
+    "original_url": "https://www.orbitalfasteners.co.uk/products/m8-wedge-nuts-mini-mini-for-rib-deck-80-mild-steel?gad_source=1&gad_campaignid=17349279053&gbraid=0AAAAAD-6gP4unAznjbglVVnVyYSzoVIeQ&gclid=CjwKCAjw7rbEBhB5EiwA1V49nWrfbKP3bNiAolPMBqnfqNIfQJzXXHWNmA1vQbexluJbCXR2pFFsvBoC-tkQAvD_BwE",
+    "original_image_url": "https://orbital-production.ams3.cdn.digitaloceanspaces.com/10424/12889bf1d08085d4206df6ece22ca2e6.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -691,8 +666,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "WEDGE NUTS M10 (PER 100)",
-    "original_url": "https://www.cef.co.uk/catalogue/products/1231173-m8-wedge-nuts-pack-of-100?gad_source=1&gad_campaignid=17951455357&gbraid=0AAAAADOkMAaYXwV3wOVdNcENZ-zgAgyYr&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJZCiWfzrPm6niHJw97_jXU4fYb4TWl95hPmMCsbA4hfoRrkocnqhYaAnHyEALw_wcB&gclsrc=aw.ds",
-    "original_image_url": "",
+    "original_url": "https://www.orbitalfasteners.co.uk/products/m8-wedge-nuts-mini-mini-for-rib-deck-80-mild-steel?gad_source=1&gad_campaignid=17349279053&gbraid=0AAAAAD-6gP4unAznjbglVVnVyYSzoVIeQ&gclid=CjwKCAjw7rbEBhB5EiwA1V49nWrfbKP3bNiAolPMBqnfqNIfQJzXXHWNmA1vQbexluJbCXR2pFFsvBoC-tkQAvD_BwE",
+    "original_image_url": "https://orbital-production.ams3.cdn.digitaloceanspaces.com/10424/12889bf1d08085d4206df6ece22ca2e6.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -703,8 +678,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "G-CLAMP 2.50MM",
-    "original_url": "https://www.pipekit.co.uk/products/flamco-profile-clamp-bc-zinc-plated-m8?variant=50388778746185&currency=GBP&utm_campaign=&utm_adgroup=&gad_source=1&gad_campaignid=21593107852&gbraid=0AAAAADxu5NzzQDSTKxxEfTml2LTMv8sU7&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoK7w2Cb-6gOGDHJ5NKzoITkd-GLJv2yL0VTgdTpjvxk21GYDHUkeGcaAnpuEALw_wcB",
-    "original_image_url": "",
+    "original_url": "https://www.saifduct.com/galvanized-steel-flange-duct-clamps-hvac-systems-ventilation-ducting-clamp-air-duct-zinc-plated-flange-corner-product/",
+    "original_image_url": "https://ductingdirect.co.uk/cdn/shop/files/s-l1600.jpg?v=1744904471&width=2000",
     "size_2_price": {},
     "is_priced": true
   },
@@ -715,8 +690,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "G-CLAMP  3.00MM",
-    "original_url": "https://www.pipekit.co.uk/products/flamco-profile-clamp-bc-zinc-plated-m8?variant=50388778746185&currency=GBP&utm_campaign=&utm_adgroup=&gad_source=1&gad_campaignid=21593107852&gbraid=0AAAAADxu5NzzQDSTKxxEfTml2LTMv8sU7&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoK7w2Cb-6gOGDHJ5NKzoITkd-GLJv2yL0VTgdTpjvxk21GYDHUkeGcaAnpuEALw_wcB",
-    "original_image_url": "",
+    "original_url": "https://www.saifduct.com/galvanized-steel-flange-duct-clamps-hvac-systems-ventilation-ducting-clamp-air-duct-zinc-plated-flange-corner-product/",
+    "original_image_url": "https://ductingdirect.co.uk/cdn/shop/files/s-l1600.jpg?v=1744904471&width=2000",
     "size_2_price": {},
     "is_priced": true
   },
@@ -728,7 +703,7 @@
     "supplier": "",
     "description": "BEAM CLAMP M8",
     "original_url": "https://pipedreamfittings.com/product/beam-clamps-channel-brackets/?attribute_size=M8&utm_source=Google+Shopping&utm_medium=cpc&utm_campaign=xm01&gad_source=1&gad_campaignid=21953995649&gbraid=0AAAAADMkYeSJAmNvjfFXG61VdLrl7Kbld&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKXaHnHpkc47dOS5TvjSi3LljW6fVdvhGh6x_eU7C4s_2LOkTICjegaAo46EALw_wcB",
-    "original_image_url": "",
+    "original_image_url": "https://pipedreamfittings.com/wp-content/uploads/2022/12/beam-clamps-removebg-preview-400x267.png",
     "size_2_price": {},
     "is_priced": true
   },
@@ -740,79 +715,79 @@
     "supplier": "",
     "description": "BEAM CLAMP M10",
     "original_url": "https://pipedreamfittings.com/product/beam-clamps-channel-brackets/?attribute_size=M8&utm_source=Google+Shopping&utm_medium=cpc&utm_campaign=xm01&gad_source=1&gad_campaignid=21953995649&gbraid=0AAAAADMkYeSJAmNvjfFXG61VdLrl7Kbld&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKXaHnHpkc47dOS5TvjSi3LljW6fVdvhGh6x_eU7C4s_2LOkTICjegaAo46EALw_wcB",
-    "original_image_url": "",
+    "original_image_url": "https://pipedreamfittings.com/wp-content/uploads/2022/12/beam-clamps-removebg-preview-400x267.png",
     "size_2_price": {},
     "is_priced": true
   },
   {
     "_id": "d5978353f4596f42c65384c01e1e872a8b36ffaef774c7fe847befb4af21f4d6",
-    "title": "WASHER, BOLTS , NUTS",
+    "title": "WASHER",
     "product_code": "PW825",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M8 PENNY WASHER (PER 100)",
     "original_url": "https://duchyfasteners.co.uk/products/a2-m8-x-25-x-1-5-penny-washer-304-ss?variant=50330281738558&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=22085317088&gbraid=0AAAAA-n27Z_rnu8-OPDo2gsyttpvlO_vo&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoLsB6UPI3o4hVju9MNmAAUfswRB7RfiP6kIpLdK7vAtfatci8HVSGEaAihPEALw_wcB",
-    "original_image_url": "",
+    "original_image_url": "https://duchyfasteners.co.uk/cdn/shop/files/washer-penny_png_9fe387c4-c437-46d3-a7aa-24d181dfc54e.png?v=1753894331&width=720",
     "size_2_price": {},
     "is_priced": true
   },
   {
     "_id": "e5c562ac2a84e6eb4e4e9c407eb3f4ccee2eaf4bd5e38f86c4a416faa4d599bc",
-    "title": "WASHER, BOLTS , NUTS",
+    "title": "WASHER",
     "product_code": "PW1025",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M10 PENNY WASHER (PER 100)",
     "original_url": "https://duchyfasteners.co.uk/products/a2-m8-x-25-x-1-5-penny-washer-304-ss?variant=50330281738558&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=22085317088&gbraid=0AAAAA-n27Z_rnu8-OPDo2gsyttpvlO_vo&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoLsB6UPI3o4hVju9MNmAAUfswRB7RfiP6kIpLdK7vAtfatci8HVSGEaAihPEALw_wcB",
-    "original_image_url": "",
+    "original_image_url": "https://duchyfasteners.co.uk/cdn/shop/files/washer-penny_png_9fe387c4-c437-46d3-a7aa-24d181dfc54e.png?v=1753894331&width=720",
     "size_2_price": {},
     "is_priced": true
   },
   {
     "_id": "9857467dedefc435da3b843143ddce3e16f387a79d2002bea2363088bbba4c05",
-    "title": "WASHER, BOLTS , NUTS",
+    "title": "BOLTS",
     "product_code": "HEX825",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M8X25 BOLT BZP (PER 100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/m8-x-25mm-long-hex-bolt-box-of-100/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/new-hb-500x500-350x350-1-510x510.jpg",
     "size_2_price": {},
     "is_priced": true
   },
   {
     "_id": "21d938cbb6c7d77401a3005000689492131abfc6a57428bed9afcf5d2dee5b25",
-    "title": "WASHER, BOLTS , NUTS",
+    "title": "BOLTS",
     "product_code": "HEX1025",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M10X25 BOLT BZP (PER 100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/m10-x-25mm-long-hex-bolt-box-of-100/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/new-hb-500x500-350x350-1-510x510.jpg",
     "size_2_price": {},
     "is_priced": true
   },
   {
     "_id": "79ef626dccdb614f366b9d7f5ea632847e90189743046beb8b47b325a66a5e38",
-    "title": "WASHER, BOLTS , NUTS",
+    "title": "NUTS",
     "product_code": "M8HEX",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M8 HEX FULL NUT (PER100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://boltworld.co.uk/products/m8-hexagon-full-nuts-stainless-steel-a4-316-marine-grade-din-934/",
+    "original_image_url": "https://cdn-hmimb.nitrocdn.com/HusrMehQGRquxfbhCbBfnacbtjVIDHIm/assets/images/optimized/rev-b5f85c2/boltworld.co.uk/wp-content/uploads/2022/12/fullnut-a2-600x600.jpg",
     "size_2_price": {},
     "is_priced": true
   },
   {
     "_id": "95c2ba24c72a7d5f3a1591ec00da1ad5bc3a05b5addb58d6f67052825ae344f9",
-    "title": "WASHER, BOLTS , NUTS",
+    "title": "NUTS",
     "product_code": "M10HEX",
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M10 HEX FULL NUT (PER 100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://boltworld.co.uk/products/m8-hexagon-full-nuts-stainless-steel-a4-316-marine-grade-din-934/",
+    "original_image_url": "https://cdn-hmimb.nitrocdn.com/HusrMehQGRquxfbhCbBfnacbtjVIDHIm/assets/images/optimized/rev-b5f85c2/boltworld.co.uk/wp-content/uploads/2022/12/fullnut-a2-600x600.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -823,8 +798,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "4020 CHANNEL END CAP(PER 100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://sportsmith.com/end-cap-50-mm-x-100-mm/product/p0644922101/",
+    "original_image_url": "https://allductsupplies.com/cdn/shop/products/AES-70_480x480.jpg?v=1524828063",
     "size_2_price": {},
     "is_priced": true
   },
@@ -835,8 +810,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "4040 CHANNEL END CAP (PER 100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://strutchannelsdirect.com/41-x-41-channel-end-caps-black/?srsltid=AfmBOoo4gQQg2Of3ghcC1llLJhYuLr5TL1aldcyd8ukxX2OvmmWYu8x9",
+    "original_image_url": "https://allductsupplies.com/cdn/shop/products/AES-70_480x480.jpg?v=1524828063",
     "size_2_price": {},
     "is_priced": true
   },
@@ -847,8 +822,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M8 PLATE WASHER (PER 100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.orbitalfasteners.co.uk/products/m6-x40x5-square-plate-washer-galv-8mm-hole?gad_source=1&gad_campaignid=17337612681&gbraid=0AAAAAD-6gP4NUuX0e3NQyfU-_lF0ocaJ0&gclid=CjwKCAjw7rbEBhB5EiwA1V49ncF6JkgKEiqwDyIPaTpmaQdaM2o_5sdLviQ_nXxCE-ECDC8_-76WZBoCT8AQAvD_BwE",
+    "original_image_url": "https://orbital-production.ams3.cdn.digitaloceanspaces.com/32995/1.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -859,8 +834,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "M10 PLATE WASHER (PER 100)",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.orbitalfasteners.co.uk/products/m6-x40x5-square-plate-washer-galv-8mm-hole?gad_source=1&gad_campaignid=17337612681&gbraid=0AAAAAD-6gP4NUuX0e3NQyfU-_lF0ocaJ0&gclid=CjwKCAjw7rbEBhB5EiwA1V49ncF6JkgKEiqwDyIPaTpmaQdaM2o_5sdLviQ_nXxCE-ECDC8_-76WZBoCT8AQAvD_BwE",
+    "original_image_url": "https://orbital-production.ams3.cdn.digitaloceanspaces.com/32995/1.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -895,8 +870,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "40X40X1.5 LIGHT SLOTTED CHANNEL  (PER 3M LENGHT)",
-    "original_url": "https://www.cef.co.uk/catalogue/products/73642-21mm-x-41mm-slotted-channel-3m-length?gad_source=1&gad_campaignid=17628811884&gbraid=0AAAAADOkMAayJ6y8YcwqyBbocMstLukTX&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoLj3rxQvdoYpiJzJDw6jqnNyM4ikSLEqCn7AjhJLYJkNWEkyMtZozkaAvM2EALw_wcB&gclsrc=aw.ds",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/tamlex_ts21s-3-cat-a/512x512/tamlex_ts21s-3-cat-a.webp",
+    "original_url": "https://directchannel.uk.com/product/41mm-slotted-channel-3-metre/?https://www.directchannel.uk.com&gad_source=1&gad_campaignid=21028058583&gbraid=0AAAAACxsQeWauZ5_gFQC-l72WUKV-OmlD&gclid=CjwKCAjw7rbEBhB5EiwA1V49nWeSlj9AM4zxyiVO3EpwPJcJw1RWliN6DSBtY3OUPXAzSU-jsIDqfRoCOr0QAvD_BwE",
+    "original_image_url": "https://directchannel.uk.com/wp-content/uploads/2023/11/CS41-2017-logo-7.png",
     "size_2_price": {},
     "is_priced": true
   },
@@ -907,8 +882,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "40X40X2.5 HEAVY SLOTTED CHANNEL (PER 3M LENGHT)",
-    "original_url": "https://www.cef.co.uk/catalogue/products/73642-21mm-x-41mm-slotted-channel-3m-length?gad_source=1&gad_campaignid=17628811884&gbraid=0AAAAADOkMAayJ6y8YcwqyBbocMstLukTX&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoLj3rxQvdoYpiJzJDw6jqnNyM4ikSLEqCn7AjhJLYJkNWEkyMtZozkaAvM2EALw_wcB&gclsrc=aw.ds",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/tamlex_ts21s-3-cat-a/512x512/tamlex_ts21s-3-cat-a.webp",
+    "original_url": "https://directchannel.uk.com/product/41mm-slotted-channel-3-metre/?https://www.directchannel.uk.com&gad_source=1&gad_campaignid=21028058583&gbraid=0AAAAACxsQeWauZ5_gFQC-l72WUKV-OmlD&gclid=CjwKCAjw7rbEBhB5EiwA1V49nWeSlj9AM4zxyiVO3EpwPJcJw1RWliN6DSBtY3OUPXAzSU-jsIDqfRoCOr0QAvD_BwE",
+    "original_image_url": "https://directchannel.uk.com/wp-content/uploads/2023/11/CS41-2017-logo-7.png",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1027,20 +1002,8 @@
     "category": "Fixing + Supports",
     "supplier": "",
     "description": "Cutting disc 115x1.0mm (Pack 25)\r\n",
-    "original_url": "",
-    "original_image_url": "",
-    "size_2_price": {},
-    "is_priced": true
-  },
-  {
-    "_id": "45de2678ee0ae3295d461002b6d8a0b398248cbea34eb9002018b3aaef62da29",
-    "title": "CUTTING DISC",
-    "product_code": "CD230",
-    "category": "Fixing + Supports",
-    "supplier": "",
-    "description": "CUTTING DISC 230mmx1.8mmx22mm\r\nPHOENIX",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://tbws.co.uk/shop/metalynx-pro-4-5-flat-cutting-disc-115mm/",
+    "original_image_url": "https://tbws.co.uk/wp-content/uploads/2022/08/388225-115mm-Flat-Cutting-Disc.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1051,8 +1014,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "100 DIA COMBI FLEXIBLE DUCT (10m)\r\n",
-    "original_url": "https://www.cef.co.uk/catalogue/products/58657-100mm-4-inch-x-10m-flexible-duct-aluminium?gad_source=1&gad_campaignid=21692397055&gbraid=0AAAAADOkMAbJejo__hEkpEkggTJ9zCAKu&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKqvELQuy7mwxDJWKCYZWUhL4ZPVjxRrWI4PlcnSNGfiq3QQPKwKFcaAkyTEALw_wcB&gclsrc=aw.ds",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1063,8 +1026,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "125 DIA COMBI FLEXIBLE DUCT (10m)\r\n",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1075,8 +1038,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "150 DIA COMBI FLEXIBLE DUCT (6m)\n",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1087,8 +1050,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "200 DIA COMBI FLEXIBLE DUCTING (6M)",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1099,8 +1062,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "250 DIA COMBI FLEXIBLE DUCT (10m)",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1111,8 +1074,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "315 DIA COMBI FLEXIBLE DUCT(6m)",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1123,8 +1086,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "355 DIA COMBI FLEXIBLE DUCT(6m)\r\n",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1135,8 +1098,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "400 DIA COMBI FLEXIBLE DUCT(6m)\r\n",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1147,8 +1110,8 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "456 DIA COMBI FLEXIBLE DUCT(6M)",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1159,20 +1122,20 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "500 DIA COMBI FLEXIBLE DUCT(6m)\r\n",
-    "original_url": "https://sterr.co.uk/products/aluminum-flexible-duct-hose-250-mm-x-10-m-ald250_10?variant=39660633227377&country=GB&currency=GBP&gad_source=1&gad_campaignid=22609764712&gbraid=0AAAAAoXrw72USAgGRjcTeG1CbKsar0aUR&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoJg9dQuR7VJ8fapm8CVdqtB_QSwA1EYV18JhtaQYKgyFcRCF23A86YaAv12EALw_wcB",
-    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
+    "original_url": "https://www.lbfans.co.uk/product/combi-flexible-ducting-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/05/black-plastic-combi-flex-duct-300mm-x-6m-16757-p.jpg",
     "size_2_price": {},
     "is_priced": true
   },
   {
-    "_id": "54c292cc7c1fbd81",
+    "_id": "d6c09efb45706c6d",
     "title": "NON INSULATED FLEXIBLE DUCTING",
     "product_code": "",
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.cef.co.uk/catalogue/products/58657-100mm-4-inch-x-10m-flexible-duct-aluminium?gad_source=1&gad_campaignid=21692397055&gbraid=0AAAAADOkMAbJejo__hEkpEkggTJ9zCAKu&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKqvELQuy7mwxDJWKCYZWUhL4ZPVjxRrWI4PlcnSNGfiq3QQPKwKFcaAkyTEALw_wcB&gclsrc=aw.ds",
+    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1183,20 +1146,20 @@
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "ALUMINIUM FLEXIBE DUCT",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.cef.co.uk/catalogue/products/58657-100mm-4-inch-x-10m-flexible-duct-aluminium?gad_source=1&gad_campaignid=21692397055&gbraid=0AAAAADOkMAbJejo__hEkpEkggTJ9zCAKu&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKqvELQuy7mwxDJWKCYZWUhL4ZPVjxRrWI4PlcnSNGfiq3QQPKwKFcaAkyTEALw_wcB&gclsrc=aw.ds",
+    "original_image_url": "https://assets.cef.co.uk/images/pdg/addvent_ava050/512x512/addvent_ava050.webp",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
-    "_id": "f3fbe4393ed22378",
-    "title": "INSULTED FLEXIBLE DUCTING",
+    "_id": "e64e44150695e8e7",
+    "title": "INSULATED FLEXIBLE DUCTING",
     "product_code": "",
     "category": "Flexible Ducting",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/insulated-flexible-duct-100mm-diameter/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/insulated-flexible-ducting-510x510.png",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1207,8 +1170,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "PLEATED FILTER 293X293X47     \n",
-    "original_url": "https://www.efiltration.co.uk/products/eu4-pleated-panel-filter-595x295-metal-cased?variant=53672620556556&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=21651966607&gbraid=0AAAAA9roaup40zwidH4O-2F0A4uGMjut2&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKMG7653piSt7sboODOm0bZ5NZ9JaZQqSh-o3u05FOYCpKBluHftXcaAhHDEALw_wcB",
-    "original_image_url": "https://www.efiltration.co.uk/cdn/shop/files/8F261D88-F694-47AB-8F35-7E2764E01D37_65fde459-b371-4044-9654-de0ebb7b38ef.png?v=1714687330&width=1206",
+    "original_url": "https://www.lbfans.co.uk/product/g4-pleated-panel-filter-20-x-20-x-2-500mmx500mmx50mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/05/Pleated-Panel-Filter-510x383.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1219,8 +1182,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "PLEATED FILTER 394X394X47     \n",
-    "original_url": "https://www.efiltration.co.uk/products/eu4-pleated-panel-filter-595x295-metal-cased?variant=53672620556556&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=21651966607&gbraid=0AAAAA9roaup40zwidH4O-2F0A4uGMjut2&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKMG7653piSt7sboODOm0bZ5NZ9JaZQqSh-o3u05FOYCpKBluHftXcaAhHDEALw_wcB",
-    "original_image_url": "https://www.efiltration.co.uk/cdn/shop/files/8F261D88-F694-47AB-8F35-7E2764E01D37_65fde459-b371-4044-9654-de0ebb7b38ef.png?v=1714687330&width=1206",
+    "original_url": "https://www.lbfans.co.uk/product/g4-pleated-panel-filter-20-x-20-x-2-500mmx500mmx50mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/05/Pleated-Panel-Filter-510x383.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1231,8 +1194,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "PLEATED FILTER 496X496X47",
-    "original_url": "https://www.efiltration.co.uk/products/eu4-pleated-panel-filter-595x295-metal-cased?variant=53672620556556&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=21651966607&gbraid=0AAAAA9roaup40zwidH4O-2F0A4uGMjut2&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKMG7653piSt7sboODOm0bZ5NZ9JaZQqSh-o3u05FOYCpKBluHftXcaAhHDEALw_wcB",
-    "original_image_url": "https://www.efiltration.co.uk/cdn/shop/files/8F261D88-F694-47AB-8F35-7E2764E01D37_65fde459-b371-4044-9654-de0ebb7b38ef.png?v=1714687330&width=1206",
+    "original_url": "https://www.lbfans.co.uk/product/g4-pleated-panel-filter-20-x-20-x-2-500mmx500mmx50mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/05/Pleated-Panel-Filter-510x383.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1243,8 +1206,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "PLEATED FILTER 596X496X47\n",
-    "original_url": "https://www.efiltration.co.uk/products/eu4-pleated-panel-filter-595x295-metal-cased?variant=53672620556556&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=21651966607&gbraid=0AAAAA9roaup40zwidH4O-2F0A4uGMjut2&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKMG7653piSt7sboODOm0bZ5NZ9JaZQqSh-o3u05FOYCpKBluHftXcaAhHDEALw_wcB",
-    "original_image_url": "https://www.efiltration.co.uk/cdn/shop/files/8F261D88-F694-47AB-8F35-7E2764E01D37_65fde459-b371-4044-9654-de0ebb7b38ef.png?v=1714687330&width=1206",
+    "original_url": "https://www.lbfans.co.uk/product/g4-pleated-panel-filter-20-x-20-x-2-500mmx500mmx50mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/05/Pleated-Panel-Filter-510x383.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1255,8 +1218,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "PLEATED FILTER 596X596X47         \n",
-    "original_url": "https://www.efiltration.co.uk/products/eu4-pleated-panel-filter-595x295-metal-cased?variant=53672620556556&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=21651966607&gbraid=0AAAAA9roaup40zwidH4O-2F0A4uGMjut2&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKMG7653piSt7sboODOm0bZ5NZ9JaZQqSh-o3u05FOYCpKBluHftXcaAhHDEALw_wcB",
-    "original_image_url": "https://www.efiltration.co.uk/cdn/shop/files/8F261D88-F694-47AB-8F35-7E2764E01D37_65fde459-b371-4044-9654-de0ebb7b38ef.png?v=1714687330&width=1206",
+    "original_url": "https://www.lbfans.co.uk/product/g4-pleated-panel-filter-20-x-20-x-2-500mmx500mmx50mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/05/Pleated-Panel-Filter-510x383.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1267,8 +1230,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "PLEATED FILTER 596X596X97          \n",
-    "original_url": "https://www.efiltration.co.uk/products/eu4-pleated-panel-filter-595x295-metal-cased?variant=53672620556556&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gad_campaignid=21651966607&gbraid=0AAAAA9roaup40zwidH4O-2F0A4uGMjut2&gclid=Cj0KCQjwgvnCBhCqARIsADBLZoKMG7653piSt7sboODOm0bZ5NZ9JaZQqSh-o3u05FOYCpKBluHftXcaAhHDEALw_wcB",
-    "original_image_url": "https://www.efiltration.co.uk/cdn/shop/files/8F261D88-F694-47AB-8F35-7E2764E01D37_65fde459-b371-4044-9654-de0ebb7b38ef.png?v=1714687330&width=1206",
+    "original_url": "https://www.lbfans.co.uk/product/g4-pleated-panel-filter-20-x-20-x-2-500mmx500mmx50mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/05/Pleated-Panel-Filter-510x383.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1279,8 +1242,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "FIBREGLASS FILTER 496 X 496 X 47   \n",
-    "original_url": "https://www.lbfans.co.uk/product/replacement-filter-media-sheet-suits-100mm-diameter-filter-box/",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/07/G4-510x451-1.png",
+    "original_url": "https://www.dustspares.co.uk/card-case-glass-panel-filter.html",
+    "original_image_url": "https://www.dustspares.co.uk/media/catalog/product/cache/8c6d21098650513eabc3fd6ef3e5efbd/4/5/45mm_panel_filter_grn.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1291,8 +1254,8 @@
     "category": "Filters & Filter Boxes",
     "supplier": "",
     "description": "FIBREGLASS FILTER 596 X596 X 47      \n",
-    "original_url": "https://www.lbfans.co.uk/product/replacement-filter-media-sheet-suits-100mm-diameter-filter-box/",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/07/G4-510x451-1.png",
+    "original_url": "https://www.dustspares.co.uk/card-case-glass-panel-filter.html",
+    "original_image_url": "https://www.dustspares.co.uk/media/catalog/product/cache/8c6d21098650513eabc3fd6ef3e5efbd/4/5/45mm_panel_filter_grn.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1453,38 +1416,14 @@
     "is_priced": true
   },
   {
-    "_id": "cee4744b7ad6a5e20d36259617c6f0fab0e55725fa20723c00d3acaacbe1a86d",
+    "_id": "5b45676de86e2ffc7c2348df1cae7d99e2beabcae9d30d5a27ec758dd706be87",
     "title": "CARBON FILTER",
-    "product_code": "8GCF-LGR201\r\n",
+    "product_code": "CF595-595196\n",
     "category": "Filters & Filter Boxes",
     "supplier": "",
-    "description": "8 GAL CARBON FILTER 597X597X597\n",
-    "original_url": "www",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2024/05/air-x-pro-axp-200-air-purifier-replacement-filter-pack-twin-set-axp-200-fil2-3000hrs-14085-dv-p.jpg",
-    "size_2_price": {},
-    "is_priced": true
-  },
-  {
-    "_id": "8d38417a42d63f5d84ea5082e66dd8855813c4f07b0d762fb59d397fee362e94",
-    "title": "CARBON FILTER",
-    "product_code": "PCF595-595196\r\n",
-    "category": "Filters & Filter Boxes",
-    "supplier": "",
-    "description": "PURIFIED CARBON FILTER 595X595X196\n",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2024/05/air-x-pro-axp-200-air-purifier-replacement-filter-pack-twin-set-axp-200-fil2-3000hrs-14085-dv-p.jpg",
-    "size_2_price": {},
-    "is_priced": true
-  },
-  {
-    "_id": "a58cb2b37a6d8dfceb6678cec3a88cd2f5719d391172b95f9abb8bc4a69575a2",
-    "title": "CARBON FILTER",
-    "product_code": "CF59759720\r\n",
-    "category": "Filters & Filter Boxes",
-    "supplier": "",
-    "description": "CARBON FILTER 597X597X20\n",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2024/05/air-x-pro-axp-200-air-purifier-replacement-filter-pack-twin-set-axp-200-fil2-3000hrs-14085-dv-p.jpg",
+    "description": "CARBON FILTER 595X595X196\n",
+    "original_url": "https://www.purifiedair.com/our-products/passive-filtration/",
+    "original_image_url": "https://www.purifiedair.com/wp-content/uploads/2022/09/carbon-block-01-1536x1536.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1495,8 +1434,8 @@
     "category": "Dampres & Access Doors",
     "supplier": "",
     "description": "150 X 150 ACCESS DOOR                                \n",
-    "original_url": "www",
-    "original_image_url": "https://www.lbfans.co.uk/product/insulated-tabbed-access-doors-150-x-150mm/",
+    "original_url": "https://www.lbfans.co.uk/product/insulated-tabbed-access-doors-150-x-150mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1508,7 +1447,7 @@
     "supplier": "",
     "description": "200 X 200 ACCESS DOOR",
     "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/product/insulated-tabbed-access-doors-150-x-150mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1520,7 +1459,7 @@
     "supplier": "",
     "description": "250 X 250 ACCESS DOOR                                      \n",
     "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/product/insulated-tabbed-access-doors-150-x-150mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1532,7 +1471,7 @@
     "supplier": "",
     "description": "300 X 300 ACCESS DOOR                                        \n",
     "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/product/insulated-tabbed-access-doors-150-x-150mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1544,7 +1483,7 @@
     "supplier": "",
     "description": "350X350  ACCESS DOOR",
     "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/product/insulated-tabbed-access-doors-150-x-150mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1556,7 +1495,43 @@
     "supplier": "",
     "description": "400X400  ACCESS DOOR",
     "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/product/insulated-tabbed-access-doors-150-x-150mm/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
+    "size_2_price": {},
+    "is_priced": true
+  },
+  {
+    "_id": "af4d1c4b9be7680b32cadd8d9fd928ae02b71a7b02a15d5dfee4bf569b3a8f03",
+    "title": "SQUARE ACCESS DOORS",
+    "product_code": "AD450",
+    "category": "Dampres & Access Doors",
+    "supplier": "",
+    "description": "450X450  ACCESS DOOR",
+    "original_url": "",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
+    "size_2_price": {},
+    "is_priced": true
+  },
+  {
+    "_id": "5742cb86bd057135a4e19bd1fc69ea6c35c473c5d31a62b963bd73244726ae2b",
+    "title": "SQUARE ACCESS DOORS",
+    "product_code": "AD500",
+    "category": "Dampres & Access Doors",
+    "supplier": "",
+    "description": "500X500  ACCESS DOOR",
+    "original_url": "",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
+    "size_2_price": {},
+    "is_priced": true
+  },
+  {
+    "_id": "c26b59cf5dc9250e8d739bdd4a5f7ef86383a33c8ead97e3c221b6d432a11fba",
+    "title": "SQUARE ACCESS DOORS",
+    "product_code": "AD600",
+    "category": "Dampres & Access Doors",
+    "supplier": "",
+    "description": "600X600  ACCESS DOOR",
+    "original_url": "",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/Tabbed-Access-Door-duct-web.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1573,48 +1548,12 @@
     "is_priced": true
   },
   {
-    "_id": "af4d1c4b9be7680b32cadd8d9fd928ae02b71a7b02a15d5dfee4bf569b3a8f03",
-    "title": "RECTANGULAR ACCESS DOOR",
-    "product_code": "AD450",
-    "category": "Dampres & Access Doors",
-    "supplier": "",
-    "description": "450X450  ACCESS DOOR",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/tabbed-rectangular-duct-access-door-insulated.jpg",
-    "size_2_price": {},
-    "is_priced": true
-  },
-  {
     "_id": "9ce3644b75c61f531c4c15236e9c9def08e48677dd90352106b43ef0e25b75ce",
     "title": "RECTANGULAR ACCESS DOOR",
     "product_code": "AD4530",
     "category": "Dampres & Access Doors",
     "supplier": "",
     "description": "450X300  ACCESS DOOR",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/tabbed-rectangular-duct-access-door-insulated.jpg",
-    "size_2_price": {},
-    "is_priced": true
-  },
-  {
-    "_id": "5742cb86bd057135a4e19bd1fc69ea6c35c473c5d31a62b963bd73244726ae2b",
-    "title": "RECTANGULAR ACCESS DOOR",
-    "product_code": "AD500",
-    "category": "Dampres & Access Doors",
-    "supplier": "",
-    "description": "500X500  ACCESS DOOR",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/tabbed-rectangular-duct-access-door-insulated.jpg",
-    "size_2_price": {},
-    "is_priced": true
-  },
-  {
-    "_id": "c26b59cf5dc9250e8d739bdd4a5f7ef86383a33c8ead97e3c221b6d432a11fba",
-    "title": "RECTANGULAR ACCESS DOOR",
-    "product_code": "AD600",
-    "category": "Dampres & Access Doors",
-    "supplier": "",
-    "description": "600X600  ACCESS DOOR",
     "original_url": "",
     "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/04/tabbed-rectangular-duct-access-door-insulated.jpg",
     "size_2_price": {},
@@ -1633,16 +1572,16 @@
     "is_priced": true
   },
   {
-    "_id": "1a4905fcb466a834",
-    "title": "CIRCULAR WEATHER LOUVRES",
+    "_id": "532f41cd598542c2",
+    "title": "SQUARE WEATHER LOUVRES",
     "product_code": "",
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/07/31XCJCdM-2L._AC_UL600_SR600600_-1024x1024.jpg",
+    "original_url": "https://www.lbfans.co.uk/product/weather-louvre-450x450-mill-finish/",
+    "original_image_url": "https://cdn.ecommercedns.uk/files/9/264989/3/46937463/2021-11-30-1462.jpg",
     "size_2_price": {},
-    "is_priced": false
+    "is_priced": true
   },
   {
     "_id": "34be15fbbefe773b55ba4e8a86038056e56eae64f1f602c29dd3929b4c9e60d7",
@@ -1759,8 +1698,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "www",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/20142748_helios-mtvz-80.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-supply-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nTGdLkY2Pcv10hBa7mqydJdUaysJlkY8LAx24-F66sy9BKGRVfKf5RoCdkIQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/367/1021/9016_-_White_BG__94941.1749202802.jpg?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1771,8 +1710,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/20142748_helios-mtvz-80.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-supply-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nTGdLkY2Pcv10hBa7mqydJdUaysJlkY8LAx24-F66sy9BKGRVfKf5RoCdkIQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/367/1021/9016_-_White_BG__94941.1749202802.jpg?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1783,8 +1722,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/20142748_helios-mtvz-80.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-supply-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nTGdLkY2Pcv10hBa7mqydJdUaysJlkY8LAx24-F66sy9BKGRVfKf5RoCdkIQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/367/1021/9016_-_White_BG__94941.1749202802.jpg?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1795,8 +1734,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/20142748_helios-mtvz-80.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-supply-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nTGdLkY2Pcv10hBa7mqydJdUaysJlkY8LAx24-F66sy9BKGRVfKf5RoCdkIQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/367/1021/9016_-_White_BG__94941.1749202802.jpg?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1807,8 +1746,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/20142748_helios-mtvz-80.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-supply-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nTGdLkY2Pcv10hBa7mqydJdUaysJlkY8LAx24-F66sy9BKGRVfKf5RoCdkIQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/367/1021/9016_-_White_BG__94941.1749202802.jpg?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1819,8 +1758,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "www",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/image-4.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-extract-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nZetRlozYED8l9A2TosKO9RttgRKeADUR9U-Ql9m-YPd0mOpvifQ_xoCbPcQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/368/1037/9016_extract__45287.1749211234.png?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1831,8 +1770,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/image-4.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-extract-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nZetRlozYED8l9A2TosKO9RttgRKeADUR9U-Ql9m-YPd0mOpvifQ_xoCbPcQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/368/1037/9016_extract__45287.1749211234.png?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1843,8 +1782,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/image-4.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-extract-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nZetRlozYED8l9A2TosKO9RttgRKeADUR9U-Ql9m-YPd0mOpvifQ_xoCbPcQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/368/1037/9016_extract__45287.1749211234.png?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1855,8 +1794,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/image-4.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-extract-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nZetRlozYED8l9A2TosKO9RttgRKeADUR9U-Ql9m-YPd0mOpvifQ_xoCbPcQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/368/1037/9016_extract__45287.1749211234.png?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1867,8 +1806,8 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "150 DIA ROUND CIRCULAR DIFFUSER - 145 NECK",
-    "original_url": "",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2023/09/image-4.jpg",
+    "original_url": "https://www.flexibleducting.com/metal-extract-air-valve-9016-200mm-7-8-diameter/?gad_source=1&gad_campaignid=22259596954&gbraid=0AAAAA-zh4kdvdDR-_04rDsxqzNdZdOCr_&gclid=CjwKCAjw7rbEBhB5EiwA1V49nZetRlozYED8l9A2TosKO9RttgRKeADUR9U-Ql9m-YPd0mOpvifQ_xoCbPcQAvD_BwE",
+    "original_image_url": "https://cdn11.bigcommerce.com/s-wr4s9gxs62/images/stencil/500x659/products/368/1037/9016_extract__45287.1749211234.png?c=1",
     "size_2_price": {},
     "is_priced": true
   },
@@ -1879,7 +1818,7 @@
     "category": "Grills & Louvres",
     "supplier": "",
     "description": "",
-    "original_url": "ww",
+    "original_url": "",
     "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/07/31XCJCdM-2L._AC_UL600_SR600600_-1024x1024.jpg",
     "size_2_price": {},
     "is_priced": true
@@ -2197,14 +2136,26 @@
     "is_priced": true
   },
   {
-    "_id": "6f37da0c6df29543",
-    "title": "",
-    "product_code": "",
+    "_id": "6c040f8e1e88c66d97deb5a82eac876fd8a77e6a13c77ccde02cdd869641bb53",
+    "title": "BRIDA Compact Circular Flange",
+    "product_code": "BCF250-",
     "category": "Flanges",
-    "supplier": "",
+    "supplier": "S&P",
     "description": "",
-    "original_url": "",
-    "original_image_url": "",
+    "original_url": "https://www.lbfans.co.uk/product/brida-315-matching-flange-soler-palau/",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2020/09/brida.png",
+    "size_2_price": {},
+    "is_priced": true
+  },
+  {
+    "_id": "084b0b6998ab7dfb2b86570fd8e7974bde5140e8e99898aca320992cf68cf162",
+    "title": "Matching Flange",
+    "product_code": "FMF355-600",
+    "category": "Flanges",
+    "supplier": "FLAKT WOODS",
+    "description": "",
+    "original_url": "https://www.dustspares.co.uk/nordfab-qf-flanged-adapter.html?utm_source=google_shopping&gad_source=1&gad_campaignid=12368925026&gbraid=0AAAAADs5iN_aMvBvU2ewXLxPZkWG2cEF2&gclid=CjwKCAjw7rbEBhB5EiwA1V49nYo4iajzuqYGTImtUPwf2Y0VtSB4-pILtFF5Q3t75Oljkq88qf46ehoCjO0QAvD_BwE#prod_id=16825",
+    "original_image_url": "https://www.dustspares.co.uk/media/catalog/product/cache/8c6d21098650513eabc3fd6ef3e5efbd/f/l/flanged_adapter.png",
     "size_2_price": {},
     "is_priced": true
   }

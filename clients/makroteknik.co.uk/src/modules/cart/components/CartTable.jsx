@@ -30,7 +30,7 @@ export const CartTable = () => {
     }
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col bg-white shadow-sm rounded-2xl p-4">
             <div className="-m-1.5 overflow-x-auto">
                 <div className="p-1.5 min-w-full inline-block align-middle">
                     <div className="overflow-hidden">

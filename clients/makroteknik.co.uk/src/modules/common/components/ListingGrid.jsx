@@ -113,8 +113,8 @@ const ListingGrid = ({
                     return (
                         <React.Fragment key={category}>
                             {!!categoryProducts.length && (
-                                <h2 className="text-start text-sm text-black col-span-full underline-offset-4 font-bold">
-                                    {category}:
+                                <h2 className="text-center text-2xl bg-secondary/30 sticky px-4 text-black col-span-full underline-offset-4 font-bold">
+                                    {category}
                                 </h2>
                             )}
                             {categoryProducts.map((product) => (
