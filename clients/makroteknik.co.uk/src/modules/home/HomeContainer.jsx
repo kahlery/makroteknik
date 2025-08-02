@@ -47,7 +47,7 @@ const HomeContainer = () => {
             </div>
 
             <div className="px-4 md:px-[16rem] 2xl:px-[25rem] gap-8 flex flex-col w-screen">
-                <h1 className="text-start text-sm text-black col-span-full font-bold">
+                {/* <h1 className="text-start text-sm text-black col-span-full font-bold">
                     Industrial Footage:
                 </h1>
                 <iframe
@@ -57,7 +57,45 @@ const HomeContainer = () => {
                     src="https://www.youtube.com/embed/XtXtj9wkfo4?si=uhQlZTYFLTbPozvy"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                ></iframe> */}
+
+                <h1 className="text-start text-sm text-black col-span-full font-bold">
+                    Physical Location:
+                </h1>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.8949248855433!2d-0.07130325069532596!3d51.606546596438946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761fd4262f50d3%3A0xc4e9ed421c7d91d6!2sMakro%20Tech%20Ltd!5e0!3m2!1sen!2str!4v1724669133510!5m2!1sen!2str"
+                    height="450"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="shadow-lg"
                 ></iframe>
+                <address className="flex flex-col gap-4 border-secondary pl-4 text-[0.8rem]">
+                    <strong>
+                        Makro Tech LTD,{" "}
+                        <span className="font-normal">
+                            trading as Makro Teknik
+                        </span>
+                    </strong>
+                    <span className="flex flex-col font-bold">
+                        Warehouse Address:
+                        <span className="font-normal">
+                            Unit 19a Peacock Industrial Estate, White Hart Lane,
+                            London, Tottenham, N17 8DT.
+                        </span>
+                    </span>
+                    <span className="flex flex-col font-bold">
+                        Office Address:
+                        <span className="font-normal">
+                            Unit 32 Peacock Industrial Estate, White Hart Lane,
+                            London, Tottenham, N17 8DT.
+                        </span>
+                    </span>
+                    <span>
+                        Registered in England and Wales (registered number:
+                        11757043)
+                    </span>
+                </address>
             </div>
 
             {/* <LatestNewsGrid /> */}
