@@ -137,12 +137,12 @@ Price: £${price}`
                                         The cart will be sent to provider for an
                                         offer.
                                     </p>
-                                    <p className="text-[.8rem] text-secondary text-opacity-60">
+                                    {/* <p className="text-[.8rem] text-secondary text-opacity-60">
                                         Total Price:{" "}
                                         <span className="font-bold">
                                             £{calculateTotalPrice()}
                                         </span>
-                                    </p>
+                                    </p> */}
                                     <button
                                         className="text-[.8rem] text-black text-opacity-60 underline"
                                         onClick={() => {
