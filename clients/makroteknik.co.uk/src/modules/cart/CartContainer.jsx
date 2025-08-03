@@ -1,67 +1,99 @@
 import React, { useEffect, useState } from "react"
-
 import { Link } from "react-router-dom"
 
 // components
 import { CartTable } from "./components/CartTable"
 
-// stores
-
 // icons
 import { FaRegCopy } from "react-icons/fa"
+
+// stores
 import { useCartStore } from "./stores/CartStore"
 import { useProductStore } from "../product/stores/ProductStore"
 
 const CartContainer = () => {
-    // stores
-    const productsList = useProductStore((state) => state.productsList)
-    const cartProducts = useCartStore((state) => state.cartProducts)
-    const loadCartFromLocalStorage = useCartStore(
-        (state) => state.loadCartFromLocalStorage
-    )
-    const clearCart = useCartStore((state) => state.clearCart)
+    const { cartProducts, loadCartFromLocalStorage, clearCart } = useCartStore()
 
-    // constants
-    const cartProductIds = Object.keys(cartProducts)
+    const { productsList, getProducts } = useProductStore()
+
     const [loading, setLoading] = useState(true)
-    const productsLoaded = productsList.length > 0
 
     useEffect(() => {
-        const loadCart = async () => {
+        const init = async () => {
             await loadCartFromLocalStorage()
+            await getProducts()
             setLoading(false)
         }
-        loadCart()
-    }, [loadCartFromLocalStorage])
+        init()
+    }, [loadCartFromLocalStorage, getProducts])
+
+    const getSizeLabelByIndex = (sizeMap, index) => {
+        const sizes = Object.keys(sizeMap || {})
+        return sizes[index] || `Size-${index}`
+    }
+
+    const parsePrice = (price) => {
+        const num = parseFloat(price?.toString().replace(/[^0-9.]/g, "") ?? "0")
+        return isNaN(num) ? 0 : num
+    }
 
     const getCartDetails = () => {
         return Object.entries(cartProducts)
             .map(([productId, sizes]) => {
-                const productDetails = productsList.find(
+                const product = productsList.find(
                     (product) => product._id === productId
                 )
-                if (!productDetails) return "N/A"
+                if (!product) return null
 
-                return sizes.map((sizeObj, _) => {
-                    const size = Object.keys(
-                        productDetails.size_2_price[Object.keys(sizeObj)[0]]
-                    )
-                    const quantity = Object.values(sizeObj)[0]
-                    const price = Object.values(
-                        productDetails.size_2_price[Object.keys(sizeObj)[0]]
-                    )[0]
-                    return `${productDetails.title}\n${productDetails.productCode}
-                    Size: ${size}
-                    Quantity: ${quantity}
-                    Price: ${price}`
-                })
+                return sizes
+                    .map((sizeObj) => {
+                        const sizeIndex = Object.keys(sizeObj)[0]
+                        const quantity = sizeObj[sizeIndex]
+                        const sizeLabel = getSizeLabelByIndex(
+                            product.size_2_price,
+                            sizeIndex
+                        )
+                        const sizeKey = Object.keys(product.size_2_price)[
+                            sizeIndex
+                        ]
+                        const price = product.size_2_price[sizeKey] || "0"
+
+                        return `${product.title}\n${product.product_code}
+Size: ${sizeLabel}
+Quantity: ${quantity}
+Price: £${price}`
+                    })
+                    .join("\n\n")
             })
+            .filter(Boolean)
             .join("\n\n")
+    }
+
+    const calculateTotalPrice = () => {
+        return Object.entries(cartProducts)
+            .reduce((acc, [productId, sizes]) => {
+                const product = productsList.find((p) => p._id === productId)
+                if (!product) return acc
+
+                return (
+                    acc +
+                    sizes.reduce((subtotal, sizeObj) => {
+                        const sizeIndex = Object.keys(sizeObj)[0]
+                        const quantity = sizeObj[sizeIndex]
+                        const sizeKey = Object.keys(product.size_2_price)[
+                            sizeIndex
+                        ]
+                        const rawPrice = product.size_2_price[sizeKey]
+                        const price = parsePrice(rawPrice)
+                        return subtotal + quantity * price
+                    }, 0)
+                )
+            }, 0)
+            .toFixed(2)
     }
 
     const sendEmail = () => {
         const subject = encodeURIComponent("Cart Product Details")
-
         const cartDetails = getCartDetails()
         const total = calculateTotalPrice()
 
@@ -78,48 +110,6 @@ const CartContainer = () => {
         }
     }
 
-    const calculateTotalPrice = () => {
-        const result = cartProductIds.reduce((acc, _id) => {
-            const product = productsList.find((product) => product._id === _id)
-
-            console.log("adding product", product, "'s price to total price")
-
-            if (!product) return acc
-
-            const productTotalPrice = Object.entries(cartProducts[_id]).reduce(
-                (acc, [_, sizeIndexToQuantityPair]) => {
-                    const sizeIndex = Object.keys(sizeIndexToQuantityPair)[0]
-                    const quantity = Object.values(sizeIndexToQuantityPair)[0]
-                    const price =
-                        Object.values(
-                            product.size_2_price[sizeIndex] ?? 0
-                        )[0] ?? 0
-
-                    console.log("price:", price)
-
-                    price.toString().replace(/[^0-9.]/g, "")
-
-                    console.log(
-                        "price after regex:",
-                        price.toString().replace(/[^0-9.]/g, "")
-                    )
-
-                    return (
-                        acc +
-                        quantity * price.toString().replace(/[^0-9.]/g, "")
-                    )
-                },
-                0
-            )
-
-            console.log("productTotalPrice:", productTotalPrice)
-
-            return acc + productTotalPrice
-        }, 0)
-
-        return result
-    }
-
     if (loading) {
         return (
             <div className="text-center text-lg text-gray-500 mt-32">
@@ -128,28 +118,19 @@ const CartContainer = () => {
         )
     }
 
-    if (loading || !productsLoaded) {
-        return (
-            <div className="text-center text-lg text-gray-500 mt-32">
-                Loading...
-            </div>
-        )
-    }
+    const hasProducts = Object.keys(cartProducts).length > 0
 
     return (
         <div className="relative">
-            <div
-                className="w-screen mt-[80px] md:mt-[120px] 
-            px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96"
-            >
+            <div className="w-screen mt-[80px] md:mt-[120px] px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96">
                 <div className="mx-4">
-                    {Object.keys(cartProducts).length > 0 ? (
+                    {hasProducts ? (
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col md:flex-row w-full gap-4 md:gap-0 justify-between rounded-2xl">
                                 <div>
                                     <h2 className="text-base font-bold">
-                                        Your Cart ({cartProductIds.length}{" "}
-                                        Products)
+                                        Your Cart (
+                                        {hasProducts ? "Items" : "Empty"})
                                     </h2>
                                     <p className="text-[.8rem] text-black text-opacity-60">
                                         The cart will be sent to provider for an
@@ -164,12 +145,9 @@ const CartContainer = () => {
                                     <button
                                         className="text-[.8rem] text-black text-opacity-60 underline"
                                         onClick={() => {
-                                            // Copy the cart details to the clipboard
                                             navigator.clipboard.writeText(
                                                 getCartDetails()
                                             )
-
-                                            // Show a toast message
                                             alert(
                                                 "Cart details copied to clipboard!" +
                                                     "\n\n" +

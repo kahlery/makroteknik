@@ -1,212 +1,119 @@
-import React, { useState } from "react"
-
-// stores
-import { useProductStore } from "../../product/stores/ProductStore"
-import { useCartStore } from "../stores/CartStore"
-
-// icons
+import React, { useEffect } from "react"
 import { MdDeleteOutline } from "react-icons/md"
+import { useCartStore } from "../stores/CartStore"
+import { useProductStore } from "../../product/stores/ProductStore"
 
 export const CartTable = () => {
-    const cartProducts = useCartStore((state) => state.cartProducts)
-    const productsList = useProductStore((state) => state.productsList)
-    const removeProduct = useCartStore((state) => state.removeProduct)
-    const setSizeQuantity = useCartStore((state) => state.setSizeQuantity)
+    const { cartProducts, setSizeQuantity, removeProduct } = useCartStore()
+    const { productsList, getProducts } = useProductStore()
 
-    const [editQuantity, setEditQuantity] = useState({})
+    useEffect(() => {
+        if (productsList.length === 0) getProducts()
+    }, [productsList.length, getProducts])
 
-    // helper function to get product details by ID
-    const getProductDetails = (productId) => {
-        return productsList.find((product) => product._id === productId)
+    const getSizeLabelByIndex = (sizeMap, index) => {
+        const sizes = Object.keys(sizeMap || {})
+        return sizes[index] || "Unknown"
     }
 
-    const handleQuantityChange = (productId, size, e) => {
-        const quantity = parseInt(e.target.value, 10) || 0
-        setEditQuantity((prev) => ({
-            ...prev,
-            [`${productId}-${size}`]: quantity,
-        }))
-        setSizeQuantity(productId, size, quantity)
+    const renderCartRows = () => {
+        return Object.entries(cartProducts).flatMap(([productId, sizes]) => {
+            const product = productsList.find((p) => p._id === productId)
+            if (!product) return null
+
+            return sizes.map((sizeObj, i) => {
+                const sizeIndex = Object.keys(sizeObj)[0]
+                const quantity = sizeObj[sizeIndex]
+                const sizeLabel = getSizeLabelByIndex(
+                    product.size_2_price,
+                    sizeIndex
+                )
+
+                return (
+                    <tr key={`${productId}-${sizeIndex}`} className="border-t">
+                        <td className="px-4 py-3">
+                            <img
+                                src={product.image_url}
+                                alt={product.title}
+                                className="w-16 h-16 object-contain rounded"
+                            />
+                        </td>
+                        <td className="px-4 py-3 font-medium">
+                            {product.title}
+                        </td>
+                        <td className="px-4 py-3">{product.product_code}</td>
+                        <td className="px-4 py-3">{sizeLabel}</td>
+                        <td className="px-4 py-3">
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={() =>
+                                        setSizeQuantity(
+                                            productId,
+                                            sizeIndex,
+                                            quantity - 1
+                                        )
+                                    }
+                                    className="px-2 py-1 text-sm border rounded"
+                                >
+                                    -
+                                </button>
+                                <span>{quantity}</span>
+                                <button
+                                    onClick={() =>
+                                        setSizeQuantity(
+                                            productId,
+                                            sizeIndex,
+                                            quantity + 1
+                                        )
+                                    }
+                                    className="px-2 py-1 text-sm border rounded"
+                                >
+                                    +
+                                </button>
+                            </div>
+                        </td>
+                        <td className="px-4 py-3">
+                            <button
+                                onClick={() =>
+                                    removeProduct(productId, sizeIndex)
+                                }
+                                className="text-red-500 hover:text-red-700"
+                            >
+                                <MdDeleteOutline size={20} />
+                            </button>
+                        </td>
+                    </tr>
+                )
+            })
+        })
     }
 
     return (
-        <div className="flex flex-col bg-white shadow-sm rounded-2xl p-4">
-            <div className="-m-1.5 overflow-x-auto">
-                <div className="p-1.5 min-w-full inline-block align-middle">
-                    <div className="overflow-hidden">
-                        <table className="min-w-full divide-y divide-gray-200">
-                            <thead>
-                                <tr>
-                                    <th
-                                        scope="col"
-                                        className="px-1 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Count
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-3 py-3 text-end text-xs font-medium text-gray-500 uppercase"
-                                    ></th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Product
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Size
-                                    </th>
-                                    <th
-                                        scope="col"
-                                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Price
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {Object.entries(cartProducts).map(
-                                    ([productId, sizes]) => {
-                                        const productDetails =
-                                            getProductDetails(productId)
-
-                                        return sizes.map((sizeObj, index) => {
-                                            const size = Object.keys(sizeObj)[0]
-                                            const quantity = sizeObj[size]
-
-                                            return (
-                                                <tr
-                                                    key={`${productId}-${size}-${index}`}
-                                                >
-                                                    <td className="px-1 py-4 whitespace-nowrap text-sm md:w-32 text-gray-800">
-                                                        <div className="flex items-center w-44">
-                                                            <button
-                                                                type="button"
-                                                                onClick={() =>
-                                                                    handleQuantityChange(
-                                                                        productId,
-                                                                        size,
-                                                                        {
-                                                                            target: {
-                                                                                value:
-                                                                                    (editQuantity[
-                                                                                        `${productId}-${size}`
-                                                                                    ] ||
-                                                                                        quantity) -
-                                                                                    1,
-                                                                            },
-                                                                        }
-                                                                    )
-                                                                }
-                                                                className="px-2 py-1 border border-gray-300 rounded-l bg-gray-200 hover:bg-gray-300"
-                                                            >
-                                                                -
-                                                            </button>
-                                                            <input
-                                                                type="number"
-                                                                inputMode="numeric"
-                                                                value={
-                                                                    editQuantity[
-                                                                        `${productId}-${size}`
-                                                                    ] ||
-                                                                    quantity
-                                                                }
-                                                                onChange={(e) =>
-                                                                    handleQuantityChange(
-                                                                        productId,
-                                                                        size,
-                                                                        e
-                                                                    )
-                                                                }
-                                                                className="w-full px-2 py-1 border-t border-b border-gray-300"
-                                                            />
-                                                            <button
-                                                                type="button"
-                                                                onClick={() =>
-                                                                    handleQuantityChange(
-                                                                        productId,
-                                                                        size,
-                                                                        {
-                                                                            target: {
-                                                                                value:
-                                                                                    (editQuantity[
-                                                                                        `${productId}-${size}`
-                                                                                    ] ||
-                                                                                        quantity) +
-                                                                                    1,
-                                                                            },
-                                                                        }
-                                                                    )
-                                                                }
-                                                                className="px-2 py-1 border border-gray-300 rounded-r bg-gray-200 hover:bg-gray-300"
-                                                            >
-                                                                +
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-3 py-0 whitespace-nowrap text-center">
-                                                        <button
-                                                            type="button"
-                                                            className="inline-flex items-center gap-x-2 font-semibold rounded-lg border border-transparent text-gray-800 disabled:pointer-events-none"
-                                                            onClick={() =>
-                                                                removeProduct(
-                                                                    productId,
-                                                                    size
-                                                                )
-                                                            }
-                                                        >
-                                                            <MdDeleteOutline className="text-[2.5rem] text-opacity-60 text-rose-600 bg-rose-200 rounded-full p-2" />
-                                                        </button>
-                                                    </td>
-                                                    <td className="flex flex-row items-center gap-3 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                                                        <img
-                                                            src={
-                                                                productDetails?.image_url ||
-                                                                "/images/default-product.png"
-                                                            }
-                                                            alt={
-                                                                productDetails?.title ||
-                                                                "Product"
-                                                            }
-                                                            className="w-12 h-12 rounded-md"
-                                                        />
-                                                        <p className="pr-6">
-                                                            {productDetails?.title ||
-                                                                "Product Name"}
-                                                            <br />
-                                                            <span className="text-xs text-gray-500">
-                                                                {productDetails?.productCode ||
-                                                                    "Product Code"}
-                                                            </span>
-                                                        </p>
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                                                        {Object.keys(
-                                                            productDetails[
-                                                                "size_2_price"
-                                                            ][size] ?? {}
-                                                        )}
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                                                        {Object.values(
-                                                            productDetails[
-                                                                "size_2_price"
-                                                            ][size] ?? {}
-                                                        )}
-                                                    </td>
-                                                </tr>
-                                            )
-                                        })
-                                    }
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+            <table className="min-w-full text-sm text-left">
+                <thead className="bg-gray-100 text-gray-700 uppercase text-xs">
+                    <tr>
+                        <th className="px-4 py-3">Image</th>
+                        <th className="px-4 py-3">Product</th>
+                        <th className="px-4 py-3">Code</th>
+                        <th className="px-4 py-3">Size</th>
+                        <th className="px-4 py-3">Quantity</th>
+                        <th className="px-4 py-3">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {renderCartRows() || (
+                        <tr>
+                            <td
+                                colSpan="6"
+                                className="text-center py-4 text-gray-500"
+                            >
+                                Cart is empty.
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
     )
 }
