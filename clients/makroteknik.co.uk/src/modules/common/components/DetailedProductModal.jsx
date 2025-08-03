@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 
 // icons
 import { ShoppingCart } from "@mui/icons-material"
+import { MdOutlineZoomIn } from "react-icons/md"
 import { IoIosArrowBack } from "react-icons/io"
 import { TbRulerMeasure } from "react-icons/tb"
 import { MdOutlineSimCardDownload } from "react-icons/md"
@@ -17,6 +18,8 @@ const DetailedProductModal = ({
 }) => {
     const [selectedSizeIndex, setSelectedSizeIndex] = useState(0)
     const [showNotification, setShowNotification] = useState(false)
+    const [zoomStyle, setZoomStyle] = useState({})
+    const [isZoomed, setIsZoomed] = useState(false)
 
     // store actions
     const addProduct = useCartStore((state) => state.addProduct)
@@ -59,14 +62,43 @@ const DetailedProductModal = ({
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex flex-col md:flex-row">
-                            <img
-                                src={
-                                    process.env.PUBLIC_URL +
-                                    selectedProduct.image_url
-                                }
-                                alt={selectedProduct.title}
-                                className="md:w-[40vw] max-h-[50vh] md:max-h-[66svh] object-scale-down mb-4"
-                            />
+                            <div
+                                className="relative w-full md:w-[40vw] h-[50vh] md:h-[66svh] mb-4 bg-no-repeat bg-contain bg-center"
+                                style={{
+                                    backgroundImage: `url(${
+                                        process.env.PUBLIC_URL +
+                                        selectedProduct.image_url
+                                    })`,
+                                    ...zoomStyle,
+                                }}
+                                onMouseMove={(e) => {
+                                    const { left, top, width, height } =
+                                        e.currentTarget.getBoundingClientRect()
+                                    const x = ((e.clientX - left) / width) * 100
+                                    const y = ((e.clientY - top) / height) * 100
+                                    setIsZoomed(true)
+                                    setZoomStyle({
+                                        backgroundSize: "175%",
+                                        backgroundPosition: `${x}% ${y}%`,
+                                    })
+                                }}
+                                onMouseLeave={() => {
+                                    setIsZoomed(false)
+                                    setZoomStyle({
+                                        backgroundSize: "contain",
+                                        backgroundPosition: "center",
+                                    })
+                                }}
+                            >
+                                {isZoomed && (
+                                    <div className="absolute top-4 right-4 bg-white bg-opacity-70 rounded-full p-1 shadow-md transition-opacity duration-200">
+                                        <MdOutlineZoomIn
+                                            className="text-black"
+                                            size={50}
+                                        />
+                                    </div>
+                                )}
+                            </div>
 
                             <div className="flex flex-col md:w-1/2 md:max-w-[35vw] overflow-y-scroll gap-4 md:ml-8 md:mr-4">
                                 <button

@@ -2,9 +2,9 @@
 
 ```diff
 +   Delete operation is not working (bulkWrite())
--   If prices are not written in the table then only show sizes
--   Image sizes are different in product cards
--   Zoom on image on hover
++   Zoom on image on hover
++   If prices are not written in the table then only show sizes
++   Image sizes are different in product cards
 ```
 
 # Not determined yet

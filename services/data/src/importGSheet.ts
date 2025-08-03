@@ -33,25 +33,27 @@ export default async function importGSheet() {
             product.size_2_price.trim() !== ""
         ) {
             const obj: Record<string, string> = {}
-            product.size_2_price
-                .split("\n")
-                .forEach(
-                    (pairStr: {
-                        split: (arg0: string) => {
-                            (): any
+            product.size_2_price.split("\n").forEach(
+                (pairStr: {
+                    split: (arg0: string) => {
+                        (): any
+                        new (): any
+                        map: {
+                            (arg0: (s: any) => any): [any, any]
                             new (): any
-                            map: {
-                                (arg0: (s: any) => any): [any, any]
-                                new (): any
-                            }
                         }
-                    }) => {
-                        const [size, price] = pairStr
-                            .split(" : ")
-                            .map((s) => s.trim())
-                        if (size && price) obj[size] = price
                     }
-                )
+                }) => {
+                    const [size, price] = pairStr
+                        .split(":")
+                        .map((s) => s.trim())
+                    if (size && price) {
+                        obj[size] = price
+                    } else if (size) {
+                        obj[size] = ""
+                    }
+                }
+            )
             product.size_2_price = obj
         } else {
             product.size_2_price = {}

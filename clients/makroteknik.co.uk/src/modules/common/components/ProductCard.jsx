@@ -20,9 +20,13 @@ const ProductCard = ({
     return (
         <div
             key={product._id}
-            className={`bg-white md:min-w-[200px]  relative flex flex-col text-sm
+            className={`
+                bg-white 
+                md:min-w-[200px] 
+                h-90
+                relative flex flex-col text-sm
                 border border-gray-200
-                duration-[1000ms] h-90 pb-4
+                duration-[1000ms] pb-4
                 hover:scale-100 hover:cursor-pointer hover:shadow-2xl
                 ${isHorizontalNorVertical ? "w-48" : ""} ${
                 isCartProduct
@@ -39,7 +43,11 @@ const ProductCard = ({
             <img
                 src={product.image_url}
                 alt={product.title}
-                className="h-36 object-scale-down p-4 min-h-32"
+                className="
+
+                object-cover 
+                p-4
+                "
             />
             <hr className="my-3 opacity-0" />
             <div className="px-3 md:px-4 flex flex-col h-full gap-[.30rem]">
