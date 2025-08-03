@@ -13,7 +13,6 @@ import { useProductStore } from "../product/stores/ProductStore"
 
 const CartContainer = () => {
     const { cartProducts, loadCartFromLocalStorage, clearCart } = useCartStore()
-
     const { productsList, getProducts } = useProductStore()
 
     const [loading, setLoading] = useState(true)
@@ -100,6 +99,8 @@ Price: £${price}`
         const body = encodeURIComponent(
             `Hello, I would like to get an offer for the following products:\n\n${cartDetails}\n\nTotal Price: £${total}`
         )
+
+        console.log("wefwefwefwlklkqwd")
 
         window.location.href = `mailto:garpayyasla@gmail.com?subject=${subject}&body=${body}`
     }
