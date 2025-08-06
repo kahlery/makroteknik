@@ -6,9 +6,10 @@ import (
 	"fmt"
 	"os"
 
-	// Services
+	// Services | Handlers
 	auth_service "api/internal/service/auth/service"
 	category_service "api/internal/service/category/service"
+	email_handler "api/internal/service/email"
 	health_service "api/internal/service/health/service"
 	pdf_service "api/internal/service/pdf/service"
 	product_service "api/internal/service/product/service"
@@ -146,6 +147,9 @@ func setupDbConnection() *mongo.Client {
 func setupRoutes(app *fiber.App) {
 	// Ping check
 	app.Get("/ping", healthService.GetHealth)
+
+	// Email
+	app.Post("/send-cart-email", email_handler.SendCartEmail)
 
 	// Auth routes
 	authGroup := app.Group("/auth")

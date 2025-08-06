@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 
+import { Box, Typography, Grid } from "@mui/material"
+
 // components
 import ProductCard from "./ProductCard"
 import DetailedProductModal from "./DetailedProductModal"
@@ -113,7 +115,11 @@ const ListingGrid = ({
                     return (
                         <React.Fragment key={category}>
                             {!!categoryProducts.length && (
-                                <h2 className="text-center text-2xl bg-secondary/30 sticky px-4 text-black col-span-full underline-offset-4 font-bold">
+                                <h2
+                                    className="
+                                    text-center text-lg bg-secondary text-white
+py-1 sticky px-4  col-span-full underline-offset-4 font-bold"
+                                >
                                     {category}
                                 </h2>
                             )}

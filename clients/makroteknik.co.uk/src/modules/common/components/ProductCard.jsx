@@ -44,8 +44,8 @@ const ProductCard = ({
                 src={product.image_url}
                 alt={product.title}
                 className="
-
-                object-cover 
+                h-36
+                object-scale-down 
                 p-4
                 "
             />

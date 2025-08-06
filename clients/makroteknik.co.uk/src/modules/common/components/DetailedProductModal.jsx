@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from "react"
 
 // icons
-import { ShoppingCart } from "@mui/icons-material"
-import { MdOutlineZoomIn } from "react-icons/md"
-import { IoIosArrowBack } from "react-icons/io"
-import { TbRulerMeasure } from "react-icons/tb"
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
+import ZoomInIcon from "@mui/icons-material/ZoomIn"
 import { MdOutlineSimCardDownload } from "react-icons/md"
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
+import { TbRulerMeasure } from "react-icons/tb"
+
+// MUI components
+import {
+    Box,
+    Button,
+    Typography,
+    IconButton,
+    Paper,
+    Stack,
+    Snackbar,
+    Alert,
+    useMediaQuery,
+    useTheme,
+} from "@mui/material"
+
+// routing
+import { useNavigate } from "react-router-dom"
 
 // stores
 import { useCartStore } from "../../cart/stores/CartStore"
@@ -21,6 +38,10 @@ const DetailedProductModal = ({
     const [zoomStyle, setZoomStyle] = useState({})
     const [isZoomed, setIsZoomed] = useState(false)
 
+    const navigate = useNavigate()
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+
     // store actions
     const addProduct = useCartStore((state) => state.addProduct)
     const removeProduct = useCartStore((state) => state.removeProduct)
@@ -34,13 +55,20 @@ const DetailedProductModal = ({
     const handleAddToCart = () => {
         addProduct(selectedProduct._id, selectedSizeIndex)
         setShowNotification(true)
-        setTimeout(() => setShowNotification(false), 3000)
     }
+
+    useEffect(() => {
+        if (showNotification) {
+            const timer = setTimeout(() => setShowNotification(false), 3000)
+            return () => clearTimeout(timer)
+        }
+    }, [showNotification])
 
     useEffect(() => {
         const handleESC = (e) => {
             if (e.key === "Escape") {
                 setIsModalOpen(false)
+                setIsZoomed(false)
             }
         }
 
@@ -48,191 +76,331 @@ const DetailedProductModal = ({
         return () => window.removeEventListener("keydown", handleESC)
     }, [isModalOpen, setIsModalOpen])
 
+    if (!isModalOpen || !selectedProduct) return null
+
+    const sizes = selectedProduct.size_2_price
+        ? Object.entries(selectedProduct.size_2_price)
+        : []
+
     return (
-        <div
-            className={`fixed left-0 top-0 w-screen h-[100vh] z-[10000] flex flex-col justify-center items-center transition-opacity duration-[.5s] bg-white bg-opacity-100 md:bg-black md:bg-opacity-75 ${
-                isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+        <Box
             onClick={() => setIsModalOpen(false)}
+            sx={{
+                position: "fixed",
+                left: 0,
+                top: 0,
+                width: "100vw",
+                height: "100vh",
+                bgcolor: { xs: "rgba(255,255,255,1)", md: "rgba(0,0,0,0.75)" },
+                zIndex: 13000,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                overflow: "auto",
+                p: 2,
+            }}
         >
-            {isModalOpen && selectedProduct && (
-                <>
-                    <div
-                        className="relative shadow-2xl flex flex-col gap-2 bg-white md:w-fit h-full md:h-fit p-4 overflow-y-scroll"
-                        onClick={(e) => e.stopPropagation()}
+            <Paper
+                onClick={(e) => e.stopPropagation()}
+                elevation={24}
+                sx={{
+                    maxWidth: { xs: "95vw", md: "80vw" },
+                    minWidth: { xs: "95vw", md: "65vw" },
+                    maxHeight: { xs: "90vh", md: "80vh" },
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    p: 3,
+                    bgcolor: "background.paper",
+                    borderRadius: 2,
+                    overflow: "hidden",
+                    boxShadow: theme.shadows[25],
+                    gap: 5,
+                }}
+            >
+                {/* Left side - Image with zoom */}
+                <Box
+                    sx={{
+                        flexBasis: { xs: "100%", md: "40%" },
+                        height: { xs: 300, md: "66svh" },
+                        mb: { xs: 3, md: 0 },
+                        backgroundImage: `url(${
+                            process.env.PUBLIC_URL + selectedProduct.image_url
+                        })`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: isZoomed ? "175%" : "contain",
+                        backgroundPosition:
+                            zoomStyle.backgroundPosition || "center",
+                        borderRadius: 1,
+                        position: "relative",
+                        cursor: "zoom-in",
+                        transition: "background-size 0.3s ease",
+                    }}
+                    onMouseMove={(e) => {
+                        const { left, top, width, height } =
+                            e.currentTarget.getBoundingClientRect()
+                        const x = ((e.clientX - left) / width) * 100
+                        const y = ((e.clientY - top) / height) * 100
+                        setIsZoomed(true)
+                        setZoomStyle({ backgroundPosition: `${x}% ${y}%` })
+                    }}
+                    onMouseLeave={() => {
+                        setIsZoomed(false)
+                        setZoomStyle({ backgroundPosition: "center" })
+                    }}
+                >
+                    {isZoomed && (
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                top: 8,
+                                right: 8,
+                                bgcolor: "rgba(255,255,255,0.8)",
+                                borderRadius: "50%",
+                                p: 0.5,
+                                boxShadow: 3,
+                            }}
+                        >
+                            <ZoomInIcon fontSize="large" color="action" />
+                        </Box>
+                    )}
+                </Box>
+
+                {/* Right side - Content */}
+                <Stack
+                    spacing={2}
+                    sx={{
+                        flexBasis: { xs: "100%", md: "55%" },
+                        overflowY: "auto",
+                        maxHeight: { xs: "auto", md: "66svh" },
+                    }}
+                >
+                    {/* Top buttons */}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            mb: 1,
+                        }}
                     >
-                        <div className="flex flex-col md:flex-row">
-                            <div
-                                className="relative w-full md:w-[40vw] h-[50vh] md:h-[66svh] mb-4 bg-no-repeat bg-contain bg-center"
-                                style={{
-                                    backgroundImage: `url(${
-                                        process.env.PUBLIC_URL +
-                                        selectedProduct.image_url
-                                    })`,
-                                    ...zoomStyle,
-                                }}
-                                onMouseMove={(e) => {
-                                    const { left, top, width, height } =
-                                        e.currentTarget.getBoundingClientRect()
-                                    const x = ((e.clientX - left) / width) * 100
-                                    const y = ((e.clientY - top) / height) * 100
-                                    setIsZoomed(true)
-                                    setZoomStyle({
-                                        backgroundSize: "175%",
-                                        backgroundPosition: `${x}% ${y}%`,
-                                    })
-                                }}
-                                onMouseLeave={() => {
-                                    setIsZoomed(false)
-                                    setZoomStyle({
-                                        backgroundSize: "contain",
-                                        backgroundPosition: "center",
-                                    })
+                        <Button
+                            variant="outlined"
+                            startIcon={<IoIosArrowBack />}
+                            onClick={() => setIsModalOpen(false)}
+                            sx={{ textTransform: "none", fontWeight: "bold" }}
+                        >
+                            Back
+                        </Button>
+                        <Button
+                            variant="text"
+                            endIcon={<IoIosArrowForward />}
+                            onClick={() => navigate("/cart")}
+                            sx={{ textTransform: "none", fontWeight: "bold" }}
+                        >
+                            Go to Cart
+                        </Button>
+                    </Box>
+
+                    {/* Title & product code */}
+                    <Typography
+                        variant="h5"
+                        fontWeight="bold"
+                        color="text.primary"
+                    >
+                        {selectedProduct.title}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            color: "info",
+                            display: "inline-block",
+                            px: 1,
+                            borderRadius: 1,
+                            fontWeight: "bold",
+                            opacity: 0.7,
+                        }}
+                    >
+                        {selectedProduct.product_code}
+                    </Typography>
+
+                    <Box
+                        sx={{ borderBottom: 1, borderColor: "divider", my: 1 }}
+                    />
+
+                    {/* Size selector */}
+                    <Stack direction="row" spacing={1} alignItems="center">
+                        <TbRulerMeasure size={20} />
+                        <Typography
+                            variant="body2"
+                            fontWeight="bold"
+                            color="info"
+                        >
+                            Select a size{" "}
+                            {isMobile ? "(swipe to see more)" : ""}
+                        </Typography>
+                    </Stack>
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            gap: 1,
+                            overflowX: isMobile ? "auto" : "visible",
+                            flexWrap: isMobile ? "nowrap" : "wrap",
+                            maxWidth: "100%",
+                            pb: 1,
+                            mb: 2,
+                        }}
+                    >
+                        {sizes.length > 0 ? (
+                            sizes.map(([size, price], index) => (
+                                <Button
+                                    key={size}
+                                    variant={
+                                        index === selectedSizeIndex
+                                            ? "contained"
+                                            : "outlined"
+                                    }
+                                    color={
+                                        index === selectedSizeIndex
+                                            ? "primary"
+                                            : "inherit"
+                                    }
+                                    onClick={() => setSelectedSizeIndex(index)}
+                                    sx={{
+                                        flexShrink: 0,
+                                        minWidth: 72,
+                                        px: 1.5,
+                                        py: 1,
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="body2"
+                                        color=""
+                                        sx={{ fontSize: 14 }}
+                                    >
+                                        {size}
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        color="secondary.main"
+                                        sx={{ fontSize: 14 }}
+                                    >
+                                        {price}
+                                    </Typography>
+                                </Button>
+                            ))
+                        ) : (
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    bgcolor: "",
+                                    color: "green",
+                                    px: 1,
+                                    py: 0.5,
+                                    borderRadius: 1,
+                                    fontWeight: "bold",
+                                    opacity: 0.7,
                                 }}
                             >
-                                {isZoomed && (
-                                    <div className="absolute top-4 right-4 bg-white bg-opacity-70 rounded-full p-1 shadow-md transition-opacity duration-200">
-                                        <MdOutlineZoomIn
-                                            className="text-black"
-                                            size={50}
-                                        />
-                                    </div>
-                                )}
-                            </div>
+                                1 size available, no other size options to
+                                select
+                            </Typography>
+                        )}
+                    </Box>
 
-                            <div className="flex flex-col md:w-1/2 md:max-w-[35vw] overflow-y-scroll gap-4 md:ml-8 md:mr-4">
-                                <button
-                                    className="flex items-center w-fit font-bold text-secondary"
-                                    onClick={() => setIsModalOpen(false)}
-                                >
-                                    <IoIosArrowBack size="1.3rem" />
-                                    <p className="text-[1rem]">Back</p>
-                                </button>
+                    {/* Add/remove cart button and note */}
+                    <Stack
+                        direction="row"
+                        spacing={2}
+                        alignItems="center"
+                        flexWrap="wrap"
+                    >
+                        {!isInCart(selectedProduct._id, selectedSizeIndex) ? (
+                            <Button
+                                variant="contained"
+                                color="info"
+                                startIcon={<ShoppingCartIcon />}
+                                onClick={handleAddToCart}
+                                sx={{ fontWeight: "bold" }}
+                            >
+                                Add to Cart
+                            </Button>
+                        ) : (
+                            <Button
+                                variant="outlined"
+                                color="error"
+                                startIcon={<ShoppingCartIcon />}
+                                onClick={() =>
+                                    removeProduct(
+                                        selectedProduct._id.toString(),
+                                        selectedSizeIndex.toString()
+                                    )
+                                }
+                                sx={{ fontWeight: "bold" }}
+                            >
+                                Remove from Cart
+                            </Button>
+                        )}
+                        <Typography
+                            variant="caption"
+                            color="text.secondary"
+                            sx={{ maxWidth: 240 }}
+                        >
+                            Quantity can be adjusted in the cart page
+                        </Typography>
+                    </Stack>
 
-                                <h2 className="text-xl text-black font-bold text-opacity-70">
-                                    {selectedProduct.title}
-                                </h2>
-                                <p className="text-secondary font-bold px-2 bg-secondary bg-opacity-10 text-[0.8rem] text-opacity-60">
-                                    {selectedProduct.product_code}
-                                </p>
+                    <Box
+                        sx={{ borderBottom: 1, borderColor: "divider", my: 2 }}
+                    />
 
-                                <hr className="border-black border-opacity-20" />
+                    {/* Description */}
+                    <Typography
+                        variant="subtitle2"
+                        fontWeight="bold"
+                        color="text.primary"
+                    >
+                        Description:
+                    </Typography>
 
-                                <div className="flex gap-2 items-center">
-                                    <TbRulerMeasure
-                                        className="text-black"
-                                        size="1.2rem"
-                                    />
-                                    <p className="text-black font-bold text-[0.8rem] text-opacity-70">
-                                        {`Select a size: ${
-                                            screen.width < 768
-                                                ? "(swipe to see more)"
-                                                : ""
-                                        }`}
-                                    </p>
-                                </div>
+                    <Button
+                        variant="outlined"
+                        startIcon={<MdOutlineSimCardDownload size={20} />}
+                        onClick={handleDownloadClick}
+                        sx={{
+                            alignSelf: "flex-start",
+                            mb: 1,
+                            textTransform: "none",
+                        }}
+                    >
+                        Download PDF
+                    </Button>
 
-                                <div className="relative gap-4 md:gap-2 pb-2 flex overflow-x-scroll md:overflow-clip md:flex-wrap max-w-[85vw] md:max-w-full justify-start mb-4">
-                                    {selectedProduct.size_2_price &&
-                                    Object.keys(selectedProduct.size_2_price)
-                                        .length > 0 ? (
-                                        Object.entries(
-                                            selectedProduct.size_2_price
-                                        ).map(([size, price], index) => (
-                                            <button
-                                                key={index}
-                                                className={`flex items-center rounded-md border p-2 ${
-                                                    index === selectedSizeIndex
-                                                        ? "border-[3px] border-black border-opacity-100"
-                                                        : "border-black border-opacity-20"
-                                                }`}
-                                                onClick={() =>
-                                                    setSelectedSizeIndex(index)
-                                                }
-                                            >
-                                                <div className="flex flex-col items-center">
-                                                    <p className="text-black text-opacity-60 text-[0.9rem]">
-                                                        {size}
-                                                    </p>
-                                                    <p className="text-secondary text-nowrap text-[0.9rem]">
-                                                        {price}
-                                                    </p>
-                                                </div>
-                                            </button>
-                                        ))
-                                    ) : (
-                                        <p className="text-secondary font-bold px-2 bg-secondary bg-opacity-10 border-secondary text-[0.8rem] text-opacity-60">
-                                            1 size available, no other size
-                                            options to select
-                                        </p>
-                                    )}
-                                </div>
+                    <Typography
+                        variant="body2"
+                        color="text.primary"
+                        sx={{ whiteSpace: "pre-wrap", mb: 4 }}
+                    >
+                        {selectedProduct.description}
+                    </Typography>
+                </Stack>
+            </Paper>
 
-                                <div className="flex flex-row gap-4 items-center text-[.7rem] font-bold">
-                                    {!isInCart(
-                                        selectedProduct._id,
-                                        selectedSizeIndex
-                                    ) ? (
-                                        <button
-                                            className="flex items-center text-white gap-2 bg-secondary py-2 px-4 rounded-full"
-                                            onClick={handleAddToCart}
-                                        >
-                                            <ShoppingCart
-                                                sx={{ fontSize: "1.1rem" }}
-                                            />
-                                            <p>Add to Cart</p>
-                                        </button>
-                                    ) : (
-                                        <button
-                                            className="flex items-center text-black border border-black gap-2 bg-white py-2 px-4 rounded-full"
-                                            onClick={() =>
-                                                removeProduct(
-                                                    selectedProduct._id.toString(),
-                                                    selectedSizeIndex.toString()
-                                                )
-                                            }
-                                        >
-                                            <ShoppingCart
-                                                sx={{ fontSize: "1.1rem" }}
-                                            />
-                                            <p>Remove from Cart</p>
-                                        </button>
-                                    )}
-                                    <p className="text-black text-opacity-60">
-                                        Quantity can be adjusted in the cart
-                                        page
-                                    </p>
-                                </div>
-
-                                <hr className="border-black border-opacity-20" />
-
-                                <p className="text-black font-bold text-[0.8rem] text-opacity-70">
-                                    Description:
-                                </p>
-
-                                <button
-                                    className="flex w-fit items-center text-xs font-bold text-black border border-black gap-2 bg-white py-2 px-4 rounded-full"
-                                    onClick={handleDownloadClick}
-                                >
-                                    <MdOutlineSimCardDownload className="text-xl" />
-                                    <p>Download PDF</p>
-                                </button>
-
-                                <p className="text-xs text-black py-2 mb-16">
-                                    {selectedProduct.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {showNotification && (
-                        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
-                            Item added to cart!
-                        </div>
-                    )}
-                </>
-            )}
-        </div>
+            {/* Snackbar notification */}
+            <Snackbar
+                open={showNotification}
+                autoHideDuration={3000}
+                onClose={() => setShowNotification(false)}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+                <Alert severity="success" sx={{ width: "100%" }}>
+                    Item added to cart!
+                </Alert>
+            </Snackbar>
+        </Box>
     )
 }
 

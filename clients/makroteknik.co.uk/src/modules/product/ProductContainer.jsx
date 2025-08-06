@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import ListingGrid from "../common/components/ListingGrid"
-import CategoryCards from "./components/QuickAccessCategoriesSection"
+import CategoryCards from "./components/QuickAccessCategoriesSidebar"
 import { FaAngleUp } from "react-icons/fa"
 import { useProductStore } from "./stores/ProductStore"
 
@@ -37,9 +37,8 @@ const ProductContainer = () => {
 
     return (
         <div className="bg-fon">
-            <div className="my-28 md:my-36"></div>
             <CategoryCards />
-            <div className="w-screen mt-4 px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96 bg-fon">
+            <div className="w-screen mt-16 px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96 bg-fon">
                 <br />
                 <div className="mx-4 md:mx-0">
                     <ListingGrid passedProductsList={filteredProductsList} />

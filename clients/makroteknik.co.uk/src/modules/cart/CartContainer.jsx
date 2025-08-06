@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
-// components
 import { CartTable } from "./components/CartTable"
-
-// icons
 import { FaRegCopy } from "react-icons/fa"
-
-// stores
 import { useCartStore } from "./stores/CartStore"
 import { useProductStore } from "../product/stores/ProductStore"
+import axios from "axios"
+
+import {
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogActions,
+    Button,
+    CircularProgress,
+    Snackbar,
+    Alert,
+    Backdrop,
+} from "@mui/material"
 
 const CartContainer = () => {
     const { cartProducts, loadCartFromLocalStorage, clearCart } = useCartStore()
     const { productsList, getProducts } = useProductStore()
 
     const [loading, setLoading] = useState(true)
+    const [sending, setSending] = useState(false)
+    const [showSuccess, setShowSuccess] = useState(false)
+    const [showClearConfirm, setShowClearConfirm] = useState(false)
+    const [rateLimitExceeded, setRateLimitExceeded] = useState(false)
+    const [askToClearCart, setAskToClearCart] = useState(false)
 
     useEffect(() => {
         const init = async () => {
@@ -39,9 +51,7 @@ const CartContainer = () => {
     const getCartDetails = () => {
         return Object.entries(cartProducts)
             .map(([productId, sizes]) => {
-                const product = productsList.find(
-                    (product) => product._id === productId
-                )
+                const product = productsList.find((p) => p._id === productId)
                 if (!product) return null
 
                 return sizes
@@ -82,8 +92,7 @@ Price: £${price}`
                         const sizeKey = Object.keys(product.size_2_price)[
                             sizeIndex
                         ]
-                        const rawPrice = product.size_2_price[sizeKey]
-                        const price = parsePrice(rawPrice)
+                        const price = parsePrice(product.size_2_price[sizeKey])
                         return subtotal + quantity * price
                     }, 0)
                 )
@@ -91,25 +100,39 @@ Price: £${price}`
             .toFixed(2)
     }
 
-    const sendEmail = () => {
-        const subject = encodeURIComponent("Cart Product Details")
+    const sendCart2Backend = async () => {
+        const apiUrl = process.env.REACT_APP_API_URL ?? "http://localhost:8090"
         const cartDetails = getCartDetails()
         const total = calculateTotalPrice()
 
-        const body = encodeURIComponent(
-            `Hello, I would like to get an offer for the following products:\n\n${cartDetails}\n\nTotal Price: £${total}`
-        )
+        console.log("cartDetails:", cartDetails)
 
-        console.log("wefwefwefwlklkqwd")
+        setSending(true)
+        try {
+            const response = await axios.post(`${apiUrl}/send-cart-email`, {
+                cartDetails,
+                total,
+                recipientEmail: "garpayyasla@gmail.com",
+            })
 
-        window.location.href = `mailto:garpayyasla@gmail.com?subject=${subject}&body=${body}`
-    }
-
-    const handleClearCart = () => {
-        if (window.confirm("Are you sure you want to empty the cart?")) {
-            clearCart()
+            if (response.status === 200) {
+                setShowSuccess(true)
+                setAskToClearCart(true)
+            } else {
+                alert("Something went wrong. Please try again.")
+            }
+        } catch (error) {
+            if (error.response?.status === 429) {
+                setRateLimitExceeded(true)
+            } else {
+                alert("Failed to send request. Please try again later.")
+            }
+        } finally {
+            setSending(false)
         }
     }
+
+    const hasProducts = Object.keys(cartProducts).length > 0
 
     if (loading) {
         return (
@@ -118,8 +141,6 @@ Price: £${price}`
             </div>
         )
     }
-
-    const hasProducts = Object.keys(cartProducts).length > 0
 
     return (
         <div className="relative">
@@ -130,49 +151,47 @@ Price: £${price}`
                             <div className="flex flex-col md:flex-row w-full gap-4 md:gap-0 justify-between rounded-2xl">
                                 <div>
                                     <h2 className="text-base font-bold">
-                                        Your Cart (
-                                        {hasProducts ? "Items" : "Empty"})
+                                        Your Cart
                                     </h2>
-                                    <p className="text-[.8rem] text-black text-opacity-60">
-                                        The cart will be sent to provider for an
-                                        offer.
+                                    <p className="text-sm text-black text-opacity-60">
+                                        We’ll send this to providers for offer.
                                     </p>
-                                    {/* <p className="text-[.8rem] text-secondary text-opacity-60">
-                                        Total Price:{" "}
-                                        <span className="font-bold">
-                                            £{calculateTotalPrice()}
-                                        </span>
-                                    </p> */}
+
                                     <button
-                                        className="text-[.8rem] text-black text-opacity-60 underline"
+                                        className="text-[.8rem] text-black text-opacity-60 underline mt-2"
                                         onClick={() => {
                                             navigator.clipboard.writeText(
                                                 getCartDetails()
                                             )
                                             alert(
-                                                "Cart details copied to clipboard!" +
-                                                    "\n\n" +
+                                                "Cart copied to clipboard!\n\n" +
                                                     getCartDetails()
                                             )
                                         }}
                                     >
                                         Copy the cart records
-                                        <FaRegCopy className="inline-block ml-1 text-[1rem] text-black text-opacity-60" />
+                                        <FaRegCopy className="inline-block ml-1" />
                                     </button>
                                 </div>
-                                <div className="flex gap-4 text-[.7rem] items-center">
-                                    <button
-                                        className="bg-secondary px-4 py-2 font-bold text-white rounded-full"
-                                        onClick={sendEmail}
+
+                                <div className="flex gap-4 text-sm items-center">
+                                    <Button
+                                        variant="contained"
+                                        color="info"
+                                        onClick={sendCart2Backend}
                                     >
                                         Get an Offer With Cart
-                                    </button>
-                                    <button
-                                        className="bg-white px-4 py-2 font-bold text-black border border-black rounded-full"
-                                        onClick={handleClearCart}
+                                    </Button>
+
+                                    <Button
+                                        variant="outlined"
+                                        color="error"
+                                        onClick={() =>
+                                            setShowClearConfirm(true)
+                                        }
                                     >
                                         Reset the Cart
-                                    </button>
+                                    </Button>
                                 </div>
                             </div>
                             <CartTable />
@@ -193,6 +212,93 @@ Price: £${price}`
                     )}
                 </div>
             </div>
+
+            {/* Sending Spinner (Backdrop) */}
+            <Backdrop open={sending} style={{ zIndex: 1300, color: "#fff" }}>
+                <CircularProgress color="inherit" />
+            </Backdrop>
+
+            {/* Snackbar for success */}
+            <Snackbar
+                open={showSuccess}
+                autoHideDuration={3000}
+                onClose={() => setShowSuccess(false)}
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            >
+                <Alert
+                    onClose={() => setShowSuccess(false)}
+                    severity="success"
+                    sx={{ width: "100%" }}
+                >
+                    Offer request sent successfully!
+                </Alert>
+            </Snackbar>
+
+            {/* Confirm Clear Cart Dialog */}
+            <Dialog
+                open={showClearConfirm}
+                onClose={() => setShowClearConfirm(false)}
+            >
+                <DialogTitle>Are you sure?</DialogTitle>
+                <DialogContent>
+                    This will remove all items from your cart.
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setShowClearConfirm(false)}>
+                        Cancel
+                    </Button>
+                    <Button
+                        onClick={() => {
+                            clearCart()
+                            setShowClearConfirm(false)
+                        }}
+                        color="error"
+                    >
+                        Yes, Clear
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
+            {/* Rate Limit Dialog */}
+            <Dialog
+                open={rateLimitExceeded}
+                onClose={() => setRateLimitExceeded(false)}
+            >
+                <DialogTitle>Rate Limit Reached</DialogTitle>
+                <DialogContent>
+                    You can only send a request once per minute. Please try
+                    again later.
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setRateLimitExceeded(false)}>
+                        Okay
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
+            {/* Ask to clear cart after sending */}
+            <Dialog
+                open={askToClearCart}
+                onClose={() => setAskToClearCart(false)}
+            >
+                <DialogTitle>Clear Cart?</DialogTitle>
+                <DialogContent>
+                    Your offer request was sent successfully. Would you like to
+                    empty your cart now?
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setAskToClearCart(false)}>No</Button>
+                    <Button
+                        onClick={() => {
+                            clearCart()
+                            setAskToClearCart(false)
+                        }}
+                        color="primary"
+                    >
+                        Yes, Clear It
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     )
 }
