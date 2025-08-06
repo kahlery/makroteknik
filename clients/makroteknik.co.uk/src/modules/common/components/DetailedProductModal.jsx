@@ -104,9 +104,9 @@ const DetailedProductModal = ({
                 onClick={(e) => e.stopPropagation()}
                 elevation={24}
                 sx={{
-                    maxWidth: { xs: "95vw", md: "80vw" },
-                    minWidth: { xs: "95vw", md: "65vw" },
-                    maxHeight: { xs: "90vh", md: "80vh" },
+                    maxWidth: { xs: "100vw", md: "80vw" },
+                    minWidth: { xs: "100vw", md: "65vw" },
+                    maxHeight: { xs: "100vh", md: "80vh" },
                     display: "flex",
                     flexDirection: { xs: "column", md: "row" },
                     p: 3,
@@ -122,6 +122,7 @@ const DetailedProductModal = ({
                     sx={{
                         flexBasis: { xs: "100%", md: "40%" },
                         height: { xs: 300, md: "66svh" },
+                        minHeight: 150,
                         mb: { xs: 3, md: 0 },
                         backgroundImage: `url(${
                             process.env.PUBLIC_URL + selectedProduct.image_url
@@ -247,6 +248,7 @@ const DetailedProductModal = ({
                             overflowX: isMobile ? "auto" : "visible",
                             flexWrap: isMobile ? "nowrap" : "wrap",
                             maxWidth: "100%",
+                            minHeight: 50,
                             pb: 1,
                             mb: 2,
                         }}
