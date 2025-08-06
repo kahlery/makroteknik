@@ -21,33 +21,32 @@ const ProductCard = ({
         <div
             key={product._id}
             className={`
-                bg-white 
-                md:min-w-[200px] 
-                h-90
-                relative flex flex-col text-sm
-                border border-gray-200
-                duration-[1000ms] pb-4
-                hover:scale-100 hover:cursor-pointer hover:shadow-2xl
-                ${isHorizontalNorVertical ? "w-48" : ""} ${
-                isCartProduct
-                    ? " shadow-[_5px_5px_rgba(0,_98,_90,_0.2),_10px_10px_rgba(0,_98,_90,_0.1),_15px_15px_rgba(0,_98,_90,_0.05)]"
-                    : "shadow-2xs"
-            }`}
+            bg-white 
+            md:min-w-[200px] 
+            h-90
+            relative flex flex-col text-sm
+            border border-gray-200
+            duration-[1000ms] pb-4
+            hover:scale-100 hover:cursor-pointer hover:shadow-2xl
+            ${isHorizontalNorVertical ? "w-48" : ""} 
+            shadow-2xs
+        `}
             onClick={() => {
-                // show product detail in a modal
-                console.log("product detail:", product._id)
                 setSelectedProduct(product)
                 setIsModalOpen(true)
             }}
         >
+            {/* In Cart Badge */}
+            {isCartProduct && (
+                <div className="absolute top-2 right-2 bg-green-500 text-white text-[10px] px-2 py-[2px] rounded-full shadow-md z-10">
+                    In Cart
+                </div>
+            )}
+
             <img
                 src={product.image_url}
                 alt={product.title}
-                className="
-                h-36
-                object-scale-down 
-                p-4
-                "
+                className="h-36 object-scale-down p-4"
             />
             <hr className="my-3 opacity-0" />
             <div className="px-3 md:px-4 flex flex-col h-full gap-[.30rem]">
@@ -66,9 +65,7 @@ const ProductCard = ({
                                 {Object.values(product.size_2_price)[1]}
                             </p>
                         </div>
-                    ) : (
-                        <></>
-                    )}
+                    ) : null}
                 </div>
                 <div className="w-fit text-xs flex">
                     <p className="text-black text-opacity-80 pt-[1.6px] flex gap-1 items-center">
