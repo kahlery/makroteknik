@@ -29,6 +29,45 @@ const CartContainer = () => {
     const [rateLimitExceeded, setRateLimitExceeded] = useState(false)
     const [askToClearCart, setAskToClearCart] = useState(false)
 
+    // Save timestamp of last successful send (ms)
+    const [sentTime, setSentTime] = useState(() => {
+        const saved = localStorage.getItem("sentTime")
+        return saved ? parseInt(saved, 10) : null
+    })
+
+    // Cooldown seconds left for rate limiting
+    const [cooldown, setCooldown] = useState(60)
+
+    // Persist sentTime in localStorage
+    useEffect(() => {
+        if (sentTime) {
+            localStorage.setItem("sentTime", sentTime.toString())
+        } else {
+            localStorage.removeItem("sentTime")
+        }
+    }, [sentTime])
+
+    // Countdown timer for rate limit dialog
+    useEffect(() => {
+        let interval
+
+        if (rateLimitExceeded && sentTime) {
+            interval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - sentTime) / 1000)
+                const remaining = 60 - elapsed
+
+                if (remaining <= 0) {
+                    setRateLimitExceeded(false)
+                    setCooldown(60)
+                } else {
+                    setCooldown(remaining)
+                }
+            }, 1000)
+        }
+
+        return () => clearInterval(interval)
+    }, [rateLimitExceeded, sentTime])
+
     useEffect(() => {
         const init = async () => {
             await loadCartFromLocalStorage()
@@ -105,8 +144,6 @@ Price: £${price}`
         const cartDetails = getCartDetails()
         const total = calculateTotalPrice()
 
-        console.log("cartDetails:", cartDetails)
-
         setSending(true)
         try {
             const response = await axios.post(`${apiUrl}/send-cart-email`, {
@@ -118,6 +155,8 @@ Price: £${price}`
             if (response.status === 200) {
                 setShowSuccess(true)
                 setAskToClearCart(true)
+                const now = Date.now()
+                setSentTime(now)
             } else {
                 alert("Something went wrong. Please try again.")
             }
@@ -179,6 +218,7 @@ Price: £${price}`
                                         variant="contained"
                                         color="info"
                                         onClick={sendCart2Backend}
+                                        disabled={sending}
                                     >
                                         Get an Offer With Cart
                                     </Button>
@@ -266,12 +306,18 @@ Price: £${price}`
             >
                 <DialogTitle>Rate Limit Reached</DialogTitle>
                 <DialogContent>
-                    You can only send a request once per minute. Please try
-                    again later.
+                    <div className="text-sm text-gray-700">
+                        You can only send a request once per minute.
+                        <br />
+                        <strong>
+                            Try again in {cooldown} second
+                            {cooldown !== 1 ? "s" : ""}.
+                        </strong>
+                    </div>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setRateLimitExceeded(false)}>
-                        Okay
+                        Close
                     </Button>
                 </DialogActions>
             </Dialog>
