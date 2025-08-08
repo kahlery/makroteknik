@@ -3,11 +3,15 @@ import ListingGrid from "../common/components/ListingGrid"
 import CategoryCards from "./components/QuickAccessCategoriesSidebar"
 import { FaAngleUp } from "react-icons/fa"
 import { useProductStore } from "./stores/ProductStore"
+import SearchInput from "./components/SearchInput"
+import { FilterListSharp } from "@mui/icons-material"
+import CategoriesBarMobile from "./components/CategoriesBarMobile"
 
 const ProductContainer = () => {
     const [showScrollToTop, setShowScrollToTop] = useState(false)
     const [scrollingUp, setScrollingUp] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
+    const [drawerOpen, setDrawerOpen] = useState(false) // <-- added drawer state
 
     const productsList = useProductStore((state) => state.productsList)
     const searchText = useProductStore((state) => state.searchText)
@@ -35,15 +39,32 @@ const ProductContainer = () => {
         product.title.toLowerCase().includes(searchText.toLowerCase())
     )
 
+    // Toggle drawer open/close
+    const toggleDrawer = () => {
+        setDrawerOpen((prev) => !prev)
+    }
+
     return (
         <div className="bg-fon">
+            {/* Mobile search bar */}
+            <div className="block md:hidden mt-24">
+                <SearchInput mobileView={true} />
+            </div>
+
             <CategoryCards />
-            <div className="w-screen mt-16 px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96 bg-fon">
+            {/* Pass drawerOpen and a close handler */}
+            <CategoriesBarMobile
+                isOpen={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
+            />
+
+            <div className="w-screen -mt-2 md:mt-16 px-0 md:px-[16rem] 2xl:px-[25rem] pt-4 pb-10 min-h-96 bg-fon">
                 <br />
                 <div className="mx-4 md:mx-0">
                     <ListingGrid passedProductsList={filteredProductsList} />
                 </div>
             </div>
+
             {showScrollToTop && (
                 <button
                     className="fixed bottom-20 md:bottom-8 right-6 md:right-64 p-3 rounded-full
@@ -54,6 +75,15 @@ const ProductContainer = () => {
                     <FaAngleUp size={25} />
                 </button>
             )}
+
+            <button
+                className="fixed top-64 md:hidden left-0 md:right-64 p-3 rounded-r-full
+                     bg-black/50 text-white shadow-lg hover:bg-black hover:scale-125
+                     transition-all duration-1000 focus:outline-none z-30"
+                onClick={toggleDrawer}
+            >
+                <FilterListSharp size={25} />
+            </button>
         </div>
     )
 }

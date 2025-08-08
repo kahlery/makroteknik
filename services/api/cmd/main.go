@@ -9,7 +9,7 @@ import (
 	// Services | Handlers
 	auth_service "api/internal/service/auth/service"
 	category_service "api/internal/service/category/service"
-	email_handler "api/internal/service/email"
+	email_service "api/internal/service/email"
 	health_service "api/internal/service/health/service"
 	pdf_service "api/internal/service/pdf/service"
 	product_service "api/internal/service/product/service"
@@ -48,6 +48,7 @@ var (
 
 var (
 	healthService   *health_service.HealthService
+	emailService    *email_service.EmailService
 	authService     *auth_service.AuthService
 	productService  *product_service.ProductService
 	categoryService *category_service.CategoryService
@@ -128,6 +129,7 @@ func initRepos() {
 
 func initServices() {
 	healthService = health_service.NewHealthService(mongoClient)
+	emailService = email_service.NewEmailService()
 	authService = auth_service.NewAuthService(userRepo)
 	productService = product_service.NewProductService(productRepo, s3Client, imagePath)
 	categoryService = category_service.NewCategoryService(categoryRepo)
@@ -149,7 +151,7 @@ func setupRoutes(app *fiber.App) {
 	app.Get("/ping", healthService.GetHealth)
 
 	// Email
-	app.Post("/send-cart-email", email_handler.SendCartEmail)
+	app.Post("/send-cart-email", emailService.SendCartEmail)
 
 	// Auth routes
 	authGroup := app.Group("/auth")

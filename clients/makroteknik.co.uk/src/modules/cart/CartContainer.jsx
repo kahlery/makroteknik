@@ -7,6 +7,8 @@ import { useProductStore } from "../product/stores/ProductStore"
 import axios from "axios"
 
 import {
+    Box,
+    Typography,
     Dialog,
     DialogTitle,
     DialogContent,
@@ -16,6 +18,7 @@ import {
     Snackbar,
     Alert,
     Backdrop,
+    TextField,
 } from "@mui/material"
 
 const CartContainer = () => {
@@ -29,16 +32,16 @@ const CartContainer = () => {
     const [rateLimitExceeded, setRateLimitExceeded] = useState(false)
     const [askToClearCart, setAskToClearCart] = useState(false)
 
-    // Save timestamp of last successful send (ms)
+    const [recipientEmail, setRecipientEmail] = useState("")
+    const [showEmailDialog, setShowEmailDialog] = useState(false)
+
     const [sentTime, setSentTime] = useState(() => {
         const saved = localStorage.getItem("sentTime")
         return saved ? parseInt(saved, 10) : null
     })
 
-    // Cooldown seconds left for rate limiting
-    const [cooldown, setCooldown] = useState(60)
+    const [cooldown, setCooldown] = useState(90)
 
-    // Persist sentTime in localStorage
     useEffect(() => {
         if (sentTime) {
             localStorage.setItem("sentTime", sentTime.toString())
@@ -47,18 +50,17 @@ const CartContainer = () => {
         }
     }, [sentTime])
 
-    // Countdown timer for rate limit dialog
     useEffect(() => {
         let interval
 
         if (rateLimitExceeded && sentTime) {
             interval = setInterval(() => {
                 const elapsed = Math.floor((Date.now() - sentTime) / 1000)
-                const remaining = 60 - elapsed
+                const remaining = 90 - elapsed
 
                 if (remaining <= 0) {
                     setRateLimitExceeded(false)
-                    setCooldown(60)
+                    setCooldown(90)
                 } else {
                     setCooldown(remaining)
                 }
@@ -101,15 +103,11 @@ const CartContainer = () => {
                             product.size_2_price,
                             sizeIndex
                         )
-                        const sizeKey = Object.keys(product.size_2_price)[
-                            sizeIndex
-                        ]
-                        const price = product.size_2_price[sizeKey] || "0"
+                        // const price = product.size_2_price[sizeKey] || "0"
 
                         return `${product.title}\n${product.product_code}
 Size: ${sizeLabel}
-Quantity: ${quantity}
-Price: £${price}`
+Quantity: ${quantity}`
                     })
                     .join("\n\n")
             })
@@ -145,16 +143,18 @@ Price: £${price}`
         const total = calculateTotalPrice()
 
         setSending(true)
+
         try {
             const response = await axios.post(`${apiUrl}/send-cart-email`, {
                 cartDetails,
                 total,
-                recipientEmail: "garpayyasla@gmail.com",
+                recipientEmail,
             })
 
             if (response.status === 200) {
                 setShowSuccess(true)
                 setAskToClearCart(true)
+                setRecipientEmail("")
                 const now = Date.now()
                 setSentTime(now)
             } else {
@@ -217,7 +217,7 @@ Price: £${price}`
                                     <Button
                                         variant="contained"
                                         color="info"
-                                        onClick={sendCart2Backend}
+                                        onClick={() => setShowEmailDialog(true)}
                                         disabled={sending}
                                     >
                                         Get an Offer With Cart
@@ -253,12 +253,43 @@ Price: £${price}`
                 </div>
             </div>
 
-            {/* Sending Spinner (Backdrop) */}
+            {/* Email Input Dialog */}
+            <Dialog
+                open={showEmailDialog}
+                onClose={() => setShowEmailDialog(false)}
+            >
+                <DialogTitle>Enter Your Email</DialogTitle>
+                <DialogContent>
+                    <TextField
+                        fullWidth
+                        autoFocus
+                        type="email"
+                        label="Recipient Email"
+                        variant="standard"
+                        value={recipientEmail}
+                        onChange={(e) => setRecipientEmail(e.target.value)}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setShowEmailDialog(false)}>
+                        Cancel
+                    </Button>
+                    <Button
+                        disabled={!recipientEmail.includes("@")}
+                        onClick={() => {
+                            setShowEmailDialog(false)
+                            sendCart2Backend()
+                        }}
+                    >
+                        Send Offer
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
             <Backdrop open={sending} style={{ zIndex: 1300, color: "#fff" }}>
                 <CircularProgress color="inherit" />
             </Backdrop>
 
-            {/* Snackbar for success */}
             <Snackbar
                 open={showSuccess}
                 autoHideDuration={3000}
@@ -274,7 +305,6 @@ Price: £${price}`
                 </Alert>
             </Snackbar>
 
-            {/* Confirm Clear Cart Dialog */}
             <Dialog
                 open={showClearConfirm}
                 onClose={() => setShowClearConfirm(false)}
@@ -299,14 +329,13 @@ Price: £${price}`
                 </DialogActions>
             </Dialog>
 
-            {/* Rate Limit Dialog */}
             <Dialog
                 open={rateLimitExceeded}
                 onClose={() => setRateLimitExceeded(false)}
             >
                 <DialogTitle>Rate Limit Reached</DialogTitle>
                 <DialogContent>
-                    <div className="text-sm text-gray-700">
+                    <div className="text-sm text-gray-700 mb-4">
                         You can only send a request once per minute.
                         <br />
                         <strong>
@@ -314,7 +343,9 @@ Price: £${price}`
                             {cooldown !== 1 ? "s" : ""}.
                         </strong>
                     </div>
+                    <CooldownTimer cooldown={cooldown} maxCooldown={90} />
                 </DialogContent>
+
                 <DialogActions>
                     <Button onClick={() => setRateLimitExceeded(false)}>
                         Close
@@ -322,7 +353,6 @@ Price: £${price}`
                 </DialogActions>
             </Dialog>
 
-            {/* Ask to clear cart after sending */}
             <Dialog
                 open={askToClearCart}
                 onClose={() => setAskToClearCart(false)}
@@ -350,3 +380,55 @@ Price: £${price}`
 }
 
 export default CartContainer
+
+const CooldownTimer = ({ cooldown, maxCooldown }) => {
+    // Clamp progress between 0 and 100
+    const progress = Math.min(
+        100,
+        Math.max(0, ((maxCooldown - cooldown) / maxCooldown) * 100)
+    )
+
+    // Debug log to check values
+    // Remove or comment out in production
+    // console.log("CooldownTimer:", { cooldown, maxCooldown, progress })
+
+    return (
+        <Box
+            position="relative"
+            display="inline-flex"
+            justifyContent="center"
+            alignItems="center"
+            width={80}
+            height={80}
+            margin="auto"
+        >
+            <CircularProgress
+                variant="determinate"
+                value={progress}
+                size={80}
+                thickness={4}
+                color="error"
+            />
+            <Box
+                position="absolute"
+                top={0}
+                left={0}
+                bottom={0}
+                right={0}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+            >
+                <Typography
+                    variant="h6"
+                    component="div"
+                    color="error"
+                    fontWeight="bold"
+                    fontFamily="monospace"
+                >
+                    {cooldown}s
+                </Typography>
+            </Box>
+        </Box>
+    )
+}

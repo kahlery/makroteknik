@@ -66,7 +66,7 @@ const NavBar = () => {
                 {!searchOpen ? (
                     <button
                         onClick={() => setSearchOpen(true)}
-                        className="bg-blue-50 px-4 py-[1.6px] rounded-xl"
+                        className="bg-blue-50 px-4 py-[1.6px] rounded-xl hidden md:block"
                     >
                         <div className="flex flex-col items-center text-secondary hover:text-primary">
                             <svg
