@@ -11,7 +11,7 @@ const ProductContainer = () => {
     const [showScrollToTop, setShowScrollToTop] = useState(false)
     const [scrollingUp, setScrollingUp] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
-    const [drawerOpen, setDrawerOpen] = useState(false) // <-- added drawer state
+    const [drawerOpen, setDrawerOpen] = useState(true)
 
     const productsList = useProductStore((state) => state.productsList)
     const searchText = useProductStore((state) => state.searchText)
@@ -35,9 +35,26 @@ const ProductContainer = () => {
         window.scrollTo({ top: 0, behavior: "smooth" })
     }
 
-    const filteredProductsList = productsList.filter((product) =>
-        product.title.toLowerCase().includes(searchText.toLowerCase())
-    )
+    const filteredProductsList = productsList.filter((product) => {
+        const searchLower = searchText.toLowerCase()
+
+        // Match title or product code
+        const matchesTitle = product.title?.toLowerCase().includes(searchLower)
+        const matchesCode = product.product_code
+            ?.toLowerCase()
+            .includes(searchLower)
+
+        // Match size–price pairs
+        const matchesSizePrice = Object.entries(
+            product.size_2_price || {}
+        ).some(
+            ([size, price]) =>
+                size?.toLowerCase().includes(searchLower) ||
+                price?.toString().toLowerCase().includes(searchLower)
+        )
+
+        return matchesTitle || matchesCode || matchesSizePrice
+    })
 
     // Toggle drawer open/close
     const toggleDrawer = () => {

@@ -13,11 +13,31 @@ export const useProductStore = create((set, get) => ({
         try {
             const { apiUrl } = get()
             const response = await axios.get(`${apiUrl}/product`)
-            const products = response.data.products || []
+            let products = response.data.products || []
 
+            // Sort size_2_price keys for each product
+            products = products.map((product) => {
+                if (
+                    product.size_2_price &&
+                    typeof product.size_2_price === "object"
+                ) {
+                    const sortedSizes = Object.keys(product.size_2_price)
+                        .sort((a, b) =>
+                            a.localeCompare(b, undefined, { numeric: true })
+                        )
+                        .reduce((acc, key) => {
+                            acc[key] = product.size_2_price[key]
+                            return acc
+                        }, {})
+                    return { ...product, size_2_price: sortedSizes }
+                }
+                return product
+            })
+
+            // Sort categories alphabetically
             const categories = [
                 ...new Set(products.map((p) => p.category).filter(Boolean)),
-            ]
+            ].sort((a, b) => a.localeCompare(b))
 
             set({
                 productsList: products,

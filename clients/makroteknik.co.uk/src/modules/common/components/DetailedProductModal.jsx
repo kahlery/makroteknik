@@ -178,14 +178,18 @@ const DetailedProductModal = ({
                     {/* Top buttons */}
                     <Box
                         sx={{
+                            zIndex: 40,
+                            bgcolor: "white",
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
                             mb: 1,
+                            position: "sticky",
+                            top: 0,
                         }}
                     >
                         <Button
-                            variant="outlined"
+                            variant="contained"
                             startIcon={<IoIosArrowBack />}
                             onClick={() => setIsModalOpen(false)}
                             sx={{ textTransform: "none", fontWeight: "bold" }}
@@ -248,7 +252,8 @@ const DetailedProductModal = ({
                             overflowX: isMobile ? "auto" : "visible",
                             flexWrap: isMobile ? "nowrap" : "wrap",
                             maxWidth: "100%",
-                            minHeight: 50,
+                            minHeight: isMobile ? 75 : "fit",
+                            height: "fit",
                             pb: 1,
                             mb: 2,
                         }}

@@ -1,43 +1,92 @@
 [
   {
-    "_id": "b38ab01b2e5830bb2f1fe2cbe709ef25ff24b872d2332c2458188d64ba83be48",
+    "_id": "26b207a4c10813088fd9b2cd366d4c707e5a7ece9fdbec82c1a17edc81ea4774",
     "title": "Plate Mounted Axial Flow Fan",
-    "product_code": "HCBB/HCBT Series",
+    "product_code": "HCBB Series",
     "category": "Fans",
     "supplier": "S&P",
     "description": "HCBB/HCBT\nRange of low profile plate mounted axial fans fitted with aluminium impellers and single phase motor (HCBB) or three phase motor (HCBT), IP65 (1), Class F insulation (2), equipped with thermal protection (3).\n(1) Models 800, 900 and 1000 are IP55.\n(2) Working temperatures from -40ºC up to +70ºC. Except models Ø 800, 900 and 1000 suitable for usage in environments from -20ºC to +40ºC.\n(3) Except models Ø 800 to 1000.\n\nMotors\nAvailable, depending upon the model, with single or three phase motors in 4 or 6 poles. All motors are speed controllable by autotransformer except models /4-630, B/710, T/4-710, T/800, T/900 and T/1000.Three phase models are speed controllable by inverter.\nElectrical supplies:\nSingle phase 220-240V-50Hz. (Capacitor located inside the wiring terminal box).\nThree phase 220-240/380-415V-50Hz or 400V-50Hz (See characteristic chart).\n\nAdditional Information\nStandard air direction: form (A) configuration (Motor over Impeller).\n\nOn request\nInlet finger proof guard for models 800 to 1000.",
     "original_url": "https://www.solerpalau.com/en-uk/plate-mounted-axial-flow-hcbb-hcbt-174-serie/",
     "original_image_url": "https://freshairsupplies.co.uk/wp-content/uploads/2022/03/HCBB_image.jpg",
     "size_2_price": {
-      "250mm": "",
-      "315mm": "",
-      "355mm": "",
-      "400mm": "",
-      "450mm": "",
-      "500mm": "",
-      "560mm": "",
-      "630mm": ""
+      "HCBB/4-250/H": "",
+      "HCBB/4-315/H": "",
+      "HCBB/4-355/H": "",
+      "HCBB/4-400/H": "",
+      "HCBB/4-450/H": "",
+      "HCBB/4-500/H": "",
+      "HCBB/4-560/H": "",
+      "HCBB/4-630/H": ""
     },
     "is_priced": true
   },
   {
-    "_id": "a6c469e108deee7bad8275c1d61b8fd8b5489ca243fc6021beab08413a2e03c1",
+    "_id": "90410ff410bee9ac7d464edc7cb135f88a81f6efc67b860b7ca3918cabebca0d",
     "title": "Plate Mounted Axial Flow Fan",
-    "product_code": "HXBR / HXTR Series",
+    "product_code": "HCBT Series",
+    "category": "Fans",
+    "supplier": "S&P",
+    "description": "HCBB/HCBT\nRange of low profile plate mounted axial fans fitted with aluminium impellers and single phase motor (HCBB) or three phase motor (HCBT), IP65 (1), Class F insulation (2), equipped with thermal protection (3).\n(1) Models 800, 900 and 1000 are IP55.\n(2) Working temperatures from -40ºC up to +70ºC. Except models Ø 800, 900 and 1000 suitable for usage in environments from -20ºC to +40ºC.\n(3) Except models Ø 800 to 1000.\n\nMotors\nAvailable, depending upon the model, with single or three phase motors in 4 or 6 poles. All motors are speed controllable by autotransformer except models /4-630, B/710, T/4-710, T/800, T/900 and T/1000.Three phase models are speed controllable by inverter.\nElectrical supplies:\nSingle phase 220-240V-50Hz. (Capacitor located inside the wiring terminal box).\nThree phase 220-240/380-415V-50Hz or 400V-50Hz (See characteristic chart).\n\nAdditional Information\nStandard air direction: form (A) configuration (Motor over Impeller).\n\nOn request\nInlet finger proof guard for models 800 to 1000.",
+    "original_url": "https://www.solerpalau.com/en-uk/plate-mounted-axial-flow-hcbb-hcbt-174-serie/",
+    "original_image_url": "https://freshairsupplies.co.uk/wp-content/uploads/2022/03/HCBB_image.jpg",
+    "size_2_price": {
+      "HCBT/4-250/H": "",
+      "HCBT/4-315/H": "",
+      "HCBT/4-355/H": "",
+      "HCBT/4-400/H": "",
+      "HCBT/4-450/H": "",
+      "HCBT/4-500/H": "",
+      "HCBT/4-560/H": "",
+      "HCBT/4-630/H": "",
+      "HCBT/4-710/H": "",
+      "HCBT/4-800/L-X": "",
+      "HCBT/4-800/H-X": "",
+      "HCBT/4-900/L-X": "",
+      "HCBT/4-900/H-X": "",
+      "HCBT/4-1000/L-X": "",
+      "HCBT/4-1000/H-X": ""
+    },
+    "is_priced": true
+  },
+  {
+    "_id": "877400d68e9d28acf2f4aa9269bb3828e54a425fdc04051fbf2d904ebe310c86",
+    "title": "Plate Mounted Axial Flow Fan",
+    "product_code": "HXBR Series",
     "category": "Fans",
     "supplier": "S&P",
     "description": "HXBR/HXTR\nPlate mounted axial flow fans manufactured from high grade galvanised steel and provided with a Sickle blade impeller, low sound level, protected against corrosion by cataforesis primer and a polyester black paint finish (1), single phase external rotor motor (HXBR) or three phase motor (HXTR), IP44 (models 250 to 355) or IP54 (models 400 to 800), Class F, equipped with thermal protection and terminal box with capacitor incorporated in single phase models.\n(1) Model 800: impeller motor unpainted.\n\nMotors\nAvailable in 2, 4, 6, 8 or 12 poles, depending on versions.\nElectrical supplies:\nSingle phase 230V-50Hz\nThree phase 400V-50Hz\n230/400V-50Hz (models 250)\nThree phase motors suitable for inverter control.\n(See characteristics chart).\n\nAdditional information\nStandard air direction: form (A) configuration (motor over impeller).\n\nOn request\nThree phase motors 230/400V-50Hz.",
     "original_url": "https://www.solerpalau.com/en-en/plate-mounted-axial-flow-hxbr-hxtr-77-serie/#product_section_description",
     "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/H/X/HXTR_product1.jpg",
     "size_2_price": {
-      "250mm": "",
-      "315mm": "",
-      "355mm": "",
-      "400mm": "",
-      "450mm": "",
-      "500mm": "",
-      "560mm": "",
-      "630mm": ""
+      "HXBR/4-250": "",
+      "HXBR/4-315": "",
+      "HXBR/4-355": "",
+      "HXBR/4-400": "",
+      "HXBR/4-450": "",
+      "HXBR/4-500": "",
+      "HXBR/4-560": "",
+      "HXBR/4-630": ""
+    },
+    "is_priced": true
+  },
+  {
+    "_id": "aa0e818f5fcf3be15ee7705e2140e916ef0f2d0579b09c7745a9e69a30e0f3e2",
+    "title": "Plate Mounted Axial Flow Fan",
+    "product_code": "HXTR Series",
+    "category": "Fans",
+    "supplier": "S&P",
+    "description": "HXBR/HXTR\nPlate mounted axial flow fans manufactured from high grade galvanised steel and provided with a Sickle blade impeller, low sound level, protected against corrosion by cataforesis primer and a polyester black paint finish (1), single phase external rotor motor (HXBR) or three phase motor (HXTR), IP44 (models 250 to 355) or IP54 (models 400 to 800), Class F, equipped with thermal protection and terminal box with capacitor incorporated in single phase models.\n(1) Model 800: impeller motor unpainted.\n\nMotors\nAvailable in 2, 4, 6, 8 or 12 poles, depending on versions.\nElectrical supplies:\nSingle phase 230V-50Hz\nThree phase 400V-50Hz\n230/400V-50Hz (models 250)\nThree phase motors suitable for inverter control.\n(See characteristics chart).\n\nAdditional information\nStandard air direction: form (A) configuration (motor over impeller).\n\nOn request\nThree phase motors 230/400V-50Hz.",
+    "original_url": "https://www.solerpalau.com/en-en/plate-mounted-axial-flow-hxbr-hxtr-77-serie/#product_section_description",
+    "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/H/X/HXTR_product1.jpg",
+    "size_2_price": {
+      "HXTR/4-250": "",
+      "HXTR/4-315": "",
+      "HXTR/4-355": "",
+      "HXTR/4-400": "",
+      "HXTR/4-450": "",
+      "HXTR/4-500": "",
+      "HXTR/4-560": "",
+      "HXTR/4-630": ""
     },
     "is_priced": true
   },
@@ -51,12 +100,44 @@
     "original_url": "https://statics.solerpalau.com/media/catalog/product/cache/8/image/240x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_product1.jpg",
     "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/01/e860df491ed2ea23f59aeb183c61f507.jpg",
     "size_2_price": {
-      "250mm": "",
-      "315mm": "",
-      "355mm": "",
-      "400mm": "",
-      "450mm": "",
-      "500mm": ""
+      "TCBB/4-250/H": "",
+      "TCBB/4-315/H": "",
+      "TCBB/4-355/H": "",
+      "TCBB/4-400/H": "",
+      "TCBB/4-450/H": "",
+      "TCBB/4-500/H": "",
+      "TCBB/4-560/L": "",
+      "TCBB/4-560/H": "",
+      "TCBB/4-630/l": ""
+    },
+    "is_priced": true
+  },
+  {
+    "_id": "55947535821621c27541fc6898e95c855a58a61ad127d6807c3eaa55e1a05ff4",
+    "title": "Cased Axial Flow Extract Fans",
+    "product_code": "TCBT/4",
+    "category": "Fans",
+    "supplier": "S&P",
+    "description": "TCBB/TCBT\nRange of cylindrical cased axial flow fans fitted with aluminium impellers and manufactured from high grade rolled galvanised steel and protected against corrosion by cataforesis primer and black polyester paint finish.\nAll models are supplied with pre-wired wiring junction box located on the outside of the fan casing for easy wiring access.\nAvailable, depending upon the model, with single or three phase motors in 2, 4 or 6 poles.\n\nMotors\nSingle phase motor (TCBB) or three phase motor (TCBT).\nModels 250, 315, 355 and 400: External rotor motor, IP44, Class F, thermal protection, working temperature from -40ºC to +40ºC.\nModels 450, 500, 560, 630 and 6/710: IP65, Class F, thermal protection, working temperature from -40ºC to +70ºC.\nModels 4/710 and 800: IP55, Class F, working temperature from -40ºC to +40ºC.\n\nAll motors are speed controllable by autotransformer except models /4-560H, /4-630, 710 and T/800.\nThree phase motors are speed controllable by inverter.\nElectrical supplies:\nSingle phase 230V-50Hz.\n(Capacitor located inside the wiring terminal box).\nThree phase 230/400V-50Hz or 400V-50Hz.\n(See characteristic chart).\n\nAdditional information\nStandard air direction: form (B)\nconfiguration\n(impeller over motor).\n\nOn request\nAir direction: form (A) configuration (motor over impeller).\nFrom Ø450 to Ø800, three phase motors 2 speed, 4/8 poles.",
+    "original_url": "https://statics.solerpalau.com/media/catalog/product/cache/8/image/240x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_product1.jpg",
+    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/01/e860df491ed2ea23f59aeb183c61f507.jpg",
+    "size_2_price": {
+      "TCBT/4-250/H": "",
+      "TCBT/4-315/H": "",
+      "TCBT/4-355/H": "",
+      "TCBT/4-400/H": "",
+      "TCBT/4-450/H": "",
+      "TCBT/4-500/H": "",
+      "TCBT/4-560/L": "",
+      "TCBT/4-560/H": "",
+      "TCBT/4-630/L": "",
+      "TCBT/4-630/H": "",
+      "TCBT/4-710/L": "",
+      "TCBT/4-710/H": "",
+      "TCBT/4-800/L": "",
+      "TCBT/4-800/K": "",
+      "TCBT/4-800/G": "",
+      "TCBT/4-800/H": ""
     },
     "is_priced": true
   },
@@ -70,12 +151,28 @@
     "original_url": "https://statics.solerpalau.com/media/catalog/product/cache/8/image/240x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_x2_product1.jpg",
     "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_x2_product1.jpg",
     "size_2_price": {
-      "250mm": "",
-      "315mm": "",
-      "355mm": "",
-      "400mm": "",
-      "450mm": "",
-      "500mm": ""
+      "TCBBx2/4-450": "",
+      "TCBBx2/4-500L": "",
+      "TCBBx2/4-500": "",
+      "TCBBx2/4-560": "",
+      "TCBBx2/4-630": ""
+    },
+    "is_priced": true
+  },
+  {
+    "_id": "b61537d59f7d91898faa01765df84717fcf83ea9667ed1d42acf27b5b3b014a8",
+    "title": "Contra Rotating Cased Axial Fans",
+    "product_code": "TCBTx2/4",
+    "category": "Fans",
+    "supplier": "S&P",
+    "description": "TCBBx2/TCBTx2\nRange of cylindrical cased axial fans fitted with aluminium impellers and manufactured from high grade rolled galvanised steel and protected against corrosion by cataforesis primer and black polyester paint finish.\nFited with 2 contra rotating complementary impellers manufactured from die-cast aluminium.\nAll models are supplied with pre-wired wiring junction box located on the outside of the fan casing for easy wiring access.\nAvailable with single or three phase 4 poles motors.\n\nMotors\nAll the motors are IP65, Class F insulation (1), equipped with thermal protection.\nSingle phase motors are variable voltage (Excepted TCBBX2/4-630).\nThree phase motors suitable for inverter control.\nElectrical supplies:\nSingle phase 230V-50Hz (Capacitor located inside the wiring terminal box)\nThree phase 230/400V-50Hz.\n(1) Working temperatures from -40ºC up to 70ºC.",
+    "original_url": "https://statics.solerpalau.com/media/catalog/product/cache/8/image/240x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_x2_product1.jpg",
+    "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/T/C/TCBB_TCBT_x2_product1.jpg",
+    "size_2_price": {
+      "TCBTx2/4-450": "",
+      "TCBTx2/4-500": "",
+      "TCBTx2/4-560": "",
+      "TCBTx2/4-630": ""
     },
     "is_priced": true
   },
@@ -88,14 +185,7 @@
     "description": "CVAT-N\nRange of direct drive backward curved centrifugal cabinet fans designed for ventilation of commercial kitchens and industrial applications.\nCabinet fan manufactured from aluminium profiles and double thickness side panels internally lined with 25 mm thickness of fireproof fiberglass acoustic insulation.\nCircular duct connection flange on the inlet and outlet. CVAB-N/CVAT-N incorporates direct drive backward curved centrifugal impeller,manufactured from aluminium (CVAB-N) or steel (CVAT-N) sheet, with motor fitted inside the air stream.\n\nCVAT-N\nThree-phase 4 and 6 pole motors 230/400V 50Hz, IP55, class F, with thermal protection (PTC), speed controllable by inverter.\nWorking temperature from -20ºC to 40ºC.",
     "original_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
     "original_image_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
-    "size_2_price": {
-      "250mm": "",
-      "315mm": "",
-      "355mm": "",
-      "400mm": "",
-      "450mm": "",
-      "500mm": ""
-    },
+    "size_2_price": {},
     "is_priced": true
   },
   {
@@ -107,14 +197,7 @@
     "description": "This is an acoustically lined cubic ventilation box complete with intake and extract spigots and with flexible connectors to reduce vibration transmission. Variable applicable side panels can be arranged to suit almost any installation requirement. Simple positioning by use of standard crane hooks. External use possible with weather protection hood accessory.\nSelf-supporting frame construction made from hollow aluminum profiles, lined with 20 mm thick, double-walled side panels made from galvanised sheet steel.\nSound and thermally insulated with flame-retardant acoustic wool. The casing panels can be replaced as required with accessories, such as the external weather louvre and condensate collector. Other accessories, wall bracket and outdoor cover hood are available.\nSmooth running backward curved centrifugal impeller highly efficient with steel blades on galvanised steel disc, direct driven. Dynamically balanced together with the motor to DIN ISO 1940 Pt.1 - class 6.3\nSingle phase external rotor motor, maintenance-free. Speed controllable through voltage reduction, with thermal contacts wired in series with the windings which automatically reset. With sealed, low-noise ball bearings with long-term lubrication. Terminal box fitted on the motor (IP 54).\n\nVoltage - 230V - 50 Hz\nMotor Power - 1.5KW\nMax. duty - 8321 m³/h\nMotor Speed - 1401 rpm\nFull Load Current - 6.7 A\nTerminal Box IP Rating - 54\nMotor IP Rating - 54\nMax. temp. - 65 °C.\nSound Pressure Breakout @ 4M - 47db(A)\nhttps://www.heliosventilatoren.de/en/products/round-duct-fans/gigabox/en-gbw-5004-05517 buradaki aciklama farkli",
     "original_url": "https://www.heliosventilatoren.de/en/products/box-fans/gigabox/en-gbw-5004-05517",
     "original_image_url": "https://global.heliosventilatoren.de/mediadata/product/image_72dpi_comp/GB_axial.png",
-    "size_2_price": {
-      "250mm": "",
-      "315mm": "",
-      "355mm": "",
-      "400mm": "",
-      "450mm": "",
-      "500mm": ""
-    },
+    "size_2_price": {},
     "is_priced": true
   },
   {
@@ -126,14 +209,7 @@
     "description": "VENT-NK / VENT-N\nRange of in-line duct centrifugal fans, manufactured from high grade corrosion resistant pressed galvanised steel and supplied as standard with a prewired wiring junction box and a robust mounting foot. All model include an enclosed type, single-phase external rotor motor with factory matched backward curved nonstalling impeller.\n(1) Models 355 and 400 are manufactured in sheet steel protected against corrosion by cataforesis primer and black polyester paint finish.\n\nMotors\n100N - 250N models: Motors are IP44, class B insulation with ball bearings and safety thermal overload protection.\n315N model: motor is IP44, class F insulation with ball bearings ans safety thermal overload protection.\n355N and 400N models: Motors are IP54, class F, with ball bearings and safety thermal overload protection.\nElectrical supply:\nSingle phase 230V-50/60Hz.\nThree phase 230/400V-50Hz\n(models 355N-T and 400N-T).\n(See characteristics chart).\nAll single-phase models are speed controllable by tension.\nThe three-phase models are speed controllable by frequency inverter\n\nAdditional Information\nImpellers from 100 to 250 models are manufactured from injection moulded plastic.",
     "original_url": "https://www.solerpalau.com/en-en/in-line-duct-fans-vent-n-1762-serie/",
     "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/V/E/VENT_product1_59.jpg",
-    "size_2_price": {
-      "250mm": "",
-      "315mm": "",
-      "355mm": "",
-      "400mm": "",
-      "450mm": "",
-      "500mm": ""
-    },
+    "size_2_price": {},
     "is_priced": true
   },
   {
@@ -228,7 +304,7 @@
     "supplier": "",
     "description": "",
     "original_url": "https://www.efans.co.uk/products/s-p-reb-3-230v-50-60hz-single-phase-speed-controller?variant=49270897475905&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YDlvzq0onmUvyJb5jWXmN_XZ088Tcm09NhK3uNw6QaIpcwzo9K7LmxoC7mMQAvD_BwE",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/02/reb1.jpg",
+    "original_image_url": "https://www.canopyuk.com/media/catalog/product/cache/a6e9bbe766948f78a175ff7984ed367c/r/e/reb-3-1.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -240,7 +316,7 @@
     "supplier": "",
     "description": "",
     "original_url": "https://www.efans.co.uk/products/s-p-reb-5-230v-50-60hz-single-phase-speed-controller?variant=49270925295937&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YDfNdDfP502h1CYHLE5t0z8mIHHiuMXkuL86noOd3VIjlRWZdf7FahoCidcQAvD_BwE",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/02/reb1.jpg",
+    "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/8/image/265x/9df78eab33525d08d6e5fb8d27136e95/R/E/REB-Controllers_product01.jpg",
     "size_2_price": {},
     "is_priced": true
   },
@@ -252,7 +328,7 @@
     "supplier": "",
     "description": "",
     "original_url": "https://www.efans.co.uk/products/s-p-reb-6-230v-50-60hz-single-phase-speed-controller?variant=49270937977153&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YKTjnnPQRgTgwGDEdTKZe3ptPfWUarApkXS6iL506UUl4tKE6kFlURoCezsQAvD_BwE",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/02/reb1.jpg",
+    "original_image_url": "https://ductingdirect.co.uk/cdn/shop/files/SLREB6.png?v=1744904478&width=2000",
     "size_2_price": {},
     "is_priced": true
   },
@@ -264,7 +340,7 @@
     "supplier": "",
     "description": "",
     "original_url": "https://www.efans.co.uk/products/s-p-reb-8-230v-50hz-single-phase-speed-controller?variant=49270800679233&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YCaKWMtHUhM9QhOvZxMCLqpTflnkbKUrNQxTIxrmy-19rXB1vQSWJhoC-rUQAvD_BwE",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/02/reb1.jpg",
+    "original_image_url": "https://www.efans.co.uk/cdn/shop/files/REB-8_500x.jpg?v=1724361066",
     "size_2_price": {},
     "is_priced": true
   },
@@ -276,7 +352,7 @@
     "supplier": "",
     "description": "",
     "original_url": "https://www.efans.co.uk/products/s-p-reb-10-230v-50-60hz-single-phase-speed-controller-10-amp?variant=49284234314049&gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YKEsqPjjF9NwTOkCTIaObTjkjTEB-J_lph2DR9fezaeL7egTmzlCERoC5ZAQAvD_BwE",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/02/reb1.jpg",
+    "original_image_url": "https://www.efans.co.uk/cdn/shop/files/REB-10_500x.jpg?v=1724616021",
     "size_2_price": {},
     "is_priced": true
   },
@@ -288,7 +364,7 @@
     "supplier": "",
     "description": "",
     "original_url": "https://www.efans.co.uk/products/s-p-reb-16-230v-50-60hz-single-phase-speed-controller-16-amp?variant=49344578715969&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YAPw4C4-wZYAAa8HO2Ieh0xz2836OlQsiwVpLnxD2PPNgyOQwW3TVhoC2LoQAvD_BwE",
-    "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/02/reb1.jpg",
+    "original_image_url": "https://ductingdirect.co.uk/cdn/shop/files/SLREB16.png?v=1744904480&width=2000",
     "size_2_price": {},
     "is_priced": true
   },
@@ -637,7 +713,7 @@
     "is_priced": true
   },
   {
-    "_id": "783c1a84ffe41aa0",
+    "_id": "df6851c4b0039e72",
     "title": "SQUARE HEADS /SELF TAPPING SCREWS",
     "product_code": "",
     "category": "Fixing + Supports",
@@ -649,7 +725,7 @@
     "is_priced": true
   },
   {
-    "_id": "64a035e563d81fc2",
+    "_id": "5e0dbf2838ae30eb",
     "title": "SQUARE HEADS /SELF TAPPING SCREWS",
     "product_code": "",
     "category": "Fixing + Supports",
@@ -661,7 +737,7 @@
     "is_priced": true
   },
   {
-    "_id": "7b525fbf80bebbdf",
+    "_id": "a8b36ab5fe0409ea",
     "title": "ANCHORS",
     "product_code": "",
     "category": "Fixing + Supports",
@@ -673,7 +749,7 @@
     "is_priced": true
   },
   {
-    "_id": "ab35b7db02cb265c",
+    "_id": "f4364d403b248b5d",
     "title": "ANCHORS",
     "product_code": "",
     "category": "Fixing + Supports",
@@ -1189,7 +1265,7 @@
     "is_priced": true
   },
   {
-    "_id": "d6c09efb45706c6d",
+    "_id": "778f17db247d0559",
     "title": "NON INSULATED FLEXIBLE DUCTING",
     "product_code": "",
     "category": "Flexible Ducting",
@@ -1224,7 +1300,7 @@
     "is_priced": true
   },
   {
-    "_id": "e64e44150695e8e7",
+    "_id": "b4df334b58a94a13",
     "title": "INSULATED FLEXIBLE DUCTING",
     "product_code": "",
     "category": "Flexible Ducting",
@@ -1655,7 +1731,7 @@
     "is_priced": true
   },
   {
-    "_id": "532f41cd598542c2",
+    "_id": "8507da3b6b965744",
     "title": "SQUARE WEATHER LOUVRES",
     "product_code": "",
     "category": "Grills & Louvres",

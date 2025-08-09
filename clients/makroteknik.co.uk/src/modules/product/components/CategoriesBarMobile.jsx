@@ -24,7 +24,7 @@ const CategoriesBarMobile = ({ isOpen, onClose }) => {
 
     return (
         <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="block md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
             onClick={onClose}
         >
             <div

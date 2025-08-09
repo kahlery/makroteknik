@@ -89,43 +89,27 @@ const CategoriesTop = () => {
                                     ) && (
                                         <div
                                             id="hover-dropdown"
-                                            className="fixed top-[85px] md:top-[90px] h-full 2xl:top-[90px] left-0 flex flex-wrap w-screen z-[999]"
+                                            className="fixed top-[85px] md:top-[90px] h-full 2xl:top-[90px] left-0 flex flex-wrap w-screen z-[40]"
                                         >
+                                            <button
+                                                className="absolute top-8 left-4 z-10 bg-red-500 text-white rounded-full px-4 py-2"
+                                                onClick={() =>
+                                                    setHoveredcategory(null)
+                                                }
+                                            >
+                                                {"< Back"}
+                                            </button>
                                             <div
                                                 className="text-black overflow-y-scroll text-left flex flex-col gap-8
-                                            items-center w-screen border-t border-black border-opacity-20 bg-[999] bg-fon
-                                             bg-opacity-[95%] shadow-lg px-4 md:px-4 py-8
-                                            h-[calc(100vh-100px)]
+                                            items-center w-screen border-t border-black border-opacity-20 bg-fon
+                                             bg-opacity-[95%] shadow-lg px-4 md:px-4 pb-32 pt-8
+                                            h-[calc(100vh)]
                                             "
                                             >
-                                                <button
-                                                    className=" bg-secondary text-white rounded-full px-4 py-2"
-                                                    onClick={() =>
-                                                        setHoveredcategory(null)
-                                                    }
-                                                >
-                                                    X
-                                                </button>
-                                                <div className="flex flex-col gap-4">
-                                                    {/* Dropdown menu content */}
-                                                    {/* <button
-                                                        className="flex mx-auto w-fit rounded-full bg-red-500 bg-opacity-100"
-                                                        onClick={() =>
-                                                            setHoveredcategory(
-                                                                null
-                                                            )
-                                                        }
-                                                    >
-                                                        <span className="text-red-700 text-xs px-4 py-2 rounded-full font-bold">
-                                                            Close
-                                                        </span>
-                                                    </button> */}
+                                                <div className="flex gap-4 my-14">
                                                     <div>
                                                         <ListingGrid
                                                             isFeatured={true}
-                                                            isHorizontalNorVertical={
-                                                                true
-                                                            }
                                                             filteredCategory={
                                                                 category
                                                             }

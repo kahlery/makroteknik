@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/smtp"
 	"os"
+	"strings"
 	"sync"
 	"time"
 
@@ -20,18 +21,16 @@ var (
 type EmailRequest struct {
 	CartDetails   string `json:"cartDetails"`
 	CustomerEmail string `json:"recipientEmail"`
-	Total         string `json:"total"`
+	// Total         string `json:"total"`
 }
 
-// --- Rate limiting setup ---
 var (
 	emailRateLimit      = make(map[string]time.Time)
 	emailRateLimitMutex sync.Mutex
-	rateLimitDuration   = 90 * time.Second // 1 email per minute per recipient
+	rateLimitDuration   = 90 * time.Second
 )
 
-type EmailService struct {
-}
+type EmailService struct{}
 
 func NewEmailService() *EmailService {
 	SMTP_HOST = os.Getenv("SMTP_HOST")
@@ -42,20 +41,30 @@ func NewEmailService() *EmailService {
 	if SMTP_HOST == "" || SMTP_PORT == "" || SMTP_USER == "" || SMTP_PASS == "" {
 		panic("SMTP environment variables are not set properly")
 	}
-
 	return &EmailService{}
 }
 
-func (EmailService) SendCartEmail(c *fiber.Ctx) error {
+func buildProductTable(cartDetails string) string {
+	items := strings.Split(cartDetails, "\n")
+	var rows string
+	for _, item := range items {
+		if strings.TrimSpace(item) == "" {
+			continue
+		}
+		rows += fmt.Sprintf("<tr><td style='padding:8px;border:1px solid #ccc;'>%s</td></tr>", item)
+	}
+	return fmt.Sprintf(`<table style="border-collapse:collapse;width:100%%;margin-top:10px;">
+	<tr style="background:#f4f4f4;"><th style="padding:8px;border:1px solid #ccc;">Product</th></tr>
+	%s
+	</table>`, rows)
+}
 
+func (EmailService) SendCartEmail(c *fiber.Ctx) error {
 	var req EmailRequest
 	if err := c.BodyParser(&req); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"error": "Invalid request body",
-		})
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Invalid request body"})
 	}
 
-	// --- Rate limiting check ---
 	emailRateLimitMutex.Lock()
 	lastSent, exists := emailRateLimit[req.CustomerEmail]
 	if exists && time.Since(lastSent) < rateLimitDuration {
@@ -67,50 +76,75 @@ func (EmailService) SendCartEmail(c *fiber.Ctx) error {
 	emailRateLimit[req.CustomerEmail] = time.Now()
 	emailRateLimitMutex.Unlock()
 
-	fmt.Println("cartDetails ", req.CartDetails)
-
 	subject := "Cart Product Offer Request"
-	sellerBody := fmt.Sprintf("Hello,\n\nI would like an offer for the following products:\n\n%s\n\nTotal: £%s\n\nThank you.", req.CartDetails, req.Total)
-	customerBody := fmt.Sprintf(`Hello,
 
-Your offer has reached us. We will get in contact with you as soon as possible.
+	productTable := buildProductTable(req.CartDetails)
 
-These are the products in the offer you have made:
-%v`, req.CartDetails)
+	sellerBody := fmt.Sprintf(`
+	<html>
+	<body style="font-family:Arial,sans-serif;color:#333;">
+		<h2>New Offer Request</h2>
+		<p><strong>Customer Email:</strong> %s</p>
+		%s
+		<hr>
+		<h3>Company Info</h3>
+		<p>
+		Makro Tech LTD, trading as Makro Teknik
+Warehouse Address:
+Unit 19a Peacock Industrial Estate, White Hart Lane, London, Tottenham, N17 8DT.
+Office Address:
+Unit 32 Peacock Industrial Estate, White Hart Lane, London, Tottenham, N17 8DT.
+Registered in England and Wales (registered number: 11757043)
+</p>
+		<p><a href="https://maps.app.goo.gl/Me3yWBfNUs1rEb858">View on Google Maps</a></p>
+	</body>
+	</html>`, req.CustomerEmail, productTable)
+
+	customerBody := fmt.Sprintf(`
+	<html>
+	<body style="font-family:Arial,sans-serif;color:#333;">
+		<h2>Thank You for Your Request</h2>
+		<p>We have received your offer and will contact you soon.</p>
+		<p><strong>Your Products:</strong></p>
+		%s
+		<hr>
+		<h3>Our Store Location</h3>
+		<p>
+		Makro Tech LTD, trading as Makro Teknik
+Warehouse Address:
+Unit 19a Peacock Industrial Estate, White Hart Lane, London, Tottenham, N17 8DT.
+Office Address:
+Unit 32 Peacock Industrial Estate, White Hart Lane, London, Tottenham, N17 8DT.
+Registered in England and Wales (registered number: 11757043)
+</p>
+		<p><a href="https://maps.app.goo.gl/Me3yWBfNUs1rEb858">View on Google Maps</a></p>
+	</body>
+	</html>`, productTable)
 
 	auth := smtp.PlainAuth("", SMTP_USER, SMTP_PASS, SMTP_HOST)
 
+	// ✅ Fix swap: Send customerBody to customer, sellerBody to seller
 	msg2Customer := []byte("To: " + req.CustomerEmail + "\r\n" +
 		"Subject: " + subject + "\r\n" +
 		"MIME-Version: 1.0\r\n" +
-		"Content-Type: text/plain; charset=\"utf-8\"\r\n\r\n" +
+		"Content-Type: text/html; charset=\"utf-8\"\r\n\r\n" +
 		customerBody)
 
-	msg2Seller := []byte("To: " + req.CustomerEmail + "\r\n" +
+	msg2Seller := []byte("To: " + SMTP_USER + "\r\n" +
 		"Subject: " + subject + "\r\n" +
 		"MIME-Version: 1.0\r\n" +
-		"Content-Type: text/plain; charset=\"utf-8\"\r\n\r\n" +
+		"Content-Type: text/html; charset=\"utf-8\"\r\n\r\n" +
 		sellerBody)
 
-	// To customer
-	err := smtp.SendMail(SMTP_HOST+":"+SMTP_PORT, auth, SMTP_USER, []string{SMTP_USER}, msg2Customer)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": "Failed to send email",
-			"info":  err.Error(),
-		})
+	// Send to customer
+	if err := smtp.SendMail(SMTP_HOST+":"+SMTP_PORT, auth, SMTP_USER, []string{req.CustomerEmail}, msg2Customer); err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Failed to send email to customer", "info": err.Error()})
 	}
 
-	// To seller
-	err = smtp.SendMail(SMTP_HOST+":"+SMTP_PORT, auth, SMTP_USER, []string{req.CustomerEmail}, msg2Seller)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": "Failed to send email",
-			"info":  err.Error(),
-		})
+	// Send to seller
+	if err := smtp.SendMail(SMTP_HOST+":"+SMTP_PORT, auth, SMTP_USER, []string{SMTP_USER}, msg2Seller); err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Failed to send email to seller", "info": err.Error()})
 	}
 
-	return c.JSON(fiber.Map{
-		"message": "Email sent successfully",
-	})
+	return c.JSON(fiber.Map{"message": "Email sent successfully"})
 }

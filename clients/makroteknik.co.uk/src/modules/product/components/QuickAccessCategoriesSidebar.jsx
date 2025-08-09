@@ -54,7 +54,7 @@ const QuickAccessCategoriesSidebar = () => {
     }, [categoriesList, activeCategory])
 
     return (
-        <div className="sticky top-[130px] h-0 left-0 xl:left-[25px] 2xl:left-[160px] hidden md:block w-52 px-2 py-4 text-end">
+        <div className="z-50 sticky top-[130px] h-0 left-0 xl:left-[25px] 2xl:left-[160px] hidden md:block w-52 px-2 py-4 text-end">
             <div className="flex flex-col">
                 {categoriesList.map((category) => (
                     <button

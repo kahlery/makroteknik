@@ -68,13 +68,14 @@ const ProductCard = ({
                     ) : null}
                 </div>
                 <div className="w-fit text-xs flex">
-                    <p className="text-black text-opacity-80 pt-[1.6px] flex gap-1 items-center">
-                        <TbRulerMeasure size={15} />
-                        {product.size_2_price
-                            ? Object.keys(product.size_2_price).length
-                            : 1}
-                        &nbsp;Size Available
-                    </p>
+                    {product.size_2_price &&
+                        Object.keys(product.size_2_price).length > 1 && (
+                            <p className="text-black text-opacity-80 pt-[1.6px] flex gap-1 items-center">
+                                <TbRulerMeasure size={15} />
+                                {Object.keys(product.size_2_price).length}{" "}
+                                &nbsp;Size Available
+                            </p>
+                        )}
                 </div>
             </div>
         </div>
