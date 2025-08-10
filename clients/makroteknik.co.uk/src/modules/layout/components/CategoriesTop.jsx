@@ -109,10 +109,11 @@ const CategoriesTop = () => {
                                                 <div className="flex gap-4 my-14">
                                                     <div>
                                                         <ListingGrid
-                                                            isFeatured={true}
                                                             filteredCategory={
                                                                 category
                                                             }
+                                                            isFeatured
+                                                            isTopBarCategories
                                                         />
                                                     </div>
                                                 </div>

@@ -15,6 +15,7 @@ const ListingGrid = ({
     isHorizontalNorVertical,
     passedProductsList, // Renamed to avoid conflict
     filteredCategory,
+    isTopBarCategories,
 }) => {
     // States
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -45,7 +46,7 @@ const ListingGrid = ({
     // Render Featured or Normal Products
     const finalProducts = isFeatured
         ? renderFeaturedProducts(
-              isHorizontalNorVertical
+              isTopBarCategories
                   ? productsList.filter(
                         (product) => product.category === filteredCategory
                     )

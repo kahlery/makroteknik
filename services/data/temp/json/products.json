@@ -179,25 +179,63 @@
   {
     "_id": "a76a6c384772197398e0f5d88df82ad0c3a24620f66e112c834b7c67dc7502f4",
     "title": "ACOUSTIC KITCHEN EXTRACT BOX FANS",
-    "product_code": "CVAT/4 + INVERTER PACK",
+    "product_code": "CVAB/4 + INVERTER PACK",
     "category": "Fans",
-    "supplier": "",
+    "supplier": "S&P",
     "description": "CVAT-N\nRange of direct drive backward curved centrifugal cabinet fans designed for ventilation of commercial kitchens and industrial applications.\nCabinet fan manufactured from aluminium profiles and double thickness side panels internally lined with 25 mm thickness of fireproof fiberglass acoustic insulation.\nCircular duct connection flange on the inlet and outlet. CVAB-N/CVAT-N incorporates direct drive backward curved centrifugal impeller,manufactured from aluminium (CVAB-N) or steel (CVAT-N) sheet, with motor fitted inside the air stream.\n\nCVAT-N\nThree-phase 4 and 6 pole motors 230/400V 50Hz, IP55, class F, with thermal protection (PTC), speed controllable by inverter.\nWorking temperature from -20ºC to 40ºC.",
     "original_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
     "original_image_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
-    "size_2_price": {},
+    "size_2_price": {
+      "CVAB/4-1400/250 ND": "",
+      "CVAB/4-2000/315 ND": "",
+      "CVAB/4-3000/355 ND": "",
+      "CVAB/4-4000/400 ND": "",
+      "CVAB/4-6000/450 ND": "",
+      "CVAB/4-6000/500 ND": "",
+      "CVAB/4-9000/500 ND": ""
+    },
+    "is_priced": true
+  },
+  {
+    "_id": "",
+    "title": "ACOUSTIC KITCHEN EXTRACT BOX FANS",
+    "product_code": "CVAT/4 + INVERTER PACK",
+    "category": "Fans",
+    "supplier": "S&P",
+    "description": "CVAT-N\nRange of direct drive backward curved centrifugal cabinet fans designed for ventilation of commercial kitchens and industrial applications.\nCabinet fan manufactured from aluminium profiles and double thickness side panels internally lined with 25 mm thickness of fireproof fiberglass acoustic insulation.\nCircular duct connection flange on the inlet and outlet. CVAB-N/CVAT-N incorporates direct drive backward curved centrifugal impeller,manufactured from aluminium (CVAB-N) or steel (CVAT-N) sheet, with motor fitted inside the air stream.\n\nCVAT-N\nThree-phase 4 and 6 pole motors 230/400V 50Hz, IP55, class F, with thermal protection (PTC), speed controllable by inverter.\nWorking temperature from -20ºC to 40ºC.",
+    "original_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
+    "original_image_url": "https://easyvent.solerpalau.com/images/products/CVAB-N.JPG?w=1024&h=1024",
+    "size_2_price": {
+      "CVAT/4-1400/250 ND": "",
+      "CVAT/4-2000/315 ND": "",
+      "CVAT/4-3000/355 ND": "",
+      "CVAT/4-4000/400 ND": "",
+      "CVAT/4-6000/450 ND": "",
+      "CVAT/4-6000/500 ND": "",
+      "CVAT/4-9000/500 ND": "",
+      "CVAT/4-12000/560 ND": "",
+      "CVAT/4-16000/630 ND": ""
+    },
     "is_priced": true
   },
   {
     "_id": "50f0d12203cc61fe00976a2715dcef0092e91a1295fc2c498ed4496f27cd1329",
-    "title": "GIGA BOX CENTRIFUGAL FANS",
-    "product_code": "GBW500/4 1-P-H",
+    "title": "GIGABOX CENTRIFUGAL FANS",
+    "product_code": "GBWxxx/4 1-P-H",
     "category": "Fans",
     "supplier": "HELIOS",
     "description": "This is an acoustically lined cubic ventilation box complete with intake and extract spigots and with flexible connectors to reduce vibration transmission. Variable applicable side panels can be arranged to suit almost any installation requirement. Simple positioning by use of standard crane hooks. External use possible with weather protection hood accessory.\nSelf-supporting frame construction made from hollow aluminum profiles, lined with 20 mm thick, double-walled side panels made from galvanised sheet steel.\nSound and thermally insulated with flame-retardant acoustic wool. The casing panels can be replaced as required with accessories, such as the external weather louvre and condensate collector. Other accessories, wall bracket and outdoor cover hood are available.\nSmooth running backward curved centrifugal impeller highly efficient with steel blades on galvanised steel disc, direct driven. Dynamically balanced together with the motor to DIN ISO 1940 Pt.1 - class 6.3\nSingle phase external rotor motor, maintenance-free. Speed controllable through voltage reduction, with thermal contacts wired in series with the windings which automatically reset. With sealed, low-noise ball bearings with long-term lubrication. Terminal box fitted on the motor (IP 54).\n\nVoltage - 230V - 50 Hz\nMotor Power - 1.5KW\nMax. duty - 8321 m³/h\nMotor Speed - 1401 rpm\nFull Load Current - 6.7 A\nTerminal Box IP Rating - 54\nMotor IP Rating - 54\nMax. temp. - 65 °C.\nSound Pressure Breakout @ 4M - 47db(A)\nhttps://www.heliosventilatoren.de/en/products/round-duct-fans/gigabox/en-gbw-5004-05517 buradaki aciklama farkli",
     "original_url": "https://www.heliosventilatoren.de/en/products/box-fans/gigabox/en-gbw-5004-05517",
     "original_image_url": "https://global.heliosventilatoren.de/mediadata/product/image_72dpi_comp/GB_axial.png",
-    "size_2_price": {},
+    "size_2_price": {
+      "GBW355": "",
+      "GBW355T120": "",
+      "GBW400": "",
+      "GBW450/4/1": "",
+      "GBW500/4/1": "",
+      "GBW500/4T120": "",
+      "GBW560/4/1": ""
+    },
     "is_priced": true
   },
   {
@@ -209,7 +247,17 @@
     "description": "VENT-NK / VENT-N\nRange of in-line duct centrifugal fans, manufactured from high grade corrosion resistant pressed galvanised steel and supplied as standard with a prewired wiring junction box and a robust mounting foot. All model include an enclosed type, single-phase external rotor motor with factory matched backward curved nonstalling impeller.\n(1) Models 355 and 400 are manufactured in sheet steel protected against corrosion by cataforesis primer and black polyester paint finish.\n\nMotors\n100N - 250N models: Motors are IP44, class B insulation with ball bearings and safety thermal overload protection.\n315N model: motor is IP44, class F insulation with ball bearings ans safety thermal overload protection.\n355N and 400N models: Motors are IP54, class F, with ball bearings and safety thermal overload protection.\nElectrical supply:\nSingle phase 230V-50/60Hz.\nThree phase 230/400V-50Hz\n(models 355N-T and 400N-T).\n(See characteristics chart).\nAll single-phase models are speed controllable by tension.\nThe three-phase models are speed controllable by frequency inverter\n\nAdditional Information\nImpellers from 100 to 250 models are manufactured from injection moulded plastic.",
     "original_url": "https://www.solerpalau.com/en-en/in-line-duct-fans-vent-n-1762-serie/",
     "original_image_url": "https://statics.solerpalau.com/media/catalog/product/cache/1/image/265x/9df78eab33525d08d6e5fb8d27136e95/V/E/VENT_product1_59.jpg",
-    "size_2_price": {},
+    "size_2_price": {
+      "VENT-100NK": "",
+      "VENT-125NK": "",
+      "VENT-150NK": "",
+      "VENT-160NK": "",
+      "VENT-200NK": "",
+      "VENT-250NK": "",
+      "VENT-315NK": "",
+      "VENT-355N": "",
+      "VENT-400N": ""
+    },
     "is_priced": true
   },
   {
@@ -221,15 +269,17 @@
     "description": "50JM/20/4/6/32 Long Cased Axial Fan by Flakt Woods\n\nThe Flakt Woods JM axial flow extract fan range of cost effective highest quality long cased axials.\n\nEvery time you fit this fan you know you’ve made the right choice, it will enhance your reputation for only using the best quality products\n\nSupplied fully assembled\nFully speed controllable\nCan be used in any non hazardous environment (also available for hazardous application on request)\nSuitable in temperatures from ‑40°C to 50°C (70°C in some instances, please ask for details)\nLow to high air volumes\nLow to high static pressures\nAvailable sizes 315mm – 710mm from stock\nThe Casings are spun sheet steel, then hot dipped galvanised to give a finish highly resistant to corrosion and can be mounted external and internal\nThe impeller (the bit that goes around and moves the air) is manufactured die cast aluminium\nThe motors are totally enclosed with class F insulation with protection to IP55.\n\nhttps://www.flaktgroup.com/uk/products/air-movement/ventilation-fans/axial-fans/jmv-aerofoil-axial-flow-fan/ picture buradan",
     "original_url": "https://www.lbfans.co.uk/product/50jm-20-4-6-32-1ph-ej511466-long-cased-axial-fan-flakt-woods/",
     "original_image_url": "https://www.lbfans.co.uk/wp-content/uploads/2018/02/jm-.png",
-    "size_2_price": {},
-    "is_priced": true
+    "size_2_price": {
+      "whatsapp tan al": ""
+    },
+    "is_priced": false
   },
   {
     "_id": "c73338c9fbf64c88526172bd762f0cb373a12ff9d7812792e91f7d32ab25b9a3",
     "title": "LOW PRESSURE CENTRIFIGAL FANS",
     "product_code": "CBM-9/7 373 4P VR (230V50)F V5",
     "category": "Fans",
-    "supplier": "",
+    "supplier": "S&P",
     "description": "CBM\nRange of double inlet direct driven low pressure centrifugal fans manufactured from galvanised sheet steel. All the models are fitted with forward curved centrifugal impellers manufactured from galvanized sheet steel.\nMotors\nHousing closed motors, IP44, class F, equipped with thermal protection and ball bearings greased for life.\nElectrical supply:\n4 or 6 pole depending on version. Single phase 230V-50Hz (capacitor fitted On the fan housing).\nThree phase 230/400V-50Hz. (See characteristics chart).\nOn request\nHousing open motors IP20, class F. Coupling flange fitted at the fan outlet (B version). Special version kitchen IP55, class F. Three phase motors suitable for frequency inverter control.",
     "original_url": "https://www.justfans.co.uk/cbm-pole-373watt-open-motor-p-4193.html",
     "original_image_url": "https://www.justfans.co.uk/images/thumbs/575_575/CBM-ERP.jpg",
@@ -241,7 +291,7 @@
     "title": "LOW PRESSURE CENTRIFIGAL FANS",
     "product_code": "CBM- 9/9 550 4P C VR (230V50) F V5",
     "category": "Fans",
-    "supplier": "",
+    "supplier": "S&P",
     "description": "Comes with inlet guard as standard.\r\nAll the models are fitted with forward curved centrifugal impellers manufactured from galvanized sheet steel.\r\nAvailable, depending upon the model, with single phase or three phase motors, in 4 or 6 poles.\r\nMotors\r\nAll standard motors (1) are IP10, Class B, equipped with thermal protection and ball bearings greased for life.\r\nElectrical supply:\r\nSingle phase 230V-50Hz (capacitor fitted on the fan housing). Three phase 230/400V-50Hz . (See characteristics chart).\r\n(1) Except CBM-380/380 fitted with an aluminium housing closed motor IP44 class F.\r\nAdditional Information\r\nMounting feet as accessory, allowing 4 different positions.\r\nOn request\r\nAluminium housing closed motors, IP44, class F (T version) is advised for use in a kitchen environment.\r\nPlease inquire if you are using with a speed controller as not all of the enclosed motor versions are speed controllable.\r\nCoupling flange fitted at the fan outlet (B version).\r\n\r\nThese are NOT high temperature fans but can be used for kitchens if used with filters and suitably placed away from direct heat. More suitable are high temperature fans especially the motor out of airstream versions..\r\nPlease contact us for more technical details or other versions or fitting accessories.\r\nEquivalent directly to some Chaysol Da- type fans. Call for details.",
     "original_url": "https://www.justfans.co.uk/cbm-low-pressure-centrifugal-fan-cbm-pole-373watt-p-6663.html",
     "original_image_url": "https://www.justfans.co.uk/images/thumbs/575_575/CBM-ERP.jpg",
@@ -253,7 +303,7 @@
     "title": "LOW PRESSURE CENTRIFIGAL FANS",
     "product_code": "CBM-10-/10 550 4P C VR (230V50) V5",
     "category": "Fans",
-    "supplier": "",
+    "supplier": "S&P",
     "description": "This is a CBM 10/10 4 Pole 550watt, speed controllable, open motor, no flange. This is the CBM equivalent to the V709963 but without the flange included. (Available separately, see HERE.)\r\nCBM range of double inlet direct drive low pressure centrifugal fans manufactured from galvanised sheet steel.\r\nUseful for industrial and commercial applications, using rectangular ducting. ie chip shops, restaurants etc.\r\nAll the models are fitted with forward curved centrifugal impellers manufactured from galvanized sheet steel.\r\nAvailable, depending upon the model, with single phase or three phase motors, in 4 or 6 poles.\r\nMotors\r\nAll standard motors are IP44, Class B, equipped with thermal protection and ball bearings greased for life.\r\nElectrical supply:\r\nSingle phase 230V-50Hz (capacitor fitted on the fan housing). Three phase 230/400V-50Hz . (See characteristics chart).\r\n(1) Except CBM-380/380 fitted with an aluminium housing closed motor IP44 class F.\r\nAdditional Information\r\nMounting feet as accessory, allowing 4 different positions.\r\nOn request\r\nAluminium housing closed motors, IP44, class F (T version) is advised for use in a kitchen environment.\r\nPlease inquire if you are using with a speed controller as not all of the enclosed motor versions are speed controllable.\r\nCoupling flange fitted at the fan outlet (B version).\r\n\r\nThese are NOT high temperature fans but can be used for kitchens if used with filters and suitably placed away from direct heat. More suitable are high temperature fans especially the motor out of airstream versions..\r\nPlease contact us for more technical details or other versions or fitting accessories.\r\nEquivalent directly to some Chaysol Da- type fans. Call for details.",
     "original_url": "https://www.justfans.co.uk/cbm-low-pressure-centrifugal-fan-cbm-1010-pole-550watt-p-5129.html",
     "original_image_url": "https://www.justfans.co.uk/images/thumbs/575_575/CBM-ERP.jpg",
@@ -265,7 +315,7 @@
     "title": "LOW PRESSURE CENTRIFIGAL FANS",
     "product_code": "CBM-12/12 736 6P C VR (230V50)F V5 - 1PH",
     "category": "Fans",
-    "supplier": "",
+    "supplier": "S&P",
     "description": "",
     "original_url": "https://www.justfans.co.uk/cbm-low-pressure-centrifugal-fan-cbm-1010-pole-550watt-p-5129.html",
     "original_image_url": "https://www.justfans.co.uk/images/thumbs/575_575/CBM-ERP.jpg",
@@ -277,7 +327,7 @@
     "title": "LOW PRESSURE CENTRIFIGAL FANS",
     "product_code": "CBM- 7/7 147 4P RE VR (230V50)F V5",
     "category": "Fans",
-    "supplier": "",
+    "supplier": "S&P",
     "description": "CBM 7/7 147W RE VR 4 Pole\r\nDirect ERP compliant equivalent to Chaysol V709911 DA 7/7-147W (now obsolete)\r\nRange of direct-driven low pressure double inlet forward curve centrifugal fans.\r\n\r\nCasing and impeller manufactured from galvanized sheet steel.\r\nAll models incorporate speed controllable external rotor motor, fitted with thermal protection and ball bearings\r\nMotors\r\n\r\nIP44, Class F (models 7/7 and 7/9).\r\nIP55, Class F (models 9/7 to 12/12).\r\nIP54, Class F (models 12/12 1100W and 15/15 2200W).\r\n4 or 6 pole depending on version.\r\nElectrical supply:\r\nSingle phase 230V-50Hz, suitable for speed control by voltage.\r\nThree phase 230/400V-50Hz, suitable for speed control by tension and frequency inverter.",
     "original_url": "https://www.justfans.co.uk/cbm-147w-p-1606.html",
     "original_image_url": "https://www.justfans.co.uk/images/thumbs/575_575/CBM-ERP.jpg",
