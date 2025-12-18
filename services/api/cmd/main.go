@@ -7,7 +7,7 @@ import (
 	"os"
 
 	// Services | Handlers
-	auth_service "api/internal/service/auth/service"
+	// auth_service "api/internal/service/auth/service"
 	category_service "api/internal/service/category/service"
 	email_service "api/internal/service/email"
 	health_service "api/internal/service/health/service"
@@ -15,12 +15,12 @@ import (
 	product_service "api/internal/service/product/service"
 
 	// Repos
-	auth_repo "api/internal/service/auth/repo"
+	// auth_repo "api/internal/service/auth/repo"
 	category_repo "api/internal/service/category/repo"
 	product_repo "api/internal/service/product/repo"
 
 	// kahlery deps
-	auth_middleware "github.com/kahlery/pkg/go/auth/middleware/fiber"
+	// auth_middleware "github.com/kahlery/pkg/go/auth/middleware/fiber"
 	aws_service "github.com/kahlery/pkg/go/aws/service"
 
 	log_middleware "github.com/kahlery/pkg/go/log/middleware/fiber"
@@ -34,9 +34,7 @@ import (
 	// DB deps
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-
 	// Other deps
-	"github.com/joho/godotenv"
 )
 
 // --------------------------------------------------------------------
@@ -47,16 +45,16 @@ var (
 )
 
 var (
-	healthService   *health_service.HealthService
-	emailService    *email_service.EmailService
-	authService     *auth_service.AuthService
+	healthService *health_service.HealthService
+	emailService  *email_service.EmailService
+	// authService     *auth_service.AuthService
 	productService  *product_service.ProductService
 	categoryService *category_service.CategoryService
 	pdfService      *pdf_service.PDFService
 )
 
 var (
-	userRepo     *auth_repo.UserRepo
+	// userRepo     *auth_repo.UserRepo
 	productRepo  *product_repo.ProductRepo
 	categoryRepo *category_repo.CategoryRepo
 	// postRepo *postPackage.PostRepo
@@ -69,15 +67,6 @@ var pdfPath = new(string)
 
 func init() {
 	log.Initialize()
-
-	envType := os.Getenv("ENV")
-	if envType != "prod" {
-		if err := godotenv.Load("../.env"); err != nil {
-			log.LogError(context.TODO(), "unable to load .env file", "init()", "")
-		}
-	} else {
-
-	}
 
 	*imagePath = "images/"
 	*pdfPath = "pdfs/"
@@ -121,7 +110,7 @@ func initClients() {
 }
 
 func initRepos() {
-	userRepo = auth_repo.NewUserRepo(mongoClient)
+	// userRepo = auth_repo.NewUserRepo(mongoClient)
 	productRepo = product_repo.NewProductRepo(mongoClient)
 	categoryRepo = category_repo.NewCategoryRepo(mongoClient)
 	// postRepo = postPackage.NewPostRepo(mongoClient)
@@ -130,7 +119,7 @@ func initRepos() {
 func initServices() {
 	healthService = health_service.NewHealthService(mongoClient)
 	emailService = email_service.NewEmailService()
-	authService = auth_service.NewAuthService(userRepo)
+	// authService = auth_service.NewAuthService(userRepo)
 	productService = product_service.NewProductService(productRepo, s3Client, imagePath)
 	categoryService = category_service.NewCategoryService(categoryRepo)
 	pdfService = pdf_service.NewPDFService(pdfPath, s3Client)
@@ -154,22 +143,22 @@ func setupRoutes(app *fiber.App) {
 	app.Post("/send-cart-email", emailService.SendCartEmail)
 
 	// Auth routes
-	authGroup := app.Group("/auth")
-	authGroup.Post("/login", authService.Login)
+	// authGroup := app.Group("/auth")
+	// authGroup.Post("/login", authService.Login)
 
 	// Product routes
 	productGroup := app.Group("/product")
 	productGroup.Get("/", productService.GetProducts)
 	// productGroup.Post("/post", productService.PostProduct, auth_middleware.AuthMiddleware)
 	// productGroup.Patch("/patch/:id", productService.PatchProduct, auth_middleware.AuthMiddleware)
-	productGroup.Delete("/delete/:id", productService.DeleteProduct, auth_middleware.AuthMiddleware)
+	// productGroup.Delete("/delete/:id", productService.DeleteProduct, auth_middleware.AuthMiddleware)
 
 	// Category routes
-	categoryGroup := app.Group("/category")
-	categoryGroup.Get("/", categoryService.GetCategories, auth_middleware.AuthMiddleware)
-	categoryGroup.Post("/post", categoryService.PostCategory, auth_middleware.AuthMiddleware)
-	categoryGroup.Patch("/patch/:id", categoryService.PatchCategory, auth_middleware.AuthMiddleware)
-	categoryGroup.Delete("/delete/:id", categoryService.DeleteCategory, auth_middleware.AuthMiddleware)
+	// categoryGroup := app.Group("/category")
+	// categoryGroup.Get("/", categoryService.GetCategories, auth_middleware.AuthMiddleware)
+	// categoryGroup.Post("/post", categoryService.PostCategory, auth_middleware.AuthMiddleware)
+	// categoryGroup.Patch("/patch/:id", categoryService.PatchCategory, auth_middleware.AuthMiddleware)
+	// categoryGroup.Delete("/delete/:id", categoryService.DeleteCategory, auth_middleware.AuthMiddleware)
 
 	// Static routes
 	staticGroup := app.Group("/static")

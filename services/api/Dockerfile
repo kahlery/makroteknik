@@ -1,30 +1,22 @@
-# Stage 1: Build the Go binary
 FROM golang:1.23.0-alpine AS builder
 
-# Set the current working directory inside the container
-WORKDIR /api
+RUN apk add --no-cache git ca-certificates
 
-# Download Go modules
+WORKDIR /app
+
 COPY go.mod go.sum ./
 RUN go mod download
 
-# Copy the source code into the container
 COPY . .
 
-# Build the Go app
-RUN go build -o cmd/center/main.go ./bin
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+    go build -o app ./cmd
 
-# Stage 2: Run the Go binary on a minimal image
 FROM alpine:latest
+RUN apk add --no-cache ca-certificates
 
-# Set the current working directory inside the container
-WORKDIR /root/
+WORKDIR /app
+COPY --from=builder /app/api .
 
-# Copy the pre-built binary from the builder stage
-COPY --from=builder /bin .
-
-# Expose the necessary port
-EXPOSE 8090
-
-# Command to run Go binary
-CMD ["./main"]
+EXPOSE 3000
+CMD ["./api"]

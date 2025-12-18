@@ -1,0 +1,37 @@
+name: Deploy to server
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Deploy via SSH
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                      set -e
+
+                      cd ${{ secrets.DEPLOY_PATH }}
+
+                      echo "🔄 Pulling latest code"
+                      git pull origin main
+
+                      echo "🐳 Building images"
+                      docker compose build
+
+                      echo "🚀 Starting containers"
+                      docker compose up -d
+
+                      echo "🧹 Cleaning unused images"
+                      docker image prune -f

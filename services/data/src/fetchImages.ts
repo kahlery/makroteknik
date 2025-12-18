@@ -28,7 +28,7 @@ export default async function fetchImages() {
     const jsonData = await fs.promises.readFile(JSON_PATH, "utf8")
     const products = JSON.parse(jsonData)
     const productsWithImages = products.filter(
-        (p: any) => p.original_image_url && p._id
+        (p: any) => p.web_image_url && p._id
     )
 
     const bar = new ProgressBar("Downloading images [:bar] :current/:total", {
@@ -40,13 +40,13 @@ export default async function fetchImages() {
 
     for (const product of productsWithImages) {
         try {
-            const extMatch = product.original_image_url.match(
+            const extMatch = product.web_image_url.match(
                 /\.(jpg|jpeg|png|gif|webp|bmp)$/i
             )
             const ext = extMatch ? extMatch[0] : ".jpg"
             const filename = `${product._id}${ext}`
 
-            await downloadImage(product.original_image_url, filename)
+            await downloadImage(product.web_image_url, filename)
         } catch (err) {
             console.error(
                 `Error downloading image for product ID ${product._id}:`,

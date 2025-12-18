@@ -7,7 +7,6 @@ toolchain go1.23.9
 require (
 	github.com/gofiber/fiber/v2 v2.52.8
 	github.com/joho/godotenv v1.5.1
-	github.com/kahlery/pkg/go/auth v0.0.2
 	github.com/kahlery/pkg/go/aws v0.0.0-20250701060431-e155ede16cd1
 	github.com/kahlery/pkg/go/log v0.0.0-20250701052342-5163bb804511
 	go.mongodb.org/mongo-driver v1.17.4
@@ -33,7 +32,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.30.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.34.0 // indirect
 	github.com/aws/smithy-go v1.22.4 // indirect
-	github.com/golang-jwt/jwt/v4 v4.5.2 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
