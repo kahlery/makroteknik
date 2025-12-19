@@ -16,7 +16,7 @@ const SearchInput = ({ mobileView = false, onClose }) => {
 
     useEffect(() => {
         if (searchOpen && inputRef.current) {
-            inputRef.current.focus()
+            // inputRef.current.focus()
         }
     }, [searchOpen])
 
