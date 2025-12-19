@@ -18,5 +18,5 @@ RUN apk add --no-cache ca-certificates
 WORKDIR /app
 COPY --from=builder /app/api .
 
-EXPOSE 3000
+EXPOSE 8080
 CMD ["./api"]

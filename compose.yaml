@@ -1,89 +1,38 @@
 name: makroteknik
 
 services:
-  # =========================
-  # React build (one-time)
-  # =========================
   client-builder:
     image: node:20-alpine
     container_name: makroteknik-client-builder
-    working_dir: /app
+    working_dir: /client
     volumes:
-      - ./clients/makroteknik.co.uk:/app
-      - client-build:/app/build
-    command: sh -c "npm i && npm ci && npm run build"
-    networks:
-      - makroteknik-net
+      # React source (already on server)
+      - ../client:/client
 
-  # =========================
-  # API service
-  # =========================
+      # Output directly into Plesk httpdocs
+      - ./:/output
+    environment:
+      - NODE_ENV=production
+    command: >
+      sh -c "
+        npm install &&
+        npm run build &&
+        rm -rf /output/* &&
+        if [ -d build ]; then cp -r build/* /output/; fi &&
+        if [ -d dist ]; then cp -r dist/* /output/; fi
+      "
   api:
     build:
       context: ./services/api
     container_name: makroteknik-api
-    expose:
-      - "3000"
+    ports:
+      - "127.0.0.1:8080:8080"
     env_file:
       - ./services/api/.env
     networks:
       - makroteknik-net
     restart: unless-stopped
 
-  # =========================
-  # NGINX (TLS + React + API)
-  # =========================
-  nginx:
-    image: nginx:alpine
-    container_name: makroteknik-nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      # nginx config
-      - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-
-      # TLS certs
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - ./services/nginx/certbot:/var/www/certbot
-
-      # React build output
-      - client-build:/var/www/client:ro
-
-    depends_on:
-      - api
-      - client-builder
-    networks:
-      - makroteknik-net
-    restart: unless-stopped
-
-  # =========================
-  # Certbot auto-renew
-  # =========================
-  certbot:
-    image: certbot/certbot
-    container_name: makroteknik-certbot
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - ./services/nginx/certbot:/var/www/certbot
-    entrypoint: >
-      sh -c "trap exit TERM;
-      while :; do
-        certbot renew --webroot -w /var/www/certbot;
-        sleep 12h;
-      done"
-    depends_on:
-      - nginx
-# =========================
-# Networks & Volumes
-# =========================
 networks:
   makroteknik-net:
     driver: bridge
-
-volumes:
-  certbot-etc: {}
-  certbot-var: {}
-  client-build: {}
